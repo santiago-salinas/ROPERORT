@@ -44,13 +44,21 @@ public class ProductController : ControllerBase
     [HttpPost]
     public IActionResult Create(Product product)
     {
-        CheckProductParametersAreValid(product);
+
+        try
+        {
+            CheckProductParametersAreValid(product);
+        }catch(Controller_ArgumentException e) 
+        {
+            return BadRequest(e.Message);
+        }
+        
         try
         {
             _productService.Add(product);
         }catch (Service_ObjectHandlingException e) 
         {
-            throw new Controller_ObjectHandlingException(e.Message);
+            return BadRequest(e.Message);
         }
 
         return CreatedAtAction(nameof(Get), new { id = product.Id }, product);
@@ -60,7 +68,15 @@ public class ProductController : ControllerBase
     [HttpPut("{id}")]
     public IActionResult Update(int id, Product product)
     {
-        CheckProductParametersAreValid(product);
+        try
+        {
+            CheckProductParametersAreValid(product);
+        }
+        catch (Controller_ArgumentException e)
+        {
+            return BadRequest(e.Message);
+        }
+
         if (id != product.Id)
             return BadRequest();
 

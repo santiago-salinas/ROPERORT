@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Rest_Api.Models;
 using Rest_Api.Services;
+using System.Drawing;
 
 namespace Rest_Api.Controllers;
 
@@ -9,7 +10,7 @@ namespace Rest_Api.Controllers;
 [Route("[controller]")]
 public class ColourController : ControllerBase
 {
-    public ColourService colourService;
+    public IGetService<Colour> colourService;
 
     public ColourController()
     {
@@ -18,6 +19,5 @@ public class ColourController : ControllerBase
 
     // GET all action
     [HttpGet]
-    public ActionResult<List<Colour>> GetAll() =>
-    colourService.GetAll();
+    public ActionResult<List<Colour>> GetAll() => colourService.GetAll();
 }
