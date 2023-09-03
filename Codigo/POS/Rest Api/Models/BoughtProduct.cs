@@ -1,6 +1,6 @@
 namespace Rest_Api.Models
 {
-    public class Bought
+    public class BoughtProduct
     {
         public int Number { get; set; }
         public Product Product { get; set; }
