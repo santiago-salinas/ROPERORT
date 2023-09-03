@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Rest_Api.Services.Exceptions;
 using Rest_Api.Models;
 using Rest_Api.Services;
 using System.Linq;
@@ -8,7 +9,17 @@ namespace ApiTests
     [TestClass]
     public class ProductServiceTests
     {
-        ProductService productService = new ProductService();
+        private ProductService productService = new ProductService();
+        private IGetService<Colour> _colourService = new ColourService();
+        private IGetService<Brand> _brandService = new BrandService();
+        private IGetService<Category> _categoryService = new CategoryService();
+
+        [TestInitialize] public void TestInitialize() 
+        {
+            productService.BrandService = _brandService;
+            productService.CategoryService = _categoryService;
+            productService.ColourService = _colourService;
+        }
 
         [TestMethod]
         public void GetAll_ReturnsListOfProducts()
@@ -33,7 +44,7 @@ namespace ApiTests
         public void Add_ProductIsAddedToList()
         {
             Brand brand = new Brand();
-            brand.Name = "Adidas";
+            brand.Name = "Puma";
 
             Category category = new Category();
             category.Name = "Shorts";
@@ -60,7 +71,7 @@ namespace ApiTests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception))]
+        [ExpectedException(typeof(Service_ArgumentException))]
         public void Add_ProductFails()
         {
             Brand brand = new Brand();
@@ -95,7 +106,6 @@ namespace ApiTests
             productService.Delete(productIdToRemove);
             var deletedProduct = productService.Get(productIdToRemove);
             Assert.IsNull(deletedProduct);
-            productService.Add(restoreProduct);
         }
 
         [TestMethod]
@@ -104,7 +114,7 @@ namespace ApiTests
             var productIdToUpdate = 1;
 
             Brand brand = new Brand();
-            brand.Name = "Adidas";
+            brand.Name = "Puma";
 
             Category category = new Category();
             category.Name = "Shorts";

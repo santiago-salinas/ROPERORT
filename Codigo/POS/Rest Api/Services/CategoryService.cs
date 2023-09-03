@@ -11,9 +11,9 @@ public class CategoryService : IGetService<Category>
     {
         Categories = new List<Category>
         {
-            new Category {Name = "Red"},
-            new Category {Name = "Green"},
-            new Category {Name = "Blue"},
+            new Category {Name = "Shorts"},
+            new Category {Name = "Pants"},
+            new Category {Name = "Shirts"},
         };
     }
 
