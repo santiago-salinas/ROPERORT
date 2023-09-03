@@ -11,22 +11,22 @@ namespace Rest_Api.Models
                 _mail = value;
             }
         }
-        public string Adress { 
-            get => _adress; 
+        public string Address { 
+            get => _Address; 
             set {
-                ValidateAdress(value);
-                _adress = value;
+                ValidateAddress(value);
+                _Address = value;
             } 
         }
         public Role Role { get; set; }
 
         private string _mail;
-        private string _adress;
+        private string _Address;
 
         private void ValidateMail(string value)
         {
             if (MailHasInvalidFormat(value))
-                throw new Exception("Mail adress is not valid");
+                throw new Exception("Mail Address is not valid");
         }
 
         private bool MailHasInvalidFormat(string value)
@@ -34,13 +34,13 @@ namespace Rest_Api.Models
             return !(new Regex("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")).IsMatch(value);
         }
 
-        private void ValidateAdress(string value)
+        private void ValidateAddress(string value)
         {
-            if (AdressIsNull(value))
-                throw new Exception("Adress is not valid");
+            if (AddressIsNull(value))
+                throw new Exception("Address is not valid");
         }
 
-        private bool AdressIsNull(string value)
+        private bool AddressIsNull(string value)
         {
             return value.Equals("");
         }

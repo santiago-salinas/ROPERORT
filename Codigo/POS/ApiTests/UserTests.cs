@@ -9,7 +9,7 @@ namespace ApiTests
         private const string ValidMail2 = "prueba@outlook.uy";
         private const string MailWithoutAt = "pruebagmail.com";
         private const string MailWithoutDomain = "prueba@.";
-        private const string ValidAdress = "Cuareim 1451";
+        private const string ValidAddress = "Cuareim 1451";
         private const string NullString = "";
 
         private Role someRole = new Role()
@@ -24,7 +24,7 @@ namespace ApiTests
             someUser = new User()
             {
                 Mail = ValidMail1,
-                Adress = ValidAdress,
+                Address = ValidAddress,
                 Role = someRole
             };
         }
@@ -35,41 +35,41 @@ namespace ApiTests
             var user = new User()
             {
                 Mail = ValidMail2,
-                Adress = ValidAdress,
+                Address = ValidAddress,
                 Role = someRole
             };
             Assert.IsNotNull(user);
             Assert.AreEqual(ValidMail2, user.Mail);
-            Assert.AreEqual(ValidAdress, user.Adress);
+            Assert.AreEqual(ValidAddress, user.Address);
             Assert.AreEqual(someRole.Name, user.Role.Name);
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception), "Mail adress is not valid")]
+        [ExpectedException(typeof(Exception), "Mail Address is not valid")]
         public void ThrowsExceptionWhenMailDosentHaveAt()
         {
             someUser.Mail = MailWithoutAt;
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception), "Mail adress is not valid")]
+        [ExpectedException(typeof(Exception), "Mail Address is not valid")]
         public void ThrowsExceptionWhenMailDosentHaveDomain()
         {
             someUser.Mail = MailWithoutDomain;
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception), "Mail adress is not valid")]
+        [ExpectedException(typeof(Exception), "Mail Address is not valid")]
         public void ThrowsExceptionWhenMailIsBlank()
         {
             someUser.Mail = NullString;
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception), "Adress is not valid")]
-        public void ThrowsExceptionWhenAdressIsBlank()
+        [ExpectedException(typeof(Exception), "Address is not valid")]
+        public void ThrowsExceptionWhenAddressIsBlank()
         {
-            someUser.Adress = NullString;
+            someUser.Address = NullString;
         }
     }
 }
