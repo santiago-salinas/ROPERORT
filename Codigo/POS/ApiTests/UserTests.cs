@@ -1,8 +1,4 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NuGet.Frameworks;
 using Rest_Api.Models;
-using Rest_Api.Services;
-using System.Linq;
 
 namespace ApiTests
 {
@@ -16,13 +12,15 @@ namespace ApiTests
         private const string ValidAdress = "Cuareim 1451";
         private const string NullString = "";
 
-        private Role someRole;
+        private Role someRole = new Role()
+        {
+            Name = "Customer"
+        };
         private User someUser;
 
         [TestInitialize]
         public void TestInit()
         {
-            someRole.Name = "Customer";
             someUser = new User()
             {
                 Mail = ValidMail1,
