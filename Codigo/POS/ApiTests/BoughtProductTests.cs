@@ -22,7 +22,7 @@ namespace ApiTests
         }
 
         [TestMethod]
-        public void CreateUserSuccessTest()
+        public void CreateBoughtProductSuccessTest()
         {
             var boughtProduct = new BoughtProduct()
             {
