@@ -32,13 +32,59 @@ namespace ApiTests
         [TestMethod]
         public void Add_ProductIsAddedToList()
         {
-            var newProduct = new Product { Id = 3, Name = "Socks", PriceUYU = 200, Description = "Comfortable socks.", Brand = "Adidas", Category = "Clothes", Colour = "Black" };
+            Brand brand = new Brand();
+            brand.Name = "Adidas";
+
+            Category category = new Category();
+            category.Name = "Shorts";
+
+            Colour colour = new Colour();
+            colour.Name = "Red";
+
+            var newProduct = new Product
+            {
+                Id = 3,
+                Name = "Socks",
+                PriceUYU = 200,
+                Description = "Comfortable socks.",
+                Brand = brand,
+                Category = category,
+                Colour = colour
+            };
 
             productService.Add(newProduct);
             var addedProduct = productService.Get(newProduct.Id);
 
             Assert.IsNotNull(addedProduct);
             Assert.AreEqual(newProduct.Id, addedProduct.Id);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception))]
+        public void Add_ProductFails()
+        {
+            Brand brand = new Brand();
+            brand.Name = "404NOTFOUND";
+
+            Category category = new Category();
+            category.Name = "404NOTFOUND";
+
+            Colour colour = new Colour();
+            colour.Name = "404NOTFOUND";
+
+            var newProduct = new Product
+            {
+                Id = 3,
+                Name = "Socks",
+                PriceUYU = 200,
+                Description = "Comfortable socks.",
+                Brand = brand,
+                Category = category,
+                Colour = colour
+            };
+
+            productService.Add(newProduct);
+            var addedProduct = productService.Get(newProduct.Id);
         }
 
         [TestMethod]
@@ -56,7 +102,26 @@ namespace ApiTests
         public void Update_ProductIsUpdated()
         {
             var productIdToUpdate = 1;
-            var updatedProduct = new Product { Id = 1, Name = "Updated Cap", PriceUYU = 800, Description = "Updated description.", Brand = "Nike", Category = "Clothes", Colour = "Blue" };
+
+            Brand brand = new Brand();
+            brand.Name = "Adidas";
+
+            Category category = new Category();
+            category.Name = "Shorts";
+
+            Colour colour = new Colour();
+            colour.Name = "Red";
+
+            var updatedProduct = new Product
+            {
+                Id = 1,
+                Name = "Updated Cap",
+                PriceUYU = 800,
+                Description = "Updated description.",
+                Brand = brand,
+                Category = category,
+                Colour = colour
+            };
 
             productService.Update(updatedProduct);
             var product = productService.Get(productIdToUpdate);
