@@ -3,7 +3,7 @@ using System.Xml.Linq;
 
 namespace Rest_Api.Services
 {
-    public interface IService<T>
+    public interface ICRUDService<T>
     {
 
         abstract public List<T> GetAll();
