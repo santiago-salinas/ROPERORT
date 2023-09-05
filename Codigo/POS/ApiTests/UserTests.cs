@@ -5,6 +5,7 @@ namespace ApiTests
     [TestClass]
     public class UserTests
     {
+        private const int ValidId = 5;
         private const string ValidMail1 = "prueba@gmail.com";
         private const string ValidMail2 = "prueba@outlook.uy";
         private const string MailWithoutAt = "pruebagmail.com";
@@ -21,13 +22,13 @@ namespace ApiTests
         [TestInitialize]
         public void TestInit()
         {
-            someUser = new User(ValidMail1, ValidAddress);
+            someUser = new User(ValidId, ValidMail1, ValidAddress);
         }
 
         [TestMethod]
         public void CreateUserSuccessTest()
         {
-            var user = new User(ValidMail2, ValidAddress);
+            var user = new User(ValidId, ValidMail2, ValidAddress);
             Assert.IsNotNull(user);
             Assert.AreEqual(ValidMail2, user.Mail);
             Assert.AreEqual(ValidAddress, user.Address);

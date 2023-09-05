@@ -4,13 +4,15 @@ namespace Rest_Api.Models
 {
     public class User
     {
-        public User(string mail, string address)
+        public User(int id, string mail, string address)
         {
+            Id = id;
             Mail = mail;
             Address = address;
             Roles = new List<Role>();
         }
 
+        public int Id { get; set; }
         public string Mail { 
             get => _mail; 
             set {
