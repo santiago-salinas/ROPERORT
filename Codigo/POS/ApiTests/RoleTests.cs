@@ -7,7 +7,6 @@ namespace ApiTests
     {
         private const string Customer = "Customer";
         private const string Admin = "Admin";
-        private const string Both = "Both";
         private const string InvalidRole = "prueba";
 
         private Role someRole;
@@ -33,15 +32,23 @@ namespace ApiTests
         }
 
         [TestMethod]
-        public void SetBothRoleSuccessTest()
+        public void EqualsWorksCorrectly()
         {
-            someRole.Name = Both;
-            Assert.AreEqual(Both, someRole.Name);
+            var equalRole = new Role()
+            {
+                Name = Customer
+            };
+            var differentRole = new Role()
+            {
+                Name = Admin
+            };
+            Assert.AreEqual(someRole, equalRole);
+            Assert.AreNotEqual(differentRole, equalRole);
         }
 
         [TestMethod]
         [ExpectedException(typeof(Exception), "Invalid role")]
-        public void ThrowsExceptionWhenBuying0OrLessProducts()
+        public void ThrowsExceptionWhenGivenInvalidRoleName()
         {
             someRole.Name = InvalidRole;
         }

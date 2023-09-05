@@ -10,6 +10,15 @@ namespace Rest_Api.Models
             } 
         }
 
+        public override string ToString()
+        {
+            return Name;
+        }
+        public override bool Equals(object? obj)
+        {
+            return Name.Equals(obj?.ToString());
+        }
+
         private string _name;
 
         private void ValidateRole(string name)
@@ -20,7 +29,7 @@ namespace Rest_Api.Models
 
         private bool RoleIsNotValid(string name)
         {
-            return !name.Equals("Customer") && !name.Equals("Admin") && !name.Equals("Both");
+            return !name.Equals("Customer") && !name.Equals("Admin");
         }
     }
 }

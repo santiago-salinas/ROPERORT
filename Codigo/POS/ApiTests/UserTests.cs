@@ -21,27 +21,44 @@ namespace ApiTests
         [TestInitialize]
         public void TestInit()
         {
-            someUser = new User()
-            {
-                Mail = ValidMail1,
-                Address = ValidAddress,
-                Role = someRole
-            };
+            someUser = new User(ValidMail1, ValidAddress);
         }
 
         [TestMethod]
         public void CreateUserSuccessTest()
         {
-            var user = new User()
-            {
-                Mail = ValidMail2,
-                Address = ValidAddress,
-                Role = someRole
-            };
+            var user = new User(ValidMail2, ValidAddress);
             Assert.IsNotNull(user);
             Assert.AreEqual(ValidMail2, user.Mail);
             Assert.AreEqual(ValidAddress, user.Address);
-            Assert.AreEqual(someRole.Name, user.Role.Name);
+        }
+
+        [TestMethod]
+        public void AddRoleSuccessTest()
+        {
+            someUser.AddRole(someRole);
+            Assert.IsTrue(someUser.Roles.Contains(someRole));
+        }
+
+        [TestMethod]
+        public void DoesntAddSameRoleTwice()
+        {
+            someUser.AddRole(someRole);
+            Role newRole = new Role()
+            {
+                Name = "Customer"
+            };
+            someUser.AddRole(newRole);
+            var expectedNumberOfRoles = 1;
+            Assert.AreEqual(someUser.Roles.Count, expectedNumberOfRoles);
+        }
+
+        [TestMethod]
+        public void RemoveRoleSuccessTest()
+        {
+            someUser.AddRole(someRole);
+            someUser.RevokeRole(someRole);
+            Assert.IsFalse(someUser.Roles.Contains(someRole));
         }
 
         [TestMethod]

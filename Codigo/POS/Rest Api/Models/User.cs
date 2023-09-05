@@ -4,6 +4,13 @@ namespace Rest_Api.Models
 {
     public class User
     {
+        public User(string mail, string address)
+        {
+            Mail = mail;
+            Address = address;
+            Roles = new List<Role>();
+        }
+
         public string Mail { 
             get => _mail; 
             set {
@@ -18,7 +25,18 @@ namespace Rest_Api.Models
                 _Address = value;
             } 
         }
-        public Role Role { get; set; }
+        public List<Role> Roles { get; }
+
+        public void AddRole(Role role)
+        {
+            if(Roles.Contains(role)) return;
+            Roles.Add(role);
+        }
+
+        public void RevokeRole(Role role)
+        {
+            Roles.Remove(role);
+        }
 
         private string _mail;
         private string _Address;
