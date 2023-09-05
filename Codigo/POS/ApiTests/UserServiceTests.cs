@@ -33,7 +33,7 @@ namespace ApiTests
             var user = userService.Get(id);
 
             Assert.IsNotNull(user);
-            Assert.AreEqual(id, user.Mail);
+            Assert.AreEqual(id, user.Id);
         }
 
         [TestMethod]
