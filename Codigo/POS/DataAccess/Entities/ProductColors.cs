@@ -9,11 +9,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Entities
 {
-    public class ColourEntity
+    public class ProductColors
     {
-        [Key]
-        public string Name { get; set; }
+        public string ProductName { get; set; }
+        public ProductEntity Product { get; set; }
 
-        public IList<ProductColors> ProductColors { get; set; }
+        public string ColourName { get; set; }
+        public ColourEntity Colour { get; set; }
     }
 }

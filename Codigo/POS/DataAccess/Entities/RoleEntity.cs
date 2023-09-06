@@ -12,5 +12,7 @@ namespace DataAccess.Entities
     {
         [Key]
         public string Name { get; set; }
+
+        public IList<AssignedRoles> AssignedRoles { get; set; }
     }
 }

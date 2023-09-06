@@ -9,11 +9,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Entities
 {
-    public class ColourEntity
+    public class AssignedRoles
     {
-        [Key]
-        public string Name { get; set; }
+        public string UserEmail { get; set; }
+        public UserEntity User { get; set; }
 
-        public IList<ProductColors> ProductColors { get; set; }
+        public string RoleName { get; set; }
+        public RoleEntity Role { get; set; }
     }
 }

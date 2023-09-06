@@ -15,7 +15,6 @@ namespace DataAccess.Entities
         public int Id { get; set; }
         public UserEntity User { get; set; }        
         public ICollection<PurchasedProductEntity> Items { get; set; }
-
         public string AppliedPromotion { get; set; }
         public DateTime Date { get; set; }
 

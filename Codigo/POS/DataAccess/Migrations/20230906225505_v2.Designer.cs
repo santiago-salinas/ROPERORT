@@ -4,6 +4,7 @@ using DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(EFContext))]
-    partial class EFContextModelSnapshot : ModelSnapshot
+    [Migration("20230906225505_v2")]
+    partial class v2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,21 +23,6 @@ namespace DataAccess.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
-
-            modelBuilder.Entity("DataAccess.Entities.AssignedRoles", b =>
-                {
-                    b.Property<string>("RoleName")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("UserEmail")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("RoleName", "UserEmail");
-
-                    b.HasIndex("UserEmail");
-
-                    b.ToTable("AssignedRoles");
-                });
 
             modelBuilder.Entity("DataAccess.Entities.BrandEntity", b =>
                 {
@@ -62,24 +49,14 @@ namespace DataAccess.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("ProductEntityName")
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("Name");
 
+                    b.HasIndex("ProductEntityName");
+
                     b.ToTable("ColourEntities");
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.ProductColors", b =>
-                {
-                    b.Property<string>("ProductName")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("ColourName")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("ProductName", "ColourName");
-
-                    b.HasIndex("ColourName");
-
-                    b.ToTable("ProductColors");
                 });
 
             modelBuilder.Entity("DataAccess.Entities.ProductEntity", b =>
@@ -158,7 +135,12 @@ namespace DataAccess.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("UserEntityEmail")
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("Name");
+
+                    b.HasIndex("UserEntityEmail");
 
                     b.ToTable("RoleEntity");
                 });
@@ -177,42 +159,11 @@ namespace DataAccess.Migrations
                     b.ToTable("UserEntities");
                 });
 
-            modelBuilder.Entity("DataAccess.Entities.AssignedRoles", b =>
+            modelBuilder.Entity("DataAccess.Entities.ColourEntity", b =>
                 {
-                    b.HasOne("DataAccess.Entities.RoleEntity", "Role")
-                        .WithMany("AssignedRoles")
-                        .HasForeignKey("RoleName")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DataAccess.Entities.UserEntity", "User")
-                        .WithMany("Roles")
-                        .HasForeignKey("UserEmail")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Role");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.ProductColors", b =>
-                {
-                    b.HasOne("DataAccess.Entities.ColourEntity", "Colour")
-                        .WithMany("ProductColors")
-                        .HasForeignKey("ColourName")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DataAccess.Entities.ProductEntity", "Product")
-                        .WithMany("ProductColors")
-                        .HasForeignKey("ProductName")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Colour");
-
-                    b.Navigation("Product");
+                    b.HasOne("DataAccess.Entities.ProductEntity", null)
+                        .WithMany("Colours")
+                        .HasForeignKey("ProductEntityName");
                 });
 
             modelBuilder.Entity("DataAccess.Entities.ProductEntity", b =>
@@ -260,24 +211,21 @@ namespace DataAccess.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("DataAccess.Entities.ColourEntity", b =>
+            modelBuilder.Entity("DataAccess.Entities.RoleEntity", b =>
                 {
-                    b.Navigation("ProductColors");
+                    b.HasOne("DataAccess.Entities.UserEntity", null)
+                        .WithMany("Roles")
+                        .HasForeignKey("UserEntityEmail");
                 });
 
             modelBuilder.Entity("DataAccess.Entities.ProductEntity", b =>
                 {
-                    b.Navigation("ProductColors");
+                    b.Navigation("Colours");
                 });
 
             modelBuilder.Entity("DataAccess.Entities.PurchaseEntity", b =>
                 {
                     b.Navigation("Items");
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.RoleEntity", b =>
-                {
-                    b.Navigation("AssignedRoles");
                 });
 
             modelBuilder.Entity("DataAccess.Entities.UserEntity", b =>

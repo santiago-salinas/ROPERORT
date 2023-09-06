@@ -17,6 +17,7 @@ namespace DataAccess.Entities
         public string Description { get; set; }
         public BrandEntity Brand { get; set; }
         public CategoryEntity Category { get; set; }
-        public ICollection<ColourEntity> Colours { get; set;}
+
+        public IList<ProductColors> ProductColors { get; set;}
     }
 }

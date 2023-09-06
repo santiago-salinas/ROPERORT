@@ -12,15 +12,11 @@ namespace DataAccess.Entities
     {
         [Key]
         [ForeignKey(nameof(Purchase))]
-        [Column(Order = 1)]
         public int PurchaseId { get; set; }
 
         [Key]
         [ForeignKey(nameof(Product))]
-        [Column(Order = 2)]
         public string ProductName { get; set; }
-
-
         public PurchaseEntity Purchase { get; set; }
         public ProductEntity Product { get; set; }
         public int Amount { get; set; }

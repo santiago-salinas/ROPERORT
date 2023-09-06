@@ -14,6 +14,6 @@ namespace DataAccess.Entities
         [Key]
         public string Email { get; set; }
         public string Address { get; set; }
-        public ICollection<RoleEntity> Roles { get; set; }
+        public IList<AssignedRoles> Roles { get; set; }
     }
 }
