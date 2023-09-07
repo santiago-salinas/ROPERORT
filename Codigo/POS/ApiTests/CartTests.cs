@@ -1,9 +1,11 @@
 ﻿using Rest_Api.Models;
+using Rest_Api.Services.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Rest_Api.Models.Exceptions;
 
 namespace ApiTests
 {
@@ -46,6 +48,20 @@ namespace ApiTests
             double totalPrice = cart.PriceUYU;
 
             Assert.AreEqual(65.0, totalPrice);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Models_ArgumentException))]
+        public void CartFailsNegativeQuantity()
+        {
+            Cart cart = new Cart();
+            var product = new Product { Id = 1, Name = "Test Product", PriceUYU = 10.0 };
+            var cartLine = new CartLine { Product = product, Quantity = -1 };
+            cart.Products = new List<CartLine> { cartLine };
+
+            double totalPrice = cart.PriceUYU;
+
+            Assert.AreEqual(10.0, totalPrice);
         }
     }
 }
