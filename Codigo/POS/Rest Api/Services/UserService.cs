@@ -10,7 +10,6 @@ public class UserService : ICRUDService<User>
 {
     List<User> Users { get; }
     int nextId = 3;
-    public IGetService<Role> RoleService { get; set; }
 
     public UserService()
     {
