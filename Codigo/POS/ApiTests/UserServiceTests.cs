@@ -3,18 +3,19 @@ using Rest_Api.Services.Exceptions;
 using Rest_Api.Models;
 using Rest_Api.Services;
 using System.Linq;
+using Moq;
 
 namespace ApiTests
 {
     [TestClass]
     public class UserServiceTests
     {
-        private UserService userService = new UserService();
-        private IGetService<Role> _roleService = new RoleService();
+        private UserService userService;
 
-        [TestInitialize] public void TestInitialize() 
+        [TestInitialize]
+        public void TestInitialize()
         {
-            userService.RoleService = _roleService;
+            userService = new UserService();
         }
 
         [TestMethod]
@@ -39,13 +40,7 @@ namespace ApiTests
         [TestMethod]
         public void Add_UserIsAddedToList()
         {
-            Role role = new Role()
-            {
-                Name = "Customer"
-            };
-
             var newUser = new User(2, "prueba@gmail.com", "Cuareim 1451");
-            newUser.AddRole(role);
 
             userService.Add(newUser);
             var addedUser = userService.Get(newUser.Id);

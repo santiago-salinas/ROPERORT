@@ -12,19 +12,15 @@ namespace Rest_Api.Controllers;
 public class UserController : ControllerBase
 {
     private ICRUDService<User> _userService;
-    private IGetService<Role> _roleService;
 
-    public UserController()
+    public UserController(ICRUDService<User> userService)
     {
-        _userService = new UserService();
-        _roleService = new RoleService();
+        _userService = userService;
     }
 
-    // GET all action
     [HttpGet]
     public ActionResult<List<User>> GetAll() => _userService.GetAll();
 
-    // GET by Id action
     [HttpGet("{id}")]
     public ActionResult<User> Get(int id)
     {
@@ -36,7 +32,6 @@ public class UserController : ControllerBase
         return user;
     }
 
-    // POST action
     [HttpPost]
     public IActionResult Create(User user)
     {
@@ -51,7 +46,6 @@ public class UserController : ControllerBase
         return CreatedAtAction(nameof(Get), new { id = user.Id }, user);
     }   
 
-    // PUT action
     [HttpPut("{id}")]
     public IActionResult Update(int id, User user)
     {
@@ -67,7 +61,6 @@ public class UserController : ControllerBase
         return NoContent();
     }
 
-    // DELETE action
     [HttpDelete("{id}")]
     public IActionResult Delete(int id)
     {
