@@ -22,9 +22,9 @@ public class CartController : ControllerBase
     [HttpPost]
     public IActionResult Create(CartDTO cartDto)
     {
-        if (cartDto == null)
+        if (cartDto == null || cartDto.Products.Count == 0)
         {
-            return BadRequest();
+            return BadRequest("Empty Cart");
         }
 
 
@@ -32,10 +32,9 @@ public class CartController : ControllerBase
         try
         {
             cart = CartDTOtoObject(cartDto);
-            double price = cart.PriceUYU;
-            return CreatedAtRoute("GetCartPrice", price);
+            return CreatedAtAction(nameof(Create),cart.PriceUYU, cart);
         }
-        catch (Controller_ArgumentException e)
+        catch (Exception e)
         {
             return BadRequest(e.Message);
         }
@@ -53,7 +52,7 @@ public class CartController : ControllerBase
             newline.Product = _productService.Get(line.id);
             if (newline.Product == null)
             {
-                throw new ArgumentException();
+                throw new ArgumentException("Product id was not found");
             }
             newline.Quantity = line.Quantity;
 
@@ -61,5 +60,20 @@ public class CartController : ControllerBase
         }
 
         return ret;
+    }
+
+    [HttpGet]
+    public ActionResult<CartDTO> GetAll()
+    {
+        CartDTO cartDto = new CartDTO();
+        CartLineDTO cartLineDto = new CartLineDTO()
+        {
+            id = 1,
+            Quantity = 3
+        };
+
+        cartDto.Products.Add(cartLineDto);
+
+        return cartDto;
     }
 }

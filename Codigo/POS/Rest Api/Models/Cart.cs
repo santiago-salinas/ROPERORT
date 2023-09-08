@@ -44,7 +44,7 @@ namespace Rest_Api.Models
             get { return _quantity; }
             set
             {
-                if (value < 0)
+                if (value <= 0)
                 {
                     throw new Models_ArgumentException("Quantity cannot be less than 0.");
                 }

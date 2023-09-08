@@ -47,16 +47,16 @@ namespace ApiTests
 
             var result = controller.Create(cartDto);
 
-            var createdResult = result as CreatedAtRouteResult;
+            var createdResult = result as CreatedAtActionResult;
 
+            Cart createdCart = (Cart)createdResult.Value;
             double expectedValue = 600 * 3;
-            Assert.AreEqual(expectedValue, createdResult.Value);
+            Assert.AreEqual(expectedValue, createdCart.PriceUYU);
 
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Models_ArgumentException))]
-        public void CartControllerTestFailedNegativeQuantity()
+        public void FailedNegativeQuantity()
         {
             Brand brand = new Brand();
             brand.Name = "Adidas";
@@ -80,9 +80,102 @@ namespace ApiTests
 
             cartDto.Products.Add(cartLineDto);
 
+
             var result = controller.Create(cartDto);
 
-            var createdResult = result as CreatedAtRouteResult;
+            var createdResult = result as BadRequestObjectResult;
+
+            Assert.AreEqual("Quantity cannot be less than 0.", createdResult.Value);
+            Assert.AreEqual(400, createdResult.StatusCode);
+
+        }
+
+        [TestMethod]
+        public void FailedZeroQuantity()
+        {
+            Brand brand = new Brand();
+            brand.Name = "Adidas";
+
+            Category category = new Category();
+            category.Name = "Shorts";
+
+            Colour colour = new Colour();
+            colour.Name = "Red";
+
+            var mock = new Mock<ICRUDService<Product>>(MockBehavior.Strict);
+            mock.Setup(s => s.Get(1)).Returns(new Product { Id = 1, Name = "Cap1", PriceUYU = 600, Description = "Stylish Cap.", Brand = brand, Category = category, Colour = colour });
+            
+            var controller = new CartController(mock.Object);
+
+            CartDTO cartDto = new CartDTO();
+            CartLineDTO cartLineDto = new CartLineDTO()
+            {
+                id = 1,
+                Quantity = -1
+            };
+
+            cartDto.Products.Add(cartLineDto);
+
+
+            var result = controller.Create(cartDto);
+
+            var createdResult = result as BadRequestObjectResult;
+
+            Assert.AreEqual("Quantity cannot be less than 0.", createdResult.Value);
+            Assert.AreEqual(400, createdResult.StatusCode);
+
+        }
+
+        [TestMethod]
+        public void FailedBadProductId()
+        {
+            Brand brand = new Brand();
+            brand.Name = "Adidas";
+
+            Category category = new Category();
+            category.Name = "Shorts";
+
+            Colour colour = new Colour();
+            colour.Name = "Red";
+
+            var mock = new Mock<ICRUDService<Product>>(MockBehavior.Loose);
+            mock.Setup(s => s.Get(1)).Returns(new Product { Id = 1, Name = "Cap1", PriceUYU = 600, Description = "Stylish Cap.", Brand = brand, Category = category, Colour = colour });
+
+            var controller = new CartController(mock.Object);
+
+            CartDTO cartDto = new CartDTO();
+            CartLineDTO cartLineDto = new CartLineDTO()
+            {
+                id = 2,
+                Quantity = -1
+            };
+
+            cartDto.Products.Add(cartLineDto);
+
+
+            var result = controller.Create(cartDto);
+
+            var createdResult = result as BadRequestObjectResult;
+            
+            Assert.AreEqual("Product id was not found", createdResult.Value);
+            Assert.AreEqual(400, createdResult.StatusCode);
+
+        }
+
+        [TestMethod]
+        public void FailedEmptyCart()
+        {
+            var mock = new Mock<ICRUDService<Product>>(MockBehavior.Loose);
+            var controller = new CartController(mock.Object);
+
+            CartDTO cartDto = new CartDTO();
+
+            var result = controller.Create(cartDto);
+
+            var createdResult = result as BadRequestObjectResult;
+
+            Assert.AreEqual("Empty Cart", createdResult.Value);
+            Assert.AreEqual(400, createdResult.StatusCode);
 
         }
     }
