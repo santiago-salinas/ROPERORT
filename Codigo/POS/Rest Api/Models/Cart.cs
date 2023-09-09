@@ -5,7 +5,7 @@ namespace Rest_Api.Models
 {
     public class Cart
     {
-        public List<CartLine>? Products { get; set; }
+        public List<CartLine> Products { get; set; }
 
         public Cart()
         {

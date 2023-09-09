@@ -11,7 +11,17 @@ namespace DataAccess.DatabaseServices
 {
     public class EFPurchaseService
     {
-        public EFPurchaseService() { }
+        public EFPurchaseService() 
+        {
+            using (EFContext context = new EFContext())
+            {
+                _nextId = context.PurchaseEntities.Max(p => p.Id) + 1;
+
+
+            }
+        }
+
+        private int _nextId;
 
         public List<PurchaseEntity> GetAll()
         {
