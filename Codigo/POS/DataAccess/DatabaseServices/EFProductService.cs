@@ -23,7 +23,7 @@ namespace DataAccess.DatabaseServices
                     List<ProductEntity> products = context.ProductEntities
                         .Include(p => p.Brand)
                         .Include(p => p.Category)
-                        .Include(p => p.ProductColors.Select(c => c.Colour))
+                        .Include(p => p.Colours.Select(c => c.Colour))
                         .ToList();
 
                     return products;
@@ -44,7 +44,7 @@ namespace DataAccess.DatabaseServices
                     ProductEntity product = context.ProductEntities
                         .Include(p => p.Brand)
                         .Include(p => p.Category)
-                        .Include(p => p.ProductColors.Select(c => c.Colour))
+                        .Include(p => p.Colours.Select(c => c.Colour))
                         .First(p => p.Name == id);
 
                     return product;

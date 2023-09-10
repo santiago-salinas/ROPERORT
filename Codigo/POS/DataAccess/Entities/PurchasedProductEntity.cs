@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Rest_Api.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -16,9 +17,21 @@ namespace DataAccess.Entities
 
         [Key]
         [ForeignKey(nameof(Product))]
-        public string ProductName { get; set; }
+        public int ProductId { get; set; }
         public PurchaseEntity Purchase { get; set; }
         public ProductEntity Product { get; set; }
         public int Amount { get; set; }
+
+        public static PurchasedProductEntity FromModel(Purchase purchase, CartLine cartLine)
+        {
+            return new PurchasedProductEntity
+            {
+                Amount = cartLine.Quantity,
+                Product = ProductEntity.FromModel(cartLine.Product),
+                ProductId = cartLine.Product.Id,
+                Purchase = PurchaseEntity.FromModel(purchase),
+                PurchaseId = purchase.Id,                
+            };
+        }
     }
 }

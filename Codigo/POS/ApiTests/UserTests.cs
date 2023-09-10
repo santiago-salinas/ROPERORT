@@ -30,7 +30,7 @@ namespace ApiTests
         {
             var user = new User(ValidId, ValidMail2, ValidAddress);
             Assert.IsNotNull(user);
-            Assert.AreEqual(ValidMail2, user.Mail);
+            Assert.AreEqual(ValidMail2, user.Email);
             Assert.AreEqual(ValidAddress, user.Address);
         }
 
@@ -66,21 +66,21 @@ namespace ApiTests
         [ExpectedException(typeof(Exception), "Mail Address is not valid")]
         public void ThrowsExceptionWhenMailDosentHaveAt()
         {
-            someUser.Mail = MailWithoutAt;
+            someUser.Email = MailWithoutAt;
         }
 
         [TestMethod]
         [ExpectedException(typeof(Exception), "Mail Address is not valid")]
         public void ThrowsExceptionWhenMailDosentHaveDomain()
         {
-            someUser.Mail = MailWithoutDomain;
+            someUser.Email = MailWithoutDomain;
         }
 
         [TestMethod]
         [ExpectedException(typeof(Exception), "Mail Address is not valid")]
         public void ThrowsExceptionWhenMailIsBlank()
         {
-            someUser.Mail = NullString;
+            someUser.Email = NullString;
         }
 
         [TestMethod]

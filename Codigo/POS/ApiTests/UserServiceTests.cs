@@ -70,7 +70,7 @@ namespace ApiTests
 
             Assert.IsNotNull(user);
             Assert.AreEqual(updatedUser.Id, user.Id);
-            Assert.AreEqual(updatedUser.Mail, user.Mail);
+            Assert.AreEqual(updatedUser.Email, user.Email);
             Assert.AreEqual(updatedUser.Address, user.Address);
         }
     }

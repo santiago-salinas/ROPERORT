@@ -28,8 +28,6 @@ namespace Rest_Api.Models
                     sum += line.Product.PriceUYU * line.Quantity;
                 }
             }
-            
-
             return sum;
         }
     }
