@@ -10,11 +10,6 @@ namespace Rest_Api.Models.Promos
         {
             double retValue = cart.PriceUYU;
 
-            if (HasThreeSameColoredProducts(cart))
-            {
-
-            }
-
             return retValue;
         }
 

@@ -10,13 +10,19 @@
 
             if (HasAtLeastTwoProducts(cart))
             {
-                Product mostExpensiveProduct = MostExpensiveProduct(cart);
-                double mostExpensiveProductPrice = mostExpensiveProduct.PriceUYU;                
+                Product productToDiscount = SecondCheapestProduct(cart.Products);
+                double priceToApplyDiscuount = productToDiscount.PriceUYU;
 
-                retValue -= (mostExpensiveProductPrice * 0.8);
+                retValue -= (priceToApplyDiscuount * 0.8);
             }
 
             return retValue;
+        }
+
+        private Product SecondCheapestProduct(List<CartLine> cartLines)
+        {
+            List<CartLine> sortedByPrice = cartLines.OrderBy(p => p.Product.PriceUYU).ToList();
+            return sortedByPrice[1].Product;
         }
 
         private bool HasAtLeastTwoProducts(Cart cart)

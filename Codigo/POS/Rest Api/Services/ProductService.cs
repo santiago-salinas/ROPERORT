@@ -25,10 +25,16 @@ public class ProductService : ICRUDService<Product>
         Colour colour = new Colour();
         colour.Name = "Red";
 
+        List<Colour> colours = new List<Colour>
+        {
+                colour
+        };
+
+
         Products = new List<Product>
         {
-            new Product { Id = 1, Name = "Cap1", PriceUYU = 600, Description="Stylish Cap.", Brand = brand, Category=category, Colour=colour },
-            new Product { Id = 2, Name = "Cap2", PriceUYU = 600, Description="Stylish Cap.", Brand = brand, Category=category, Colour=colour },
+            new Product { Id = 1, Name = "Cap1", PriceUYU = 600, Description="Stylish Cap.", Brand = brand, Category=category, Colours=colours },
+            new Product { Id = 2, Name = "Cap2", PriceUYU = 600, Description="Stylish Cap.", Brand = brand, Category=category, Colours=colours },
         };
     }
 
@@ -67,9 +73,19 @@ public class ProductService : ICRUDService<Product>
     {
         if (!BrandExists(product.Brand)) { throw new Service_ArgumentException("Brand does not exist"); }
         if (!CategoryExists(product.Category)) { throw new Service_ArgumentException("Category does not exist"); }
-        if (!ColourExists(product.Colour)) { throw new Service_ArgumentException("Colour does not exist"); }
+        if (!ColoursExist(product.Colours)) { throw new Service_ArgumentException("One of the Colours does not exist"); }
     }
     private bool BrandExists(Brand brand) => BrandService.Get(brand.Name) != null;
     private bool CategoryExists(Category category) => CategoryService.Get(category.Name) != null;
-    private bool ColourExists(Colour colour) => ColourService.Get(colour.Name) != null;
+    private bool ColoursExist(List<Colour> colours)
+    {
+        foreach (Colour colour in colours)
+        {
+            if (ColourService.Get(colour.Name) == null)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
 }

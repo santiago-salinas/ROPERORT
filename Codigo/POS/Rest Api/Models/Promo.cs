@@ -31,16 +31,16 @@ namespace Rest_Api.Models
             return retValue;
         }
 
-        protected Product CheapestProduct(List<CartLine> products)
+        protected CartLine CheapestProduct(List<CartLine> products)
         {
-            Product retValue = products[0].Product;
-            double lowestPrice = retValue.PriceUYU;
+            CartLine retValue = products[0];
+            double lowestPrice = retValue.Product.PriceUYU;
 
             foreach (CartLine line in products)
             {
                 if (line.Product.PriceUYU < lowestPrice)
                 {
-                    retValue = line.Product;
+                    retValue = line;
                     lowestPrice = line.Product.PriceUYU;
                 }
             }
