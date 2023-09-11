@@ -58,10 +58,9 @@ namespace ApiTests
         {
             var promo = new ThreeForTwoPromo();
             var cart = new Cart();
-
+            var expectedPrice = 0;
             var discountedPrice = promo.ApplyDiscount(cart);
-
-            Assert.AreEqual(0, discountedPrice);
+            Assert.AreEqual(expectedPrice, discountedPrice);
         }
 
         [TestMethod]
@@ -70,10 +69,9 @@ namespace ApiTests
             var promo = new ThreeForTwoPromo();
             var cart = new Cart();
             cart.Products.Add(new CartLine { Product = _testProduct1, Quantity = 1 });
-
+            var expectedPrice = 10.0;
             var discountedPrice = promo.ApplyDiscount(cart);
-
-            Assert.AreEqual(10.0, discountedPrice);
+            Assert.AreEqual(expectedPrice, discountedPrice);
         }
 
         [TestMethod]

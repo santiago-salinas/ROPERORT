@@ -15,7 +15,8 @@ namespace Rest_Api.Models.Promos
             foreach(CartLine line in lines)
             {
                 var discountedPrice = cart.PriceUYU;
-                var category = line.Product.Category;
+                var product = line.Product;
+                var category = product.Category;
                 List<CartLine> categoryProducts = GetProductsFromCategory(lines, category);
                 if(categoryProducts.Count > 2)
                 {
@@ -34,7 +35,8 @@ namespace Rest_Api.Models.Promos
             List<CartLine> result = new List<CartLine>();
             foreach(CartLine line in lines)
             {
-                var productCategory = line.Product.Category;
+                var product = line.Product;
+                var productCategory = product.Category;
                 if(productCategory.Equals(category))
                     result.Add(line);
             }
