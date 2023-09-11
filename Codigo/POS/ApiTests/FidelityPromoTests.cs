@@ -101,7 +101,7 @@ namespace ApiTests
         }
 
         [TestMethod]
-        public void FourProducts_SameCategories_GetsApplied()
+        public void FourProducts_SameBrands_GetsApplied()
         {
             var promo = new FidelityPromo();
             var cart = new Cart();
