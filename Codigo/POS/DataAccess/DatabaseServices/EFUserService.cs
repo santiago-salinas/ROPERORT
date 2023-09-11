@@ -13,7 +13,23 @@ namespace DataAccess.DatabaseServices
 {
     public class EFUserService : ICRUDService<User>
     {
-        public EFUserService() { }
+        private int _nextAvailableId;
+        public EFUserService()
+        {
+            using (EFContext context = new EFContext())
+            {
+                if (context.PurchaseEntities.Any())
+                {
+                    _nextAvailableId = context.UserEntities.Max(x => x.Id) + 1;
+                }
+                else
+                {
+                    _nextAvailableId = 1;
+                }
+            }
+        }
+
+        public int NextId { get { return _nextAvailableId; } }
 
         public List<User> GetAll()
         {
@@ -64,16 +80,16 @@ namespace DataAccess.DatabaseServices
                 using (EFContext context = new EFContext())
                 {
                     UserEntity entity = UserEntity.FromModel(user);
-
+                    entity.Id = _nextAvailableId;
                     context.UserEntities.Add(entity);
                     context.SaveChanges();
                 }
             }
             catch
             {
-
-                throw new DatabaseException("Error while tryinh to add user " + user.Email);
+                throw new DatabaseException("Error while trying to add user " + user.Email);
             }
+            _nextAvailableId++;
         }
 
         public void Delete(int id)
@@ -85,7 +101,6 @@ namespace DataAccess.DatabaseServices
                     UserEntity entity = context.UserEntities.First(p => p.Id == id);
                     context.UserEntities.Remove(entity);
                 }
-
             }
             catch
             {

@@ -13,15 +13,23 @@ namespace DataAccess.DatabaseServices
 {
     public class EFPurchaseService : ICRUDService<Purchase>
     {
+        private int _nextAvailableId;
         public EFPurchaseService() 
         {
             using (EFContext context = new EFContext())
             {
-                _nextId = context.PurchaseEntities.Max(p => p.Id) + 1;
+                if (context.PurchaseEntities.Any())
+                {
+                    _nextAvailableId = context.PurchaseEntities.Max(x => x.Id) + 1;
+                }
+                else
+                {
+                    _nextAvailableId = 1;
+                }
             }
         }
 
-        private int _nextId;
+        public int NextId { get { return _nextAvailableId;} }
 
         public List<Purchase> GetAll()
         {
@@ -100,8 +108,8 @@ namespace DataAccess.DatabaseServices
             {
                 using (EFContext context = new EFContext())
                 {
-
                     PurchaseEntity entity = PurchaseEntity.FromModel(purchase);
+                    entity.Id = _nextAvailableId;
                     context.PurchaseEntities.Add(entity);
                     context.SaveChanges();
                 }
@@ -111,6 +119,7 @@ namespace DataAccess.DatabaseServices
 
                 throw new DatabaseException("Error while trying to add purchase " + purchase.Id);
             }
+            _nextAvailableId++;
         }
 
         public void Delete(int id)

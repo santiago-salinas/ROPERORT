@@ -31,7 +31,6 @@ namespace DataAccess.DatabaseServices
                     throw new DatabaseException("Error while getting all brands from database");
                 }
             }
-
         }
 
         public Brand? Get(string name)

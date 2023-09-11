@@ -14,7 +14,23 @@ namespace DataAccess.DatabaseServices
 {
     public class EFProductService : ICRUDService<Product>
     {
-        public EFProductService()  { }
+        private int _nextAvailableId;
+        public EFProductService()  
+        {
+            using (EFContext context = new EFContext())
+            {
+                if (context.ProductEntities.Any())
+                {
+                    _nextAvailableId = context.ProductEntities.Max(x => x.Id) + 1;
+                }
+                else
+                {
+                    _nextAvailableId = 1;
+                }
+            }
+        }
+
+        public int NextId { get { return _nextAvailableId; } }
 
         public List<Product> GetAll()
         {
@@ -69,7 +85,7 @@ namespace DataAccess.DatabaseServices
                 using (EFContext context = new EFContext())
                 {
                     ProductEntity entity = ProductEntity.FromModel(product);
-
+                    entity.Id = _nextAvailableId;
                     context.ProductEntities.Add(entity);
                     context.SaveChanges();
                 }
@@ -79,6 +95,7 @@ namespace DataAccess.DatabaseServices
             
                 throw new DatabaseException("Error while trying to add product " + product.Name);
             }
+            _nextAvailableId++;
         }
 
         public void Delete(int id)
