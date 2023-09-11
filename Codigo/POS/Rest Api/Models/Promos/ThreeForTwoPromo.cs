@@ -10,7 +10,42 @@ namespace Rest_Api.Models.Promos
 
         public override double ApplyDiscount(Cart cart)
         {
-            throw new NotImplementedException();
+            double bestValue = cart.PriceUYU;
+            List<CartLine> lines = cart.Products;
+            foreach(CartLine line in lines)
+            {
+                var discountedPrice = cart.PriceUYU;
+                var category = line.Product.Category;
+                List<CartLine> categoryProducts = GetProductsFromCategory(lines, category);
+                if(categoryProducts.Count > 2)
+                {
+                    double discount = GetCheapestProductValue(lines);
+                    discountedPrice -= discount;
+                    if(discountedPrice < bestValue)
+                        bestValue = discountedPrice;
+                }
+            }
+
+            return bestValue;
+        }
+
+        private List<CartLine> GetProductsFromCategory(List<CartLine> lines, Category category)
+        {
+            List<CartLine> result = new List<CartLine>();
+            foreach(CartLine line in lines)
+            {
+                var productCategory = line.Product.Category;
+                if(productCategory.Equals(category))
+                    result.Add(line);
+            }
+            return result;
+        }
+
+        private double GetCheapestProductValue(List<CartLine> cartLines)
+        {
+            List<CartLine> sortedByPrice = cartLines.OrderBy(p => p.Product.PriceUYU).ToList();
+            var cheapestProduct = sortedByPrice[0].Product;
+            return cheapestProduct.PriceUYU;
         }
     }
 }
