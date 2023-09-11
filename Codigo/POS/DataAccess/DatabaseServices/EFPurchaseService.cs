@@ -1,6 +1,8 @@
 ﻿using DataAccess.Entities;
 using DataAccess.Expcetions;
 using Microsoft.EntityFrameworkCore;
+using Rest_Api.Models;
+using Rest_Api.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,30 +11,30 @@ using System.Threading.Tasks;
 
 namespace DataAccess.DatabaseServices
 {
-    public class EFPurchaseService
+    public class EFPurchaseService : ICRUDService<Purchase>
     {
         public EFPurchaseService() 
         {
             using (EFContext context = new EFContext())
             {
                 _nextId = context.PurchaseEntities.Max(p => p.Id) + 1;
-
-
             }
         }
 
         private int _nextId;
 
-        public List<PurchaseEntity> GetAll()
+        public List<Purchase> GetAll()
         {
             using (EFContext context = new EFContext())
             {
                 try
                 {
-                    List<PurchaseEntity> purchases = context.PurchaseEntities
+                    List<PurchaseEntity> entities = context.PurchaseEntities
                         .Include(p => p.Items.Select(i => i.Product))
                         .Include(p => p.User)
                         .ToList();
+
+                    List<Purchase> purchases = entities.Select(p => PurchaseEntity.FromEntity(p)).ToList(); 
 
                     return purchases;
 
@@ -44,38 +46,41 @@ namespace DataAccess.DatabaseServices
             }
         }
 
-        public List<PurchaseEntity> GetPurchaseHistory(string email)
+        public List<Purchase> GetPurchaseHistory(int id)
         {
             using (EFContext context = new EFContext())
             {
                 try
                 {
-                    List<PurchaseEntity> purchases = context.PurchaseEntities
+                    List<PurchaseEntity> entities = context.PurchaseEntities
                         .Include(p => p.Items.Select(i => i.Product))
                         .Include(p => p.User)
-                        .Where(p => p.User.Email == email)
+                        .Where(p => p.User.Id == id)
                         .ToList();
 
+                    List<Purchase> purchases = entities.Select(p => PurchaseEntity.FromEntity(p)).ToList();
                     return purchases;
 
                 }
                 catch
                 {
-                    throw new DatabaseException("Error while getting purchase history from user " + email);
+                    throw new DatabaseException("Error while getting purchase history from user " + id);
                 }
             }
         }
 
-        public PurchaseEntity? Get(int id)
+        public Purchase? Get(int id)
         {
             using (EFContext context = new EFContext())
             {
                 try
                 {
-                    PurchaseEntity purchase = context.PurchaseEntities
+                    PurchaseEntity entity = context.PurchaseEntities
                         .Include(p => p.Items.Select(i => i.Product))
                         .Include(p => p.User)
                         .First(p => p.Id == id);
+
+                    Purchase purchase = PurchaseEntity.FromEntity(entity);
 
                     return purchase;
 
@@ -89,12 +94,14 @@ namespace DataAccess.DatabaseServices
 
         }
 
-        public void Add(PurchaseEntity entity)
+        public void Add(Purchase purchase)
         {
             try
             {
                 using (EFContext context = new EFContext())
                 {
+
+                    PurchaseEntity entity = PurchaseEntity.FromModel(purchase);
                     context.PurchaseEntities.Add(entity);
                     context.SaveChanges();
                 }
@@ -102,7 +109,7 @@ namespace DataAccess.DatabaseServices
             catch
             {
 
-                throw new DatabaseException("Error while trying to add purchase " + entity.Id);
+                throw new DatabaseException("Error while trying to add purchase " + purchase.Id);
             }
         }
 
@@ -112,7 +119,8 @@ namespace DataAccess.DatabaseServices
             {
                 using (EFContext context = new EFContext())
                 {
-                    context.PurchaseEntities.Remove(Get(id));
+                    PurchaseEntity entity = context.PurchaseEntities.First(p => p.Id == id);
+                    context.PurchaseEntities.Remove(entity);
                 }
 
             }
@@ -122,18 +130,19 @@ namespace DataAccess.DatabaseServices
             }
         }
 
-        public void Update(PurchaseEntity entity)
+        public void Update(Purchase purchase)
         {
             try
             {
                 using (EFContext context = new EFContext())
                 {
+                    PurchaseEntity entity = PurchaseEntity.FromModel(purchase);
                     context.PurchaseEntities.Update(entity);
                 }
             }
             catch
             {
-                throw new DatabaseException("Error while trying to update purchase " + entity.Id);
+                throw new DatabaseException("Error while trying to update purchase " + purchase.Id);
             }
         }
     }
