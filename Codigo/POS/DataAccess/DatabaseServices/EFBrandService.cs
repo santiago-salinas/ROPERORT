@@ -1,5 +1,7 @@
 ﻿using DataAccess.Entities;
 using DataAccess.Expcetions;
+using Rest_Api.Models;
+using Rest_Api.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,17 +10,18 @@ using System.Threading.Tasks;
 
 namespace DataAccess.DatabaseServices
 {
-    public class EFBrandService
+    public class EFBrandService : IGetService<Brand>
     {
         public EFBrandService() { }
 
-        public List<BrandEntity> GetAll()
+        public List<Brand> GetAll()
         {
             using (EFContext context = new EFContext())
             {
                 try
                 {
-                    List<BrandEntity> brands = context.BrandEntities.ToList();
+                    List<BrandEntity> entities = context.BrandEntities.ToList();
+                    List<Brand> brands = entities.Select(c => BrandEntity.FromEntity(c)).ToList();
 
                     return brands;
 
@@ -31,7 +34,7 @@ namespace DataAccess.DatabaseServices
 
         }
 
-        public BrandEntity? Get(string name)
+        public Brand? Get(string name)
         {
             try
             {
@@ -39,7 +42,7 @@ namespace DataAccess.DatabaseServices
                 {
                     BrandEntity brand = context.BrandEntities.First(p => p.Name == name);
 
-                    return brand;
+                    return BrandEntity.FromEntity(brand);
                 }
 
             }
