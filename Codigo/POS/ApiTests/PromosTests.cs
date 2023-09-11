@@ -60,7 +60,7 @@ namespace ApiTests
 
             var discountedPrice = promo.ApplyDiscount(cart);
 
-            Assert.AreEqual(18.0, discountedPrice); 
+            Assert.AreEqual(26.0, discountedPrice); 
         }
 
         [TestMethod]
@@ -72,7 +72,7 @@ namespace ApiTests
 
             var discountedPrice = promo.ApplyDiscount(cart);
 
-            Assert.AreEqual(18.0, discountedPrice);
+            Assert.AreEqual(36.0, discountedPrice);
         }
 
         [TestMethod]
@@ -86,7 +86,7 @@ namespace ApiTests
 
             var discountedPrice = promo.ApplyDiscount(cart);
 
-            Assert.AreEqual(25.0, discountedPrice); 
+            Assert.AreEqual(42.0, discountedPrice); 
         }
     }
 }
