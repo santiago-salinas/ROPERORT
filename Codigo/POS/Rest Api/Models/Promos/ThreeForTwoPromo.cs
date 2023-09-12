@@ -12,42 +12,40 @@ namespace Rest_Api.Models.Promos
         {
             double bestValue = cart.PriceUYU;
             List<CartLine> lines = cart.Products;
-            foreach(CartLine line in lines)
+            List<CartLine> productsAllCategories = lines.GroupBy(p => p.Product.Category).Select(b => b.First()).ToList();
+            foreach (CartLine productOfOneCategory in productsAllCategories)
             {
                 var discountedPrice = cart.PriceUYU;
-                var product = line.Product;
-                var category = product.Category;
-                List<CartLine> categoryProducts = GetProductsFromCategory(lines, category);
-                if(categoryProducts.Count > 2)
+                var product = productOfOneCategory.Product;
+                List<CartLine> categoryProducts = GetProductsFromCategory(lines, product.Category);
+                if (ThereAreAtLeast3Products(categoryProducts))
                 {
                     double discount = GetCheapestProductValue(lines);
                     discountedPrice -= discount;
-                    if(discountedPrice < bestValue)
+                    if (discountedPrice < bestValue)
                         bestValue = discountedPrice;
                 }
             }
-
             return bestValue;
         }
 
         private List<CartLine> GetProductsFromCategory(List<CartLine> lines, Category category)
         {
-            List<CartLine> result = new List<CartLine>();
-            foreach(CartLine line in lines)
-            {
-                var product = line.Product;
-                var productCategory = product.Category;
-                if(productCategory.Equals(category))
-                    result.Add(line);
-            }
+            List<CartLine> result = lines.Where(p => p.Product.Category == category).ToList();
             return result;
         }
 
         private double GetCheapestProductValue(List<CartLine> cartLines)
         {
+            const int cheapestIndex = 0;
             List<CartLine> sortedByPrice = cartLines.OrderBy(p => p.Product.PriceUYU).ToList();
-            var cheapestProduct = sortedByPrice[0].Product;
+            var cheapestProduct = sortedByPrice[cheapestIndex].Product;
             return cheapestProduct.PriceUYU;
+        }
+
+        private bool ThereAreAtLeast3Products(List<CartLine> list)
+        {
+            return list.Count > 2;
         }
     }
 }
