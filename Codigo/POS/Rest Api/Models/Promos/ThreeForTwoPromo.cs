@@ -47,9 +47,7 @@ namespace Rest_Api.Models.Promos
         {
             int quantity = 0;
             foreach (CartLine line in list)
-            {
                 quantity += line.Quantity;
-            }
             return quantity > 2;
         }
     }

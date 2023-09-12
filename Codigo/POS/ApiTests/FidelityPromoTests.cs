@@ -114,5 +114,40 @@ namespace ApiTests
             var discountedPrice = promo.ApplyDiscount(cart);
             Assert.AreEqual(expectedPrice, discountedPrice);
         }
+
+        [TestMethod]
+        public void ThreeTimesSameProduct_GetsApplied()
+        {
+            var promo = new FidelityPromo();
+            var cart = new Cart();
+            cart.Products.Add(new CartLine { Product = _testProduct1, Quantity = 3 });
+            var expectedPrice = 10.0;
+            var discountedPrice = promo.ApplyDiscount(cart);
+            Assert.AreEqual(expectedPrice, discountedPrice);
+        }
+
+        [TestMethod]
+        public void MultipleTimesCheapProduct_OneExpensive_GetsApplied()
+        {
+            var promo = new FidelityPromo();
+            var cart = new Cart();
+            cart.Products.Add(new CartLine { Product = _testProduct1, Quantity = 2 });
+            cart.Products.Add(new CartLine { Product = _testProduct2, Quantity = 1 });
+            var expectedPrice = 20.0;
+            var discountedPrice = promo.ApplyDiscount(cart);
+            Assert.AreEqual(expectedPrice, discountedPrice);
+        }
+
+        [TestMethod]
+        public void MultipleTimesExpensiveProduct_OneCheap_GetsApplied()
+        {
+            var promo = new FidelityPromo();
+            var cart = new Cart();
+            cart.Products.Add(new CartLine { Product = _testProduct1, Quantity = 1 });
+            cart.Products.Add(new CartLine { Product = _testProduct2, Quantity = 2 });
+            var expectedPrice = 20.0;
+            var discountedPrice = promo.ApplyDiscount(cart);
+            Assert.AreEqual(expectedPrice, discountedPrice);
+        }
     }
 }
