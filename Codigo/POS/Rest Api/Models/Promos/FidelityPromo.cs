@@ -1,4 +1,5 @@
-﻿using Rest_Api.Services;
+﻿using Microsoft.JSInterop;
+using Rest_Api.Services;
 
 namespace Rest_Api.Models.Promos
 {
@@ -20,7 +21,7 @@ namespace Rest_Api.Models.Promos
                 List<CartLine> brandProducts = GetProductsFromBrand(lines, product.Brand);
                 if (ThereAreAtLeast3Products(brandProducts))
                 {
-                    double discount = GetTwoCheapestProductsValues(lines);
+                    double discount = GetTwoCheapestProductsValues(brandProducts);
                     discountedPrice -= discount;
                     if (discountedPrice < bestValue)
                         bestValue = discountedPrice;
@@ -38,18 +39,30 @@ namespace Rest_Api.Models.Promos
 
         private double GetTwoCheapestProductsValues(List<CartLine> cartLines)
         {
-            const int cheapestIndex = 0;
-            const int secondCheapestIndex = 1;
             List<CartLine> sortedByPrice = cartLines.OrderBy(p => p.Product.PriceUYU).ToList();
-            var cheapestProduct = sortedByPrice[cheapestIndex].Product;
-            var secondCheapestProduct = sortedByPrice[secondCheapestIndex].Product;
-            var value = cheapestProduct.PriceUYU + secondCheapestProduct.PriceUYU;
-            return value;
+            const int cheapestIndex = 0;
+            var cheapestProductLine = sortedByPrice[cheapestIndex];
+            var cheapestProduct = cheapestProductLine.Product;
+            var discount = cheapestProduct.PriceUYU;
+            if (cheapestProductLine.Quantity > 1)
+            {
+                discount *= 2;
+            }
+            else
+            {
+                const int secondCheapestIndex = 1;
+                var secondProduct = sortedByPrice[secondCheapestIndex].Product;
+                discount = cheapestProduct.PriceUYU + secondProduct.PriceUYU;
+            }
+            return discount;
         }
 
         private bool ThereAreAtLeast3Products(List<CartLine> list)
         {
-            return list.Count > 2;
+            int quantity = 0;
+            foreach (CartLine line in list)
+                quantity += line.Quantity;
+            return quantity > 2;
         }
     }
 }
