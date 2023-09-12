@@ -20,7 +20,7 @@ namespace Rest_Api.Models.Promos
                 List<CartLine> categoryProducts = GetProductsFromCategory(lines, product.Category);
                 if (ThereAreAtLeast3Products(categoryProducts))
                 {
-                    double discount = GetCheapestProductValue(lines);
+                    double discount = GetCheapestProductValue(categoryProducts);
                     discountedPrice -= discount;
                     if (discountedPrice < bestValue)
                         bestValue = discountedPrice;
@@ -45,7 +45,12 @@ namespace Rest_Api.Models.Promos
 
         private bool ThereAreAtLeast3Products(List<CartLine> list)
         {
-            return list.Count > 2;
+            int quantity = 0;
+            foreach (CartLine line in list)
+            {
+                quantity += line.Quantity;
+            }
+            return quantity > 2;
         }
     }
 }
