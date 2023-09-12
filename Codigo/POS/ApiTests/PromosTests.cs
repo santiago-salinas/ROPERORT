@@ -88,5 +88,19 @@ namespace ApiTests
 
             Assert.AreEqual(42.0, discountedPrice); 
         }
+
+        [TestMethod]
+        public void ApplyDiscount_TwoCheapProductsOneExpensive_GetsAppliedToCheapest()
+        {
+            var promo = new TwentyPercentOff();
+            var cart = new Cart();
+            cart.Products.Add(new CartLine { Product = _testProduct1, Quantity = 2 });
+            cart.Products.Add(new CartLine { Product = _testProduct2, Quantity = 1 });
+
+            var expectedPrice = 38.0;
+            var discountedPrice = promo.ApplyDiscount(cart);
+
+            Assert.AreEqual(expectedPrice, discountedPrice);
+        }
     }
 }
