@@ -32,8 +32,18 @@ namespace ApiTests
             Colour colour = new Colour();
             colour.Name = "Red";
 
+            List<Colour> colours = new List<Colour>
+            {
+                colour
+            };
+
             var mock = new Mock<ICRUDService<Product>>(MockBehavior.Strict);
-            mock.Setup(s => s.Get(1)).Returns(new Product { Id = 1, Name = "Cap1", PriceUYU = 600, Description = "Stylish Cap.", Brand = brand, Category = category, Colour = colour });
+            mock.Setup(s => s.Get(1)).Returns(new Product { Id = 1, Name = "Cap1", 
+                                                            PriceUYU = 600, 
+                                                            Description = "Stylish Cap.", 
+                                                            Brand = brand, 
+                                                            Category = category, 
+                                                            Colours = colours });
             var controller = new CartController(mock.Object);
 
             CartDTO cartDto = new CartDTO();
@@ -67,8 +77,17 @@ namespace ApiTests
             Colour colour = new Colour();
             colour.Name = "Red";
 
+            List<Colour> colours = new List<Colour>
+            {
+                colour
+            };
+
             var mock = new Mock<ICRUDService<Product>>(MockBehavior.Strict);
-            mock.Setup(s => s.Get(1)).Returns(new Product { Id = 1, Name = "Cap1", PriceUYU = 600, Description = "Stylish Cap.", Brand = brand, Category = category, Colour = colour });
+            mock.Setup(s => s.Get(1)).Returns(new Product { Id = 1, 
+                                                            Name = "Cap1", PriceUYU = 600, 
+                                                            Description = "Stylish Cap.", 
+                                                            Brand = brand, Category = category, 
+                                                            Colours = colours });
             var controller = new CartController(mock.Object);
 
             CartDTO cartDto = new CartDTO();
@@ -102,8 +121,19 @@ namespace ApiTests
             Colour colour = new Colour();
             colour.Name = "Red";
 
+            List<Colour> colours = new List<Colour>
+            {
+                colour
+            };
+
             var mock = new Mock<ICRUDService<Product>>(MockBehavior.Strict);
-            mock.Setup(s => s.Get(1)).Returns(new Product { Id = 1, Name = "Cap1", PriceUYU = 600, Description = "Stylish Cap.", Brand = brand, Category = category, Colour = colour });
+            mock.Setup(s => s.Get(1)).Returns(new Product { Id = 1, 
+                                                            Name = "Cap1", 
+                                                            PriceUYU = 600, 
+                                                            Description = "Stylish Cap.", 
+                                                            Brand = brand, 
+                                                            Category = category, 
+                                                            Colours = colours });
             
             var controller = new CartController(mock.Object);
 
@@ -138,8 +168,18 @@ namespace ApiTests
             Colour colour = new Colour();
             colour.Name = "Red";
 
+            List<Colour> colours = new List<Colour>
+            {
+                colour
+            };
+
             var mock = new Mock<ICRUDService<Product>>(MockBehavior.Loose);
-            mock.Setup(s => s.Get(1)).Returns(new Product { Id = 1, Name = "Cap1", PriceUYU = 600, Description = "Stylish Cap.", Brand = brand, Category = category, Colour = colour });
+            mock.Setup(s => s.Get(1)).Returns(new Product { Id = 1, 
+                                                            Name = "Cap1", PriceUYU = 600, 
+                                                            Description = "Stylish Cap.", 
+                                                            Brand = brand, 
+                                                            Category = category, 
+                                                            Colours = colours });
 
             var controller = new CartController(mock.Object);
 

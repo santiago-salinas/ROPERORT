@@ -52,6 +52,11 @@ namespace ApiTests
             Colour colour = new Colour();
             colour.Name = "Red";
 
+            List<Colour> colours = new List<Colour>
+            {
+                colour
+            };
+
             var newProduct = new Product
             {
                 Id = 3,
@@ -60,7 +65,7 @@ namespace ApiTests
                 Description = "Comfortable socks.",
                 Brand = brand,
                 Category = category,
-                Colour = colour
+                Colours = colours
             };
 
             productService.Add(newProduct);
@@ -83,6 +88,11 @@ namespace ApiTests
             Colour colour = new Colour();
             colour.Name = "404NOTFOUND";
 
+            List<Colour> colours = new List<Colour>
+            {
+                colour
+            };
+
             var newProduct = new Product
             {
                 Id = 3,
@@ -91,7 +101,7 @@ namespace ApiTests
                 Description = "Comfortable socks.",
                 Brand = brand,
                 Category = category,
-                Colour = colour
+                Colours = colours
             };
 
             productService.Add(newProduct);
@@ -122,6 +132,11 @@ namespace ApiTests
             Colour colour = new Colour();
             colour.Name = "Red";
 
+            List<Colour> colours = new List<Colour>
+            {
+                colour
+            };
+
             var updatedProduct = new Product
             {
                 Id = 1,
@@ -130,7 +145,7 @@ namespace ApiTests
                 Description = "Updated description.",
                 Brand = brand,
                 Category = category,
-                Colour = colour
+                Colours = colours
             };
 
             productService.Update(updatedProduct);

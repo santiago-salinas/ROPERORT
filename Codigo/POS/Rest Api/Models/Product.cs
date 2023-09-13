@@ -14,8 +14,10 @@
         public string Name { get; set; }
         public double PriceUYU { get; set; }
         public string Description { get; set; }
+
+
         public Brand Brand { get; set; }
         public Category Category { get; set; }
-        public Colour Colour { get; set; }
+        public List<Colour> Colours { get; set; }
     }
 }

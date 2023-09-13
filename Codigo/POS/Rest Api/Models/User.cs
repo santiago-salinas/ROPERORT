@@ -7,13 +7,13 @@ namespace Rest_Api.Models
         public User(int id, string mail, string address)
         {
             Id = id;
-            Mail = mail;
+            Email = mail;
             Address = address;
             Roles = new List<Role>();
         }
 
         public int Id { get; set; }
-        public string Mail { 
+        public string Email { 
             get => _mail; 
             set {
                 ValidateMail(value);

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Rest_Api.Models;
 
 
 namespace DataAccess.Entities
@@ -15,5 +16,15 @@ namespace DataAccess.Entities
         public string Name { get; set; }
 
         public IList<ProductColors> ProductColors { get; set; }
+
+        public static ColourEntity FromModel(Colour brand)
+        {
+            return new ColourEntity() { Name = brand.Name };
+        }
+
+        public static Colour FromEntity(ColourEntity entity)
+        {
+            return new Colour() { Name = entity.Name };
+        }
     }
 }

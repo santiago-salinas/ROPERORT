@@ -27,7 +27,6 @@ public class CartController : ControllerBase
             return BadRequest("Empty Cart");
         }
 
-
         Cart cart = new Cart();
         try
         {

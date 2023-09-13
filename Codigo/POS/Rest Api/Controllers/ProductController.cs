@@ -3,6 +3,7 @@ using Rest_Api.Models;
 using Rest_Api.Services;
 using Rest_Api.Services.Exceptions;
 using Rest_Api.Controllers.Exceptions;
+using System.Drawing;
 
 namespace Rest_Api.Controllers;
 
@@ -105,9 +106,19 @@ public class ProductController : ControllerBase
     {
         if (!BrandExists(product.Brand)) { throw new Controller_ArgumentException("Brand does not exist"); }
         if (!CategoryExists(product.Category)) { throw new Controller_ArgumentException("Category does not exist"); }
-        if (!ColourExists(product.Colour)) { throw new Controller_ArgumentException("Colour does not exist"); }
+        if (!ColoursExist(product.Colours)) { throw new Service_ArgumentException("One of the Colours does not exist"); }
     }
     private bool BrandExists(Brand brand) => _brandService.Get(brand.Name) != null;
     private bool CategoryExists(Category category) => _categoryService.Get(category.Name) != null;
-    private bool ColourExists(Colour colour) => _colourService.Get(colour.Name) != null;
+    private bool ColoursExist(List<Colour> colours)
+    {
+        foreach(Colour colour in colours)
+        {
+            if (_colourService.Get(colour.Name) == null)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
 }
