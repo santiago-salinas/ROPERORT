@@ -1,5 +1,7 @@
 ﻿using DataAccess.Entities;
 using DataAccess.Expcetions;
+using Rest_Api.Models;
+using Rest_Api.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,20 +10,20 @@ using System.Threading.Tasks;
 
 namespace DataAccess.DatabaseServices
 {
-    public class EFCategoryService
+    public class EFCategoryService : IGetService<Category>
     {
         public EFCategoryService() { }
 
-        public List<CategoryEntity> GetAll()
+        public List<Category> GetAll()
         {
             using (EFContext context = new EFContext())
             {
                 try
                 {
-                    List<CategoryEntity> colours = context.CategoryEntities.ToList();
+                    List<CategoryEntity> entities = context.CategoryEntities.ToList();
+                    List<Category> categories = entities.Select(c => CategoryEntity.FromEntity(c)).ToList();
 
-                    return colours;
-
+                    return categories;
                 }
                 catch
                 {
@@ -31,15 +33,15 @@ namespace DataAccess.DatabaseServices
 
         }
 
-        public CategoryEntity? Get(string name)
+        public Category? Get(string name)
         {
             try
             {
                 using (EFContext context = new EFContext())
                 {
-                    CategoryEntity colour = context.CategoryEntities.First(p => p.Name == name);
+                    CategoryEntity category = context.CategoryEntities.First(p => p.Name == name);
 
-                    return colour;
+                    return CategoryEntity.FromEntity(category);
                 }
 
             }

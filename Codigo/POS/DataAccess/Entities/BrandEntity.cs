@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-
+using Rest_Api.Models;
 
 namespace DataAccess.Entities
 {
@@ -13,5 +13,15 @@ namespace DataAccess.Entities
     {
         [Key]
         public string Name { get; set; }
+
+        public static BrandEntity FromModel(Brand brand) 
+        {
+            return new BrandEntity() { Name = brand.Name };
+        }
+
+        public static Brand FromEntity(BrandEntity entity)
+        {
+            return new Brand() { Name = entity.Name };
+        }
     }
 }

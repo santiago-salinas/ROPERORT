@@ -15,4 +15,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Rest Api\Rest Api.csproj" />
+  </ItemGroup>
+
 </Project>

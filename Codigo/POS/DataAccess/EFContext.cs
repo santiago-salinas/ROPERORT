@@ -5,7 +5,6 @@ using Microsoft.EntityFrameworkCore;
 namespace DataAccess
 {
     public class EFContext : DbContext
-
     {
         public EFContext() : base() { }
 
@@ -16,9 +15,13 @@ namespace DataAccess
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<PurchasedProductEntity>().HasKey(ppe => new { ppe.PurchaseId, ppe.ProductName });
-            modelBuilder.Entity<AssignedRoles>().HasKey(ar => new { ar.RoleName, ar.UserEmail });
-            modelBuilder.Entity<ProductColors>().HasKey(pc => new { pc.ProductName, pc.ColourName });
+            modelBuilder.Entity<UserEntity>().HasAlternateKey(u => u.Email);
+            modelBuilder.Entity<ProductEntity>().HasAlternateKey(p => p.Name);
+
+
+            modelBuilder.Entity<PurchasedProductEntity>().HasKey(ppe => new { ppe.PurchaseId, ppe.ProductId });
+            modelBuilder.Entity<AssignedRoles>().HasKey(ar => new { ar.RoleName, ar.UserId });
+            modelBuilder.Entity<ProductColors>().HasKey(pc => new { pc.ProductId, pc.ColourName });
         }
 
         public DbSet<ProductEntity> ProductEntities { get; set; }
