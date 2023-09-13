@@ -8,7 +8,25 @@ namespace Rest_Api.Models.Promos
 
         public override double ApplyDiscount(Cart cart)
         {
+            if (cart is null || cart.Products.Count == 0) { return 0; }
+
             double retValue = cart.PriceUYU;
+
+            List<Colour> colorsInCart = new List<Colour>();
+
+            foreach (CartLine cartLine in cart.Products)
+            {
+                if (cartLine.Product != null && cartLine.Product.Colours != null)
+                {
+                    foreach (Colour color in cartLine.Product.Colours)
+                    {
+                        if (!colorsInCart.Contains(color))
+                        {
+                            colorsInCart.Add(color);
+                        }
+                    }
+                }
+            }
 
             return retValue;
         }
@@ -42,19 +60,19 @@ namespace Rest_Api.Models.Promos
                     if (commonColors.Any())
                     {
                         for (int k = j + 1; k < lines.Count; k++)
-                        {                            
+                        {
                             if (commonColors.Intersect(lines[k].Product.Colours).Any())
                             {
-                                return true; 
+                                return true;
                             }
                         }
                     }
                 }
             }
 
-            return false; 
+            return false;
         }
     }
 
-    
+
 }
