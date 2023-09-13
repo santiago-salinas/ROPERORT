@@ -4,14 +4,69 @@ namespace Rest_Api.Models.Promos
 {
     public class TotalLookPromo : Promo
     {
+        private const int _minimumApplicableSameColour = 3;
+        private const int _zero = 0;
+        private const double _discountPercentage = 0.5;
+
         public TotalLookPromo() : base("Total look", "Having at least three products of the same color", "50% OFF most expensive product") { }
 
         public override double ApplyDiscount(Cart cart)
         {
-            if (cart is null || cart.Products.Count == 0) { return 0; }
+            if (cart is null || cart.Products.Count == _zero) { return _zero; }
 
             double retValue = cart.PriceUYU;
 
+            List<Colour> colorsInCart = ColorsInCart(cart);
+            List<double> Discounts = PossibleDiscounts(cart, colorsInCart);
+
+            if (Discounts.Count() > _zero)
+            {
+                Discounts.Sort();
+                double minimumViableDiscount = Discounts.First();
+                return retValue - minimumViableDiscount;
+            }
+
+            return retValue;
+        }
+
+        private static List<double> PossibleDiscounts(Cart cart, List<Colour> colorsInCart)
+        {
+            List<double> Discounts = new List<double>();
+            foreach (Colour colour in colorsInCart)
+            {
+                List<CartLine> cartLinesWithColor = cart.Products
+                .Where(cartLine =>
+                    cartLine.Product != null &&
+                    cartLine.Product.Colours != null &&
+                    cartLine.Product.Colours.Contains(colour))
+                .ToList();
+
+                cartLinesWithColor.OrderBy(p => p.Product.PriceUYU);
+
+                int amountOfParticipatingProducts = _zero;
+                List<Product> participatingProducts = new List<Product>();
+
+                while (amountOfParticipatingProducts < _minimumApplicableSameColour && cartLinesWithColor.Count > _zero)
+                {
+                    CartLine cartLine = cartLinesWithColor.First();
+                    participatingProducts.Add(cartLine.Product);
+                    amountOfParticipatingProducts += cartLine.Quantity;
+                    cartLinesWithColor.Remove(cartLine);
+                }
+
+                if (amountOfParticipatingProducts >= _minimumApplicableSameColour)
+                {
+                    double discount = (participatingProducts.Last().PriceUYU * _discountPercentage);
+
+                    Discounts.Add(discount);
+                }
+            }
+
+            return Discounts;
+        }
+
+        private static List<Colour> ColorsInCart(Cart cart)
+        {
             List<Colour> colorsInCart = new List<Colour>();
 
             foreach (CartLine cartLine in cart.Products)
@@ -28,45 +83,8 @@ namespace Rest_Api.Models.Promos
                 }
             }
 
-            List<double> LowerDiscount = new List<double>();
-            foreach (Colour colour in colorsInCart)
-            {
-                List<CartLine> cartLinesWithColor = cart.Products
-                .Where(cartLine =>
-                    cartLine.Product != null &&
-                    cartLine.Product.Colours != null &&
-                    cartLine.Product.Colours.Contains(colour))
-                .ToList();
-
-                cartLinesWithColor.OrderBy(p => p.Product.PriceUYU);
-
-
-                int amountOfParticipatingProducts = 0;
-                List<Product> participatingProducts = new List<Product>();
-
-                while (amountOfParticipatingProducts < 3 && cartLinesWithColor.Count > 0)
-                {
-                    participatingProducts.Add(cartLinesWithColor.First().Product);
-                    amountOfParticipatingProducts += cartLinesWithColor.First().Quantity;
-                    cartLinesWithColor.Remove(cartLinesWithColor.First());
-                }
-
-                if (amountOfParticipatingProducts >= 3)
-                {
-                    double discount = (participatingProducts.Last().PriceUYU / 2.0);
-
-                    LowerDiscount.Add(discount);
-                }
-            }
-            if (LowerDiscount.Count() > 0)
-            {
-                LowerDiscount.Sort();
-                return retValue - LowerDiscount.First();
-            }
-
-            return retValue;
+            return colorsInCart;
         }
-
     }
 
 
