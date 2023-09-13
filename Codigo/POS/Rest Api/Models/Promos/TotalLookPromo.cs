@@ -8,53 +8,58 @@ namespace Rest_Api.Models.Promos
 
         public override double ApplyDiscount(Cart cart)
         {
+            if (cart is null || cart.Products.Count == 0) { return 0; }
+
             double retValue = cart.PriceUYU;
 
-            return retValue;
-        }
+            List<Colour> colorsInCart = new List<Colour>();
 
-        private bool HasThreeSameColoredProducts(List<CartLine> products)
-        {
-            int amountOfItems = 0;
-            foreach (CartLine line in products)
+            foreach (CartLine cartLine in cart.Products)
             {
-                amountOfItems += line.Quantity;
-                if (amountOfItems == 2) return true;
-            }
-
-            return false;
-        }
-
-        private List<Colour> ColoursInCommon(Product productA, Product productB)
-        {
-            return productA.Colours.Intersect(productB.Colours).ToList();
-        }
-
-        private bool HasThreeColoursInCommon(List<CartLine> lines)
-        {
-
-            for (int i = 0; i < lines.Count; i++)
-            {
-                for (int j = i + 1; j < lines.Count; j++)
+                if (cartLine.Product != null && cartLine.Product.Colours != null)
                 {
-                    var commonColors = lines[i].Product.Colours.Intersect(lines[j].Product.Colours);
-
-                    if (commonColors.Any())
+                    foreach (Colour color in cartLine.Product.Colours)
                     {
-                        for (int k = j + 1; k < lines.Count; k++)
-                        {                            
-                            if (commonColors.Intersect(lines[k].Product.Colours).Any())
-                            {
-                                return true; 
-                            }
+                        if (!colorsInCart.Contains(color))
+                        {
+                            colorsInCart.Add(color);
                         }
                     }
                 }
             }
 
-            return false; 
+
+            foreach (Colour colour in colorsInCart)
+            {
+                List<CartLine> cartLinesWithColor = cart.Products
+                .Where(cartLine =>
+                    cartLine.Product != null &&
+                    cartLine.Product.Colours != null &&
+                    cartLine.Product.Colours.Contains(colour))
+                .ToList();
+
+                if(cartLinesWithColor.Count >= 3)
+                {
+                    cartLinesWithColor.OrderBy(p => p.Product.PriceUYU);
+                }
+
+                int amountOfParticipatingProducts = 0;
+                List<Product> participatingProducts = new List<Product>();
+
+                while(amountOfParticipatingProducts<3 && cartLinesWithColor.Count > 0)
+                {
+                    participatingProducts.Add(cartLinesWithColor.First().Product);
+                    amountOfParticipatingProducts += cartLinesWithColor.First().Quantity;
+                    cartLinesWithColor.Remove(cartLinesWithColor.First());
+                }
+
+                return retValue - (participatingProducts.Last().PriceUYU/2.0);
+            }
+
+            return retValue;
         }
+
     }
 
-    
+
 }

@@ -13,7 +13,7 @@
                 Product productToDiscount = SecondCheapestProduct(cart.Products);
                 double priceToApplyDiscuount = productToDiscount.PriceUYU;
 
-                retValue -= (priceToApplyDiscuount * 0.8);
+                retValue -= (priceToApplyDiscuount * 0.2);
             }
 
             return retValue;
@@ -22,7 +22,14 @@
         private Product SecondCheapestProduct(List<CartLine> cartLines)
         {
             List<CartLine> sortedByPrice = cartLines.OrderBy(p => p.Product.PriceUYU).ToList();
-            return sortedByPrice[1].Product;
+            if (sortedByPrice.Count == 1 || sortedByPrice[0].Quantity >= 2) 
+            {
+                return sortedByPrice[0].Product; 
+            }
+            else
+            { 
+                return sortedByPrice[1].Product;
+            }
         }
 
         private bool HasAtLeastTwoProducts(Cart cart)
