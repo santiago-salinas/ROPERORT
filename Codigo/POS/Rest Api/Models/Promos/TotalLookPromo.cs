@@ -28,7 +28,7 @@ namespace Rest_Api.Models.Promos
                 }
             }
 
-
+            List<double> LowerDiscount = new List<double>();
             foreach (Colour colour in colorsInCart)
             {
                 List<CartLine> cartLinesWithColor = cart.Products
@@ -38,22 +38,30 @@ namespace Rest_Api.Models.Promos
                     cartLine.Product.Colours.Contains(colour))
                 .ToList();
 
-                if(cartLinesWithColor.Count >= 3)
-                {
-                    cartLinesWithColor.OrderBy(p => p.Product.PriceUYU);
-                }
+                cartLinesWithColor.OrderBy(p => p.Product.PriceUYU);
+
 
                 int amountOfParticipatingProducts = 0;
                 List<Product> participatingProducts = new List<Product>();
 
-                while(amountOfParticipatingProducts<3 && cartLinesWithColor.Count > 0)
+                while (amountOfParticipatingProducts < 3 && cartLinesWithColor.Count > 0)
                 {
                     participatingProducts.Add(cartLinesWithColor.First().Product);
                     amountOfParticipatingProducts += cartLinesWithColor.First().Quantity;
                     cartLinesWithColor.Remove(cartLinesWithColor.First());
                 }
 
-                return retValue - (participatingProducts.Last().PriceUYU/2.0);
+                if (amountOfParticipatingProducts >= 3)
+                {
+                    double discount = (participatingProducts.Last().PriceUYU / 2.0);
+
+                    LowerDiscount.Add(discount);
+                }
+            }
+            if (LowerDiscount.Count() > 0)
+            {
+                LowerDiscount.Sort();
+                return retValue - LowerDiscount.First();
             }
 
             return retValue;

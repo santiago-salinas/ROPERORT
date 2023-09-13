@@ -87,7 +87,7 @@ namespace ApiTests
             cart.Products.Add(new CartLine { Product = _testProduct2, Quantity = 1 });
             cart.Products.Add(new CartLine { Product = _testProduct4, Quantity = 1 });
 
-            // 10+20+(25*0.5)
+
             var expectedPrice = 42.5;
             var discountedPrice = promo.ApplyDiscount(cart);
             Assert.AreEqual(expectedPrice, discountedPrice);
@@ -111,11 +111,10 @@ namespace ApiTests
         {
             var promo = new TotalLookPromo();
             var cart = new Cart();
+            cart.Products.Add(new CartLine { Product = _testProduct1, Quantity = 2 });
             cart.Products.Add(new CartLine { Product = _testProduct2, Quantity = 2 });
-            cart.Products.Add(new CartLine { Product = _testProduct3, Quantity = 2 });
 
-            //((15/2)+15+20) +20
-            var expectedPrice = 62.5;
+            var expectedPrice = 50;
             var discountedPrice = promo.ApplyDiscount(cart);
             Assert.AreEqual(expectedPrice, discountedPrice);
         }
@@ -132,7 +131,7 @@ namespace ApiTests
         }
 
         [TestMethod]
-        public void TwoColors_ChepeastToStore_GetsApplied()
+        public void Complex_ChepeastToStore_GetsApplied()
         {
             var promo = new TotalLookPromo();
             var cart = new Cart();
@@ -141,7 +140,7 @@ namespace ApiTests
             cart.Products.Add(new CartLine { Product = _testProduct3, Quantity = 1 });
             cart.Products.Add(new CartLine { Product = _testProduct4, Quantity = 2 });
 
-            var expectedPrice = cart.PriceUYU-7.5f;
+            var expectedPrice = cart.PriceUYU-10f;
             var discountedPrice = promo.ApplyDiscount(cart);
             Assert.AreEqual(expectedPrice, discountedPrice);
         }
