@@ -18,7 +18,7 @@ namespace DataAccess.DatabaseServices
         {
             using (EFContext context = new EFContext())
             {
-                if (context.PurchaseEntities.Any())
+                if (context.UserEntities.Any())
                 {
                     _nextAvailableId = context.UserEntities.Max(x => x.Id) + 1;
                 }
