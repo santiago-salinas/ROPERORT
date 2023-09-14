@@ -14,6 +14,8 @@ namespace DataAccess.Entities
         [Key]
         public string Name { get; set; }
 
+        public CategoryEntity() { }
+
         public static CategoryEntity FromModel(Category brand)
         {
             return new CategoryEntity() { Name = brand.Name };

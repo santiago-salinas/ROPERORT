@@ -14,6 +14,8 @@ namespace DataAccess.Entities
         [Key]
         public string Name { get; set; }
 
+        public BrandEntity() { }
+
         public static BrandEntity FromModel(Brand brand) 
         {
             return new BrandEntity() { Name = brand.Name };

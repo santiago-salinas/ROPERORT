@@ -1,5 +1,6 @@
 ﻿using DataAccess.Entities;
 using DataAccess.Expcetions;
+using DataAccessInterfaces;
 using Microsoft.EntityFrameworkCore;
 using Rest_Api.Models;
 using Rest_Api.Services;
@@ -7,18 +8,21 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata;
+using System.Security.Cryptography.Xml;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DataAccess.DatabaseServices
 {
-    public class EFProductService : ICRUDService<Product>
+    public class EFProductRepository : IProductRepository
     {
         private int _nextAvailableId;
-        public EFProductService()  
+        public EFProductRepository()  
         {
             using (EFContext context = new EFContext())
             {
+
+
                 if (context.ProductEntities.Any())
                 {
                     _nextAvailableId = context.ProductEntities.Max(x => x.Id) + 1;
@@ -41,8 +45,16 @@ namespace DataAccess.DatabaseServices
                     List<ProductEntity> entities = context.ProductEntities
                         .Include(p => p.Brand)
                         .Include(p => p.Category)
-                        .Include(p => p.Colours.Select(c => c.Colour))
+                        .Include(p => p.Colours)
                         .ToList();
+                    entities.ForEach(p =>
+                    {
+                        p.Colours = p.Colours.Select(c1 =>
+                        {
+                            c1.Colour = context.ColourEntities.First(c2 => c2.Name == c1.ColourName);
+                            return c1;
+                        }).ToList();
+                    });
 
                     List<Product> products = entities.Select(p => ProductEntity.FromEntity(p)).ToList();
 
@@ -84,8 +96,8 @@ namespace DataAccess.DatabaseServices
             {
                 using (EFContext context = new EFContext())
                 {
-                    ProductEntity entity = ProductEntity.FromModel(product);
-                    entity.Id = _nextAvailableId;
+                    ProductEntity entity = ProductEntity.FromModel(product,context);
+                    //entity.Id = _nextAvailableId;
                     context.ProductEntities.Add(entity);
                     context.SaveChanges();
                 }
@@ -119,9 +131,9 @@ namespace DataAccess.DatabaseServices
         {
             try
             {
-                ProductEntity entity = ProductEntity.FromModel(product);
                 using (EFContext context = new EFContext())
                 {
+                    ProductEntity entity = ProductEntity.FromModel(product,context);
                     context.ProductEntities.Update(entity);
                 }
             }

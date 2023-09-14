@@ -17,18 +17,19 @@ namespace DataAccess.Entities
         public string ColourName { get; set; }
         public ColourEntity Colour { get; set; }
 
-        public static ProductColors FromModel(Product product, Colour colour)
+
+        public ProductColors() { }
+        public ProductColors (ProductEntity product, Colour colour, EFContext context)
         {
-            return new ProductColors
-            {
-                ProductId = product.Id,
-                Product = ProductEntity.FromModel(product),
-                ColourName = colour.Name,
-                Colour = ColourEntity.FromModel(colour)
-            };
+            ColourEntity colourEntity = context.ColourEntities.First(c =>c.Name == colour.Name);
+
+            ProductId = product.Id;
+            Product = product;
+            ColourName = colour.Name;
+            Colour = colourEntity;
         }
 
-        public static ProductColors FromEntity(ProductEntity productEntity, ColourEntity colourEntity)
+       /* public static ProductColors FromEntity(ProductEntity productEntity, ColourEntity colourEntity)
         {
             return new ProductColors
             {
@@ -37,6 +38,6 @@ namespace DataAccess.Entities
                 ColourName = colourEntity.Name,
                 Colour = colourEntity
             };
-        }
+        }*/
     }
 }

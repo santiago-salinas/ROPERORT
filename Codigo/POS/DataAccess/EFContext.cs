@@ -18,6 +18,9 @@ namespace DataAccess
             modelBuilder.Entity<UserEntity>().HasAlternateKey(u => u.Email);
             modelBuilder.Entity<ProductEntity>().HasAlternateKey(p => p.Name);
 
+            modelBuilder.Entity<ProductEntity>()
+                .Property(p => p.Id)
+                .ValueGeneratedOnAdd();
 
             modelBuilder.Entity<PurchasedProductEntity>().HasKey(ppe => new { ppe.PurchaseId, ppe.ProductId });
             modelBuilder.Entity<AssignedRoles>().HasKey(ar => new { ar.RoleName, ar.UserId });

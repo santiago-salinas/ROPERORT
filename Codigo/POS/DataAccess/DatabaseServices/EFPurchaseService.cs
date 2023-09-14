@@ -108,7 +108,7 @@ namespace DataAccess.DatabaseServices
             {
                 using (EFContext context = new EFContext())
                 {
-                    PurchaseEntity entity = PurchaseEntity.FromModel(purchase);
+                    PurchaseEntity entity = PurchaseEntity.FromModel(purchase, context);
                     entity.Id = _nextAvailableId;
                     context.PurchaseEntities.Add(entity);
                     context.SaveChanges();
@@ -145,7 +145,7 @@ namespace DataAccess.DatabaseServices
             {
                 using (EFContext context = new EFContext())
                 {
-                    PurchaseEntity entity = PurchaseEntity.FromModel(purchase);
+                    PurchaseEntity entity = PurchaseEntity.FromModel(purchase, context);
                     context.PurchaseEntities.Update(entity);
                 }
             }

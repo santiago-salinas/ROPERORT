@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DataAccessInterfaces\DataAccessInterfaces.csproj" />
     <ProjectReference Include="..\Rest Api\Rest Api.csproj" />
   </ItemGroup>
 
