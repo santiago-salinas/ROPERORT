@@ -12,10 +12,13 @@ namespace Rest_Api.Controllers;
 public class CartController : ControllerBase
 {
     private readonly ICRUDService<Product> _productService;
+    private readonly PromoService _promoService;
+
 
     public CartController(ICRUDService<Product> cartService)
     {
         _productService = cartService;
+        _promoService = new PromoService();
     }
 
     // POST action
@@ -31,7 +34,8 @@ public class CartController : ControllerBase
         try
         {
             cart = CartDTOtoObject(cartDto);
-            return CreatedAtAction(nameof(Create),cart.PriceUYU, cart);
+            _promoService.ApplyPromo(cart);
+            return CreatedAtAction(nameof(Create),cart.DiscountedPriceUYU, cart);
         }
         catch (Exception e)
         {
@@ -59,20 +63,5 @@ public class CartController : ControllerBase
         }
 
         return ret;
-    }
-
-    [HttpGet]
-    public ActionResult<CartDTO> GetAll()
-    {
-        CartDTO cartDto = new CartDTO();
-        CartLineDTO cartLineDto = new CartLineDTO()
-        {
-            id = 1,
-            Quantity = 3
-        };
-
-        cartDto.Products.Add(cartLineDto);
-
-        return cartDto;
     }
 }

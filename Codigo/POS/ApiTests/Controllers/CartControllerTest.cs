@@ -269,7 +269,7 @@ namespace ApiTests
             Cart createdCart = (Cart)createdResult.Value;
             double originalValue = 600;
             double expectedValue = 600;
-            Assert.AreEqual(expectedValue, createdCart.PriceUYU);
+            Assert.AreEqual(expectedValue, createdCart.DiscountedPriceUYU);
 
         }
     }
