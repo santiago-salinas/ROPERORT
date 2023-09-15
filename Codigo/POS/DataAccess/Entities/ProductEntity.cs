@@ -24,7 +24,7 @@ namespace DataAccess.Entities
         public IList<ProductColors> Colours { get; set;}
 
 
-        public ProductEntity() { }
+        public ProductEntity() {  Colours = new List<ProductColors>(); }
         public static ProductEntity FromModel(Product product, EFContext context)
         {
             BrandEntity brand = context.BrandEntities.First(b => b.Name == product.Brand.Name);
@@ -32,7 +32,6 @@ namespace DataAccess.Entities
 
             ProductEntity retValue = new ProductEntity
             {
-//                Id = product.Id,
                 Name = product.Name,
                 Price = product.PriceUYU, 
                 Description = product.Description,

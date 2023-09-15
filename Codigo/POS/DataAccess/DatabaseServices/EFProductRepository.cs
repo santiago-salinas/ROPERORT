@@ -16,77 +16,56 @@ namespace DataAccess.DatabaseServices
 {
     public class EFProductRepository : IProductRepository
     {
-        private int _nextAvailableId;
-        public EFProductRepository()  
+        private readonly EFContext _context;
+        public EFProductRepository(EFContext context)
+        { _context = context; }
+
+        public List<Product> GetAll(Func<ProductEntity, bool>? filter = null)
         {
-            using (EFContext context = new EFContext())
+
+            try
             {
+                List<ProductEntity> entities = _context.ProductEntities
+                    .Include(p => p.Brand)
+                    .Include(p => p.Category)
+                    .Include(p => p.Colours)
+                        .ThenInclude(c => c.Colour)
+                    .ToList();
 
+                if (filter != null)
+                {
+                    entities = entities.Where(p => filter(p)).ToList();
+                }
 
-                if (context.ProductEntities.Any())
-                {
-                    _nextAvailableId = context.ProductEntities.Max(x => x.Id) + 1;
-                }
-                else
-                {
-                    _nextAvailableId = 1;
-                }
+                List<Product> products = entities.Select(p => ProductEntity.FromEntity(p)).ToList();
+
+                return products;
+
             }
+            catch
+            {
+                throw new DatabaseException("Error while getting all products from database");
+            }
+
         }
 
-        public int NextId { get { return _nextAvailableId; } }
-
-        public List<Product> GetAll()
+        public Product? Get(int id)
         {
-            using (EFContext context = new EFContext())
+            try
             {
-                try
-                {
-                    List<ProductEntity> entities = context.ProductEntities
-                        .Include(p => p.Brand)
-                        .Include(p => p.Category)
-                        .Include(p => p.Colours)
-                        .ToList();
-                    entities.ForEach(p =>
-                    {
-                        p.Colours = p.Colours.Select(c1 =>
-                        {
-                            c1.Colour = context.ColourEntities.First(c2 => c2.Name == c1.ColourName);
-                            return c1;
-                        }).ToList();
-                    });
+                ProductEntity product = _context.ProductEntities
+                    .Include(p => p.Brand)
+                    .Include(p => p.Category)
+                    .Include(p => p.Colours)
+                        .ThenInclude(c=> c.Colour)
+                    .First(p => p.Id == id);
 
-                    List<Product> products = entities.Select(p => ProductEntity.FromEntity(p)).ToList();
+                return ProductEntity.FromEntity(product);
 
-                    return products;
-
-                }catch
-                {
-                    throw new DatabaseException("Error while getting all products from database");
-                }
             }
-        }
-
-        public Product? Get(int id) 
-        {
-            using (EFContext context = new EFContext())
+            catch(InvalidOperationException) { }
             {
-                try
-                {
-                    ProductEntity product = context.ProductEntities
-                        .Include(p => p.Brand)
-                        .Include(p => p.Category)
-                        .Include(p => p.Colours.Select(c => c.Colour))
-                        .First(p => p.Id == id);
-
-                    return ProductEntity.FromEntity(product);
-
-                }
-                catch
-                {
-                    throw new DatabaseException("Error while trying to get product with id " + id);
-                }
-
+                return null;
             }
         }
 
@@ -94,32 +73,27 @@ namespace DataAccess.DatabaseServices
         {
             try
             {
-                using (EFContext context = new EFContext())
-                {
-                    ProductEntity entity = ProductEntity.FromModel(product,context);
-                    //entity.Id = _nextAvailableId;
-                    context.ProductEntities.Add(entity);
-                    context.SaveChanges();
-                }
+
+                ProductEntity entity = ProductEntity.FromModel(product, _context);
+                _context.ProductEntities.Add(entity);
+                _context.SaveChanges();
+
             }
             catch
             {
-            
+
                 throw new DatabaseException("Error while trying to add product " + product.Name);
             }
-            _nextAvailableId++;
         }
 
         public void Delete(int id)
         {
             try
             {
-                using (EFContext context = new EFContext())
-                {
-                    ProductEntity entity = context.ProductEntities.First(p => p.Id == id);
-                    context.ProductEntities.Remove(entity);
-                }
 
+                ProductEntity entity = _context.ProductEntities.First(p => p.Id == id);
+                _context.ProductEntities.Remove(entity);
+                _context.SaveChanges();
             }
             catch
             {
@@ -131,13 +105,11 @@ namespace DataAccess.DatabaseServices
         {
             try
             {
-                using (EFContext context = new EFContext())
-                {
-                    ProductEntity entity = ProductEntity.FromModel(product,context);
-                    context.ProductEntities.Update(entity);
-                }
+                ProductEntity entity = ProductEntity.FromModel(product, _context);
+                _context.ProductEntities.Update(entity);
+                _context.SaveChanges();
             }
-            catch 
+            catch
             {
                 throw new DatabaseException("Error while trying to update product " + product.Name);
             }
