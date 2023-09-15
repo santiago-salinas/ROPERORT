@@ -1,14 +1,15 @@
 ﻿using Rest_Api.Models;
 using Rest_Api.Models.Promos;
+using System.Drawing;
 
 namespace Rest_Api.Services;
 
-public class PromoService
+public class PromoService : IGetService<Promo>
 {
     private const int _zero = 0;
 
     List<Promo> Promos { get; }
-    public PromoService()
+    public PromoService() 
     {
         Promos = new List<Promo>
         {
@@ -21,25 +22,6 @@ public class PromoService
 
 
     public List<Promo> GetAll() => Promos;
-
-    public void ApplyPromo(Cart cart)
-    {
-        if (cart is null || cart.Products.Count == _zero) { return; }
-
-        double bestPrice = cart.PriceUYU;
-        Promo bestPromoToClient = null;
-
-        foreach (Promo promo in Promos)
-        {
-            double newPrice = promo.ApplyDiscount(cart);
-            if (newPrice < bestPrice)
-            {
-                bestPromoToClient = promo;
-                bestPrice = newPrice;
-            }
-        }
-
-        cart.AppliedPromo = bestPromoToClient;
-    }
+    public Promo? Get(string name) => Promos.FirstOrDefault(p => p.Name == name);
 
 }

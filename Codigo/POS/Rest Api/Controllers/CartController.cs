@@ -14,6 +14,7 @@ public class CartController : ControllerBase
     private readonly ICRUDService<Product> _productService;
     private readonly PromoService _promoService;
 
+    private const int _zero = 0;
 
     public CartController(ICRUDService<Product> cartService)
     {
@@ -34,7 +35,7 @@ public class CartController : ControllerBase
         try
         {
             cart = CartDTOtoObject(cartDto);
-            _promoService.ApplyPromo(cart);
+            ApplyPromo(cart);
             return CreatedAtAction(nameof(Create),cart.DiscountedPriceUYU, cart);
         }
         catch (Exception e)
@@ -42,6 +43,28 @@ public class CartController : ControllerBase
             return BadRequest(e.Message);
         }
         
+    }
+
+    public void ApplyPromo(Cart cart)
+    {
+        List<Promo> Promos = _promoService.GetAll();
+
+        if (cart is null || cart.Products.Count == _zero) { return; }
+
+        double bestPrice = cart.PriceUYU;
+        Promo bestPromoToClient = null;
+
+        foreach (Promo promo in Promos)
+        {
+            double newPrice = promo.ApplyDiscount(cart);
+            if (newPrice < bestPrice)
+            {
+                bestPromoToClient = promo;
+                bestPrice = newPrice;
+            }
+        }
+
+        cart.AppliedPromo = bestPromoToClient;
     }
 
     private Cart CartDTOtoObject(CartDTO cartDto)

@@ -236,10 +236,6 @@ namespace ApiTests
                 colour
             };
             
-            // 3 productos -> 20% highest (1680)
-            // 3 mismo color -> 1500
-            // 3 misma categoria -> 1200
-            // 3 misma brand -> 600
             var mock = new Mock<ICRUDService<Product>>(MockBehavior.Strict);
             mock.Setup(s => s.Get(1)).Returns(new Product
             {
