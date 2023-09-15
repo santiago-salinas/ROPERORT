@@ -14,6 +14,8 @@ builder.Services.AddScoped<ICRUDService<Product>, ProductService>();
 builder.Services.AddScoped<IGetService<Brand>, BrandService>();
 builder.Services.AddScoped<IGetService<Category>, CategoryService>();
 builder.Services.AddScoped<IGetService<Colour>, ColourService>();
+builder.Services.AddScoped<IGetService<Promo>, PromoService>();
+
 
 
 var app = builder.Build();
