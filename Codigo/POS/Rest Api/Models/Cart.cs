@@ -1,5 +1,6 @@
 using Rest_Api.DTOs;
 using Rest_Api.Models.Exceptions;
+using Rest_Api.Services;
 
 namespace Rest_Api.Models
 {
@@ -30,6 +31,25 @@ namespace Rest_Api.Models
             }
             return sum;
         }
+
+
+        public double DiscountedPriceUYU
+        {
+            get
+            {
+                Promo possiblePromo = AppliedPromo;
+                if (possiblePromo is not null)
+                {
+                    return possiblePromo.ApplyDiscount(this);
+                }
+
+                return TotalPrice();
+            }
+
+        }
+
+        public Promo? AppliedPromo { get; set; }
+        
     }
     public class CartLine
     {

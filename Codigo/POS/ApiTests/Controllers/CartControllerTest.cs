@@ -14,13 +14,30 @@ using System.Drawing;
 using Rest_Api.DTOs;
 using Rest_Api.Services.Exceptions;
 using Rest_Api.Models.Exceptions;
+using Rest_Api.Models.Promos;
 
 namespace ApiTests
 {
     [TestClass]
     public class CartControllerTest
     {
-        [TestMethod]
+        public Mock<IGetService<Promo>> mockDiscounts = new Mock<IGetService<Promo>>(MockBehavior.Strict);
+
+        CartControllerTest()
+        {
+            mockDiscounts.Setup(s => s.GetAll()).Returns(new List<Promo>
+        {
+            new FidelityPromo(),
+            new ThreeForTwoPromo(),
+            new TwentyPercentOff(),
+            new TotalLookPromo()
+        });
+
+        }
+        
+
+
+[TestMethod]
         public void CartControllerTestSuccess() 
         {
             Brand brand = new Brand();
@@ -37,14 +54,14 @@ namespace ApiTests
                 colour
             };
 
-            var mock = new Mock<ICRUDService<Product>>(MockBehavior.Strict);
-            mock.Setup(s => s.Get(1)).Returns(new Product { Id = 1, Name = "Cap1", 
+            var mockProduct = new Mock<ICRUDService<Product>>(MockBehavior.Strict);
+            mockProduct.Setup(s => s.Get(1)).Returns(new Product { Id = 1, Name = "Cap1", 
                                                             PriceUYU = 600, 
                                                             Description = "Stylish Cap.", 
                                                             Brand = brand, 
                                                             Category = category, 
                                                             Colours = colours });
-            var controller = new CartController(mock.Object);
+            var controller = new CartController(mockProduct.Object, mockDiscounts.Object);
 
             CartDTO cartDto = new CartDTO();
             CartLineDTO cartLineDto = new CartLineDTO()
@@ -82,13 +99,14 @@ namespace ApiTests
                 colour
             };
 
-            var mock = new Mock<ICRUDService<Product>>(MockBehavior.Strict);
-            mock.Setup(s => s.Get(1)).Returns(new Product { Id = 1, 
+            var mockProduct = new Mock<ICRUDService<Product>>(MockBehavior.Strict);
+            mockProduct.Setup(s => s.Get(1)).Returns(new Product { Id = 1, 
                                                             Name = "Cap1", PriceUYU = 600, 
                                                             Description = "Stylish Cap.", 
                                                             Brand = brand, Category = category, 
                                                             Colours = colours });
-            var controller = new CartController(mock.Object);
+            var controller = new CartController(mockProduct.Object, mockDiscounts.Object);
+
 
             CartDTO cartDto = new CartDTO();
             CartLineDTO cartLineDto = new CartLineDTO()
@@ -126,16 +144,17 @@ namespace ApiTests
                 colour
             };
 
-            var mock = new Mock<ICRUDService<Product>>(MockBehavior.Strict);
-            mock.Setup(s => s.Get(1)).Returns(new Product { Id = 1, 
+            var mockProduct = new Mock<ICRUDService<Product>>(MockBehavior.Strict);
+            mockProduct.Setup(s => s.Get(1)).Returns(new Product { Id = 1, 
                                                             Name = "Cap1", 
                                                             PriceUYU = 600, 
                                                             Description = "Stylish Cap.", 
                                                             Brand = brand, 
                                                             Category = category, 
                                                             Colours = colours });
-            
-            var controller = new CartController(mock.Object);
+
+            var controller = new CartController(mockProduct.Object, mockDiscounts.Object);
+
 
             CartDTO cartDto = new CartDTO();
             CartLineDTO cartLineDto = new CartLineDTO()
@@ -173,15 +192,16 @@ namespace ApiTests
                 colour
             };
 
-            var mock = new Mock<ICRUDService<Product>>(MockBehavior.Loose);
-            mock.Setup(s => s.Get(1)).Returns(new Product { Id = 1, 
+            var mockProduct = new Mock<ICRUDService<Product>>(MockBehavior.Loose);
+            mockProduct.Setup(s => s.Get(1)).Returns(new Product { Id = 1, 
                                                             Name = "Cap1", PriceUYU = 600, 
                                                             Description = "Stylish Cap.", 
                                                             Brand = brand, 
                                                             Category = category, 
                                                             Colours = colours });
 
-            var controller = new CartController(mock.Object);
+            var controller = new CartController(mockProduct.Object, mockDiscounts.Object);
+
 
             CartDTO cartDto = new CartDTO();
             CartLineDTO cartLineDto = new CartLineDTO()
@@ -205,8 +225,9 @@ namespace ApiTests
         [TestMethod]
         public void FailedEmptyCart()
         {
-            var mock = new Mock<ICRUDService<Product>>(MockBehavior.Loose);
-            var controller = new CartController(mock.Object);
+            var mockProduct = new Mock<ICRUDService<Product>>(MockBehavior.Loose);
+            var controller = new CartController(mockProduct.Object, mockDiscounts.Object);
+
 
             CartDTO cartDto = new CartDTO();
 
@@ -216,6 +237,57 @@ namespace ApiTests
 
             Assert.AreEqual("Empty Cart", createdResult.Value);
             Assert.AreEqual(400, createdResult.StatusCode);
+
+        }
+
+        [TestMethod]
+        public void CartDiscountAppliedSuccess()
+        {
+            Brand brand = new Brand();
+            brand.Name = "Adidas";
+
+            Category category = new Category();
+            category.Name = "Shorts";
+
+            Colour colour = new Colour();
+            colour.Name = "Red";
+
+            List<Colour> colours = new List<Colour>
+            {
+                colour
+            };
+            
+            var mockProduct = new Mock<ICRUDService<Product>>(MockBehavior.Strict);
+            mockProduct.Setup(s => s.Get(1)).Returns(new Product
+            {
+                Id = 1,
+                Name = "Cap1",
+                PriceUYU = 600,
+                Description = "Stylish Cap.",
+                Brand = brand,
+                Category = category,
+                Colours = colours
+            });
+            var controller = new CartController(mockProduct.Object, mockDiscounts.Object);
+
+
+            CartDTO cartDto = new CartDTO();
+            CartLineDTO cartLineDto = new CartLineDTO()
+            {
+                id = 1,
+                Quantity = 3
+            };
+
+            cartDto.Products.Add(cartLineDto);
+
+            var result = controller.Create(cartDto);
+
+            var createdResult = result as CreatedAtActionResult;
+
+            Cart createdCart = (Cart)createdResult.Value;
+            double originalValue = 600;
+            double expectedValue = 600;
+            Assert.AreEqual(expectedValue, createdCart.DiscountedPriceUYU);
 
         }
     }

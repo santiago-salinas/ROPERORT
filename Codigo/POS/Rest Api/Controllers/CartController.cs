@@ -12,10 +12,14 @@ namespace Rest_Api.Controllers;
 public class CartController : ControllerBase
 {
     private readonly ICRUDService<Product> _productService;
+    private readonly IGetService<Promo> _promoService;
 
-    public CartController(ICRUDService<Product> cartService)
+    private const int _zero = 0;
+
+    public CartController(ICRUDService<Product> cartService, IGetService<Promo> promoService)
     {
         _productService = cartService;
+        _promoService = promoService;
     }
 
     // POST action
@@ -31,13 +35,36 @@ public class CartController : ControllerBase
         try
         {
             cart = CartDTOtoObject(cartDto);
-            return CreatedAtAction(nameof(Create),cart.PriceUYU, cart);
+            ApplyPromo(cart);
+            return CreatedAtAction(nameof(Create),cart.DiscountedPriceUYU, cart);
         }
         catch (Exception e)
         {
             return BadRequest(e.Message);
         }
         
+    }
+
+    public void ApplyPromo(Cart cart)
+    {
+        List<Promo> Promos = _promoService.GetAll();
+
+        if (cart is null || cart.Products.Count == _zero) { return; }
+
+        double bestPrice = cart.PriceUYU;
+        Promo bestPromoToClient = null;
+
+        foreach (Promo promo in Promos)
+        {
+            double newPrice = promo.ApplyDiscount(cart);
+            if (newPrice < bestPrice)
+            {
+                bestPromoToClient = promo;
+                bestPrice = newPrice;
+            }
+        }
+
+        cart.AppliedPromo = bestPromoToClient;
     }
 
     private Cart CartDTOtoObject(CartDTO cartDto)
@@ -59,20 +86,5 @@ public class CartController : ControllerBase
         }
 
         return ret;
-    }
-
-    [HttpGet]
-    public ActionResult<CartDTO> GetAll()
-    {
-        CartDTO cartDto = new CartDTO();
-        CartLineDTO cartLineDto = new CartLineDTO()
-        {
-            id = 1,
-            Quantity = 3
-        };
-
-        cartDto.Products.Add(cartLineDto);
-
-        return cartDto;
     }
 }
