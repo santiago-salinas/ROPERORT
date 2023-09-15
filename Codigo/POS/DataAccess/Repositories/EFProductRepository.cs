@@ -3,26 +3,18 @@ using DataAccess.Expcetions;
 using DataAccessInterfaces;
 using Microsoft.EntityFrameworkCore;
 using Rest_Api.Models;
-using Rest_Api.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Security.Cryptography.Xml;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace DataAccess.DatabaseServices
 {
-    public class EFProductRepository : IProductRepository
+    public class EFProductRepository : ICRUDRepository<Product>
     {
         private readonly EFContext _context;
         public EFProductRepository(EFContext context)
         { _context = context; }
 
-        public List<Product> GetAll(Func<ProductEntity, bool>? filter = null)
+        public List<Product> GetAll(Func<Product, bool>? filter = null)
         {
-
             try
             {
                 List<ProductEntity> entities = _context.ProductEntities
@@ -32,12 +24,13 @@ namespace DataAccess.DatabaseServices
                         .ThenInclude(c => c.Colour)
                     .ToList();
 
-                if (filter != null)
-                {
-                    entities = entities.Where(p => filter(p)).ToList();
-                }
 
                 List<Product> products = entities.Select(p => ProductEntity.FromEntity(p)).ToList();
+
+                if (filter != null)
+                {
+                    products = products.Where(p => filter(p)).ToList();
+                }
 
                 return products;
 
@@ -46,7 +39,6 @@ namespace DataAccess.DatabaseServices
             {
                 throw new DatabaseException("Error while getting all products from database");
             }
-
         }
 
         public Product? Get(int id)

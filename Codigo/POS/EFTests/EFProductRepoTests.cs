@@ -164,7 +164,7 @@ namespace EFTests
         {
             AddFilterTestData();
 
-            Func<ProductEntity, bool> filter = p => p.Price >= 50;
+            Func<Product, bool> filter = p => p.PriceUYU >= 50;
 
             List<Product> products = _productRepository.GetAll(filter);
 
@@ -178,7 +178,7 @@ namespace EFTests
         {
             AddFilterTestData();
 
-            Func<ProductEntity, bool> filter = p => p.Colours.Any(c => c.Colour.Name == "Green");
+            Func<Product, bool> filter = p => p.Colours.Any(c => c.Name == "Green");
 
             List<Product> products = _productRepository.GetAll(filter);
 
@@ -192,7 +192,7 @@ namespace EFTests
         {
             AddFilterTestData();
 
-            Func<ProductEntity, bool> filter = p => p.Brand.Name == "Puma";
+            Func<Product, bool> filter = p => p.Brand.Name == "Puma";
 
             List<Product> products = _productRepository.GetAll(filter);
 
@@ -206,7 +206,7 @@ namespace EFTests
         {
             AddFilterTestData();
 
-            Func<ProductEntity, bool> filter = p => p.Category.Name == "T-Shirt";
+            Func<Product, bool> filter = p => p.Category.Name == "T-Shirt";
 
             List<Product> products = _productRepository.GetAll(filter);
 
