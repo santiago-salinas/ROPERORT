@@ -73,11 +73,9 @@ namespace DataAccess.DatabaseServices
         {
             try
             {
-
                 ProductEntity entity = ProductEntity.FromModel(product, _context);
                 _context.ProductEntities.Add(entity);
                 _context.SaveChanges();
-
             }
             catch
             {
