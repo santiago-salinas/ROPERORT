@@ -12,14 +12,14 @@ namespace Rest_Api.Controllers;
 public class CartController : ControllerBase
 {
     private readonly ICRUDService<Product> _productService;
-    private readonly PromoService _promoService;
+    private readonly IGetService<Promo> _promoService;
 
     private const int _zero = 0;
 
-    public CartController(ICRUDService<Product> cartService)
+    public CartController(ICRUDService<Product> cartService, IGetService<Promo> promoService)
     {
         _productService = cartService;
-        _promoService = new PromoService();
+        _promoService = promoService;
     }
 
     // POST action
