@@ -44,7 +44,6 @@ public class ProductService : ICRUDService<Product>
 
     public void Add(Product product)
     {
-        CheckProductParametersAreValid(product);
         product.Id = nextId++;
         Products.Add(product);
     }
@@ -60,7 +59,6 @@ public class ProductService : ICRUDService<Product>
 
     public void Update(Product product)
     {
-        CheckProductParametersAreValid(product);
 
         var index = Products.FindIndex(p => p.Id == product.Id);
         if (index == -1)
@@ -69,23 +67,4 @@ public class ProductService : ICRUDService<Product>
         Products[index] = product;
     }
 
-    private void CheckProductParametersAreValid(Product product)
-    {
-        if (!BrandExists(product.Brand)) { throw new Service_ArgumentException("Brand does not exist"); }
-        if (!CategoryExists(product.Category)) { throw new Service_ArgumentException("Category does not exist"); }
-        if (!ColoursExist(product.Colours)) { throw new Service_ArgumentException("One of the Colours does not exist"); }
-    }
-    private bool BrandExists(Brand brand) => BrandService.Get(brand.Name) != null;
-    private bool CategoryExists(Category category) => CategoryService.Get(category.Name) != null;
-    private bool ColoursExist(List<Colour> colours)
-    {
-        foreach (Colour colour in colours)
-        {
-            if (ColourService.Get(colour.Name) == null)
-            {
-                return false;
-            }
-        }
-        return true;
-    }
 }

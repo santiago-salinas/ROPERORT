@@ -19,5 +19,5 @@ public class BrandService : IGetService<Brand>
 
     public List<Brand> GetAll() => Brands;
 
-    public Brand? Get(string name) => Brands.FirstOrDefault(p => p.Name == name);
+    public Brand? Get(string name) => Brands.FirstOrDefault(p => p.Name.Equals(name));
 }
