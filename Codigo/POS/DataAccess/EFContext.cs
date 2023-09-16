@@ -7,7 +7,7 @@ namespace DataAccess
     public class EFContext : DbContext
     {
         private readonly bool _useInMemoryDatabase;
-        public EFContext(DbContextOptions<EFContext>? options = null, bool useInMemoryDB = false) : base(options) 
+        public EFContext(DbContextOptions<EFContext>? options = null, bool useInMemoryDB = false) : base() 
         {
             _useInMemoryDatabase = useInMemoryDB;
         }

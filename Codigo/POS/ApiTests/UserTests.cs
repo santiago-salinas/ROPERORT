@@ -1,4 +1,4 @@
-using Rest_Api.Models;
+using Models;
 
 namespace ApiTests
 {

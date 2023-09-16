@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Rest_Api.Models;
+using Models;
 
 namespace DataAccess.Entities
 {

@@ -1,7 +1,7 @@
 ﻿using DataAccess.Entities;
 using DataAccess.Expcetions;
 using Microsoft.EntityFrameworkCore;
-using Rest_Api.Models;
+using Models;
 using DataAccessInterfaces;
 
 namespace DataAccess.DatabaseServices

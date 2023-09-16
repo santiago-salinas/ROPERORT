@@ -1,10 +1,8 @@
-﻿using Rest_Api.Models;
-using Rest_Api.Models.Promos;
-using System.Drawing;
+﻿using Models;
 
 namespace Rest_Api.Services;
 
-public class PromoService : IGetService<Promo>
+public class PromoService
 {
     private const int _zero = 0;
 

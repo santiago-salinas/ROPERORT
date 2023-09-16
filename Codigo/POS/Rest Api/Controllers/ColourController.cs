@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Rest_Api.Models;
-using Rest_Api.Services;
+using Rest_Api.Interfaces;
+using Models;
 using System.Drawing;
+
 
 namespace Rest_Api.Controllers;
 
@@ -14,7 +15,6 @@ public class ColourController : ControllerBase
 
     public ColourController()
     {
-        colourService = new ColourService();
     }
 
     // GET all action

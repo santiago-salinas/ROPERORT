@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Rest_Api.Models;
-using Rest_Api.Services;
+using Rest_Api.Interfaces;
+using Models;
 
 namespace Rest_Api.Controllers
 {
@@ -12,7 +12,6 @@ namespace Rest_Api.Controllers
 
         public CategoryController()
         {
-            categoryService = new CategoryService();
         }
 
         // GET all action

@@ -1,11 +1,11 @@
-﻿using Rest_Api.Models;
+﻿using Models;
 using Rest_Api.Services.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Rest_Api.Models.Exceptions;
+using Models.Exceptions;
 
 namespace ApiTests
 {

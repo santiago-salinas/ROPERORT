@@ -1,23 +1,20 @@
 ﻿using System.Drawing;
 using System.Xml.Linq;
-using Rest_Api.Models;
+using DataAccessInterfaces;
+using Models;
+using Rest_Api.Interfaces;
 
 namespace Rest_Api.Services;
 
 public class BrandService : IGetService<Brand>
 {
-    List<Brand> Brands { get; }
-    public BrandService()
+    private readonly IGetRepository<Brand> _repository;
+    public BrandService(IGetRepository<Brand> repository)
     {
-        Brands = new List<Brand>
-        {
-            new Brand {Name = "Nike"},
-            new Brand {Name = "Puma"},
-            new Brand {Name = "CAT"},
-        };
+        _repository = repository;
     }
 
-    public List<Brand> GetAll() => Brands;
+    public List<Brand> GetAll() => _repository.GetAll();
 
-    public Brand? Get(string name) => Brands.FirstOrDefault(p => p.Name == name);
+    public Brand? Get(string name) => _repository.Get(name);
 }

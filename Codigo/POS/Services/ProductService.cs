@@ -1,12 +1,13 @@
 ﻿using System.Xml.Linq;
-using Rest_Api.Models;
+using Models;
 using Rest_Api.Services.Exceptions;
+using Rest_Api.Interfaces;
 using Rest_Api.Services;
 using DataAccessInterfaces;
 
 namespace Services;
 
-public class ProductService
+public class ProductService : IProductService
 {
     
     private readonly ICRUDRepository<Product> _productRepository;
@@ -42,6 +43,26 @@ public class ProductService
         CheckProductParametersAreValid(product);
         _productRepository.Update(product);
     }
+
+    public List<Product> GetFiltered(Category? category = null, Brand? brand = null, string? name = null)
+    {
+        IEnumerable<Product> result = GetAll();
+        if(category != null)
+        {
+            result = result.Where(p => p.Category.Equals(category));
+        }
+        if(brand != null)
+        {
+            result = result.Where(p => p.Brand.Equals(brand));
+        }
+        if (name != null)
+        {
+            result = result.Where(p => p.Name.Contains(name));
+        }
+
+        return result.ToList();
+    }
+
 
     private void CheckProductParametersAreValid(Product product)
     {

@@ -1,4 +1,4 @@
-﻿namespace ServiceInterfaces
+﻿namespace Models
 {
     public class Class1
     {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Rest_Api.Models;
-using Rest_Api.Services;
+using Rest_Api.Interfaces;
+using Models;
 
 namespace Rest_Api.Controllers
 {
@@ -8,15 +8,15 @@ namespace Rest_Api.Controllers
     [Route("[controller]")]
     public class BrandController : ControllerBase
     {
-        public IGetService<Brand> brandService;
+        private readonly IGetService<Brand> _brandService;
 
-        public BrandController()
+        public BrandController(IGetService<Brand> service)
         {
-            brandService = new BrandService();
+            _brandService = service;
         }
 
         // GET all action
         [HttpGet]
-        public ActionResult<List<Brand>> GetAll() => brandService.GetAll();
+        public ActionResult<List<Brand>> GetAll() => _brandService.GetAll();
     }
 }

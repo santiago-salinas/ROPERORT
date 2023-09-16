@@ -1,7 +1,7 @@
-﻿using Rest_Api.Models;
+﻿using Models;
 using System.Xml.Linq;
 
-namespace Rest_Api.Services
+namespace Rest_Api.Interfaces
 {
     public interface ICRUDService<T>
     {

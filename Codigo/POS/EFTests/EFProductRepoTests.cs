@@ -7,7 +7,7 @@ using System.Linq;
 using DataAccessInterfaces;
 using System.Drawing;
 using DataAccess.DatabaseServices;
-using Rest_Api.Models;
+using Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -166,7 +166,7 @@ namespace EFTests
 
             Func<Product, bool> filter = p => p.PriceUYU >= 50;
 
-            List<Product> products = _productRepository.GetAll(filter);
+            List<Product> products = _productRepository.GetAll();
 
             Assert.AreEqual(3, products.Count);
 
@@ -180,7 +180,7 @@ namespace EFTests
 
             Func<Product, bool> filter = p => p.Colours.Any(c => c.Name == "Green");
 
-            List<Product> products = _productRepository.GetAll(filter);
+            List<Product> products = _productRepository.GetAll();
 
             Assert.AreEqual(3, products.Count);
 
@@ -194,7 +194,7 @@ namespace EFTests
 
             Func<Product, bool> filter = p => p.Brand.Name == "Puma";
 
-            List<Product> products = _productRepository.GetAll(filter);
+            List<Product> products = _productRepository.GetAll();
 
             Assert.AreEqual(2, products.Count);
 
@@ -208,7 +208,7 @@ namespace EFTests
 
             Func<Product, bool> filter = p => p.Category.Name == "T-Shirt";
 
-            List<Product> products = _productRepository.GetAll(filter);
+            List<Product> products = _productRepository.GetAll();
 
             Assert.AreEqual(3, products.Count);
 

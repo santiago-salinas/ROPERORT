@@ -1,73 +1,67 @@
 ﻿using System.Xml.Linq;
-using Rest_Api.Models;
+using Models;
 using Rest_Api.Services.Exceptions;
+using Rest_Api.Interfaces;
+using Rest_Api.Services;
+using DataAccessInterfaces;
 
 namespace Rest_Api.Services;
 
+public class ProductService : IProductService
+{    
+    private readonly ICRUDRepository<Product> _productRepository;
+    private IGetRepository<Colour> _colourRepository;
+    private IGetRepository<Brand> _brandRepository;
+    private IGetRepository<Category> _categoryRepository;
 
-
-public class ProductService : ICRUDService<Product>
-{
-    List<Product> Products { get; }
-    int nextId = 3;
-
-    public IGetService<Colour> ColourService { get; set; }
-    public IGetService<Brand> BrandService { get; set; }
-    public IGetService<Category> CategoryService { get; set; }
-    public ProductService()
+    public IGetRepository<Colour> ColourRepository { set { _colourRepository = value; } }
+    public IGetRepository<Brand> BrandRepository { set { _brandRepository = value; } }
+    public IGetRepository<Category> CategoryRepository { set { _categoryRepository = value; } }
+    public ProductService(ICRUDRepository<Product> repository)
     {
-        Brand brand = new Brand();
-        brand.Name = "Adidas";
-
-        Category category = new Category();
-        category.Name = "Shorts";
-
-        Colour colour = new Colour();
-        colour.Name = "Red";
-
-        List<Colour> colours = new List<Colour>
-        {
-                colour
-        };
-
-
-        Products = new List<Product>
-        {
-            new Product { Id = 1, Name = "Cap1", PriceUYU = 600, Description="Stylish Cap.", Brand = brand, Category=category, Colours=colours },
-            new Product { Id = 2, Name = "Cap2", PriceUYU = 600, Description="Stylish Cap.", Brand = brand, Category=category, Colours=colours },
-        };
+        _productRepository = repository;
     }
 
-    public List<Product> GetAll() => Products;
+    public List<Product> GetAll() => _productRepository.GetAll();
 
-    public Product? Get(int id) => Products.FirstOrDefault(p => p.Id == id);
+    public Product? Get(int id) => _productRepository.Get(id);
 
     public void Add(Product product)
     {
         CheckProductParametersAreValid(product);
-        product.Id = nextId++;
-        Products.Add(product);
+        _productRepository.Add(product);
     }
 
     public void Delete(int id)
     {
-        var pizza = Get(id);
-        if (pizza is null)
-            return;
-
-        Products.Remove(pizza);
+        _productRepository.Delete(id);
     }
 
     public void Update(Product product)
     {
         CheckProductParametersAreValid(product);
-
-        var index = Products.FindIndex(p => p.Id == product.Id);
-        if (index == -1)
-            return;
-
-        Products[index] = product;
+        _productRepository.Update(product);
     }
+
+    public List<Product> GetFiltered(Category? category = null, Brand? brand = null, string? name = null)
+    {
+        IEnumerable<Product> result = GetAll();
+        if(category != null)
+        {
+            result = result.Where(p => p.Category.Equals(category));
+        }
+        if(brand != null)
+        {
+            result = result.Where(p => p.Brand.Equals(brand));
+        }
+        if (name != null)
+        {
+            result = result.Where(p => p.Name.Contains(name));
+        }
+
+        return result.ToList();
+    }
+
 
     private void CheckProductParametersAreValid(Product product)
     {
@@ -75,13 +69,13 @@ public class ProductService : ICRUDService<Product>
         if (!CategoryExists(product.Category)) { throw new Service_ArgumentException("Category does not exist"); }
         if (!ColoursExist(product.Colours)) { throw new Service_ArgumentException("One of the Colours does not exist"); }
     }
-    private bool BrandExists(Brand brand) => BrandService.Get(brand.Name) != null;
-    private bool CategoryExists(Category category) => CategoryService.Get(category.Name) != null;
+    private bool BrandExists(Brand brand) => _brandRepository.Get(brand.Name) != null;
+    private bool CategoryExists(Category category) => _categoryRepository.Get(category.Name) != null;
     private bool ColoursExist(List<Colour> colours)
     {
         foreach (Colour colour in colours)
         {
-            if (ColourService.Get(colour.Name) == null)
+            if (_colourRepository.Get(colour.Name) == null)
             {
                 return false;
             }

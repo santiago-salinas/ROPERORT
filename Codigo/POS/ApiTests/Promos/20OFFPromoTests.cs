@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Rest_Api.Models;
-using Rest_Api.Models.Promos;
+using Models;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 

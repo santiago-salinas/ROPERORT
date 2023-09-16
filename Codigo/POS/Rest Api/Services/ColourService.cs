@@ -1,23 +1,20 @@
 ﻿using System.Drawing;
 using System.Xml.Linq;
-using Rest_Api.Models;
+using DataAccessInterfaces;
+using Models;
+using Rest_Api.Interfaces;
 
 namespace Rest_Api.Services;
 
 public class ColourService : IGetService<Colour>
 {
-    List<Colour> Colours { get; }
-    public ColourService()
+    private readonly IGetRepository<Colour> _repository;
+    public ColourService(IGetRepository<Colour> repository)
     {
-        Colours = new List<Colour>
-        {
-            new Colour {Name = "Red"},
-            new Colour {Name = "Green"},
-            new Colour {Name = "Blue"},
-        };
+        _repository = repository;
     }
 
-    public List<Colour> GetAll() => Colours;
+    public List<Colour> GetAll() => _repository.GetAll();
 
-    public Colour? Get(string name) => Colours.FirstOrDefault(p => p.Name == name);
+    public Colour? Get(string name) => _repository.Get(name);
 }

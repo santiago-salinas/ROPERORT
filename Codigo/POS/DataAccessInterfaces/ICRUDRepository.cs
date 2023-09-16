@@ -1,4 +1,4 @@
-﻿using Rest_Api.Models;
+﻿using Models;
 using System.Xml.Linq;
 
 namespace DataAccessInterfaces
@@ -6,7 +6,7 @@ namespace DataAccessInterfaces
     public interface ICRUDRepository<T>
     {
 
-        abstract public List<T> GetAll(Func<T,bool>? filter = null);
+        abstract public List<T> GetAll();
 
         abstract public T? Get(int id);
 

@@ -1,9 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Rest_Api.Models;
+using Models;
 using Rest_Api.Services;
 using Rest_Api.Services.Exceptions;
 using Rest_Api.Controllers.Exceptions;
 using System.Drawing;
+using Rest_Api.Interfaces;
 
 namespace Rest_Api.Controllers;
 
@@ -12,18 +13,9 @@ namespace Rest_Api.Controllers;
 [Route("[controller]")]
 public class ProductController : ControllerBase
 {
-    private ICRUDService<Product> _productService;
-    private IGetService<Colour> _colourService;
-    private IGetService<Brand> _brandService;
-    private IGetService<Category> _categoryService;
-
-    public ProductController()
-    {
-        _productService = new ProductService();
-        _colourService = new ColourService();
-        _brandService = new BrandService();
-        _categoryService = new CategoryService();
-    }
+    private readonly IProductService _productService;
+    public ProductController(IProductService productService)
+    { _productService = productService; }
 
     // GET all action
     [HttpGet]
@@ -44,16 +36,7 @@ public class ProductController : ControllerBase
     // POST action
     [HttpPost]
     public IActionResult Create(Product product)
-    {
-
-        try
-        {
-            CheckProductParametersAreValid(product);
-        }catch(Controller_ArgumentException e) 
-        {
-            return BadRequest(e.Message);
-        }
-        
+    {       
         try
         {
             _productService.Add(product);
@@ -69,15 +52,6 @@ public class ProductController : ControllerBase
     [HttpPut("{id}")]
     public IActionResult Update(int id, Product product)
     {
-        try
-        {
-            CheckProductParametersAreValid(product);
-        }
-        catch (Controller_ArgumentException e)
-        {
-            return BadRequest(e.Message);
-        }
-
         if (id != product.Id)
             return BadRequest();
 
@@ -102,23 +76,12 @@ public class ProductController : ControllerBase
         return NoContent();
     }
 
-    private void CheckProductParametersAreValid(Product product)
+    [HttpGet("filtered")]
+    public ActionResult<List<Product>> GetFiltered([FromQuery] string? category = null, [FromQuery] string? brand = null, [FromQuery] string? name = null)
     {
-        if (!BrandExists(product.Brand)) { throw new Controller_ArgumentException("Brand does not exist"); }
-        if (!CategoryExists(product.Category)) { throw new Controller_ArgumentException("Category does not exist"); }
-        if (!ColoursExist(product.Colours)) { throw new Service_ArgumentException("One of the Colours does not exist"); }
+        Category? categoryFilter = category != null ? new Category(category) : null;
+        Brand? brandFilter = brand != null ? new Brand(brand) : null;
+        return _productService.GetFiltered(categoryFilter, brandFilter, name);
     }
-    private bool BrandExists(Brand brand) => _brandService.Get(brand.Name) != null;
-    private bool CategoryExists(Category category) => _categoryService.Get(category.Name) != null;
-    private bool ColoursExist(List<Colour> colours)
-    {
-        foreach(Colour colour in colours)
-        {
-            if (_colourService.Get(colour.Name) == null)
-            {
-                return false;
-            }
-        }
-        return true;
-    }
+
 }

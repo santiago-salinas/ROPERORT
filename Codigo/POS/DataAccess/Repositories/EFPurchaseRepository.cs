@@ -1,8 +1,9 @@
 ﻿using DataAccess.Entities;
 using DataAccess.Expcetions;
 using Microsoft.EntityFrameworkCore;
-using Rest_Api.Models;
+using Models;
 using DataAccessInterfaces;
+
 namespace DataAccess.DatabaseServices
 {
     public class EFPurchaseRepository : ICRUDRepository<Purchase>
@@ -13,7 +14,7 @@ namespace DataAccess.DatabaseServices
         {
             _context = context;
         }
-        public List<Purchase> GetAll(Func<Purchase, bool>? filter = null)
+        public List<Purchase> GetAll()
         {
             try
             {
@@ -23,12 +24,6 @@ namespace DataAccess.DatabaseServices
                     .ToList();
 
                 List<Purchase> purchases = entities.Select(p => PurchaseEntity.FromEntity(p)).ToList();
-
-
-                if (filter != null)
-                {
-                    purchases = purchases.Where(p => filter(p)).ToList();
-                }
 
                 return purchases;
 
@@ -38,27 +33,6 @@ namespace DataAccess.DatabaseServices
                 throw new DatabaseException("Error while getting all purchases from database");
             }
         }
-
-        public List<Purchase> GetPurchaseHistory(int id)
-        {
-            try
-            {
-                List<PurchaseEntity> entities = _context.PurchaseEntities
-                    .Include(p => p.Items.Select(i => i.Product))
-                    .Include(p => p.User)
-                    .Where(p => p.User.Id == id)
-                    .ToList();
-
-                List<Purchase> purchases = entities.Select(p => PurchaseEntity.FromEntity(p)).ToList();
-                return purchases;
-
-            }
-            catch
-            {
-                throw new DatabaseException("Error while getting purchase history from user " + id);
-            }
-        }
-
         public Purchase? Get(int id)
         {
 
