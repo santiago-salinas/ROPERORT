@@ -17,6 +17,8 @@ namespace DataAccess.Entities
 
         public IList<ProductColors> ProductColors { get; set; }
 
+
+        public ColourEntity() { }
         public static ColourEntity FromModel(Colour brand)
         {
             return new ColourEntity() { Name = brand.Name };

@@ -18,6 +18,8 @@ namespace DataAccess.Entities
         public string Address { get; set; }
         public IList<AssignedRoles> Roles { get; set; }
 
+        public UserEntity() { }
+
         public static UserEntity FromModel (User user)
         {
             return new UserEntity

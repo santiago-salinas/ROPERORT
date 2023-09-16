@@ -4,9 +4,12 @@ namespace Rest_Api.Models
     {
         public string Name { get; set; }
 
+        public Colour() { }
+        public Colour(string name) { Name = name; }
+
         public override bool Equals(Object obj)
         {
-            return this.Name.Equals(((Colour)obj).Name);
+            return Name.Equals(((Colour)obj).Name);
         }
     }
 }

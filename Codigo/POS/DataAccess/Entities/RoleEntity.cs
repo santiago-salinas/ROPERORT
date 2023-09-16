@@ -15,6 +15,8 @@ namespace DataAccess.Entities
         public string Name { get; set; }
         public IList<AssignedRoles> AssignedRoles { get; set; }
 
+
+        public RoleEntity() { }
         public static RoleEntity FromModel(Role role) 
         {
             return new RoleEntity { Name = role.Name };

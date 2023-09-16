@@ -23,18 +23,25 @@ namespace DataAccess.Entities
 
         public IList<ProductColors> Colours { get; set;}
 
-        public static ProductEntity FromModel(Product product)
+
+        public ProductEntity() {  Colours = new List<ProductColors>(); }
+        public static ProductEntity FromModel(Product product, EFContext context)
         {
-            return new ProductEntity
+            BrandEntity brand = context.BrandEntities.First(b => b.Name == product.Brand.Name);
+            CategoryEntity category = context.CategoryEntities.First(b => b.Name == product.Category.Name);
+
+            ProductEntity retValue = new ProductEntity
             {
-                Id = product.Id,
                 Name = product.Name,
-                Price = product.PriceUYU, // Assuming PriceUYU is an integer in ProductEntity
+                Price = product.PriceUYU, 
                 Description = product.Description,
-                Brand = BrandEntity.FromModel(product.Brand),
-                Category = CategoryEntity.FromModel(product.Category),
-                Colours = product.Colours.Select(c => ProductColors.FromModel(product,c)).ToList()
+                Brand = brand,
+                Category = category,
             };
+
+            retValue.Colours = product.Colours.Select(c => new ProductColors(retValue, c, context)).ToList();
+
+            return retValue;
         }
 
         public static Product FromEntity(ProductEntity entity)

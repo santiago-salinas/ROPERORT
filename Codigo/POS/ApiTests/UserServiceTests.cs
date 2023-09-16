@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Rest_Api.Services.Exceptions;
 using Rest_Api.Models;
-using Rest_Api.Services;
+using Services;
 using System.Linq;
 using Moq;
 

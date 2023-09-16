@@ -1,4 +1,4 @@
-﻿namespace DataAccessInterfaces
+﻿namespace ServiceInterfaces
 {
     public class Class1
     {

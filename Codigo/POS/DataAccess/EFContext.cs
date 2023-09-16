@@ -6,11 +6,22 @@ namespace DataAccess
 {
     public class EFContext : DbContext
     {
-        public EFContext() : base() { }
+        private readonly bool _useInMemoryDatabase;
+        public EFContext(DbContextOptions<EFContext>? options = null, bool useInMemoryDB = false) : base(options) 
+        {
+            _useInMemoryDatabase = useInMemoryDB;
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=localhost\SQLEXPRESS;Database=ECommerceDB;Trusted_Connection=True;");
+            if (_useInMemoryDatabase)
+            {
+                optionsBuilder.UseInMemoryDatabase(databaseName: "TestDatabase");
+            }
+            else
+            {
+                optionsBuilder.UseSqlServer(@"Server=localhost\SQLEXPRESS;Database=ECommerceDB;Trusted_Connection=True;");
+            }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -18,6 +29,9 @@ namespace DataAccess
             modelBuilder.Entity<UserEntity>().HasAlternateKey(u => u.Email);
             modelBuilder.Entity<ProductEntity>().HasAlternateKey(p => p.Name);
 
+            modelBuilder.Entity<ProductEntity>()
+                .Property(p => p.Id)
+                .ValueGeneratedOnAdd();
 
             modelBuilder.Entity<PurchasedProductEntity>().HasKey(ppe => new { ppe.PurchaseId, ppe.ProductId });
             modelBuilder.Entity<AssignedRoles>().HasKey(ar => new { ar.RoleName, ar.UserId });

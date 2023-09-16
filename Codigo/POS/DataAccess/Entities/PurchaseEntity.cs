@@ -19,7 +19,9 @@ namespace DataAccess.Entities
         public string? AppliedPromotion { get; set; }
         public DateTime Date { get; set; }
 
-        public static PurchaseEntity FromModel(Purchase model)
+
+        public PurchaseEntity() { }
+        public static PurchaseEntity FromModel(Purchase model, EFContext context)
         {
             Cart cart = model.Products;
 
@@ -29,7 +31,7 @@ namespace DataAccess.Entities
                 User = UserEntity.FromModel(model.Client),
                 Date = model.Date,
                 AppliedPromotion = model.AppliedPromotion,
-                Items = cart.Products.Select(p => PurchasedProductEntity.FromModel(model,p)).ToList(),                
+                Items = cart.Products.Select(p => PurchasedProductEntity.FromModel(model,p,context)).ToList(),                
             };
         }
 

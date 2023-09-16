@@ -22,14 +22,16 @@ namespace DataAccess.Entities
         public ProductEntity Product { get; set; }
         public int Amount { get; set; }
 
-        public static PurchasedProductEntity FromModel(Purchase purchase, CartLine cartLine)
+
+        public PurchasedProductEntity() { }
+        public static PurchasedProductEntity FromModel(Purchase purchase, CartLine cartLine, EFContext context)
         {
             return new PurchasedProductEntity
             {
                 Amount = cartLine.Quantity,
-                Product = ProductEntity.FromModel(cartLine.Product),
+                Product = ProductEntity.FromModel(cartLine.Product, context),
                 ProductId = cartLine.Product.Id,
-                Purchase = PurchaseEntity.FromModel(purchase),
+                Purchase = PurchaseEntity.FromModel(purchase, context),
                 PurchaseId = purchase.Id,                
             };
         }
