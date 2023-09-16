@@ -45,6 +45,7 @@ public class CartController : ControllerBase
         
     }
 
+    [NonAction]
     public void ApplyPromo(Cart cart)
     {
         List<Promo> Promos = _promoService.GetAll();
@@ -67,6 +68,7 @@ public class CartController : ControllerBase
         cart.AppliedPromo = bestPromoToClient;
     }
 
+    [NonAction]
     private Cart CartDTOtoObject(CartDTO cartDto)
     {
         Cart ret = new Cart();
