@@ -1,17 +1,23 @@
-﻿namespace Models
+﻿using Models.Exceptions;
+
+namespace Models
 {
     public class Product
     {
         public Product()
-        {
-            Id = -1;
-            Name = "";
-            Description = "";
-            PriceUYU = -1;
-        }
+        {}
+        private double _priceUYU;
         public int Id { get; set; }
         public string Name { get; set; }
-        public double PriceUYU { get; set; }
+        public double PriceUYU { 
+            get { return _priceUYU; } 
+            set { 
+                if(value <= 0)
+                {
+                    throw new Models_ArgumentException("Product price cannot be below zero or less");
+                }
+                _priceUYU = value; 
+            } }
         public string Description { get; set; }
 
 
