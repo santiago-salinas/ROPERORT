@@ -5,7 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApiTests
+namespace ApiTests.Promos
+
 {
     [TestClass]
     public class ThreeForTwoPromoTests

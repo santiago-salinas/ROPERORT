@@ -1,6 +1,6 @@
 using Models;
 
-namespace ApiTests
+namespace ApiTests.Models
 {
     [TestClass]
     public class BoughtProductTests

@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Models.Exceptions;
 
-namespace ApiTests
+namespace ApiTests.Models
 {
     [TestClass]
     public class CartTests

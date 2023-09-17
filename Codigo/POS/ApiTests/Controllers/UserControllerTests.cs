@@ -12,7 +12,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApiTests
+namespace ApiTests.Controllers
 {
     [TestClass]
     public class UserControllerTests

@@ -1,11 +1,11 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Rest_Api.Services;
-using DataAccessInterfaces; 
-using Models; 
+using DataAccessInterfaces;
+using Models;
 using System.Linq;
 
-namespace ApiTests
+namespace ApiTests.Services
 {
     [TestClass]
     public class UserServiceTests

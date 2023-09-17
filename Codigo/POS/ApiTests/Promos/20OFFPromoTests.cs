@@ -3,7 +3,7 @@ using Models;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 
-namespace ApiTests
+namespace ApiTests.Promos
 {
     [TestClass]
     public class TwentyPercentOffTests

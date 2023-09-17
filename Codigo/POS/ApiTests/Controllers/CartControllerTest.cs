@@ -7,7 +7,7 @@ using Rest_Api.DTOs;
 
 using Rest_Api.Interfaces;
 
-namespace ApiTests
+namespace ApiTests.Controllers
 {
     [TestClass]
     public class CartControllerTest

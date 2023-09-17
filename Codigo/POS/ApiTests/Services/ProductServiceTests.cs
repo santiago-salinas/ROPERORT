@@ -8,7 +8,7 @@ using Moq;
 using DataAccessInterfaces;
 using DataAccess.DatabaseServices;
 
-namespace ApiTests
+namespace ApiTests.Services
 {
     [TestClass]
     public class ProductServiceTests
@@ -226,7 +226,7 @@ namespace ApiTests
             Brand brand = new Brand("Nike");
             string name = "Other name";
 
-            List<Product> products = _productService.GetFiltered(category,brand,name);
+            List<Product> products = _productService.GetFiltered(category, brand, name);
 
             Assert.AreEqual(0, products.Count);
 
@@ -302,8 +302,8 @@ namespace ApiTests
         {
             new Category("T-Shirt"),
             new Category("Pants"),
-        };      
-        
+        };
+
         private void SetUpMocks()
         {
             ResetMocks();

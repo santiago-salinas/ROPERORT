@@ -2,7 +2,6 @@
 {
     public class Product
     {
-
         public Product()
         {
             Id = -1;
