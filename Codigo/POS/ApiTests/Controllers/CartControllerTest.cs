@@ -9,24 +9,22 @@ using Rest_Api.Interfaces;
 
 namespace ApiTests
 {
-    /*[TestClass]
+    [TestClass]
     public class CartControllerTest
     {
         public Mock<IGetService<Promo>> mockDiscounts = new Mock<IGetService<Promo>>(MockBehavior.Strict);
-
-        CartControllerTest()
+        
+        [TestInitialize]
+        public void TestInitialize()
         {
             mockDiscounts.Setup(s => s.GetAll()).Returns(new List<Promo>
-        {
+            {
             new FidelityPromo(),
             new ThreeForTwoPromo(),
             new TwentyPercentOff(),
             new TotalLookPromo()
-        });
-
+            });
         }
-
-
 
         [TestMethod]
         public void CartControllerTestSuccess()
@@ -297,5 +295,5 @@ namespace ApiTests
             Assert.AreEqual(expectedValue, createdCart.DiscountedPriceUYU);
 
         }
-    }*/
+    }
 }
