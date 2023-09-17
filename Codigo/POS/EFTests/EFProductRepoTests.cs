@@ -7,7 +7,7 @@ using System.Linq;
 using DataAccessInterfaces;
 using System.Drawing;
 using DataAccess.DatabaseServices;
-using Rest_Api.Models;
+using Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -158,62 +158,7 @@ namespace EFTests
 
             _productRepository.Update(invalidProduct);
         }
-
-        [TestMethod]
-        public void GetAll_WithFilterByPrice()
-        {
-            AddFilterTestData();
-
-            Func<Product, bool> filter = p => p.PriceUYU >= 50;
-
-            List<Product> products = _productRepository.GetAll(filter);
-
-            Assert.AreEqual(3, products.Count);
-
-            Assert.IsTrue(products.All(p => p.PriceUYU >= 50));
-        }
-
-        [TestMethod]
-        public void GetAll_FilterByColour_ShouldReturnFilteredProducts()
-        {
-            AddFilterTestData();
-
-            Func<Product, bool> filter = p => p.Colours.Any(c => c.Name == "Green");
-
-            List<Product> products = _productRepository.GetAll(filter);
-
-            Assert.AreEqual(3, products.Count);
-
-            Assert.IsTrue(products.All(p => p.Colours.Any(c => c.Name == "Green")));
-        }
-
-        [TestMethod]
-        public void GetAll_FilterByBrand_ShouldReturnFilteredProducts()
-        {
-            AddFilterTestData();
-
-            Func<Product, bool> filter = p => p.Brand.Name == "Puma";
-
-            List<Product> products = _productRepository.GetAll(filter);
-
-            Assert.AreEqual(2, products.Count);
-
-            Assert.IsTrue(products.All(p => p.Brand.Name == "Puma"));
-        }
-
-        [TestMethod]
-        public void GetAll_FilterByCategory_ShouldReturnFilteredProducts()
-        {
-            AddFilterTestData();
-
-            Func<Product, bool> filter = p => p.Category.Name == "T-Shirt";
-
-            List<Product> products = _productRepository.GetAll(filter);
-
-            Assert.AreEqual(3, products.Count);
-
-            Assert.IsTrue(products.All(p => p.Category.Name == "T-Shirt"));
-        }
+               
 
 
         [TestCleanup]
@@ -229,88 +174,5 @@ namespace EFTests
 
             return _testProduct1.Id; 
         }
-        private void AddFilterTestData()
-        {
-            AddTestData();
-            ColourEntity colourEntity = new ColourEntity();
-            colourEntity.Name = "Green";
-            ColourEntity colourEntity2 = new ColourEntity();
-            colourEntity2.Name = "Blue";
-
-            CategoryEntity categoryEntity = new CategoryEntity();
-            categoryEntity.Name = "Pants";
-            CategoryEntity categoryEntity2 = new CategoryEntity();
-            categoryEntity2.Name = "T-Shirt";
-
-            BrandEntity brandEntity = new BrandEntity();
-            brandEntity.Name = "Puma";
-            BrandEntity brandEntity2 = new BrandEntity();
-            brandEntity2.Name = "Nike";
-
-            _context.BrandEntities.Add(brandEntity);
-            _context.CategoryEntities.Add(categoryEntity);
-            _context.ColourEntities.Add(colourEntity);
-            _context.BrandEntities.Add(brandEntity2);
-            _context.CategoryEntities.Add(categoryEntity2);
-            _context.ColourEntities.Add(colourEntity2);
-            _context.SaveChanges();
-
-            var product1 = new Product
-            {
-                Name = "Name 3",
-                Description = "Description 3",
-                PriceUYU = 20.0,
-                Brand = new Brand("Nike"),
-                Category = new Category("T-Shirt"),
-                Colours = new List<Colour>() { new Colour("Blue")}
-            };
-            var product2 = new Product
-            {
-                Name = "Name 4",
-                Description = "Description 4",
-                PriceUYU = 50.0,
-                Brand = new Brand("Puma"),
-                Category = new Category("Pants"),
-                Colours = new List<Colour>() { new Colour("Green"), new Colour("Red") }
-            };
-            var product3 = new Product
-            {
-                Name = "Name 5",
-                Description = "Description 5",
-                PriceUYU = 20.0,
-                Brand = new Brand("Nike"),
-                Category = new Category("T-Shirt"),
-                Colours = new List<Colour> { new Colour("Red") }
-            };
-
-            var product4 = new Product
-            {
-                Name = "Name 6",
-                Description = "Description 6",
-                PriceUYU = 100.0,
-                Brand = new Brand("Puma"),
-                Category = new Category("Pants"),
-                Colours = new List<Colour> { new Colour("Green"), new Colour("Red") }
-            };
-
-            var product5 = new Product
-            {
-                Name = "Name 7",
-                Description = "Description 7",
-                PriceUYU = 60.0,
-                Brand = new Brand("Nike"),
-                Category = new Category("T-Shirt"),
-                Colours = new List<Colour> { new Colour("Blue"), new Colour("Green") }
-            };
-
-            _productRepository.Add(product1);
-            _productRepository.Add(product2);
-            _productRepository.Add(product3);
-            _productRepository.Add(product4);
-            _productRepository.Add(product5);
-        }
-
-
     }
-
 }

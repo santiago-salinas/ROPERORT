@@ -1,6 +1,6 @@
-using Rest_Api.Models;
+using Models;
 
-namespace ApiTests
+namespace ApiTests.Models
 {
     [TestClass]
     public class RoleTests

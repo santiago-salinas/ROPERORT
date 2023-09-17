@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Rest_Api.Models;
-using Rest_Api.Services;
+using Models;
 using Rest_Api.Controllers.Exceptions;
 using Rest_Api.DTOs;
+using Rest_Api.Interfaces;
 
 namespace Rest_Api.Controllers;
 
@@ -67,7 +67,12 @@ public class CartController : ControllerBase
 
         cart.AppliedPromo = bestPromoToClient;
     }
+<<<<<<< HEAD
 
+=======
+    
+    
+>>>>>>> feature/product-filter
     [NonAction]
     private Cart CartDTOtoObject(CartDTO cartDto)
     {

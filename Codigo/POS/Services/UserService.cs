@@ -1,7 +1,7 @@
 ﻿using System.Xml.Linq;
 using DataAccessInterfaces;
-using Rest_Api.Models;
-using Rest_Api.Services.Exceptions;
+using Models;
+
 
 namespace Services;
 

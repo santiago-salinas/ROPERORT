@@ -1,7 +1,7 @@
 ﻿using DataAccess.Entities;
 using DataAccess.Expcetions;
 using Microsoft.EntityFrameworkCore;
-using Rest_Api.Models;
+using Models;
 using DataAccessInterfaces;
 
 namespace DataAccess.DatabaseServices
@@ -14,7 +14,7 @@ namespace DataAccess.DatabaseServices
             _context = context;
         }
 
-        public List<User> GetAll(Func<User, bool> filter = null)
+        public List<User> GetAll()
         {
             try
             {

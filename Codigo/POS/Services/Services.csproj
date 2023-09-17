@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DataAccessInterfaces\DataAccessInterfaces.csproj" />
+    <ProjectReference Include="..\Models\Models.csproj" />
     <ProjectReference Include="..\Rest Api\Rest Api.csproj" />
   </ItemGroup>
 

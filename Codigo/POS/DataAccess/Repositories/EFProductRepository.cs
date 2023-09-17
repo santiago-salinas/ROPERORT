@@ -2,7 +2,7 @@
 using DataAccess.Expcetions;
 using DataAccessInterfaces;
 using Microsoft.EntityFrameworkCore;
-using Rest_Api.Models;
+using Models;
 
 
 namespace DataAccess.DatabaseServices
@@ -13,7 +13,7 @@ namespace DataAccess.DatabaseServices
         public EFProductRepository(EFContext context)
         { _context = context; }
 
-        public List<Product> GetAll(Func<Product, bool>? filter = null)
+        public List<Product> GetAll()
         {
             try
             {
@@ -26,11 +26,6 @@ namespace DataAccess.DatabaseServices
 
 
                 List<Product> products = entities.Select(p => ProductEntity.FromEntity(p)).ToList();
-
-                if (filter != null)
-                {
-                    products = products.Where(p => filter(p)).ToList();
-                }
 
                 return products;
 

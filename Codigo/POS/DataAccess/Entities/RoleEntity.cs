@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Rest_Api.Models;
+﻿using System.ComponentModel.DataAnnotations;
+using Models;
 
 
 namespace DataAccess.Entities

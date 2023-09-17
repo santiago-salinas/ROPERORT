@@ -1,12 +1,11 @@
-﻿using Rest_Api.Models.Promos;
-using Rest_Api.Models;
+﻿using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApiTests
+namespace ApiTests.Promos
 {
     [TestClass]
     public class TotalLookPromoTests

@@ -1,6 +1,6 @@
 ﻿using DataAccess.Entities;
 using DataAccess.Expcetions;
-using Rest_Api.Models;
+using Models;
 using DataAccessInterfaces;
 
 

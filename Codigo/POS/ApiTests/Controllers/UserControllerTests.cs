@@ -1,9 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Moq;
 using Rest_Api.Controllers;
-using Rest_Api.Models;
 using Rest_Api.Services;
 using Rest_Api.Services.Exceptions;
+using Rest_Api.Interfaces;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,18 +12,18 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApiTests
+namespace ApiTests.Controllers
 {
     [TestClass]
     public class UserControllerTests
     {
-        private Mock<ICRUDService<User>> mock;
+        private Mock<IUserService> mock;
         private UserController userController;
 
         [TestInitialize]
         public void TestInitialize()
         {
-            mock = new Mock<ICRUDService<User>>(MockBehavior.Strict);
+            mock = new Mock<IUserService>(MockBehavior.Strict);
             userController = new UserController(mock.Object);
         }
 
