@@ -1,17 +1,18 @@
 ﻿using DataAccess.Entities;
-using DataAccess.Expcetions;
-using DataAccessInterfaces;
+using DataAccess.Exceptions;
+using Services.Models;
+using Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using Models;
 
-
-namespace DataAccess.DatabaseServices
+namespace DataAccess.Repositories
 {
     public class EFProductRepository : ICRUDRepository<Product>
     {
         private readonly EFContext _context;
         public EFProductRepository(EFContext context)
-        { _context = context; }
+        { 
+            _context = context;
+        }
 
         public List<Product> GetAll()
         {
@@ -73,9 +74,8 @@ namespace DataAccess.DatabaseServices
 
         public void Delete(int id)
         {
-            try
-            {
-
+            try 
+            { 
                 ProductEntity entity = _context.ProductEntities.First(p => p.Id == id);
                 _context.ProductEntities.Remove(entity);
                 _context.SaveChanges();

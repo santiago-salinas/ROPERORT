@@ -1,19 +1,9 @@
 using DataAccess.Entities;
 using DataAccess;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using DataAccessInterfaces;
-using System.Drawing;
-using DataAccess.DatabaseServices;
-using Models;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using DataAccess.Repositories;
+using Services.Models;
 using Microsoft.EntityFrameworkCore;
-using DataAccess.Expcetions;
+using DataAccess.Exceptions;
 
 namespace EFTests
 

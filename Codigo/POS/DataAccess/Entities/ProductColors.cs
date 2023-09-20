@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Models;
+using Services.Models;
 
 namespace DataAccess.Entities
 {
@@ -28,16 +28,5 @@ namespace DataAccess.Entities
             ColourName = colour.Name;
             Colour = colourEntity;
         }
-
-       /* public static ProductColors FromEntity(ProductEntity productEntity, ColourEntity colourEntity)
-        {
-            return new ProductColors
-            {
-                ProductId = productEntity.Id,
-                Product = productEntity,
-                ColourName = colourEntity.Name,
-                Colour = colourEntity
-            };
-        }*/
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess.Expcetions
+namespace DataAccess.Exceptions
 {
     public class DatabaseException : Exception
     {

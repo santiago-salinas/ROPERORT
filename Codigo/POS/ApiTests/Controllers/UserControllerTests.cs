@@ -1,16 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Moq;
 using Rest_Api.Controllers;
-using Rest_Api.Services;
-using Rest_Api.Services.Exceptions;
-using Rest_Api.Interfaces;
-using Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
+using Services;
+using Services.Exceptions;
+using Services.Interfaces;
+using Services.Models;
 
 namespace ApiTests.Controllers
 {

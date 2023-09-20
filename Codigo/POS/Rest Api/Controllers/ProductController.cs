@@ -1,10 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Models;
-using Rest_Api.Services;
-using Rest_Api.Services.Exceptions;
+using Services.Models;
+using Services.Exceptions;
 using Rest_Api.Controllers.Exceptions;
 using System.Drawing;
-using Rest_Api.Interfaces;
+using Services.Interfaces;
 
 namespace Rest_Api.Controllers;
 

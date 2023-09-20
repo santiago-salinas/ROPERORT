@@ -1,5 +1,5 @@
-using Models;
-
+using Services.Models;
+using Services.Models.Exceptions;
 namespace ApiTests.Models
 {
     [TestClass]

@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Models;
-using Rest_Api.Services;
-using Rest_Api.Services.Exceptions;
-using Rest_Api.Controllers.Exceptions;
-using Rest_Api.Interfaces;
+using Services.Models;
+using Services;
+using Services.Exceptions;
+using Services.Interfaces;
 
 namespace Rest_Api.Controllers;
 
@@ -45,11 +44,7 @@ public class UserController : ControllerBase
         }
 
         return CreatedAtAction(nameof(Create), new { id = user.Id }, user);
-<<<<<<< HEAD
-    }   
-=======
     }
->>>>>>> feature/product-filter
 
     [HttpPut("{id}")]
     public IActionResult Update(int id, User user)
