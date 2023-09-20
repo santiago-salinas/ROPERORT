@@ -1,10 +1,10 @@
 ﻿using DataAccess.Entities;
-using DataAccess.Expcetions;
-using Models;
-using DataAccessInterfaces;
+using DataAccess.Exceptions;
+using Services.Models;
+using Services.Interfaces;
 
 
-namespace DataAccess.DatabaseServices
+namespace DataAccess.Repositories
 {
     public class EFBrandRepository : IGetRepository<Brand>
     {

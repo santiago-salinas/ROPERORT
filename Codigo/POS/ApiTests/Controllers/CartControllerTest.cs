@@ -1,11 +1,9 @@
-﻿using Rest_Api.Services;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Moq;
-using Models;
+using Services.Models;
 using Rest_Api.Controllers;
 using Rest_Api.DTOs;
-
-using Rest_Api.Interfaces;
+using Services.Interfaces;
 
 namespace ApiTests.Controllers
 {

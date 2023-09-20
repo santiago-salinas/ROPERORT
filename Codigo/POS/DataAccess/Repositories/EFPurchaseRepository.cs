@@ -1,10 +1,10 @@
 ﻿using DataAccess.Entities;
-using DataAccess.Expcetions;
+using DataAccess.Exceptions;
 using Microsoft.EntityFrameworkCore;
-using Models;
-using DataAccessInterfaces;
+using Services.Models;
+using Services.Interfaces;
 
-namespace DataAccess.DatabaseServices
+namespace DataAccess.Repositories
 {
     public class EFPurchaseRepository : ICRUDRepository<Purchase>
     {

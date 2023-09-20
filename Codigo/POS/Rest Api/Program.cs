@@ -1,9 +1,8 @@
-using Rest_Api.Interfaces;
-using Models;
-using Rest_Api.Services;
+using Services.Interfaces;
+using Services.Models;
+using Services;
+using DataAccess.Repositories;
 using DataAccess;
-using DataAccessInterfaces;
-using DataAccess.DatabaseServices;
 using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -60,13 +59,7 @@ builder.Services.AddScoped<IUserService>(sp =>
 builder.Services.AddScoped<IGetService<Brand>, BrandService>();
 builder.Services.AddScoped<IGetService<Category>, CategoryService>();
 builder.Services.AddScoped<IGetService<Colour>, ColourService>();
-<<<<<<< HEAD
-builder.Services.AddScoped<IGetService<Promo>, PromoService>();
-builder.Services.AddScoped<ICRUDService<User>, UserService>();
-
-=======
 builder.Services.AddScoped<PromoService, PromoService>();
->>>>>>> feature/product-filter
 
 
 

@@ -1,4 +1,4 @@
-using Models;
+using Services.Models;
 
 namespace ApiTests.Models
 {

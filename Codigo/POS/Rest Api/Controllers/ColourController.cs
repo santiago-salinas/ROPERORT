@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Rest_Api.Interfaces;
-using Models;
+using Services.Interfaces;
+using Services.Models;
 using System.Drawing;
 
 

@@ -1,11 +1,10 @@
 ﻿using DataAccess.Entities;
-using DataAccess.Expcetions;
-using DataAccessInterfaces;
+using DataAccess.Exceptions;
+using Services.Models;
+using Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using Models;
 
-
-namespace DataAccess.DatabaseServices
+namespace DataAccess.Repositories
 {
     public class EFProductRepository : ICRUDRepository<Product>
     {

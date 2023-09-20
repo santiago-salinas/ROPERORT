@@ -1,7 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Models;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
+﻿using Services.Models;
 
 namespace ApiTests.Promos
 {
