@@ -26,7 +26,6 @@ namespace DataAccess.Repositories
                 List<Purchase> purchases = entities.Select(p => PurchaseEntity.FromEntity(p)).ToList();
 
                 return purchases;
-
             }
             catch
             {

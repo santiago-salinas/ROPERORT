@@ -10,7 +10,9 @@ namespace DataAccess.Repositories
     {
         private readonly EFContext _context;
         public EFProductRepository(EFContext context)
-        { _context = context; }
+        { 
+            _context = context;
+        }
 
         public List<Product> GetAll()
         {
@@ -72,9 +74,8 @@ namespace DataAccess.Repositories
 
         public void Delete(int id)
         {
-            try
-            {
-
+            try 
+            { 
                 ProductEntity entity = _context.ProductEntities.First(p => p.Id == id);
                 _context.ProductEntities.Remove(entity);
                 _context.SaveChanges();
