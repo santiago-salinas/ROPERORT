@@ -4,6 +4,8 @@ using Services;
 
 using Microsoft.Extensions.DependencyInjection;
 using Factory;
+using DataAccess.Repositories;
+using DataAccess;
 
 var builder = WebApplication.CreateBuilder(args);
 RepositoriesFactory repositoriesFactory = new RepositoriesFactory();
@@ -11,6 +13,37 @@ repositoriesFactory.SetupRepositories();
 
 ServicesFactory servicesFactory = new ServicesFactory(repositoriesFactory);
 servicesFactory.SetupServices();
+
+builder.Services.AddScoped<IGetService<Brand>>(sp =>
+{
+    return servicesFactory.BrandService;
+});
+
+builder.Services.AddScoped<IGetService<Colour>>(sp =>
+{
+    return servicesFactory.ColourService;
+});
+
+builder.Services.AddScoped<IGetService<Category>>(sp =>
+{
+    return servicesFactory.CategoryService;
+});
+
+builder.Services.AddScoped<IProductService>(sp =>
+{
+    return servicesFactory.ProductService;
+});
+
+builder.Services.AddScoped<IUserService>(sp =>
+{
+    return servicesFactory.UserService;
+});
+
+builder.Services.AddScoped<PromoService>(sp =>
+{
+    return servicesFactory.PromoService;
+});
+
 
 
 builder.Services.AddControllers();
