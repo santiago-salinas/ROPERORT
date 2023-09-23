@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Rest_Api.Filters;
 using Services.Interfaces;
 using Services.Models;
 
@@ -17,6 +18,7 @@ namespace Rest_Api.Controllers
 
         // GET all action
         [HttpGet]
+        [ServiceFilter(typeof(AuthorizationFilter))]
         public ActionResult<List<Brand>> GetAll() => _brandService.GetAll();
     }
 }

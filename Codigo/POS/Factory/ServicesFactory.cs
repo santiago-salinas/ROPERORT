@@ -21,6 +21,7 @@ namespace Factory
         public IGetService<Category> CategoryService { get; set; }
         public PromoService PromoService { get; set; }
 
+
         public void SetupServices()
         {
             PromoService = new PromoService();
@@ -34,7 +35,6 @@ namespace Factory
             BrandService = new BrandService(RepositoriesFactory.BrandRepository);
             ColourService = new ColourService(RepositoriesFactory.ColourRepository);
             CategoryService = new CategoryService(RepositoriesFactory.CategoryRepository);
-
 
         }
     }

@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Factory;
 using DataAccess.Repositories;
 using DataAccess;
+using Rest_Api.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 RepositoriesFactory repositoriesFactory = new RepositoriesFactory();
@@ -44,12 +45,17 @@ builder.Services.AddScoped<PromoService>(sp =>
     return servicesFactory.PromoService;
 });
 
+builder.Services.AddScoped<AuthorizationFilter>(sp =>
+{
+    return new AuthorizationFilter(repositoriesFactory.UserRepository);
+});
 
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
 
 var app = builder.Build();
 

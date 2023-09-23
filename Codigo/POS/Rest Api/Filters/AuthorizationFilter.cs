@@ -10,15 +10,15 @@ using Services.Models;
 
 namespace Rest_Api.Filters
 {
-    public class ExampleAuthorizationFilter : Attribute, IAuthorizationFilter
+    public class AuthorizationFilter : Attribute, IAuthorizationFilter
     {
-        private AuthService auth;
-        private readonly string msg;
-        public ExampleAuthorizationFilter(string message, ICRUDRepository<User> repo)
+
+        private static AuthService auth;
+        public AuthorizationFilter(ICRUDRepository<User> repo)
         {
-            msg = message;
             auth = new AuthService(repo);
         }
+
         public void OnAuthorization(AuthorizationFilterContext context)
         {
             string token = context.HttpContext.Request.Headers["auth"];
@@ -27,7 +27,7 @@ namespace Rest_Api.Filters
                 context.Result = new ContentResult()
                 {
                     StatusCode = 401,
-                    Content = msg + "no esta logueado."
+                    Content = "Auth token is null"
                 };
                 return;
             }
@@ -36,7 +36,7 @@ namespace Rest_Api.Filters
                 context.Result = new ContentResult()
                 {
                     StatusCode = 403,
-                    Content = msg + "no esta identificado correctamente."
+                    Content = "Auth token is invalid"
                 };
                 return;
             }

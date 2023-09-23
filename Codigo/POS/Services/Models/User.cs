@@ -12,6 +12,11 @@ namespace Services.Models
             Roles = new List<Role>();
         }
 
+        public User()
+        {
+
+        }
+
         public int Id { get; set; }
         public string Email { 
             get => _mail; 
