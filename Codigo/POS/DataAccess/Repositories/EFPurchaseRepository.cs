@@ -72,6 +72,7 @@ namespace DataAccess.Repositories
             {
                 PurchaseEntity entity = _context.PurchaseEntities.First(p => p.Id == id);
                 _context.PurchaseEntities.Remove(entity);
+                _context.SaveChanges();
             }
             catch
             {
@@ -85,6 +86,7 @@ namespace DataAccess.Repositories
             {
                 PurchaseEntity entity = PurchaseEntity.FromModel(purchase, _context);
                 _context.PurchaseEntities.Update(entity);
+                _context.SaveChanges();
             }
             catch
             {
