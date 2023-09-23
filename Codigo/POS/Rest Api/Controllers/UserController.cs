@@ -43,7 +43,7 @@ public class UserController : ControllerBase
             return BadRequest(e.Message);
         }
 
-        return CreatedAtAction(nameof(Create), new { id = user.Id }, user);
+        return Ok();
     }
 
     [HttpPut("{id}")]
