@@ -43,8 +43,7 @@ public class ProductController : ControllerBase
         {
             return BadRequest(e.Message);
         }
-
-        return CreatedAtAction(nameof(Get), new { id = product.Id }, product);
+        return Ok();
     }   
 
     // PUT action
