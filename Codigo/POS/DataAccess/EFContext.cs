@@ -33,6 +33,10 @@ namespace DataAccess
                 .Property(p => p.Id)
                 .ValueGeneratedOnAdd();
 
+            modelBuilder.Entity<UserEntity>()
+                .Property(p => p.Id)
+                .ValueGeneratedOnAdd();
+
             modelBuilder.Entity<PurchasedProductEntity>().HasKey(ppe => new { ppe.PurchaseId, ppe.ProductId });
             modelBuilder.Entity<AssignedRoles>().HasKey(ar => new { ar.RoleName, ar.UserId });
             modelBuilder.Entity<ProductColors>().HasKey(pc => new { pc.ProductId, pc.ColourName });

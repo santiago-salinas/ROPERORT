@@ -56,7 +56,6 @@ namespace DataAccess.Repositories
         {
             try
             {
-
                 UserEntity entity = UserEntity.FromModel(user);
                 _context.UserEntities.Add(entity);
                 _context.SaveChanges();

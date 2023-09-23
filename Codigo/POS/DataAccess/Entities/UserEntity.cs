@@ -24,7 +24,7 @@ namespace DataAccess.Entities
         {
             return new UserEntity
             {
-                Id = user.Id,
+                //Id = user.Id,
                 Email = user.Email,
                 Address = user.Address,
                 Roles = user.Roles.Select(r => AssignedRoles.FromModel(user, r)).ToList(),

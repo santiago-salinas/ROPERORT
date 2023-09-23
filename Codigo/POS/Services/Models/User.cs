@@ -4,10 +4,10 @@ namespace Services.Models
 {
     public class User
     {
-        public User(int id, string mail, string address)
+        public User(int id, string email, string address)
         {
             Id = id;
-            Email = mail;
+            Email = email;
             Address = address;
             Roles = new List<Role>();
         }
