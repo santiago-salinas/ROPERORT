@@ -87,6 +87,7 @@ namespace DataAccess.Repositories
             {
                 UserEntity entity = UserEntity.FromModel(user);
                 _context.UserEntities.Update(entity);
+                _context.SaveChanges();
             }
             catch
             {
