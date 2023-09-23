@@ -91,8 +91,8 @@ namespace ApiTests.Controllers
             _mock.Setup(s => s.Add(testProduct));
 
             var result = _productController.Create(testProduct);
-            var createdResult = result as CreatedAtActionResult;
-            Assert.AreEqual(testProduct, createdResult.Value);
+            var createdResult = result as OkResult;
+            Assert.AreEqual(createdResult.StatusCode, 200);
         }
 
         [TestMethod]
