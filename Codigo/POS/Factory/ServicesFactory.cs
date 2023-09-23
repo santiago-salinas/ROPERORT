@@ -34,6 +34,8 @@ namespace Factory
             BrandService = new BrandService(RepositoriesFactory.BrandRepository);
             ColourService = new ColourService(RepositoriesFactory.ColourRepository);
             CategoryService = new CategoryService(RepositoriesFactory.CategoryRepository);
+
+
         }
     }
 }

@@ -56,7 +56,6 @@ namespace DataAccess.Repositories
         {
             try
             {
-
                 UserEntity entity = UserEntity.FromModel(user);
                 _context.UserEntities.Add(entity);
                 _context.SaveChanges();
@@ -74,6 +73,7 @@ namespace DataAccess.Repositories
             {
                 UserEntity entity = _context.UserEntities.First(p => p.Id == id);
                 _context.UserEntities.Remove(entity);
+                _context.SaveChanges();
             }
             catch
             {
@@ -87,6 +87,7 @@ namespace DataAccess.Repositories
             {
                 UserEntity entity = UserEntity.FromModel(user);
                 _context.UserEntities.Update(entity);
+                _context.SaveChanges();
             }
             catch
             {

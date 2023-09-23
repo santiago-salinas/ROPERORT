@@ -56,8 +56,8 @@ namespace ApiTests.Controllers
             var user = new User(3, "prueba@gmail.com", "prueba");
             mock.Setup(s => s.Add(user));
             var result = userController.Create(user);
-            var createdResult = result as CreatedAtActionResult;
-            Assert.AreEqual(user, createdResult.Value);
+            var createdResult = result as OkResult;
+            Assert.AreEqual(createdResult.StatusCode, 200);
         }
 
         [TestMethod]

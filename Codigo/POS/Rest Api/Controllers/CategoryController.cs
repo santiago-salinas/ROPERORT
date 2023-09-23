@@ -8,14 +8,15 @@ namespace Rest_Api.Controllers
     [Route("[controller]")]
     public class CategoryController : ControllerBase
     {
-        public IGetService<Category> categoryService;
+        public IGetService<Category> _categoryService;
 
-        public CategoryController()
+        public CategoryController(IGetService<Category> categoryService)
         {
+            _categoryService = categoryService;
         }
 
         // GET all action
         [HttpGet]
-        public ActionResult<List<Category>> GetAll() => categoryService.GetAll();
+        public ActionResult<List<Category>> GetAll() => _categoryService.GetAll();
     }
 }

@@ -11,13 +11,14 @@ namespace Rest_Api.Controllers;
 [Route("[controller]")]
 public class ColourController : ControllerBase
 {
-    public IGetService<Colour> colourService;
+    public IGetService<Colour> _colourService;
 
-    public ColourController()
+    public ColourController(IGetService<Colour> colourService)
     {
+        _colourService = colourService;
     }
 
     // GET all action
     [HttpGet]
-    public ActionResult<List<Colour>> GetAll() => colourService.GetAll();
+    public ActionResult<List<Colour>> GetAll() => _colourService.GetAll();
 }
