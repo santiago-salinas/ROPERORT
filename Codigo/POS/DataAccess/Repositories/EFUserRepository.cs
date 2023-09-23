@@ -73,6 +73,7 @@ namespace DataAccess.Repositories
             {
                 UserEntity entity = _context.UserEntities.First(p => p.Id == id);
                 _context.UserEntities.Remove(entity);
+                _context.SaveChanges();
             }
             catch
             {
