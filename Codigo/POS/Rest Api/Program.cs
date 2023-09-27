@@ -11,44 +11,49 @@ repositoriesFactory.SetupRepositories();
 ServicesFactory servicesFactory = new ServicesFactory(repositoriesFactory);
 servicesFactory.SetupServices();
 
-builder.Services.AddScoped<IGetService<Brand>>(sp =>
+builder.Services.AddScoped(sp =>
 {
     return servicesFactory.BrandService;
 });
 
-builder.Services.AddScoped<IGetService<Colour>>(sp =>
+builder.Services.AddScoped(sp =>
 {
     return servicesFactory.ColourService;
 });
 
-builder.Services.AddScoped<IGetService<Category>>(sp =>
+builder.Services.AddScoped(sp =>
 {
     return servicesFactory.CategoryService;
 });
 
-builder.Services.AddScoped<IProductService>(sp =>
+builder.Services.AddScoped(sp =>
 {
     return servicesFactory.ProductService;
 });
 
-builder.Services.AddScoped<IUserService>(sp =>
+builder.Services.AddScoped(sp =>
 {
     return servicesFactory.UserService;
 });
 
-builder.Services.AddScoped<IPurchaseService>(sp =>
+builder.Services.AddScoped(sp =>
 { 
     return servicesFactory.PurchaseService; 
 });
 
-builder.Services.AddScoped<IPromoService>(sp =>
+builder.Services.AddScoped(sp =>
 {
     return servicesFactory.PromoService;
 });
 
-builder.Services.AddScoped<AuthenticationFilter>(sp =>
+builder.Services.AddScoped(sp =>
 {
     return new AuthenticationFilter(repositoriesFactory.UserRepository);
+});
+
+builder.Services.AddScoped(sp =>
+{
+    return new ExceptionFilter();
 });
 
 
