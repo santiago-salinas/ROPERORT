@@ -3,6 +3,8 @@ using Services.Models;
 using Services;
 using Services.Exceptions;
 using Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
+using Rest_Api.Filters;
 
 namespace Rest_Api.Controllers;
 
@@ -19,6 +21,7 @@ public class UserController : ControllerBase
     }
 
     [HttpGet]
+    [ServiceFilter(typeof(AuthorizationFilter))]
     public ActionResult<List<User>> GetAll() => _userService.GetAll();
 
     [HttpGet("{id}")]

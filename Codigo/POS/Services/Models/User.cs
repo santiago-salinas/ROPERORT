@@ -12,26 +12,53 @@ namespace Services.Models
             Roles = new List<Role>();
         }
 
+        public User()
+        {
+
+        }
+
         public int Id { get; set; }
-        public string Email { 
-            get => _mail; 
-            set {
+        public string Email
+        {
+            get => _mail;
+            set
+            {
                 ValidateMail(value);
                 _mail = value;
             }
         }
-        public string Address { 
-            get => _Address; 
-            set {
-                ValidateAddress(value);
+        public string Password
+        {
+            get => _password;
+            set
+            {
+                ValidateNotNull(value);
+                _password = value;
+            }
+        }
+        public string Token
+        {
+            get => _token;
+            set
+            {
+                ValidateNotNull(value);
+                _token = value;
+            }
+        }
+        public string Address
+        {
+            get => _Address;
+            set
+            {
+                ValidateNotNull(value);
                 _Address = value;
-            } 
+            }
         }
         public List<Role> Roles { get; }
 
         public void AddRole(Role role)
         {
-            if(Roles.Contains(role)) return;
+            if (Roles.Contains(role)) return;
             Roles.Add(role);
         }
 
@@ -41,6 +68,8 @@ namespace Services.Models
         }
 
         private string _mail;
+        private string _password;
+        private string _token;
         private string _Address;
 
         private void ValidateMail(string value)
@@ -54,13 +83,13 @@ namespace Services.Models
             return !(new Regex("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")).IsMatch(value);
         }
 
-        private void ValidateAddress(string value)
+        private void ValidateNotNull(string value)
         {
-            if (AddressIsNull(value))
-                throw new Exception("Address is not valid");
+            if (StringIsNull(value))
+                throw new Exception("Info is not valid");
         }
 
-        private bool AddressIsNull(string value)
+        private bool StringIsNull(string value)
         {
             return value.Equals("");
         }
