@@ -18,7 +18,7 @@ namespace Rest_Api.Controllers
 
         // GET all action
         [HttpGet]
-        [ServiceFilter(typeof(AuthorizationFilter))]
+        [ServiceFilter(typeof(AuthenticationFilter))]
         public ActionResult<List<Brand>> GetAll() => _brandService.GetAll();
     }
 }

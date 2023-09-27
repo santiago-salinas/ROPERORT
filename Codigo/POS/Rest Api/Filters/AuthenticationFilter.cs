@@ -6,11 +6,11 @@ using Services.Models;
 
 namespace Rest_Api.Filters
 {
-    public class AuthorizationFilter : Attribute, IAuthorizationFilter
+    public class AuthenticationFilter : Attribute, IAuthorizationFilter
     {
 
         private static AuthService auth;
-        public AuthorizationFilter(ICRUDRepository<User> repo)
+        public AuthenticationFilter(ICRUDRepository<User> repo)
         {
             auth = new AuthService(repo);
         }

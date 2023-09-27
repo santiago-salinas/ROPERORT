@@ -41,7 +41,7 @@ namespace ApiTests.Fitler
         [TestMethod]
         public void TestAuthFilterWithoutHeader()
         {
-            AuthorizationFilter authFilter = new AuthorizationFilter(_userRepository.Object);
+            AuthenticationFilter authFilter = new AuthenticationFilter(_userRepository.Object);
 
             var modelState = new ModelStateDictionary();
             var httpContext = new DefaultHttpContext();
@@ -62,7 +62,7 @@ namespace ApiTests.Fitler
         [TestMethod]
         public void TestAuthFilterWithValidHeader()
         {
-            AuthorizationFilter authFilter = new AuthorizationFilter(_userRepository.Object);
+            AuthenticationFilter authFilter = new AuthenticationFilter(_userRepository.Object);
 
             var modelState = new ModelStateDictionary();
             var httpContext = new DefaultHttpContext();
@@ -84,7 +84,7 @@ namespace ApiTests.Fitler
         [TestMethod]
         public void TestAuthFilterWithInvalidHeader()
         {
-            AuthorizationFilter authFilter = new AuthorizationFilter(_userRepository.Object);
+            AuthenticationFilter authFilter = new AuthenticationFilter(_userRepository.Object);
 
             var modelState = new ModelStateDictionary();
             var httpContext = new DefaultHttpContext();

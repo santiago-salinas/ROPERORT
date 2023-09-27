@@ -41,9 +41,9 @@ builder.Services.AddScoped<PromoService>(sp =>
     return servicesFactory.PromoService;
 });
 
-builder.Services.AddScoped<AuthorizationFilter>(sp =>
+builder.Services.AddScoped<AuthenticationFilter>(sp =>
 {
-    return new AuthorizationFilter(repositoriesFactory.UserRepository);
+    return new AuthenticationFilter(repositoriesFactory.UserRepository);
 });
 
 

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Rest_Api.Filters;
 using Services.Exceptions;
 using Services.Interfaces;
 using Services.Models;
@@ -21,6 +22,7 @@ public class UserController : ControllerBase
     public ActionResult<List<User>> GetAll() => _userService.GetAll();
 
     [HttpGet("{id}")]
+    [ServiceFilter(typeof(AuthenticationFilter))]
     public ActionResult<User> Get(int id)
     {
         User? user = _userService.Get(id);
@@ -49,6 +51,7 @@ public class UserController : ControllerBase
     }
 
     [HttpPut("{id}")]
+    [ServiceFilter(typeof(AuthenticationFilter))]
     public IActionResult Update(int id, User user)
     {
         if (id != user.Id)
@@ -64,6 +67,7 @@ public class UserController : ControllerBase
     }
 
     [HttpDelete("{id}")]
+    [ServiceFilter(typeof(AuthenticationFilter))]
     public IActionResult Delete(int id)
     {
         User? user = _userService.Get(id);
