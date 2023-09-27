@@ -10,12 +10,12 @@ namespace Services.Models
             Address = address;
             Password = password;
             Roles = new List<Role>();
-            Token = $"{Id}token{Email.Length}secure";
+            Token = $"token{Email}secure";
         }
 
         public User()
         {
-            Token = $"{Id}token{Email.Length}secure";
+            Token = $"token{Email}secure";
         }
 
         public int Id { get; set; }

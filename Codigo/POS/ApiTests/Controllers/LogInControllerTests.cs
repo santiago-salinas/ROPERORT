@@ -16,11 +16,13 @@ namespace ApiTests.Controllers
 
         public string email = "prueba@gmail.com";
         public string password = "password";
-        public string expectedToken = "3token16secure";
+        public string expectedToken;
 
         [TestInitialize]
         public void TestInitialize()
         {
+            expectedToken = $"token{email.Reverse()}secure";
+
             mock = new Mock<IUserService>(MockBehavior.Strict);
             userController = new UserController(mock.Object);
             logInController = new LogInController(mock.Object);
@@ -35,7 +37,7 @@ namespace ApiTests.Controllers
         {
             CredentialsDTO credentials = new CredentialsDTO(email, password);
 
-            CreatedAtActionResult? result = logInController.Create(credentials) as CreatedAtActionResult;
+            OkObjectResult? result = logInController.Create(credentials) as OkObjectResult;
             Assert.IsNotNull(result);
             Assert.AreEqual(expectedToken, result.Value);
         }

@@ -28,7 +28,7 @@ namespace Rest_Api.Controllers
                 return BadRequest("Invalid Credentials");
             }
 
-            return CreatedAtAction(nameof(Create), found.Token);
+            return Ok(found.Token);
 
         }
     }
