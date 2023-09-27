@@ -1,11 +1,8 @@
+using Factory;
+using Rest_Api.Filters;
+using Services;
 using Services.Interfaces;
 using Services.Models;
-using Services;
-
-using Microsoft.Extensions.DependencyInjection;
-using Factory;
-using DataAccess.Repositories;
-using DataAccess;
 
 var builder = WebApplication.CreateBuilder(args);
 RepositoriesFactory repositoriesFactory = new RepositoriesFactory();
@@ -44,17 +41,22 @@ builder.Services.AddScoped<IPurchaseService>(sp =>
     return servicesFactory.PurchaseService; 
 });
 
-builder.Services.AddScoped<PromoService>(sp =>
+builder.Services.AddScoped<IPromoService>(sp =>
 {
     return servicesFactory.PromoService;
 });
 
+builder.Services.AddScoped<AuthenticationFilter>(sp =>
+{
+    return new AuthenticationFilter(repositoriesFactory.UserRepository);
+});
 
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
 
 var app = builder.Build();
 

@@ -1,30 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Services.Models;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Services.Models;
 
 
 namespace DataAccess.Entities
 {
     public class ProductEntity
     {
-        [Key] 
+        [Key]
         public int Id { get; set; }
-        
+
         public string Name { get; set; }
         public double Price { get; set; }
         public string Description { get; set; }
         public BrandEntity Brand { get; set; }
         public CategoryEntity Category { get; set; }
 
-        public IList<ProductColors> Colours { get; set;}
+        public IList<ProductColors> Colours { get; set; }
 
 
-        public ProductEntity() {  Colours = new List<ProductColors>(); }
+        public ProductEntity() { Colours = new List<ProductColors>(); }
         public static ProductEntity FromModel(Product product, EFContext context)
         {
             BrandEntity brand = context.BrandEntities.First(b => b.Name == product.Brand.Name);
@@ -33,7 +27,7 @@ namespace DataAccess.Entities
             ProductEntity retValue = new ProductEntity
             {
                 Name = product.Name,
-                Price = product.PriceUYU, 
+                Price = product.PriceUYU,
                 Description = product.Description,
                 Brand = brand,
                 Category = category,
@@ -54,7 +48,7 @@ namespace DataAccess.Entities
                 Description = entity.Description,
                 Brand = BrandEntity.FromEntity(entity.Brand),
                 Category = CategoryEntity.FromEntity(entity.Category),
-                Colours = entity.Colours.Select(c => ColourEntity.FromEntity(c.Colour)).ToList(),                
+                Colours = entity.Colours.Select(c => ColourEntity.FromEntity(c.Colour)).ToList(),
             };
         }
     }

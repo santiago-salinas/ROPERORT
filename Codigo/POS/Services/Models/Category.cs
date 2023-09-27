@@ -4,7 +4,7 @@ namespace Services.Models
     public class Category
     {
         public Category() { }
-        public Category(string name) {Name = name;}
+        public Category(string name) { Name = name; }
         public string Name { get; set; }
 
         public override bool Equals(object? obj)

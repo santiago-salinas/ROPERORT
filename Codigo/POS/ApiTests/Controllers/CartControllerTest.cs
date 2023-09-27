@@ -1,17 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Moq;
-using Services.Models;
 using Rest_Api.Controllers;
 using Rest_Api.DTOs;
 using Services.Interfaces;
+using Services.Models;
 
 namespace ApiTests.Controllers
 {
     [TestClass]
     public class CartControllerTest
     {
-        public Mock<IGetService<Promo>> mockDiscounts = new Mock<IGetService<Promo>>(MockBehavior.Strict);
-        
+        public Mock<IPromoService> mockDiscounts = new Mock<IPromoService>(MockBehavior.Strict);
+
         [TestInitialize]
         public void TestInitialize()
         {
@@ -41,7 +41,7 @@ namespace ApiTests.Controllers
                 colour
             };
 
-            var mockProduct = new Mock<ICRUDService<Product>>(MockBehavior.Strict);
+            var mockProduct = new Mock<IProductService>(MockBehavior.Strict);
             mockProduct.Setup(s => s.Get(1)).Returns(new Product
             {
                 Id = 1,
@@ -57,7 +57,7 @@ namespace ApiTests.Controllers
             CartDTO cartDto = new CartDTO();
             CartLineDTO cartLineDto = new CartLineDTO()
             {
-                id = 1,
+                Id = 1,
                 Quantity = 3
             };
 
@@ -90,7 +90,7 @@ namespace ApiTests.Controllers
                 colour
             };
 
-            var mockProduct = new Mock<ICRUDService<Product>>(MockBehavior.Strict);
+            var mockProduct = new Mock<IProductService>(MockBehavior.Strict);
             mockProduct.Setup(s => s.Get(1)).Returns(new Product
             {
                 Id = 1,
@@ -107,7 +107,7 @@ namespace ApiTests.Controllers
             CartDTO cartDto = new CartDTO();
             CartLineDTO cartLineDto = new CartLineDTO()
             {
-                id = 1,
+                Id = 1,
                 Quantity = -1
             };
 
@@ -118,7 +118,7 @@ namespace ApiTests.Controllers
 
             var createdResult = result as BadRequestObjectResult;
 
-            Assert.AreEqual("Quantity cannot be less than 0.", createdResult.Value);
+            Assert.AreEqual("Quantity cannot be less or equal than 0.", createdResult.Value);
             Assert.AreEqual(400, createdResult.StatusCode);
 
         }
@@ -140,7 +140,7 @@ namespace ApiTests.Controllers
                 colour
             };
 
-            var mockProduct = new Mock<ICRUDService<Product>>(MockBehavior.Strict);
+            var mockProduct = new Mock<IProductService>(MockBehavior.Strict);
             mockProduct.Setup(s => s.Get(1)).Returns(new Product
             {
                 Id = 1,
@@ -158,7 +158,7 @@ namespace ApiTests.Controllers
             CartDTO cartDto = new CartDTO();
             CartLineDTO cartLineDto = new CartLineDTO()
             {
-                id = 1,
+                Id = 1,
                 Quantity = -1
             };
 
@@ -169,7 +169,7 @@ namespace ApiTests.Controllers
 
             var createdResult = result as BadRequestObjectResult;
 
-            Assert.AreEqual("Quantity cannot be less than 0.", createdResult.Value);
+            Assert.AreEqual("Quantity cannot be less or equal than 0.", createdResult.Value);
             Assert.AreEqual(400, createdResult.StatusCode);
 
         }
@@ -191,7 +191,7 @@ namespace ApiTests.Controllers
                 colour
             };
 
-            var mockProduct = new Mock<ICRUDService<Product>>(MockBehavior.Loose);
+            var mockProduct = new Mock<IProductService>(MockBehavior.Loose);
             mockProduct.Setup(s => s.Get(1)).Returns(new Product
             {
                 Id = 1,
@@ -209,7 +209,7 @@ namespace ApiTests.Controllers
             CartDTO cartDto = new CartDTO();
             CartLineDTO cartLineDto = new CartLineDTO()
             {
-                id = 2,
+                Id = 2,
                 Quantity = -1
             };
 
@@ -228,7 +228,7 @@ namespace ApiTests.Controllers
         [TestMethod]
         public void FailedEmptyCart()
         {
-            var mockProduct = new Mock<ICRUDService<Product>>(MockBehavior.Loose);
+            var mockProduct = new Mock<IProductService>(MockBehavior.Loose);
             var controller = new CartController(mockProduct.Object, mockDiscounts.Object);
 
 
@@ -260,7 +260,7 @@ namespace ApiTests.Controllers
                 colour
             };
 
-            var mockProduct = new Mock<ICRUDService<Product>>(MockBehavior.Strict);
+            var mockProduct = new Mock<IProductService>(MockBehavior.Strict);
             mockProduct.Setup(s => s.Get(1)).Returns(new Product
             {
                 Id = 1,
@@ -277,7 +277,7 @@ namespace ApiTests.Controllers
             CartDTO cartDto = new CartDTO();
             CartLineDTO cartLineDto = new CartLineDTO()
             {
-                id = 1,
+                Id = 1,
                 Quantity = 3
             };
 

@@ -1,9 +1,9 @@
-using DataAccess.Entities;
 using DataAccess;
-using DataAccess.Repositories;
-using Services.Models;
-using Microsoft.EntityFrameworkCore;
+using DataAccess.Entities;
 using DataAccess.Exceptions;
+using DataAccess.Repositories;
+using Microsoft.EntityFrameworkCore;
+using Services.Models;
 
 namespace EFTests
 
@@ -55,7 +55,7 @@ namespace EFTests
             colour = new Colour();
             colour.Name = "Red";
 
-            colours = new List<Colour>{colour};
+            colours = new List<Colour> { colour };
 
             _testProduct1 = new ProductEntity()
             {
@@ -82,7 +82,7 @@ namespace EFTests
             _testProduct2.Colours.Add(productColours[1]);
         }
 
-        
+
 
         [TestMethod]
         public void AddNewProducts()
@@ -148,7 +148,7 @@ namespace EFTests
 
             _productRepository.Update(invalidProduct);
         }
-               
+
 
 
         [TestCleanup]
@@ -162,7 +162,7 @@ namespace EFTests
             _context.ProductEntities.AddRange(_testProduct1, _testProduct2);
             _context.SaveChanges();
 
-            return _testProduct1.Id; 
+            return _testProduct1.Id;
         }
     }
 }

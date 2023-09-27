@@ -1,5 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
-using Services.Models;
+﻿using Services.Models;
+using System.ComponentModel.DataAnnotations;
 
 
 namespace DataAccess.Entities
@@ -12,7 +12,7 @@ namespace DataAccess.Entities
 
 
         public RoleEntity() { }
-        public static RoleEntity FromModel(Role role) 
+        public static RoleEntity FromModel(Role role)
         {
             return new RoleEntity { Name = role.Name };
         }

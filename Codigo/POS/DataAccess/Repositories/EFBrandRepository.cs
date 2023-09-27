@@ -1,7 +1,7 @@
 ﻿using DataAccess.Entities;
 using DataAccess.Exceptions;
-using Services.Models;
 using Services.Interfaces;
+using Services.Models;
 
 
 namespace DataAccess.Repositories

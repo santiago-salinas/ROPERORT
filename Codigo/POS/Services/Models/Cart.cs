@@ -20,7 +20,7 @@ namespace Services.Models
         {
             double sum = 0;
 
-            if(Products != null)
+            if (Products != null)
             {
                 foreach (CartLine line in Products)
                 {
@@ -47,12 +47,12 @@ namespace Services.Models
         }
 
         public Promo? AppliedPromo { get; set; }
-        
+
     }
     public class CartLine
     {
         public Product Product { get; set; }
-        
+
         private int _quantity;
 
         public int Quantity
@@ -62,7 +62,7 @@ namespace Services.Models
             {
                 if (value <= 0)
                 {
-                    throw new Models_ArgumentException("Quantity cannot be less than 0.");
+                    throw new Models_ArgumentException("Quantity cannot be less or equal than 0.");
                 }
                 _quantity = value;
             }

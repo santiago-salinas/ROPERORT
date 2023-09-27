@@ -1,7 +1,4 @@
-﻿using DataAccess;
-using DataAccess.Repositories;
-using Microsoft.AspNetCore.Builder;
-using Services;
+﻿using Services;
 using Services.Interfaces;
 using Services.Models;
 
@@ -9,7 +6,7 @@ namespace Factory
 {
     public class ServicesFactory
     {
-        public ServicesFactory(RepositoriesFactory repositories) 
+        public ServicesFactory(RepositoriesFactory repositories)
         {
             RepositoriesFactory = repositories;
         }
@@ -21,6 +18,7 @@ namespace Factory
         public IGetService<Colour> ColourService { get; set; }
         public IGetService<Category> CategoryService { get; set; }
         public PromoService PromoService { get; set; }
+
 
         public void SetupServices()
         {
@@ -36,7 +34,6 @@ namespace Factory
             BrandService = new BrandService(RepositoriesFactory.BrandRepository);
             ColourService = new ColourService(RepositoriesFactory.ColourRepository);
             CategoryService = new CategoryService(RepositoriesFactory.CategoryRepository);
-
 
         }
     }

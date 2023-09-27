@@ -4,8 +4,8 @@ namespace Services.Models
 {
     public class FidelityPromo : Promo
     {
-        public FidelityPromo() : base("3X1 Fidelity", "Having 3 products of the same brand", "The two cheapest are free") 
-        { 
+        public FidelityPromo() : base("3X1 Fidelity", "Having 3 products of the same brand", "The two cheapest are free")
+        {
         }
 
         public override double ApplyDiscount(Cart cart)
@@ -13,7 +13,7 @@ namespace Services.Models
             double bestValue = cart.PriceUYU;
             List<CartLine> lines = cart.Products;
             List<CartLine> productsAllBrands = lines.GroupBy(p => p.Product.Brand).Select(b => b.First()).ToList();
-            foreach(CartLine productOfOneBrand in productsAllBrands)
+            foreach (CartLine productOfOneBrand in productsAllBrands)
             {
                 var discountedPrice = cart.PriceUYU;
                 var product = productOfOneBrand.Product;

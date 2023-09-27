@@ -1,8 +1,8 @@
 ﻿using DataAccess.Entities;
 using DataAccess.Exceptions;
 using Microsoft.EntityFrameworkCore;
-using Services.Models;
 using Services.Interfaces;
+using Services.Models;
 
 namespace DataAccess.Repositories
 {
@@ -56,6 +56,7 @@ namespace DataAccess.Repositories
         {
             try
             {
+                user = new User(user.Email, user.Address, user.Password);
                 UserEntity entity = UserEntity.FromModel(user);
                 _context.UserEntities.Add(entity);
                 _context.SaveChanges();
