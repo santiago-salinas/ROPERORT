@@ -66,8 +66,7 @@ namespace DataAccess.Repositories
                 _context.SaveChanges();
             }
             catch
-            {
-
+            {             
                 throw new DatabaseException("Error while trying to add product " + product.Name);
             }
         }
