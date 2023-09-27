@@ -36,7 +36,7 @@ builder.Services.AddScoped<IUserService>(sp =>
     return servicesFactory.UserService;
 });
 
-builder.Services.AddScoped<PromoService>(sp =>
+builder.Services.AddScoped<IPromoService>(sp =>
 {
     return servicesFactory.PromoService;
 });
