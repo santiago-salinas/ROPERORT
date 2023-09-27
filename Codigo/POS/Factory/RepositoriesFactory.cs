@@ -1,7 +1,5 @@
 ﻿using DataAccess;
 using DataAccess.Repositories;
-using Microsoft.AspNetCore.Builder;
-using Services;
 using Services.Interfaces;
 using Services.Models;
 

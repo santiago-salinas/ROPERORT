@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Services.Models;
+using Rest_Api.Filters;
 using Services.Exceptions;
-using Rest_Api.Controllers.Exceptions;
-using System.Drawing;
 using Services.Interfaces;
+using Services.Models;
 
 namespace Rest_Api.Controllers;
 
@@ -34,20 +33,23 @@ public class ProductController : ControllerBase
 
     // POST action
     [HttpPost]
+    [ServiceFilter(typeof(AuthenticationFilter))]
     public IActionResult Create(Product product)
-    {       
+    {
         try
         {
             _productService.Add(product);
-        }catch (Service_ObjectHandlingException e) 
+        }
+        catch (Service_ObjectHandlingException e)
         {
             return BadRequest(e.Message);
         }
         return Ok();
-    }   
+    }
 
     // PUT action
     [HttpPut("{id}")]
+    [ServiceFilter(typeof(AuthenticationFilter))]
     public IActionResult Update(int id, Product product)
     {
         if (id != product.Id)
@@ -64,6 +66,7 @@ public class ProductController : ControllerBase
 
     // DELETE action
     [HttpDelete("{id}")]
+    [ServiceFilter(typeof(AuthenticationFilter))]
     public IActionResult Delete(int id)
     {
         Product? product = _productService.Get(id);

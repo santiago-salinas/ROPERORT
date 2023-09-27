@@ -1,9 +1,8 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Services;
 using Services.Exceptions;
-using Services.Models;
 using Services.Interfaces;
+using Services.Models;
 
 namespace ApiTests.Services
 {

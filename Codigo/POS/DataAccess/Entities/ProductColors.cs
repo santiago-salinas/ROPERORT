@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Services.Models;
+﻿using Services.Models;
 
 namespace DataAccess.Entities
 {
@@ -19,9 +12,9 @@ namespace DataAccess.Entities
 
 
         public ProductColors() { }
-        public ProductColors (ProductEntity product, Colour colour, EFContext context)
+        public ProductColors(ProductEntity product, Colour colour, EFContext context)
         {
-            ColourEntity colourEntity = context.ColourEntities.First(c =>c.Name == colour.Name);
+            ColourEntity colourEntity = context.ColourEntities.First(c => c.Name == colour.Name);
 
             ProductId = product.Id;
             Product = product;

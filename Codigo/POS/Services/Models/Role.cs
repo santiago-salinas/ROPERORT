@@ -2,14 +2,24 @@ namespace Services.Models
 {
     public class Role
     {
-        public string Name { 
-            get => _name; 
-            set {
+        public string Name
+        {
+            get => _name;
+            set
+            {
                 ValidateRole(value);
                 _name = value;
-            } 
+            }
         }
 
+        public Role(string name)
+        {
+            _name = name;
+        }
+
+        public Role()
+        {
+        }
         public override string ToString()
         {
             return Name;

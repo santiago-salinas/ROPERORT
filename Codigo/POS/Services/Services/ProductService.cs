@@ -1,11 +1,11 @@
-﻿using Services.Models;
+﻿using Services.Exceptions;
 using Services.Interfaces;
-using Services.Exceptions;
+using Services.Models;
 
 namespace Services;
 
 public class ProductService : IProductService
-{    
+{
     private readonly ICRUDRepository<Product> _productRepository;
     private IGetRepository<Colour> _colourRepository;
     private IGetRepository<Brand> _brandRepository;
@@ -43,11 +43,11 @@ public class ProductService : IProductService
     public List<Product> GetFiltered(Category? category = null, Brand? brand = null, string? name = null)
     {
         IEnumerable<Product> result = GetAll();
-        if(category != null)
+        if (category != null)
         {
             result = result.Where(p => p.Category.Equals(category));
         }
-        if(brand != null)
+        if (brand != null)
         {
             result = result.Where(p => p.Brand.Equals(brand));
         }

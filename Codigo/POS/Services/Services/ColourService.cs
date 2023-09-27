@@ -1,5 +1,5 @@
-﻿using Services.Models;
-using Services.Interfaces;
+﻿using Services.Interfaces;
+using Services.Models;
 
 namespace Services;
 

@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Moq;
-using Services.Models;
 using Rest_Api.Controllers;
 using Rest_Api.DTOs;
 using Services.Interfaces;
+using Services.Models;
 
 namespace ApiTests.Controllers
 {
@@ -11,7 +11,7 @@ namespace ApiTests.Controllers
     public class CartControllerTest
     {
         public Mock<IGetService<Promo>> mockDiscounts = new Mock<IGetService<Promo>>(MockBehavior.Strict);
-        
+
         [TestInitialize]
         public void TestInitialize()
         {
@@ -57,7 +57,7 @@ namespace ApiTests.Controllers
             CartDTO cartDto = new CartDTO();
             CartLineDTO cartLineDto = new CartLineDTO()
             {
-                id = 1,
+                Id = 1,
                 Quantity = 3
             };
 
@@ -107,7 +107,7 @@ namespace ApiTests.Controllers
             CartDTO cartDto = new CartDTO();
             CartLineDTO cartLineDto = new CartLineDTO()
             {
-                id = 1,
+                Id = 1,
                 Quantity = -1
             };
 
@@ -158,7 +158,7 @@ namespace ApiTests.Controllers
             CartDTO cartDto = new CartDTO();
             CartLineDTO cartLineDto = new CartLineDTO()
             {
-                id = 1,
+                Id = 1,
                 Quantity = -1
             };
 
@@ -209,7 +209,7 @@ namespace ApiTests.Controllers
             CartDTO cartDto = new CartDTO();
             CartLineDTO cartLineDto = new CartLineDTO()
             {
-                id = 2,
+                Id = 2,
                 Quantity = -1
             };
 
@@ -277,7 +277,7 @@ namespace ApiTests.Controllers
             CartDTO cartDto = new CartDTO();
             CartLineDTO cartLineDto = new CartLineDTO()
             {
-                id = 1,
+                Id = 1,
                 Quantity = 3
             };
 

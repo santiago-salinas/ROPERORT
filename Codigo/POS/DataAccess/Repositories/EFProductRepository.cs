@@ -1,8 +1,8 @@
 ﻿using DataAccess.Entities;
 using DataAccess.Exceptions;
-using Services.Models;
-using Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Services.Interfaces;
+using Services.Models;
 
 namespace DataAccess.Repositories
 {
@@ -10,7 +10,7 @@ namespace DataAccess.Repositories
     {
         private readonly EFContext _context;
         public EFProductRepository(EFContext context)
-        { 
+        {
             _context = context;
         }
 
@@ -45,13 +45,13 @@ namespace DataAccess.Repositories
                     .Include(p => p.Brand)
                     .Include(p => p.Category)
                     .Include(p => p.Colours)
-                        .ThenInclude(c=> c.Colour)
+                        .ThenInclude(c => c.Colour)
                     .First(p => p.Id == id);
 
                 return ProductEntity.FromEntity(product);
 
             }
-            catch(InvalidOperationException) { }
+            catch (InvalidOperationException) { }
             {
                 return null;
             }
@@ -74,8 +74,8 @@ namespace DataAccess.Repositories
 
         public void Delete(int id)
         {
-            try 
-            { 
+            try
+            {
                 ProductEntity entity = _context.ProductEntities.First(p => p.Id == id);
                 _context.ProductEntities.Remove(entity);
                 _context.SaveChanges();

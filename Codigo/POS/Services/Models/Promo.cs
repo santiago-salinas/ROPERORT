@@ -2,7 +2,7 @@ namespace Services.Models
 {
     public abstract class Promo
     {
-        public Promo(string name, string condition, string discount) 
+        public Promo(string name, string condition, string discount)
         {
             Name = name;
             Condition = condition;
@@ -12,7 +12,7 @@ namespace Services.Models
         public string Condition { get; set; }
         public string Discount { get; set; }
 
-        public abstract double ApplyDiscount(Cart cart);        
+        public abstract double ApplyDiscount(Cart cart);
 
     }
 }

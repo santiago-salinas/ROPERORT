@@ -7,7 +7,7 @@ namespace DataAccess
     public class EFContext : DbContext
     {
         private readonly bool _useInMemoryDatabase;
-        public EFContext(DbContextOptions<EFContext>? options = null, bool useInMemoryDB = false) : base() 
+        public EFContext(DbContextOptions<EFContext>? options = null, bool useInMemoryDB = false) : base()
         {
             _useInMemoryDatabase = useInMemoryDB;
         }
@@ -45,7 +45,7 @@ namespace DataAccess
         public DbSet<ProductEntity> ProductEntities { get; set; }
         public DbSet<UserEntity> UserEntities { get; set; }
         public DbSet<PurchaseEntity> PurchaseEntities { get; set; }
-        public DbSet<ColourEntity> ColourEntities { get; set;}
+        public DbSet<ColourEntity> ColourEntities { get; set; }
         public DbSet<BrandEntity> BrandEntities { get; set; }
         public DbSet<CategoryEntity> CategoryEntities { get; set; }
 

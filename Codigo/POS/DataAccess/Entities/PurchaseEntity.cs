@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Services.Models;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Services.Models;
 
 
 namespace DataAccess.Entities
@@ -14,7 +8,7 @@ namespace DataAccess.Entities
     {
         [Key]
         public int Id { get; set; }
-        public UserEntity User { get; set; }        
+        public UserEntity User { get; set; }
         public ICollection<PurchasedProductEntity> Items { get; set; }
         public string? AppliedPromotion { get; set; }
         public DateTime Date { get; set; }
@@ -31,7 +25,7 @@ namespace DataAccess.Entities
                 User = UserEntity.FromModel(model.Client),
                 Date = model.Date,
                 AppliedPromotion = model.AppliedPromotion,
-                Items = cart.Products.Select(p => PurchasedProductEntity.FromModel(model,p,context)).ToList(),                
+                Items = cart.Products.Select(p => PurchasedProductEntity.FromModel(model, p, context)).ToList(),
             };
         }
 
@@ -39,14 +33,15 @@ namespace DataAccess.Entities
         {
             Cart cart = new Cart()
             {
-                Products = entity.Items.Select(p => {
+                Products = entity.Items.Select(p =>
+                {
                     CartLine line = new CartLine()
                     {
                         Product = ProductEntity.FromEntity(p.Product),
                         Quantity = p.Amount,
                     };
                     return line;
-                }).ToList(),                
+                }).ToList(),
             };
 
             return new Purchase
@@ -55,7 +50,7 @@ namespace DataAccess.Entities
                 Client = UserEntity.FromEntity(entity.User),
                 Date = entity.Date,
                 AppliedPromotion = entity.AppliedPromotion,
-                Products = cart,                
+                Products = cart,
             };
         }
 

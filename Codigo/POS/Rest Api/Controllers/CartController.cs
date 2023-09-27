@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Services.Models;
-using Rest_Api.Controllers.Exceptions;
 using Rest_Api.DTOs;
 using Services.Interfaces;
+using Services.Models;
 
 namespace Rest_Api.Controllers;
 
@@ -36,13 +35,13 @@ public class CartController : ControllerBase
         {
             cart = CartDTOtoObject(cartDto);
             ApplyPromo(cart);
-            return CreatedAtAction(nameof(Create),cart.DiscountedPriceUYU, cart);
+            return CreatedAtAction(nameof(Create), cart.DiscountedPriceUYU, cart);
         }
         catch (Exception e)
         {
             return BadRequest(e.Message);
         }
-        
+
     }
 
     [NonAction]
@@ -73,11 +72,11 @@ public class CartController : ControllerBase
     {
         Cart ret = new Cart();
 
-        foreach(CartLineDTO line in cartDto.Products)
+        foreach (CartLineDTO line in cartDto.Products)
         {
             CartLine newline = new CartLine();
-            
-            newline.Product = _productService.Get(line.id);
+
+            newline.Product = _productService.Get(line.Id);
             if (newline.Product == null)
             {
                 throw new ArgumentException("Product id was not found");
