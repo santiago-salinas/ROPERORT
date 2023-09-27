@@ -11,6 +11,7 @@ namespace Services.Models
             Address = address;
             Password = password;
             Roles = new List<Role>();
+            Token = $"{id}token{email.Length}secure";
         }
 
         public User()

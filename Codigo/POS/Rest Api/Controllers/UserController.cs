@@ -37,6 +37,8 @@ public class UserController : ControllerBase
     {
         try
         {
+            Role customerRole = new Role("Customer");
+            user.AddRole(customerRole);
             _userService.Add(user);
         }catch (Service_ObjectHandlingException e) 
         {

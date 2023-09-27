@@ -27,6 +27,7 @@ namespace ApiTests.Models
             someUser = new User(ValidId, ValidMail1, ValidAddress, ValidPassword);
         }
 
+
         [TestMethod]
         public void CreateUserSuccessTest()
         {

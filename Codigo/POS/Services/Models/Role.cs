@@ -10,6 +10,14 @@ namespace Services.Models
             } 
         }
 
+        public Role(string name)
+        {
+            _name = name;
+        }
+
+        public Role()
+        {
+        }
         public override string ToString()
         {
             return Name;

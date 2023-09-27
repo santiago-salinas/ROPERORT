@@ -41,6 +41,7 @@ namespace ApiTests.Controllers
             Assert.AreEqual(expectedOutcome, createdResult.Value);
         }
 
+        
         [TestMethod]
         public void GivenInvalidIdGetReturnsNotFound()
         {
