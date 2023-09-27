@@ -19,6 +19,7 @@ public class UserController : ControllerBase
     }
 
     [HttpGet]
+    [ServiceFilter(typeof(AuthorizationFilter))]
     public ActionResult<List<User>> GetAll() => _userService.GetAll();
 
     [HttpGet("{id}")]

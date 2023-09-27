@@ -51,6 +51,11 @@ builder.Services.AddScoped<AuthenticationFilter>(sp =>
     return new AuthenticationFilter(repositoriesFactory.UserRepository);
 });
 
+builder.Services.AddScoped<AuthorizationFilter>(sp =>
+{
+    return new AuthorizationFilter(repositoriesFactory.UserRepository);
+});
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
