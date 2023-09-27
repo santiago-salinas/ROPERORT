@@ -1,8 +1,8 @@
 ﻿using DataAccess.Entities;
 using DataAccess.Exceptions;
 using Microsoft.EntityFrameworkCore;
-using Services.Models;
 using Services.Interfaces;
+using Services.Models;
 
 namespace DataAccess.Repositories
 {

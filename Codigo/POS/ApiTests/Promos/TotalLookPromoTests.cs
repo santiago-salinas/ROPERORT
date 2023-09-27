@@ -35,19 +35,19 @@ namespace ApiTests.Promos
             {
                 Name = "Product2",
                 PriceUYU = 20.0,
-                Colours = new List<Colour>  { firstColour, secondColour }
+                Colours = new List<Colour> { firstColour, secondColour }
             };
             _testProduct3 = new Product()
             {
                 Name = "Product3",
                 PriceUYU = 15.0,
-                Colours = new List<Colour>  { thirdColour, secondColour }
+                Colours = new List<Colour> { thirdColour, secondColour }
             };
             _testProduct4 = new Product()
             {
                 Name = "Product4",
                 PriceUYU = 25.0,
-                Colours = new List<Colour>  { firstColour, thirdColour }
+                Colours = new List<Colour> { firstColour, thirdColour }
             };
         }
 
@@ -134,7 +134,7 @@ namespace ApiTests.Promos
             cart.Products.Add(new CartLine { Product = _testProduct3, Quantity = 1 });
             cart.Products.Add(new CartLine { Product = _testProduct4, Quantity = 2 });
 
-            var expectedPrice = cart.PriceUYU-10f;
+            var expectedPrice = cart.PriceUYU - 10f;
             var discountedPrice = promo.ApplyDiscount(cart);
             Assert.AreEqual(expectedPrice, discountedPrice);
         }

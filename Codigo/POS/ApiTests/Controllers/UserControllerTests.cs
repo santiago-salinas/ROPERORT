@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Moq;
 using Rest_Api.Controllers;
-using Services;
 using Services.Exceptions;
 using Services.Interfaces;
 using Services.Models;
@@ -41,7 +40,7 @@ namespace ApiTests.Controllers
             Assert.AreEqual(expectedOutcome, createdResult.Value);
         }
 
-        
+
         [TestMethod]
         public void GivenInvalidIdGetReturnsNotFound()
         {
@@ -85,7 +84,7 @@ namespace ApiTests.Controllers
         {
             var user = new User(6, "prueba@gmail.com", "Calle", "password");
             var result = userController.Update(5, user);
-            Assert.IsInstanceOfType(result,typeof(BadRequestResult));
+            Assert.IsInstanceOfType(result, typeof(BadRequestResult));
         }
 
         [TestMethod]

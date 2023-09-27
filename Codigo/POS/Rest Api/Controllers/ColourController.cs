@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Services.Interfaces;
 using Services.Models;
-using System.Drawing;
 
 
 namespace Rest_Api.Controllers;

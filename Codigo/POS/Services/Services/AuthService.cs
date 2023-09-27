@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-using System.Xml.Linq;
-using Services.Interfaces;
+﻿using Services.Interfaces;
 using Services.Models;
 
 namespace Services;

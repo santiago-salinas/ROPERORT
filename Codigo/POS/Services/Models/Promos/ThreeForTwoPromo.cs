@@ -3,8 +3,8 @@ namespace Services.Models
 {
     public class ThreeForTwoPromo : Promo
     {
-        public ThreeForTwoPromo() : base("3X2", "Having 3 products of the same category", "The cheapest is free") 
-        { 
+        public ThreeForTwoPromo() : base("3X2", "Having 3 products of the same category", "The cheapest is free")
+        {
         }
 
         public override double ApplyDiscount(Cart cart)

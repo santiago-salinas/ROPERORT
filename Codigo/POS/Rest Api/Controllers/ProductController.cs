@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Services.Models;
 using Services.Exceptions;
-using Rest_Api.Controllers.Exceptions;
-using System.Drawing;
 using Services.Interfaces;
+using Services.Models;
 
 namespace Rest_Api.Controllers;
 
@@ -35,16 +33,17 @@ public class ProductController : ControllerBase
     // POST action
     [HttpPost]
     public IActionResult Create(Product product)
-    {       
+    {
         try
         {
             _productService.Add(product);
-        }catch (Service_ObjectHandlingException e) 
+        }
+        catch (Service_ObjectHandlingException e)
         {
             return BadRequest(e.Message);
         }
         return Ok();
-    }   
+    }
 
     // PUT action
     [HttpPut("{id}")]

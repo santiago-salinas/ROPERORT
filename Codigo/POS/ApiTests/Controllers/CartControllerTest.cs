@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Moq;
-using Services.Models;
 using Rest_Api.Controllers;
 using Rest_Api.DTOs;
 using Services.Interfaces;
+using Services.Models;
 
 namespace ApiTests.Controllers
 {
@@ -11,7 +11,7 @@ namespace ApiTests.Controllers
     public class CartControllerTest
     {
         public Mock<IGetService<Promo>> mockDiscounts = new Mock<IGetService<Promo>>(MockBehavior.Strict);
-        
+
         [TestInitialize]
         public void TestInitialize()
         {

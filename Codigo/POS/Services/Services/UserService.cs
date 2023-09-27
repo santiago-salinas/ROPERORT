@@ -8,7 +8,7 @@ public class UserService : IUserService
     private readonly ICRUDRepository<User> _repository;
     public UserService(ICRUDRepository<User> repository)
     {
-       _repository = repository;
+        _repository = repository;
     }
 
     public void Add(User entity)

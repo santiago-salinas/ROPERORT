@@ -22,12 +22,12 @@
         private Product SecondCheapestProduct(List<CartLine> cartLines)
         {
             List<CartLine> sortedByPrice = cartLines.OrderBy(p => p.Product.PriceUYU).ToList();
-            if (sortedByPrice.Count == 1 || sortedByPrice[0].Quantity >= 2) 
+            if (sortedByPrice.Count == 1 || sortedByPrice[0].Quantity >= 2)
             {
-                return sortedByPrice[0].Product; 
+                return sortedByPrice[0].Product;
             }
             else
-            { 
+            {
                 return sortedByPrice[1].Product;
             }
         }

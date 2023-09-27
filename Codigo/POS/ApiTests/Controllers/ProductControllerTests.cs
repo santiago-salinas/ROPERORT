@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Moq;
 using Rest_Api.Controllers;
-using Services;
 using Services.Exceptions;
 using Services.Interfaces;
 using Services.Models;
@@ -20,7 +19,7 @@ namespace ApiTests.Controllers
         {
             _mock = new Mock<IProductService>(MockBehavior.Strict);
             _productController = new ProductController(_mock.Object);
-        }         
+        }
 
         [TestMethod]
         public void GetAllWorks_ReturnsAllProducts()
@@ -29,7 +28,7 @@ namespace ApiTests.Controllers
             {
                 new Product { Id = 1, Name = "Product1" },
                 new Product { Id = 2, Name = "Product2" },
-            }; 
+            };
             _mock.Setup(s => s.GetAll()).Returns(expectedProducts);
             var result = _productController.GetAll();
             var createdResult = result;
@@ -103,7 +102,7 @@ namespace ApiTests.Controllers
                 Id = 11,
                 Name = "Cap1",
                 PriceUYU = 600,
-            }; 
+            };
             _mock.Setup(s => s.Add(testProduct)).Throws(new Service_ObjectHandlingException(""));
             var result = _productController.Create(testProduct);
             Assert.IsInstanceOfType(result, typeof(BadRequestObjectResult));
@@ -134,7 +133,7 @@ namespace ApiTests.Controllers
                 Brand = brand,
                 Category = category,
                 Colours = colours
-            }; 
+            };
             _mock.Setup(s => s.Get(testProduct.Id)).Returns(testProduct);
             _mock.Setup(s => s.Update(testProduct));
             var result = _productController.Update(testProduct.Id, testProduct);
@@ -166,7 +165,7 @@ namespace ApiTests.Controllers
                 Brand = brand,
                 Category = category,
                 Colours = colours
-            }; 
+            };
             var result = _productController.Update(5, testProduct);
             Assert.IsInstanceOfType(result, typeof(BadRequestResult));
         }
@@ -179,7 +178,7 @@ namespace ApiTests.Controllers
                 Id = 11,
                 Name = "Cap1",
                 PriceUYU = 600,
-            }; 
+            };
             Product? nullProduct = null;
             _mock.Setup(s => s.Get(testProduct.Id)).Returns(nullProduct);
             var result = _productController.Update(testProduct.Id, testProduct);

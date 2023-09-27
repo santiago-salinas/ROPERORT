@@ -1,7 +1,4 @@
-﻿using Services.Models;
-using System.Xml.Linq;
-
-namespace Services.Interfaces
+﻿namespace Services.Interfaces
 {
     public interface IGetService<T>
     {

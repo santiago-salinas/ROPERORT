@@ -1,7 +1,7 @@
 using Moq;
 using Services;
-using Services.Models;
 using Services.Interfaces;
+using Services.Models;
 
 namespace ApiTests.Services
 {

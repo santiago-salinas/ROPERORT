@@ -7,7 +7,7 @@ public class PromoService
     private const int _zero = 0;
 
     List<Promo> Promos { get; }
-    public PromoService() 
+    public PromoService()
     {
         Promos = new List<Promo>
         {

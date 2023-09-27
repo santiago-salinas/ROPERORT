@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Services.Models;
-using Services;
 using Services.Exceptions;
 using Services.Interfaces;
+using Services.Models;
 
 namespace Rest_Api.Controllers;
 
@@ -40,7 +39,8 @@ public class UserController : ControllerBase
             Role customerRole = new Role("Customer");
             user.AddRole(customerRole);
             _userService.Add(user);
-        }catch (Service_ObjectHandlingException e) 
+        }
+        catch (Service_ObjectHandlingException e)
         {
             return BadRequest(e.Message);
         }

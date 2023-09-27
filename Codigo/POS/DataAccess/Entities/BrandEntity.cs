@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Services.Models;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Services.Models;
 
 namespace DataAccess.Entities
 {
@@ -16,7 +10,7 @@ namespace DataAccess.Entities
 
         public BrandEntity() { }
 
-        public static BrandEntity FromModel(Brand brand) 
+        public static BrandEntity FromModel(Brand brand)
         {
             return new BrandEntity() { Name = brand.Name };
         }

@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Abstractions;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
-using Microsoft.AspNetCore.Mvc;
 using Moq;
 using Rest_Api.Filters;
+using Services;
 using Services.Interfaces;
 using Services.Models;
-using Services;
 
 namespace ApiTests.Fitler
 {

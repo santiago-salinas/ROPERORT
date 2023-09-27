@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Services.Models;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Services.Models;
 
 namespace DataAccess.Entities
 {
@@ -13,7 +7,7 @@ namespace DataAccess.Entities
     {
         [Key]
         public int Id { get; set; }
-        
+
         public string Email { get; set; }
         public string Address { get; set; }
         public string Password { get; set; }
@@ -22,7 +16,7 @@ namespace DataAccess.Entities
 
         public UserEntity() { }
 
-        public static UserEntity FromModel (User user)
+        public static UserEntity FromModel(User user)
         {
             return new UserEntity
             {
@@ -34,10 +28,10 @@ namespace DataAccess.Entities
             };
         }
 
-        public static User FromEntity (UserEntity entity)
+        public static User FromEntity(UserEntity entity)
         {
             User user = new User(entity.Id, entity.Email, entity.Address, "");
-            foreach(AssignedRoles role in entity.Roles)
+            foreach (AssignedRoles role in entity.Roles)
             {
                 user.Roles.Add(RoleEntity.FromEntity(role.Role));
             }

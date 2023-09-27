@@ -1,11 +1,6 @@
 ﻿using Services.Models;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccess.Entities
 {
@@ -32,7 +27,7 @@ namespace DataAccess.Entities
                 Product = ProductEntity.FromModel(cartLine.Product, context),
                 ProductId = cartLine.Product.Id,
                 Purchase = PurchaseEntity.FromModel(purchase, context),
-                PurchaseId = purchase.Id,                
+                PurchaseId = purchase.Id,
             };
         }
     }

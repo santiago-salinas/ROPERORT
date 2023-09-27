@@ -20,9 +20,11 @@ namespace Services.Models
         }
 
         public int Id { get; set; }
-        public string Email {
+        public string Email
+        {
             get { if (_mail is not null) { return _mail; } else return ""; }
-            set {
+            set
+            {
                 ValidateMail(value);
                 _mail = value;
             }
@@ -45,18 +47,20 @@ namespace Services.Models
                 _token = value;
             }
         }
-        public string Address { 
+        public string Address
+        {
             get { if (_address is not null) { return _address; } else return ""; }
-            set {
+            set
+            {
                 ValidateNotNull(value);
                 _address = value;
-            } 
+            }
         }
         public List<Role>? Roles { get; }
 
         public void AddRole(Role role)
         {
-            if(Roles is not null)
+            if (Roles is not null)
             {
                 if (Roles.Contains(role)) return;
                 Roles.Add(role);

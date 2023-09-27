@@ -1,7 +1,4 @@
-﻿using DataAccess;
-using DataAccess.Repositories;
-using Microsoft.AspNetCore.Builder;
-using Services;
+﻿using Services;
 using Services.Interfaces;
 using Services.Models;
 
@@ -9,7 +6,7 @@ namespace Factory
 {
     public class ServicesFactory
     {
-        public ServicesFactory(RepositoriesFactory repositories) 
+        public ServicesFactory(RepositoriesFactory repositories)
         {
             RepositoriesFactory = repositories;
         }

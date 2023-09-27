@@ -1,12 +1,8 @@
+using Factory;
+using Rest_Api.Filters;
+using Services;
 using Services.Interfaces;
 using Services.Models;
-using Services;
-
-using Microsoft.Extensions.DependencyInjection;
-using Factory;
-using DataAccess.Repositories;
-using DataAccess;
-using Rest_Api.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 RepositoriesFactory repositoriesFactory = new RepositoriesFactory();
