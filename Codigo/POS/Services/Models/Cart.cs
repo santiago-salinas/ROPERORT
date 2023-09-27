@@ -62,7 +62,7 @@ namespace Services.Models
             {
                 if (value <= 0)
                 {
-                    throw new Models_ArgumentException("Quantity cannot be less than 0.");
+                    throw new Models_ArgumentException("Quantity cannot be less or equal than 0.");
                 }
                 _quantity = value;
             }
