@@ -2,6 +2,7 @@
 using Rest_Api.DTOs;
 using Services.Interfaces;
 using Services.Models;
+using Services;
 
 namespace Rest_Api.Controllers;
 
@@ -10,12 +11,12 @@ namespace Rest_Api.Controllers;
 [Route("[controller]")]
 public class CartController : ControllerBase
 {
-    private readonly ICRUDService<Product> _productService;
-    private readonly IGetService<Promo> _promoService;
+    private readonly IProductService _productService;
+    private readonly IPromoService _promoService;
 
     private const int _zero = 0;
 
-    public CartController(ICRUDService<Product> cartService, IGetService<Promo> promoService)
+    public CartController(IProductService cartService, IPromoService promoService)
     {
         _productService = cartService;
         _promoService = promoService;

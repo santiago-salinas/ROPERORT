@@ -1,8 +1,9 @@
-﻿using Services.Models;
+﻿using Services.Interfaces;
+using Services.Models;
 
 namespace Services;
 
-public class PromoService
+public class PromoService : IPromoService
 {
     private const int _zero = 0;
 
