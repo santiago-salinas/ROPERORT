@@ -87,6 +87,7 @@ namespace Services.Models
 
         private bool StringIsNull(string value)
         {
+            if (value is null) return true;
             return value.Equals("");
         }
     }

@@ -9,6 +9,8 @@ namespace ApiTests.Models
         private const string ValidMail1 = "prueba@gmail.com";
         private const string ValidMail2 = "prueba@outlook.uy";
         private const string MailWithoutAt = "pruebagmail.com";
+        private const string ValidPassword = "password";
+        private const string InvalidPassword = "";
         private const string MailWithoutDomain = "prueba@.";
         private const string ValidAddress = "Cuareim 1451";
         private const string NullString = "";
@@ -22,13 +24,13 @@ namespace ApiTests.Models
         [TestInitialize]
         public void TestInit()
         {
-            someUser = new User(ValidId, ValidMail1, ValidAddress);
+            someUser = new User(ValidId, ValidMail1, ValidAddress, ValidPassword);
         }
 
         [TestMethod]
         public void CreateUserSuccessTest()
         {
-            var user = new User(ValidId, ValidMail2, ValidAddress);
+            var user = new User(ValidId, ValidMail2, ValidAddress, ValidPassword);
             Assert.IsNotNull(user);
             Assert.AreEqual(ValidMail2, user.Email);
             Assert.AreEqual(ValidAddress, user.Address);
@@ -60,6 +62,13 @@ namespace ApiTests.Models
             someUser.AddRole(someRole);
             someUser.RevokeRole(someRole);
             Assert.IsFalse(someUser.Roles.Contains(someRole));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception), "Mail Address is not valid")]
+        public void ThrowsExceptionWhenPasswordIsNull()
+        {
+            someUser.Password = "";
         }
 
         [TestMethod]
