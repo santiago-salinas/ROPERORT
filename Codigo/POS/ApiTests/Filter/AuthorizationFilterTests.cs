@@ -1,47 +1,50 @@
 ﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Abstractions;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Mvc;
 using Moq;
 using Rest_Api.Filters;
-using Services;
 using Services.Interfaces;
 using Services.Models;
+using Services;
+using Rest_Api.Controllers;
+using Newtonsoft.Json.Linq;
+using System.Net;
 
 namespace ApiTests.Filter
 {
     [TestClass]
-    public class AuthenticationFilterTest
+    public class AuthorizationFilterTest
     {
-        private UserService _userService;
         private Mock<ICRUDRepository<User>> _userRepository;
+        private User _customer = new User("example@gmail.com", "Cuareim 1541", "pass")
+        {
+            Token = "customer"
+        };
+        private User _admin = new User("example@outlook.com", "Cuareim 1541", "pass")
+        {
+            Token = "admin"
+        };
 
         [TestInitialize]
         public void TestInitialize()
         {
             _userRepository = new Mock<ICRUDRepository<User>>();
-
             var userList = new List<User>();
 
-            var id = 1;
-            var expectedUser = new User()
-            {
-                Id = id,
-                Email = "example@gmail.com",
-                Address = "Cuareim 1541",
-                Password = "pass",
-                Token = "tokentolen"
-            };
+            _customer.AddRole(new Role() { Name = "Customer" });
+            _admin.AddRole(new Role() { Name = "Admin" });
 
-            userList.Add(expectedUser);
+            userList.Add(_customer);
+            userList.Add(_admin);
             _userRepository.Setup(repo => repo.GetAll()).Returns(userList);
         }
 
         [TestMethod]
         public void TestAuthFilterWithoutHeader()
         {
-            AuthenticationFilter authFilter = new AuthenticationFilter(_userRepository.Object);
+            AuthorizationFilter authFilter = new AuthorizationFilter(_userRepository.Object);
 
             var modelState = new ModelStateDictionary();
             var httpContext = new DefaultHttpContext();
@@ -60,13 +63,13 @@ namespace ApiTests.Filter
         }
 
         [TestMethod]
-        public void TestAuthFilterWithValidHeader()
+        public void ValidAdminTokenFilterTest()
         {
-            AuthenticationFilter authFilter = new AuthenticationFilter(_userRepository.Object);
+            AuthorizationFilter authFilter = new AuthorizationFilter(_userRepository.Object);
 
             var modelState = new ModelStateDictionary();
             var httpContext = new DefaultHttpContext();
-            httpContext.Request.Headers["auth"] = "tokentolen";
+            httpContext.Request.Headers["Authorization"] = "admin";
             var context = new AuthorizationFilterContext(
                 new ActionContext(httpContext: httpContext,
                                   routeData: new Microsoft.AspNetCore.Routing.RouteData(),
@@ -82,13 +85,36 @@ namespace ApiTests.Filter
         }
 
         [TestMethod]
-        public void TestAuthFilterWithInvalidHeader()
+        public void CustomerTokenFilterTest()
         {
-            AuthenticationFilter authFilter = new AuthenticationFilter(_userRepository.Object);
+            AuthorizationFilter authFilter = new AuthorizationFilter(_userRepository.Object);
 
             var modelState = new ModelStateDictionary();
             var httpContext = new DefaultHttpContext();
-            httpContext.Request.Headers["auth"] = "nottokentolen";
+            httpContext.Request.Headers["Authorization"] = "customer";
+
+            var context = new AuthorizationFilterContext(
+                new ActionContext(httpContext: httpContext,
+                                  routeData: new Microsoft.AspNetCore.Routing.RouteData(),
+                                  actionDescriptor: new ActionDescriptor(),
+                                  modelState: modelState),
+                new List<IFilterMetadata>());
+
+            authFilter.OnAuthorization(context);
+
+            ContentResult response = context.Result as ContentResult;
+
+            Assert.AreEqual(403, response.StatusCode);
+        }
+
+        [TestMethod]
+        public void NonExistentAdminTokenFilterTest()
+        {
+            AuthorizationFilter authFilter = new AuthorizationFilter(_userRepository.Object);
+
+            var modelState = new ModelStateDictionary();
+            var httpContext = new DefaultHttpContext();
+            httpContext.Request.Headers["Authorization"] = "nonexistent";
 
             var context = new AuthorizationFilterContext(
                 new ActionContext(httpContext: httpContext,
