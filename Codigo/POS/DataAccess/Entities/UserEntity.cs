@@ -30,7 +30,8 @@ namespace DataAccess.Entities
 
         public static User FromEntity(UserEntity entity)
         {
-            User user = new User(entity.Id, entity.Email, entity.Address, "");
+            User user = new User(entity.Email, entity.Address, entity.Password);
+            user.Id = entity.Id;
             foreach (AssignedRoles role in entity.Roles)
             {
                 user.Roles.Add(RoleEntity.FromEntity(role.Role));

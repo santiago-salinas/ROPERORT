@@ -26,7 +26,7 @@ namespace ApiTests.Controllers
             logInController = new LogInController(mock.Object);
 
             var usersGetAll = new List<User>();
-            usersGetAll.Add(new User(3, email, "prueba", password) { Token = expectedToken });
+            usersGetAll.Add(new User(email, "prueba", password) { Id=3,Token = expectedToken });
             mock.Setup(s => s.GetAll()).Returns(usersGetAll);
         }
 

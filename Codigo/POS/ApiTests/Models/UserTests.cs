@@ -23,14 +23,14 @@ namespace ApiTests.Models
         [TestInitialize]
         public void TestInit()
         {
-            someUser = new User(ValidId, ValidMail1, ValidAddress, ValidPassword);
+            someUser = new User(ValidMail1, ValidAddress, ValidPassword) { Id= ValidId };
         }
 
 
         [TestMethod]
         public void CreateUserSuccessTest()
         {
-            var user = new User(ValidId, ValidMail2, ValidAddress, ValidPassword);
+            var user = new User(ValidMail2, ValidAddress, ValidPassword) { Id= ValidId };
             Assert.IsNotNull(user);
             Assert.AreEqual(ValidMail2, user.Email);
             Assert.AreEqual(ValidAddress, user.Address);

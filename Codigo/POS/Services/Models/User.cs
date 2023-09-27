@@ -4,19 +4,18 @@ namespace Services.Models
 {
     public class User
     {
-        public User(int id, string email, string address, string password)
+        public User(string email, string address, string password)
         {
-            Id = id;
             Email = email;
             Address = address;
             Password = password;
             Roles = new List<Role>();
-            Token = $"{id}token{email.Length}secure";
+            Token = $"{Id}token{Email.Length}secure";
         }
 
         public User()
         {
-
+            Token = $"{Id}token{Email.Length}secure";
         }
 
         public int Id { get; set; }
@@ -43,7 +42,6 @@ namespace Services.Models
             get { if (_token is not null) { return _token; } else return ""; }
             set
             {
-                ValidateNotNull(value);
                 _token = value;
             }
         }
