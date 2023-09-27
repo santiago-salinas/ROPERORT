@@ -16,6 +16,8 @@ namespace DataAccess.Entities
         
         public string Email { get; set; }
         public string Address { get; set; }
+        public string Password { get; set; }
+        public string Token { get; set; }
         public IList<AssignedRoles> Roles { get; set; }
 
         public UserEntity() { }
@@ -27,12 +29,14 @@ namespace DataAccess.Entities
                 Email = user.Email,
                 Address = user.Address,
                 Roles = user.Roles.Select(r => AssignedRoles.FromModel(user, r)).ToList(),
+                Password = user.Password,
+                Token = user.Token
             };
         }
 
         public static User FromEntity (UserEntity entity)
         {
-            User user = new User(entity.Id, entity.Email, entity.Address);
+            User user = new User(entity.Id, entity.Email, entity.Address, "");
             foreach(AssignedRoles role in entity.Roles)
             {
                 user.Roles.Add(RoleEntity.FromEntity(role.Role));

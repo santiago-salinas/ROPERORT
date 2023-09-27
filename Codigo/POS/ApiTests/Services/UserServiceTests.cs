@@ -23,8 +23,8 @@ namespace ApiTests.Services
         {
             var userList = new List<User>
             {
-                new User(1, "user1@gmail.com", "Address1"),
-                new User(2, "user2@gmail.com", "Address2"),
+                new User(1, "user1@gmail.com", "Address1", "password"),
+                new User(2, "user2@gmail.com", "Address2", "password"),
             };
             _userRepository.Setup(repo => repo.GetAll()).Returns(userList);
 
@@ -38,7 +38,7 @@ namespace ApiTests.Services
         public void Get_ReturnsUserById()
         {
             var id = 1;
-            var expectedUser = new User(id, "user1@gmail.com", "Address1");
+            var expectedUser = new User(id, "user1@gmail.com", "Address1", "password");
             _userRepository.Setup(repo => repo.Get(id)).Returns(expectedUser);
 
             var user = _userService.Get(id);
@@ -50,7 +50,7 @@ namespace ApiTests.Services
         [TestMethod]
         public void Add_UserIsAddedToList()
         {
-            var newUser = new User(2, "prueba@gmail.com", "Cuareim 1451");
+            var newUser = new User(2, "prueba@gmail.com", "Cuareim 1451", "password");
             _userRepository.Setup(repo => repo.Add(newUser));
             _userRepository.Setup(repo => repo.Get(newUser.Id)).Returns(newUser);
 
@@ -77,7 +77,7 @@ namespace ApiTests.Services
         public void Update_UserIsUpdated()
         {
             var userIdToUpdate = 1;
-            var updatedUser = new User(userIdToUpdate, "prueba@hotmail.com", "Calle 1234");
+            var updatedUser = new User(userIdToUpdate, "prueba@hotmail.com", "Calle 1234", "password");
             _userRepository.Setup(repo => repo.Update(updatedUser));
             _userRepository.Setup(repo => repo.Get(userIdToUpdate)).Returns(updatedUser);
 
