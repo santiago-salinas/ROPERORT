@@ -77,7 +77,7 @@ public class CartController : ControllerBase
         {
             CartLine newline = new CartLine();
             
-            newline.Product = _productService.Get(line.id);
+            newline.Product = _productService.Get(line.Id);
             if (newline.Product == null)
             {
                 throw new ArgumentException("Product id was not found");

@@ -57,7 +57,7 @@ namespace ApiTests.Controllers
             CartDTO cartDto = new CartDTO();
             CartLineDTO cartLineDto = new CartLineDTO()
             {
-                id = 1,
+                Id = 1,
                 Quantity = 3
             };
 
@@ -107,7 +107,7 @@ namespace ApiTests.Controllers
             CartDTO cartDto = new CartDTO();
             CartLineDTO cartLineDto = new CartLineDTO()
             {
-                id = 1,
+                Id = 1,
                 Quantity = -1
             };
 
@@ -158,7 +158,7 @@ namespace ApiTests.Controllers
             CartDTO cartDto = new CartDTO();
             CartLineDTO cartLineDto = new CartLineDTO()
             {
-                id = 1,
+                Id = 1,
                 Quantity = -1
             };
 
@@ -209,7 +209,7 @@ namespace ApiTests.Controllers
             CartDTO cartDto = new CartDTO();
             CartLineDTO cartLineDto = new CartLineDTO()
             {
-                id = 2,
+                Id = 2,
                 Quantity = -1
             };
 
@@ -277,7 +277,7 @@ namespace ApiTests.Controllers
             CartDTO cartDto = new CartDTO();
             CartLineDTO cartLineDto = new CartLineDTO()
             {
-                id = 1,
+                Id = 1,
                 Quantity = 3
             };
 

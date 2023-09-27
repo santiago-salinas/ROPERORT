@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Rest_Api.DTOs;
 
 namespace ApiTests.Controllers
 {
@@ -19,6 +20,9 @@ namespace ApiTests.Controllers
         private UserController userController;
         private LogInController logInController;
 
+        public string email = "prueba@gmail.com";
+        public string password = "password";
+        public string expectedToken = "3token16secure";
 
         [TestInitialize]
         public void TestInitialize()
@@ -27,42 +31,39 @@ namespace ApiTests.Controllers
             userController = new UserController(mock.Object);
             logInController = new LogInController(mock.Object);
 
+            var usersGetAll = new List<User>();
+            usersGetAll.Add(new User(3, email, "prueba", password) { Token = expectedToken });
+            mock.Setup(s => s.GetAll()).Returns(usersGetAll);
         }
 
         [TestMethod]
         public void GetTokenWithValidCredentials()
         {
-            string email = "prueba@gmail.com";
-            string password = "password";
-            string expectedToken = "3token16secure";
-            mock.Setup(s => s.Get(3)).Returns(new User(3, email, "prueba", password) {Token = expectedToken });
-
             CredentialsDTO credentials = new CredentialsDTO(email, password);
 
-            var result = logInController.LogIn(credentials);
-            var createdResult = result as ActionResult<List<User>>;
-
-            string testToken = result.Token;
-            Assert.AreEqual(expectedToken, testToken);
+            CreatedAtActionResult? result = logInController.Create(credentials) as CreatedAtActionResult;
+            Assert.IsNotNull(result);
+            Assert.AreEqual(expectedToken, result.Value);
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception), "Invalid Credentials")]
         public void NotGetTokenWithInvalidCredentials()
         {
-            string email = "prueba@gmail.com";
-            string password = "password";
-            string expectedToken = "3token16secure";
-            mock.Setup(s => s.Get(3)).Returns(new User(3, email, "prueba", password) { Token = expectedToken });
+            CredentialsDTO credentials = new CredentialsDTO(email, "not" + password);
 
-            CredentialsDTO credentials = new CredentialsDTO(email, "not"+password);
-
-            var result = logInController.LogIn(credentials);
-            var createdResult = result as ActionResult<List<User>>;
-
-            string testToken = result.Token;
-            Assert.AreEqual(expectedToken, testToken);
+            BadRequestObjectResult? result = logInController.Create(credentials) as BadRequestObjectResult;
+            Assert.IsNotNull(result);
+            Assert.AreEqual(400, result.StatusCode);
         }
 
+        [TestMethod]
+        public void EmptyCredentials()
+        {
+            CredentialsDTO credentials = new CredentialsDTO("", "");
+
+            BadRequestObjectResult? result = logInController.Create(credentials) as BadRequestObjectResult;
+            Assert.IsNotNull(result);
+            Assert.AreEqual(400, result.StatusCode);
+        }
     }
 }
