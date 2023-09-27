@@ -34,7 +34,8 @@ namespace DataAccess.Entities
             user.Id = entity.Id;
             foreach (AssignedRoles role in entity.Roles)
             {
-                user.Roles.Add(RoleEntity.FromEntity(role.Role));
+                Role userRole = new Role() { Name = role.RoleName };
+                user.Roles.Add(userRole);
             }
 
             return user;
