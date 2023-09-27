@@ -19,8 +19,8 @@ namespace Services.Models
         }
 
         public int Id { get; set; }
-        public string Email { 
-            get => _mail; 
+        public string Email {
+            get { if (_mail is not null) { return _mail; } else return ""; }
             set {
                 ValidateMail(value);
                 _mail = value;
@@ -28,16 +28,16 @@ namespace Services.Models
         }
         public string Password
         {
-            get => _password;
+            get { if (_password is not null) { return _password; } else return ""; }
             set
             {
                 ValidateNotNull(value);
                 _password = value;
             }
         }
-        public string Token
+        public string? Token
         {
-            get => _token;
+            get { if (_token is not null) { return _token; } else return ""; }
             set
             {
                 ValidateNotNull(value);
@@ -45,29 +45,37 @@ namespace Services.Models
             }
         }
         public string Address { 
-            get => _Address; 
+            get { if (_address is not null) { return _address; } else return ""; }
             set {
                 ValidateNotNull(value);
-                _Address = value;
+                _address = value;
             } 
         }
-        public List<Role> Roles { get; }
+        public List<Role>? Roles { get; }
 
         public void AddRole(Role role)
         {
-            if(Roles.Contains(role)) return;
-            Roles.Add(role);
+            if(Roles is not null)
+            {
+                if (Roles.Contains(role)) return;
+                Roles.Add(role);
+            }
+            return;
         }
 
         public void RevokeRole(Role role)
         {
-            Roles.Remove(role);
+            if (Roles is not null)
+            {
+                Roles.Remove(role);
+            }
+            return;
         }
 
-        private string _mail;
-        private string _password;
-        private string _token;
-        private string _Address;
+        private string? _mail;
+        private string? _password;
+        private string? _token;
+        private string? _address;
 
         private void ValidateMail(string value)
         {
@@ -80,13 +88,13 @@ namespace Services.Models
             return !(new Regex("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")).IsMatch(value);
         }
 
-        private void ValidateNotNull(string value)
+        private void ValidateNotNull(string? value)
         {
             if (StringIsNull(value))
                 throw new Exception("Info is not valid");
         }
 
-        private bool StringIsNull(string value)
+        private bool StringIsNull(string? value)
         {
             if (value is null) return true;
             return value.Equals("");
