@@ -1,8 +1,9 @@
 ﻿using DataAccess.Entities;
-using DataAccess.Exceptions;
 using Microsoft.EntityFrameworkCore;
 using Services.Interfaces;
 using Services.Models;
+using Services.Exceptions;
+
 
 namespace DataAccess.Repositories
 {
@@ -27,9 +28,9 @@ namespace DataAccess.Repositories
 
                 return purchases;
             }
-            catch
+            catch (Exception ex)
             {
-                throw new DatabaseException("Error while getting all purchases from database");
+                throw new DatabaseException($"Unexpected exception while getting all purchases : {ex.Message}");
             }
         }
         public Purchase? Get(int id)
@@ -46,9 +47,9 @@ namespace DataAccess.Repositories
 
                 return purchase;
             }
-            catch
+            catch (InvalidOperationException ex)
             {
-                throw new DatabaseException("Error while trying to get purchase with id " + id);
+                return null;
             }
         }
 
@@ -60,9 +61,24 @@ namespace DataAccess.Repositories
                 _context.PurchaseEntities.Add(entity);
                 _context.SaveChanges();
             }
-            catch
+            catch (DbUpdateException ex)
             {
-                throw new DatabaseException("Error while trying to add purchase " + purchase.Id);
+                if (ex.InnerException != null)
+                {
+                    throw new DatabaseException(ex.InnerException.Message);
+                }
+                throw new DatabaseException("Database update exception while adding purchase with Id: " + purchase.Id);
+            }
+            catch (InvalidOperationException ex)
+            {
+                if (ex.InnerException != null)
+                {
+                    throw new DatabaseException("Exception while converting purchase from model: " + ex.InnerException.Message);
+                }
+                else
+                {
+                    throw new DatabaseException("Exception while converting purchase from model: " + ex.Message);
+                }
             }
         }
 
@@ -74,9 +90,25 @@ namespace DataAccess.Repositories
                 _context.PurchaseEntities.Remove(entity);
                 _context.SaveChanges();
             }
-            catch
+            catch (DbUpdateException ex)
             {
-                throw new DatabaseException("Error while trying to delete purchase with id " + id);
+                if (ex.InnerException != null)
+                {
+                    throw new DatabaseException(ex.InnerException.Message);
+                }
+                throw new DatabaseException("Database update exception while deleting purchase with Id: " + id);
+            }
+            catch (InvalidOperationException ex)
+            {
+
+                if (ex.InnerException != null)
+                {
+                    throw new DatabaseException(ex.InnerException.Message);
+                }
+                else
+                {
+                    throw new DatabaseException(ex.Message);
+                }
             }
         }
 
@@ -88,9 +120,24 @@ namespace DataAccess.Repositories
                 _context.PurchaseEntities.Update(entity);
                 _context.SaveChanges();
             }
-            catch
+            catch (DbUpdateException ex)
             {
-                throw new DatabaseException("Error while trying to update purchase " + purchase.Id);
+                if (ex.InnerException != null)
+                {
+                    throw new DatabaseException(ex.InnerException.Message);
+                }
+                throw new DatabaseException("Database update exception while updating purchase with Id: " + purchase.Id);
+            }
+            catch (InvalidOperationException ex)
+            {
+                if (ex.InnerException != null)
+                {
+                    throw new DatabaseException("Exception while converting purchase from model: " + ex.InnerException.Message);
+                }
+                else
+                {
+                    throw new DatabaseException("Exception while converting purchase from model: " + ex.Message);
+                }
             }
         }
     }

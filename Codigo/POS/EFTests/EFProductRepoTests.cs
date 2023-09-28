@@ -1,9 +1,9 @@
 using DataAccess;
 using DataAccess.Entities;
-using DataAccess.Exceptions;
 using DataAccess.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Services.Models;
+using Services.Exceptions;
 
 namespace EFTests
 

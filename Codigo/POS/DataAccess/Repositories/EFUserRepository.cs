@@ -1,8 +1,9 @@
 ﻿using DataAccess.Entities;
-using DataAccess.Exceptions;
 using Microsoft.EntityFrameworkCore;
 using Services.Interfaces;
 using Services.Models;
+using Services.Exceptions;
+
 
 namespace DataAccess.Repositories
 {
@@ -27,9 +28,9 @@ namespace DataAccess.Repositories
                 return users;
 
             }
-            catch
+            catch (Exception ex)
             {
-                throw new DatabaseException("Error while getting all users from database");
+                throw new DatabaseException($"Unexpected exception while getting all users: {ex.Message}");
             }
 
         }
@@ -45,26 +46,38 @@ namespace DataAccess.Repositories
                 return UserEntity.FromEntity(user);
 
             }
-            catch
+            catch (InvalidOperationException ex)
             {
-                throw new DatabaseException("Error while trying to get user with id" + id);
+                return null;
             }
-
         }
 
         public void Add(User user)
         {
             try
             {
-                user = new User(user.Email, user.Address, user.Password);
                 UserEntity entity = UserEntity.FromModel(user);
                 _context.UserEntities.Add(entity);
                 _context.SaveChanges();
-
             }
-            catch
+            catch(DbUpdateException ex)
             {
-                throw new DatabaseException("Error while trying to add user " + user.Email);
+                if(ex.InnerException != null)
+                {
+                    throw new DatabaseException(ex.InnerException.Message);
+                }
+                throw new DatabaseException("Database update exception while adding " + user.Email);
+            }
+            catch (InvalidOperationException ex)
+            {
+                if (ex.InnerException != null)
+                {
+                    throw new DatabaseException("Exception while converting user from model: " + ex.InnerException.Message);
+                }
+                else
+                {
+                    throw new DatabaseException("Exception while converting user from model: " + ex.Message);
+                }
             }
         }
 
@@ -76,9 +89,24 @@ namespace DataAccess.Repositories
                 _context.UserEntities.Remove(entity);
                 _context.SaveChanges();
             }
-            catch
+            catch (DbUpdateException ex)
             {
-                throw new DatabaseException("Error while trying to delete user with id" + id);
+                if (ex.InnerException != null)
+                {
+                    throw new DatabaseException(ex.InnerException.Message);
+                }
+                throw new DatabaseException("Database update exception while removing user with id " + id);
+            }
+            catch (InvalidOperationException ex)
+            {
+                if (ex.InnerException != null)
+                {
+                    throw new DatabaseException(ex.InnerException.Message);
+                }
+                else
+                {
+                    throw new DatabaseException(ex.Message);
+                }
             }
         }
 
@@ -90,9 +118,24 @@ namespace DataAccess.Repositories
                 _context.UserEntities.Update(entity);
                 _context.SaveChanges();
             }
-            catch
+            catch(DbUpdateException ex)
             {
-                throw new DatabaseException("Error while trying to update user " + user.Email);
+                if (ex.InnerException != null)
+                {
+                    throw new DatabaseException(ex.InnerException.Message);
+                }
+                throw new DatabaseException("Database update exception while updating user " + user.Email);
+            }
+            catch (InvalidOperationException ex)
+            {
+                if (ex.InnerException != null)
+                {
+                    throw new DatabaseException("Exception while converting user from model: " + ex.InnerException.Message);
+                }
+                else
+                {
+                    throw new DatabaseException("Exception while converting user from model: " + ex.Message);
+                }
             }
         }
     }

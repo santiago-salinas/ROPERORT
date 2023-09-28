@@ -17,7 +17,7 @@ namespace Factory
         public IGetService<Brand> BrandService { get; set; }
         public IGetService<Colour> ColourService { get; set; }
         public IGetService<Category> CategoryService { get; set; }
-        public PromoService PromoService { get; set; }
+        public IPromoService PromoService { get; set; }
 
 
         public void SetupServices()

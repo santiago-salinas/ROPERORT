@@ -16,6 +16,7 @@ namespace Services.Models
         public User()
         {
             Token = $"token{Email}secure";
+            Roles = new List<Role>();
         }
 
         public int Id { get; set; }

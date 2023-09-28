@@ -1,4 +1,4 @@
-﻿namespace DataAccess.Exceptions
+﻿namespace Services.Exceptions
 {
     public class DatabaseException : Exception
     {

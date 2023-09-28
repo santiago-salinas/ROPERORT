@@ -18,8 +18,7 @@ namespace Services.Models
         }
 
         public Role()
-        {
-        }
+        {}
         public override string ToString()
         {
             return Name;

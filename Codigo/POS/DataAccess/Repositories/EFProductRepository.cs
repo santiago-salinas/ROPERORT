@@ -1,8 +1,9 @@
 ﻿using DataAccess.Entities;
-using DataAccess.Exceptions;
 using Microsoft.EntityFrameworkCore;
 using Services.Interfaces;
 using Services.Models;
+using Services.Exceptions;
+
 
 namespace DataAccess.Repositories
 {
@@ -31,9 +32,9 @@ namespace DataAccess.Repositories
                 return products;
 
             }
-            catch
+            catch (Exception ex)
             {
-                throw new DatabaseException("Error while getting all products from database");
+                throw new DatabaseException($"Unexpected exception while getting all products : {ex.Message}");
             }
         }
 
@@ -51,8 +52,8 @@ namespace DataAccess.Repositories
                 return ProductEntity.FromEntity(product);
 
             }
-            catch (InvalidOperationException) { }
-            {
+            catch (InvalidOperationException ex)
+            {                
                 return null;
             }
         }
@@ -65,9 +66,24 @@ namespace DataAccess.Repositories
                 _context.ProductEntities.Add(entity);
                 _context.SaveChanges();
             }
-            catch
-            {             
-                throw new DatabaseException("Error while trying to add product " + product.Name);
+            catch (DbUpdateException ex)
+            {
+                if (ex.InnerException != null)
+                {
+                    throw new DatabaseException(ex.InnerException.Message);
+                }
+                throw new DatabaseException("Database update exception while adding product " + product.Name);
+            }
+            catch(InvalidOperationException ex)
+            {
+                if (ex.InnerException != null)
+                {
+                    throw new DatabaseException("Exception while converting product from model: " + ex.InnerException.Message);
+                }
+                else
+                {
+                    throw new DatabaseException("Exception while converting product from model: " + ex.Message);
+                }
             }
         }
 
@@ -79,9 +95,24 @@ namespace DataAccess.Repositories
                 _context.ProductEntities.Remove(entity);
                 _context.SaveChanges();
             }
-            catch
+            catch (DbUpdateException ex)
             {
-                throw new DatabaseException("Error while trying to delete product with id " + id);
+                if (ex.InnerException != null)
+                {
+                    throw new DatabaseException(ex.InnerException.Message);
+                }
+                throw new DatabaseException("Database update exception while deleting product with id: " + id);
+            }
+            catch (InvalidOperationException ex)
+            {
+                if (ex.InnerException != null)
+                {
+                    throw new DatabaseException(ex.InnerException.Message);
+                }
+                else
+                {
+                    throw new DatabaseException(ex.Message);
+                }
             }
         }
 
@@ -93,9 +124,24 @@ namespace DataAccess.Repositories
                 _context.ProductEntities.Update(entity);
                 _context.SaveChanges();
             }
-            catch
+            catch (DbUpdateException ex)
             {
-                throw new DatabaseException("Error while trying to update product " + product.Name);
+                if (ex.InnerException != null)
+                {
+                    throw new DatabaseException(ex.InnerException.Message);
+                }
+                throw new DatabaseException("Database update exception while updating product " + product.Name);
+            }
+            catch (InvalidOperationException ex)
+            {
+                if (ex.InnerException != null)
+                {
+                    throw new DatabaseException("Exception while converting product from model: " + ex.InnerException.Message);
+                }
+                else
+                {
+                    throw new DatabaseException("Exception while converting product from model: " + ex.Message);
+                }
             }
         }
     }

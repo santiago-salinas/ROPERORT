@@ -28,7 +28,6 @@ namespace ApiTests.Controllers
             mock = new Mock<IPurchaseService>(MockBehavior.Strict);
             _purchaseController = new PurchaseController(mock.Object);
 
-            _testCart = new Cart();
             Product product1 = new Product();
             product1.PriceUYU = 10.0;
 
@@ -54,8 +53,7 @@ namespace ApiTests.Controllers
             _testUser = new User("email1@gmail.com", "address1", "password") { Id = 1 };
             _testUserTwo = new User("email2@gmail.com", "address2", "password") { Id = 2 };
 
-            _testCart = new Cart();
-            _testCartTwo = new Cart();
+             _testCartTwo = new Cart();
 
             _testPurchase = new Purchase
             {

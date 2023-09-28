@@ -9,6 +9,7 @@ namespace Rest_Api.Controllers;
 
 [ApiController]
 [Route("[controller]")]
+[ExceptionFilter]
 public class UserController : ControllerBase
 {
     private IUserService _userService;
@@ -68,6 +69,7 @@ public class UserController : ControllerBase
 
     [HttpDelete("{id}")]
     [ServiceFilter(typeof(AuthenticationFilter))]
+
     public IActionResult Delete(int id)
     {
         User? user = _userService.Get(id);

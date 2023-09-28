@@ -4,12 +4,15 @@ using Services.Interfaces;
 using Services.Models;
 using Services.Models.Promos;
 using Services;
+using Rest_Api.Filters;
 
 namespace Rest_Api.Controllers;
 
 
 [ApiController]
 [Route("[controller]")]
+[ExceptionFilter]
+
 public class CartController : ControllerBase
 {
     private readonly IProductService _productService;
