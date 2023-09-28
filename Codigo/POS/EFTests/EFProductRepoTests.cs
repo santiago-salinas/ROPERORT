@@ -121,7 +121,7 @@ namespace EFTests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(DatabaseException))]
+        [ExpectedException(typeof(InvalidOperationException))]
         public void Add_ShouldThrowExceptionOnFailure()
         {
             Product invalidProduct = new Product { Name = "Invalid Product" };

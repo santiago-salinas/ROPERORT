@@ -16,6 +16,5 @@ namespace Rest_Api.Filters
                 Content = "An exception was thrown with this message: " + context.Exception.Message
             };
         }
-
     }
 }
