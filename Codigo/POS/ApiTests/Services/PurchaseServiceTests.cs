@@ -49,8 +49,14 @@ namespace ApiTests.Services
 
             _testCart.AppliedPromo = promo;
 
-            _testUser = new User(1, "email1@gmail.com", "address1");
-            _testUserTwo = new User(2, "email2@gmail.com", "address2");
+            _testUser = new User("email1@gmail.com", "address1", "password")
+            {
+                Id = 1,
+            };
+            _testUserTwo = new User("email2@gmail.com", "address2", "password")
+            {
+                Id=2,
+            };
 
             _testCart = new Cart();
             _testCartTwo = new Cart();

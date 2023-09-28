@@ -30,15 +30,15 @@ namespace ApiTests.Controllers
 
             _testCart = new Cart();
             Product product1 = new Product();
-            product1.PriceUYU = 10.0; 
+            product1.PriceUYU = 10.0;
 
             Product product2 = new Product();
-            product2.PriceUYU = 15.0; 
+            product2.PriceUYU = 15.0;
 
             var promo = new TwentyPercentOff();
             CartLine cartLine1 = new CartLine();
             cartLine1.Product = product1;
-            cartLine1.Quantity = 2; 
+            cartLine1.Quantity = 2;
 
             CartLine cartLine2 = new CartLine();
             cartLine2.Product = product2;
@@ -51,8 +51,8 @@ namespace ApiTests.Controllers
 
             _testCart.AppliedPromo = promo;
 
-            _testUser = new User(1, "email1@gmail.com", "address1"); 
-            _testUserTwo = new User(2, "email2@gmail.com", "address2");
+            _testUser = new User("email1@gmail.com", "address1", "password") { Id = 1 };
+            _testUserTwo = new User("email2@gmail.com", "address2", "password") { Id = 2 };
 
             _testCart = new Cart();
             _testCartTwo = new Cart();
@@ -79,7 +79,7 @@ namespace ApiTests.Controllers
         [TestMethod]
         public void GetAll_WorksCorrectly()
         {
-            var expectedOutcome = new List<Purchase>() { _testPurchase, _testPurchaseTwo};
+            var expectedOutcome = new List<Purchase>() { _testPurchase, _testPurchaseTwo };
             mock.Setup(s => s.GetAll()).Returns(expectedOutcome);
             var result = _purchaseController.GetAll();
             var createdResult = result as ActionResult<List<Purchase>>;
