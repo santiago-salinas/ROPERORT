@@ -19,30 +19,87 @@ public class ProductService : IProductService
         _productRepository = repository;
     }
 
-    public List<Product> GetAll() => _productRepository.GetAll();
+    public List<Product> GetAll()
+    {
+        try
+        {
 
-    public Product? Get(int id) => _productRepository.Get(id);
+            return _productRepository.GetAll();
+        }
+        catch (DatabaseException ex)
+        {
+            throw new Service_ObjectHandlingException("Exception catched from the repository: " + ex.Message);
+        }
+    }
+
+    public Product? Get(int id)
+    {
+        try
+        {
+            return _productRepository.Get(id);
+        }
+        catch (DatabaseException ex)
+        {
+            throw new Service_ObjectHandlingException("Exception catched from the repository: " + ex.Message);
+        }
+    }
 
     public void Add(Product product)
     {
         CheckProductParametersAreValid(product);
-        _productRepository.Add(product);
+        try
+        {
+
+            _productRepository.Add(product);
+        }
+        catch (DatabaseException ex)
+        {
+            throw new Service_ObjectHandlingException("Exception catched from the repository: " + ex.Message);
+        }
     }
 
     public void Delete(int id)
     {
-        _productRepository.Delete(id);
+        try
+        {
+            _productRepository.Delete(id);
+
+        }
+        catch (DatabaseException ex)
+        {
+            throw new Service_ObjectHandlingException("Exception catched from the repository: " + ex.Message);
+        }
     }
 
     public void Update(Product product)
     {
         CheckProductParametersAreValid(product);
-        _productRepository.Update(product);
+
+        try
+        {
+            _productRepository.Update(product);
+
+        }
+        catch (DatabaseException ex)
+        {
+            throw new Service_ObjectHandlingException("Exception catched from the repository: " + ex.Message);
+        }
     }
 
     public List<Product> GetFiltered(Category? category = null, Brand? brand = null, string? name = null)
     {
-        IEnumerable<Product> result = GetAll();
+        IEnumerable<Product> result;
+        try
+        {
+
+            result = GetAll();
+        }
+        catch (DatabaseException ex)
+        {
+            throw new Service_ObjectHandlingException("Exception catched from the repository: " + ex.Message);
+        }
+
+
         if (category != null)
         {
             result = result.Where(p => p.Category.Equals(category));
@@ -66,16 +123,45 @@ public class ProductService : IProductService
         if (!CategoryExists(product.Category)) { throw new Service_ArgumentException("Category does not exist"); }
         if (!ColoursExist(product.Colours)) { throw new Service_ArgumentException("One of the Colours does not exist"); }
     }
-    private bool BrandExists(Brand brand) => _brandRepository.Get(brand.Name) != null;
-    private bool CategoryExists(Category category) => _categoryRepository.Get(category.Name) != null;
+    private bool BrandExists(Brand brand)
+    {
+        try
+        {
+            return _brandRepository.Get(brand.Name) != null;
+        }
+        catch (DatabaseException ex)
+        {
+            throw new Service_ObjectHandlingException("Exception catched from the repository: " + ex.Message);
+        }
+    }
+    private bool CategoryExists(Category category)
+    {
+        try
+        {
+            return _categoryRepository.Get(category.Name) != null;
+        }
+        catch (DatabaseException ex)
+        {
+            throw new Service_ObjectHandlingException("Exception catched from the repository: " + ex.Message);
+        }
+    }
     private bool ColoursExist(List<Colour> colours)
     {
-        foreach (Colour colour in colours)
+        try
         {
-            if (_colourRepository.Get(colour.Name) == null)
+            foreach (Colour colour in colours)
             {
-                return false;
+
+                if (_colourRepository.Get(colour.Name) == null)
+                {
+                    return false;
+                }
             }
+
+        }
+        catch (DatabaseException ex)
+        {
+            throw new Service_ObjectHandlingException("Exception catched from the repository: " + ex.Message);
         }
         return true;
     }

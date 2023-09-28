@@ -1,7 +1,7 @@
 ﻿using DataAccess.Entities;
-using DataAccess.Exceptions;
 using Services.Interfaces;
 using Services.Models;
+using Services.Exceptions;
 
 
 namespace DataAccess.Repositories
@@ -20,9 +20,9 @@ namespace DataAccess.Repositories
 
                 return brands;
             }
-            catch
+            catch (Exception ex)
             {
-                throw new DatabaseException("Error while getting all brands from database");
+                throw new DatabaseException($"Unexpected exception while getting all brands : {ex.Message}");
             }
         }
 
@@ -33,9 +33,9 @@ namespace DataAccess.Repositories
                 BrandEntity brand = _context.BrandEntities.First(p => p.Name == name);
                 return BrandEntity.FromEntity(brand);
             }
-            catch
+            catch (InvalidOperationException ex)
             {
-                throw new DatabaseException("Error while trying to get brand " + name);
+                return null;
             }
         }
     }

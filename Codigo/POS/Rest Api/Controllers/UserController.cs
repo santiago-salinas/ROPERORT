@@ -9,6 +9,7 @@ namespace Rest_Api.Controllers;
 
 [ApiController]
 [Route("[controller]")]
+[ExceptionFilter]
 public class UserController : ControllerBase
 {
     private IUserService _userService;

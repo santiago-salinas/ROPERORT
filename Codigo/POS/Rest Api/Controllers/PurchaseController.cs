@@ -2,7 +2,7 @@
 using Services.Models;
 using Services.Exceptions;
 using Rest_Api.Controllers.Exceptions;
-using System.Drawing;
+using Rest_Api.Filters;
 using Services.Interfaces;
 
 namespace Rest_Api.Controllers;
@@ -10,6 +10,8 @@ namespace Rest_Api.Controllers;
 
 [ApiController]
 [Route("[controller]")]
+[ExceptionFilter]
+
 public class PurchaseController : ControllerBase
 {
     private readonly IPurchaseService _purchaseService;

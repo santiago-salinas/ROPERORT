@@ -3,12 +3,15 @@ using Rest_Api.Filters;
 using Services.Exceptions;
 using Services.Interfaces;
 using Services.Models;
+using Rest_Api.Filters;
 
 namespace Rest_Api.Controllers;
 
 
 [ApiController]
 [Route("[controller]")]
+[ExceptionFilter]
+
 public class ProductController : ControllerBase
 {
     private readonly IProductService _productService;

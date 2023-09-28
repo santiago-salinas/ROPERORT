@@ -1,5 +1,7 @@
 ﻿using Services.Interfaces;
 using Services.Models;
+using Services.Models.Promos;
+
 
 namespace Services;
 
@@ -22,5 +24,4 @@ public class PromoService : IPromoService
 
     public List<Promo> GetAll() => Promos;
     public Promo? Get(string name) => Promos.FirstOrDefault(p => p.Name == name);
-
 }
