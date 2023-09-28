@@ -3,6 +3,7 @@ using Services;
 using Services.Exceptions;
 using Services.Interfaces;
 using Services.Models;
+using System.Drawing;
 
 namespace ApiTests.Services
 {
@@ -43,6 +44,14 @@ namespace ApiTests.Services
         }
 
         [TestMethod]
+        [ExpectedException(typeof(Service_ObjectHandlingException))]
+        public void GetAll_Fails_ThrowsException()
+        {
+            _repository.Setup(r => r.GetAll()).Throws(new DatabaseException("Get all fails"));
+            List<Product> products = _productService.GetAll();
+        }
+
+        [TestMethod]
         public void Get_ReturnsProductById()
         {
             int productId = 1;
@@ -51,6 +60,15 @@ namespace ApiTests.Services
             Product product = _productService.Get(productId);
 
             Assert.AreEqual(product, _mockProducts[0]);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Service_ObjectHandlingException))]
+        public void Get_Fails_ThrowsException()
+        {
+            int productId = 1;
+            _repository.Setup(r => r.Get(productId)).Throws(new DatabaseException("Get all fails"));
+           Product product = _productService.Get(productId);
         }
 
         [TestMethod]
@@ -94,21 +112,20 @@ namespace ApiTests.Services
 
         [TestMethod]
         [ExpectedException(typeof(Service_ArgumentException))]
-        public void Add_ProductFails()
+        public void Add_InvalidBrand_Fails()
         {
-            _brandRepository.Setup(r => r.Get("404NOTFOUND")).Returns(null as Brand);
-            _colourRepository.Setup(r => r.Get("404NOTFOUND")).Returns(null as Colour);
-            _categoryRepository.Setup(r => r.Get("404NOTFOUND")).Returns(null as Category);
-
-
             Brand brand = new Brand();
             brand.Name = "404NOTFOUND";
 
-            Category category = new Category();
-            category.Name = "404NOTFOUND";
-
             Colour colour = new Colour();
-            colour.Name = "404NOTFOUND";
+            colour.Name = "Colour";
+
+            Category category = new Category();
+            category.Name = "Category";
+            
+            _brandRepository.Setup(r => r.Get(brand.Name)).Returns(null as Brand);
+            _colourRepository.Setup(r => r.Get(colour.Name)).Returns(colour);
+            _categoryRepository.Setup(r => r.Get(category.Name)).Returns(category);
 
             List<Colour> colours = new List<Colour>
             {
@@ -127,7 +144,115 @@ namespace ApiTests.Services
             };
 
             _productService.Add(newProduct);
-            var addedProduct = _productService.Get(newProduct.Id);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Service_ArgumentException))]
+        public void Add_InvalidColour_Fails()
+        {
+            Brand brand = new Brand();
+            brand.Name = "Brand";
+            
+            Colour colour = new Colour();
+            colour.Name = "Colour";
+
+            Category category = new Category();
+            category.Name = "404NOTFOUND";            
+
+            _brandRepository.Setup(r => r.Get(brand.Name)).Returns(brand);
+            _colourRepository.Setup(r => r.Get(colour.Name)).Returns(null as Colour);
+            _categoryRepository.Setup(r => r.Get(category.Name)).Returns(category);
+
+            List<Colour> colours = new List<Colour>
+            {
+                colour
+            };
+
+            var newProduct = new Product
+            {
+                Id = 3,
+                Name = "Socks",
+                PriceUYU = 200,
+                Description = "Comfortable socks.",
+                Brand = brand,
+                Category = category,
+                Colours = colours
+            };
+
+            _productService.Add(newProduct);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Service_ArgumentException))]
+        public void Add_InvalidCategory_Fails()
+        {
+            Brand brand = new Brand();
+            brand.Name = "Brand";
+
+            Colour colour = new Colour();
+            colour.Name = "Colour";
+
+            Category category = new Category();
+            category.Name = "404NOTFOUND";
+
+            _brandRepository.Setup(r => r.Get(brand.Name)).Returns(brand);
+            _colourRepository.Setup(r => r.Get(colour.Name)).Returns(colour);
+            _categoryRepository.Setup(r => r.Get(category.Name)).Returns(null as Category);
+
+            List<Colour> colours = new List<Colour>
+            {
+                colour
+            };
+
+            var newProduct = new Product
+            {
+                Id = 3,
+                Name = "Socks",
+                PriceUYU = 200,
+                Description = "Comfortable socks.",
+                Brand = brand,
+                Category = category,
+                Colours = colours
+            };
+            
+            _productService.Add(newProduct);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Service_ArgumentException))]
+        public void Add_Fails_ThrowsExcpetion()
+        {
+            Brand brand = new Brand();
+            brand.Name = "Brand";
+
+            Colour colour = new Colour();
+            colour.Name = "Colour";
+
+            Category category = new Category();
+            category.Name = "Category";
+
+            _brandRepository.Setup(r => r.Get(brand.Name)).Returns(brand);
+            _colourRepository.Setup(r => r.Get(colour.Name)).Returns(colour);
+            _categoryRepository.Setup(r => r.Get(category.Name)).Returns(category);
+
+            List<Colour> colours = new List<Colour>
+            {
+                colour
+            };
+
+            var newProduct = new Product
+            {
+                Id = 3,
+                Name = "Socks",
+                PriceUYU = 200,
+                Description = "Comfortable socks.",
+                Brand = brand,
+                Category = category,
+                Colours = colours
+            };
+
+            _repository.Setup(r => r.Add(newProduct)).Throws(new DatabaseException("Add fails"));
+            _productService.Add(newProduct);
         }
 
         [TestMethod]
@@ -148,11 +273,19 @@ namespace ApiTests.Services
         }
 
         [TestMethod]
+        [ExpectedException(typeof(Service_ObjectHandlingException))]
+        public void Delete_Fails_ThrowsException()
+        {
+            int productId = 1;
+            _repository.Setup(r => r.Delete(productId)).Throws(new DatabaseException("Delete fails"));
+            _productService.Delete(productId);
+        }
+
+        [TestMethod]
         public void Update_ProductIsUpdated()
         {
             SetUpMocks();
             int productIdToUpdate = 1;
-
 
             Brand brand = new Brand();
             brand.Name = "Puma";
@@ -188,6 +321,44 @@ namespace ApiTests.Services
             Assert.AreEqual(updatedProduct.Name, product.Name);
             Assert.AreEqual(updatedProduct.PriceUYU, product.PriceUYU);
             Assert.AreEqual(updatedProduct.Description, product.Description);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Service_ObjectHandlingException))]
+
+        public void Update_Fails_ThrowsException()
+        {
+            SetUpMocks();
+            int productIdToUpdate = 1;
+
+            Brand brand = new Brand();
+            brand.Name = "Puma";
+
+            Category category = new Category();
+            category.Name = "Pants";
+
+            Colour colour = new Colour();
+            colour.Name = "Red";
+
+            List<Colour> colours = new List<Colour>
+            {
+                colour
+            };
+
+            Product updatedProduct = new Product
+            {
+                Id = 1,
+                Name = "Updated Cap",
+                PriceUYU = 800,
+                Description = "Updated description.",
+                Brand = brand,
+                Category = category,
+                Colours = colours
+            };
+            _repository.Setup(r => r.Update(updatedProduct)).Throws(new DatabaseException("Update fails"));
+            _repository.Setup(r => r.Get(productIdToUpdate)).Returns(updatedProduct);
+
+            _productService.Update(updatedProduct);
         }
 
         [TestMethod]
@@ -231,6 +402,19 @@ namespace ApiTests.Services
             Assert.AreEqual(3, products.Count);
             Assert.IsTrue(products.All(p => p.Category.Equals(category) && p.Brand.Equals(brand)));
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(Service_ObjectHandlingException))]
+        public void GetFiltered_FailsAtGetAll_ThrowsException()
+        {
+            _repository.Setup(r => r.GetAll()).Throws(new DatabaseException("Get all fails"));
+            Category category = new Category("T-Shirt");
+            Brand brand = new Brand("Nike");
+            string name = "Other name";
+
+            List<Product> products = _productService.GetFiltered(category, brand, name);
+        }
+
 
         private List<Product> _mockProducts = new List<Product>()
         {

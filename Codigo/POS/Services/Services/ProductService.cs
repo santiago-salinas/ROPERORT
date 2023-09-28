@@ -23,7 +23,6 @@ public class ProductService : IProductService
     {
         try
         {
-
             return _productRepository.GetAll();
         }
         catch (DatabaseException ex)
@@ -49,7 +48,6 @@ public class ProductService : IProductService
         CheckProductParametersAreValid(product);
         try
         {
-
             _productRepository.Add(product);
         }
         catch (DatabaseException ex)
@@ -91,8 +89,7 @@ public class ProductService : IProductService
         IEnumerable<Product> result;
         try
         {
-
-            result = GetAll();
+            result =  _productRepository.GetAll();
         }
         catch (DatabaseException ex)
         {

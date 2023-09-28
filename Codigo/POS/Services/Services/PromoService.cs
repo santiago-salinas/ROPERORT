@@ -21,7 +21,6 @@ public class PromoService : IPromoService
         };
     }
 
-
     public List<Promo> GetAll() => Promos;
     public Promo? Get(string name) => Promos.FirstOrDefault(p => p.Name == name);
 }
