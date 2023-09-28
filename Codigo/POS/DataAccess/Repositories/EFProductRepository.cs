@@ -53,12 +53,8 @@ namespace DataAccess.Repositories
 
             }
             catch (InvalidOperationException ex)
-            {
-                if (ex.InnerException != null)
-                {
-                    throw new DatabaseException(ex.InnerException.Message);
-                }
-                throw new DatabaseException("Database operation exception while getting product with id: " + id);
+            {                
+                return null;
             }
         }
 
@@ -78,6 +74,17 @@ namespace DataAccess.Repositories
                 }
                 throw new DatabaseException("Database update exception while adding product " + product.Name);
             }
+            catch(InvalidOperationException ex)
+            {
+                if (ex.InnerException != null)
+                {
+                    throw new DatabaseException("Exception while converting product from model: " + ex.InnerException.Message);
+                }
+                else
+                {
+                    throw new DatabaseException("Exception while converting product from model: " + ex.Message);
+                }
+            }
         }
 
         public void Delete(int id)
@@ -96,6 +103,17 @@ namespace DataAccess.Repositories
                 }
                 throw new DatabaseException("Database update exception while deleting product with id: " + id);
             }
+            catch (InvalidOperationException ex)
+            {
+                if (ex.InnerException != null)
+                {
+                    throw new DatabaseException(ex.InnerException.Message);
+                }
+                else
+                {
+                    throw new DatabaseException(ex.Message);
+                }
+            }
         }
 
         public void Update(Product product)
@@ -113,6 +131,17 @@ namespace DataAccess.Repositories
                     throw new DatabaseException(ex.InnerException.Message);
                 }
                 throw new DatabaseException("Database update exception while updating product " + product.Name);
+            }
+            catch (InvalidOperationException ex)
+            {
+                if (ex.InnerException != null)
+                {
+                    throw new DatabaseException("Exception while converting product from model: " + ex.InnerException.Message);
+                }
+                else
+                {
+                    throw new DatabaseException("Exception while converting product from model: " + ex.Message);
+                }
             }
         }
     }

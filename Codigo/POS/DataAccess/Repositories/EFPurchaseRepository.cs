@@ -49,11 +49,7 @@ namespace DataAccess.Repositories
             }
             catch (InvalidOperationException ex)
             {
-                if (ex.InnerException != null)
-                {
-                    throw new DatabaseException(ex.InnerException.Message);
-                }
-                throw new DatabaseException("Database operation exception while getting purchase with id: " + id);
+                return null;
             }
         }
 
@@ -73,6 +69,17 @@ namespace DataAccess.Repositories
                 }
                 throw new DatabaseException("Database update exception while adding purchase with Id: " + purchase.Id);
             }
+            catch (InvalidOperationException ex)
+            {
+                if (ex.InnerException != null)
+                {
+                    throw new DatabaseException("Exception while converting purchase from model: " + ex.InnerException.Message);
+                }
+                else
+                {
+                    throw new DatabaseException("Exception while converting purchase from model: " + ex.Message);
+                }
+            }
         }
 
         public void Delete(int id)
@@ -91,6 +98,18 @@ namespace DataAccess.Repositories
                 }
                 throw new DatabaseException("Database update exception while deleting purchase with Id: " + id);
             }
+            catch (InvalidOperationException ex)
+            {
+
+                if (ex.InnerException != null)
+                {
+                    throw new DatabaseException(ex.InnerException.Message);
+                }
+                else
+                {
+                    throw new DatabaseException(ex.Message);
+                }
+            }
         }
 
         public void Update(Purchase purchase)
@@ -108,6 +127,17 @@ namespace DataAccess.Repositories
                     throw new DatabaseException(ex.InnerException.Message);
                 }
                 throw new DatabaseException("Database update exception while updating purchase with Id: " + purchase.Id);
+            }
+            catch (InvalidOperationException ex)
+            {
+                if (ex.InnerException != null)
+                {
+                    throw new DatabaseException("Exception while converting purchase from model: " + ex.InnerException.Message);
+                }
+                else
+                {
+                    throw new DatabaseException("Exception while converting purchase from model: " + ex.Message);
+                }
             }
         }
     }

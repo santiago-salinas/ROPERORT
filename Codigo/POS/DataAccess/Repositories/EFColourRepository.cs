@@ -40,11 +40,7 @@ namespace DataAccess.Repositories
             }
             catch (InvalidOperationException ex)
             {
-                if (ex.InnerException != null)
-                {
-                    throw new DatabaseException(ex.InnerException.Message);
-                }
-                throw new DatabaseException("Database operation exception while getting colour " + name);
+                return null;
             }
         }
     }

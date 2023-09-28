@@ -48,11 +48,7 @@ namespace DataAccess.Repositories
             }
             catch (InvalidOperationException ex)
             {
-                if (ex.InnerException != null)
-                {
-                    throw new DatabaseException(ex.InnerException.Message);
-                }
-                throw new DatabaseException("Database operation exception while getting user with id: " + id);
+                return null;
             }
         }
 
@@ -72,6 +68,17 @@ namespace DataAccess.Repositories
                 }
                 throw new DatabaseException("Database update exception while adding " + user.Email);
             }
+            catch (InvalidOperationException ex)
+            {
+                if (ex.InnerException != null)
+                {
+                    throw new DatabaseException("Exception while converting user from model: " + ex.InnerException.Message);
+                }
+                else
+                {
+                    throw new DatabaseException("Exception while converting user from model: " + ex.Message);
+                }
+            }
         }
 
         public void Delete(int id)
@@ -90,6 +97,17 @@ namespace DataAccess.Repositories
                 }
                 throw new DatabaseException("Database update exception while removing user with id " + id);
             }
+            catch (InvalidOperationException ex)
+            {
+                if (ex.InnerException != null)
+                {
+                    throw new DatabaseException(ex.InnerException.Message);
+                }
+                else
+                {
+                    throw new DatabaseException(ex.Message);
+                }
+            }
         }
 
         public void Update(User user)
@@ -107,6 +125,17 @@ namespace DataAccess.Repositories
                     throw new DatabaseException(ex.InnerException.Message);
                 }
                 throw new DatabaseException("Database update exception while updating user " + user.Email);
+            }
+            catch (InvalidOperationException ex)
+            {
+                if (ex.InnerException != null)
+                {
+                    throw new DatabaseException("Exception while converting user from model: " + ex.InnerException.Message);
+                }
+                else
+                {
+                    throw new DatabaseException("Exception while converting user from model: " + ex.Message);
+                }
             }
         }
     }
