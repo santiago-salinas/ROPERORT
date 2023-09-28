@@ -1,8 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using Services;
-using Services.Interfaces;
-using Services.Models;
 
 namespace Rest_Api.Filters
 {

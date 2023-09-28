@@ -18,9 +18,7 @@ namespace DataAccess.Entities
             return new AssignedRoles
             {
                 UserId = user.Id,
-                User = UserEntity.FromModel(user),
                 RoleName = role.Name,
-                Role = RoleEntity.FromModel(role),
             };
         }
     }

@@ -1,5 +1,6 @@
 ﻿using Services.Interfaces;
 using Services.Models;
+using Services.Exceptions;
 
 namespace Services;
 
@@ -13,26 +14,61 @@ public class UserService : IUserService
 
     public void Add(User entity)
     {
-        _repository.Add(entity);
+        try
+        {
+            _repository.Add(entity);
+        }
+        catch (DatabaseException ex) 
+        {
+            throw new Service_ObjectHandlingException("Exception catched from the repository: " + ex.Message);
+        }
     }
 
     public void Delete(int id)
     {
-        _repository.Delete(id);
+        try
+        {
+            _repository.Delete(id);
+        }
+        catch (DatabaseException ex)
+        {
+            throw new Service_ObjectHandlingException("Exception catched from the repository: " + ex.Message);
+        }
     }
 
     public User? Get(int id)
     {
-        return _repository.Get(id);
+        try
+        {
+            return _repository.Get(id);
+        }
+        catch (DatabaseException ex)
+        {
+            throw new Service_ObjectHandlingException("Exception catched from the repository: " + ex.Message);
+        }
     }
 
     public List<User> GetAll()
     {
-        return _repository.GetAll();
+        try
+        {
+            return _repository.GetAll();
+        }
+        catch (DatabaseException ex)
+        {
+            throw new Service_ObjectHandlingException("Exception catched from the repository: " + ex.Message);
+        }
     }
 
     public void Update(User entity)
     {
-        _repository.Update(entity);
+        try
+        {
+            _repository.Update(entity);
+        }
+        catch (DatabaseException ex)
+        {
+            throw new Service_ObjectHandlingException("Exception catched from the repository: " + ex.Message);
+        }
     }
 }

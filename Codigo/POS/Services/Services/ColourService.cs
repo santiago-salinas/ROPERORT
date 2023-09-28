@@ -1,4 +1,5 @@
-﻿using Services.Interfaces;
+﻿using Services.Exceptions;
+using Services.Interfaces;
 using Services.Models;
 
 namespace Services;
@@ -11,7 +12,20 @@ public class ColourService : IGetService<Colour>
         _repository = repository;
     }
 
-    public List<Colour> GetAll() => _repository.GetAll();
-
-    public Colour? Get(string name) => _repository.Get(name);
+    public List<Colour> GetAll()
+    {
+        try { return _repository.GetAll(); }
+        catch (DatabaseException ex)
+        {
+            throw new Service_ObjectHandlingException("Exception catched from the repository: " + ex.Message);
+        };
+    }
+    public Colour? Get(string name)
+    {
+        try { return _repository.Get(name); }
+        catch (DatabaseException ex)
+        {
+            throw new Service_ObjectHandlingException("Exception catched from the repository: " + ex.Message);
+        }
+    }
 }

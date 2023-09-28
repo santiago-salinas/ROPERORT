@@ -7,6 +7,8 @@ namespace Rest_Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [ExceptionFilter]
+
     public class BrandController : ControllerBase
     {
         private readonly IGetService<Brand> _brandService;
