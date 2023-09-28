@@ -26,7 +26,6 @@ namespace ApiTests.Services
             _purchaseRepository = new Mock<ICRUDRepository<Purchase>>();
             _purchaseService = new PurchaseService(_purchaseRepository.Object);
 
-            _testCart = new Cart();
             Product product1 = new Product();
             product1.PriceUYU = 10.0;
 
@@ -49,8 +48,14 @@ namespace ApiTests.Services
 
             _testCart.AppliedPromo = promo;
 
-            _testUser = new User("email1@gmail.com", "address1","password1");
-            _testUserTwo = new User("email2@gmail.com", "address2", "password2");
+            _testUser = new User("email1@gmail.com", "address1", "password1")
+            {
+                Id = 1,
+            };
+            _testUserTwo = new User("email2@gmail.com", "address2", "password2")
+            {
+                Id = 2,
+            };
 
             _testCart = new Cart();
             _testCartTwo = new Cart();

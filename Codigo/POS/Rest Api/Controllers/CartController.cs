@@ -2,6 +2,7 @@
 using Rest_Api.DTOs;
 using Services.Interfaces;
 using Services.Models;
+using Services.Models.Promos;
 using Services;
 using Rest_Api.Filters;
 
@@ -38,7 +39,7 @@ public class CartController : ControllerBase
         try
         {
             cart = CartDTOtoObject(cartDto);
-            ApplyPromo(cart);
+            cart = ApplyPromoToCart(cart);
             return CreatedAtAction(nameof(Create), cart.DiscountedPriceUYU, cart);
         }
         catch (Exception e)
@@ -49,26 +50,15 @@ public class CartController : ControllerBase
     }
 
     [NonAction]
-    public void ApplyPromo(Cart cart)
+    public Cart ApplyPromoToCart(Cart cart)
     {
-        List<Promo> Promos = _promoService.GetAll();
+        List<Promo> promos = _promoService.GetAll();
 
-        if (cart is null || cart.Products.Count == _zero) { return; }
+        PromoApplier promoApplier = new PromoApplier(promos);
 
-        double bestPrice = cart.PriceUYU;
-        Promo bestPromoToClient = null;
+        Cart result = promoApplier.Apply(cart);
 
-        foreach (Promo promo in Promos)
-        {
-            double newPrice = promo.ApplyDiscount(cart);
-            if (newPrice < bestPrice)
-            {
-                bestPromoToClient = promo;
-                bestPrice = newPrice;
-            }
-        }
-
-        cart.AppliedPromo = bestPromoToClient;
+        return result;
     }
 
     [NonAction]
