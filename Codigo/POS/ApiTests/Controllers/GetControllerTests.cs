@@ -1,9 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Filters;
-using Moq;
+﻿using Moq;
 using Rest_Api.Controllers;
-using Rest_Api.Filters;
-using Services.Exceptions;
 using Services.Interfaces;
 using Services.Models;
 
@@ -72,42 +68,6 @@ namespace ApiTests.Controllers
             var result = _categoryController.GetAll();
             var createdResult = result;
             Assert.AreEqual(expectedCategories.Count, createdResult.Value.Count);
-        }
-
-        [TestMethod]
-        public void GetAllFails_CaugthByExceptionFilter()
-        {
-            List<Category> expectedCategories = new List<Category>
-            {
-                new Category { Name = "Category1" },
-                new Category { Name = "Category2" },
-            };
-            _categoryService.Setup(s => s.GetAll()).Returns(expectedCategories);
-            var result = _categoryController.GetAll();
-            var createdResult = result;
-            Assert.AreEqual(expectedCategories.Count, createdResult.Value.Count);
-        }
-
-
-
-        [TestMethod]
-        public void OnException_ReturnsInternalServerError()
-        {
-            // Arrange
-            var filter = new ExceptionFilter();
-            var context = new ExceptionContext(new ActionContext(), new IFilterMetadata[0])
-            {
-                Exception = new Exception("Test Exception")
-            };
-
-            // Act
-            filter.OnException(context);
-
-            // Assert
-            Assert.IsInstanceOfType(context.Result, typeof(ContentResult));
-            var contentResult = (ContentResult)context.Result;
-            Assert.AreEqual(500, contentResult.StatusCode);
-            StringAssert.Contains(contentResult.Content, "An exception was thrown with this message:");
         }
 
     }

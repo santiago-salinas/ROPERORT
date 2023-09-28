@@ -20,13 +20,4 @@ public class BrandService : IGetService<Brand>
             throw new Service_ObjectHandlingException("Exception catched from the repository: " + ex.Message);
         };
     }
-    public Brand? Get(string name)
-    {
-        try { return _repository.Get(name); }
-        catch (DatabaseException ex)
-        {
-            throw new Service_ObjectHandlingException("Exception catched from the repository: " + ex.Message);
-        }
-    }
-
 }

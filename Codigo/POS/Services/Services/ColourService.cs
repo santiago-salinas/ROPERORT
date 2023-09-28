@@ -20,12 +20,4 @@ public class ColourService : IGetService<Colour>
             throw new Service_ObjectHandlingException("Exception catched from the repository: " + ex.Message);
         };
     }
-    public Colour? Get(string name)
-    {
-        try { return _repository.Get(name); }
-        catch (DatabaseException ex)
-        {
-            throw new Service_ObjectHandlingException("Exception catched from the repository: " + ex.Message);
-        }
-    }
 }
