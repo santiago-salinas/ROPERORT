@@ -77,16 +77,6 @@ namespace ApiTests.Controllers
         }
 
         [TestMethod]
-        public void GetAll_WorksCorrectly()
-        {
-            var expectedOutcome = new List<Purchase>() { _testPurchase, _testPurchaseTwo};
-            mock.Setup(s => s.GetAll()).Returns(expectedOutcome);
-            var result = _purchaseController.GetAll();
-            var createdResult = result as ActionResult<List<Purchase>>;
-            Assert.AreEqual(expectedOutcome.Count, createdResult.Value.Count);
-        }
-
-        [TestMethod]
         public void GivenValidId_GetReturnsUser()
         {
             var expectedOutcome = _testPurchase;

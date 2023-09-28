@@ -18,10 +18,6 @@ public class PurchaseController : ControllerBase
         _purchaseService = purchaseService; 
     }
 
-    // GET all action
-    [HttpGet]
-    public ActionResult<List<Purchase>> GetAll() => _purchaseService.GetAll();
-
     // GET by Id action
     [HttpGet("{id}")]
     public ActionResult<Purchase> Get(int id)

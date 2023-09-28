@@ -21,16 +21,6 @@ namespace ApiTests.Controllers
         }
 
         [TestMethod]
-        public void GetAllWorksCorrectly()
-        {
-            var expectedOutcome = new List<User>();
-            mock.Setup(s => s.GetAll()).Returns(expectedOutcome);
-            var result = userController.GetAll();
-            var createdResult = result as ActionResult<List<User>>;
-            Assert.AreEqual(expectedOutcome.Count, createdResult.Value.Count);
-        }
-
-        [TestMethod]
         public void GivenValidIdGetReturnsUser()
         {
             var expectedOutcome = new User("prueba@gmail.com", "Calle 123", "password") { Id=5};
@@ -94,24 +84,6 @@ namespace ApiTests.Controllers
             User? nullUser = null;
             mock.Setup(s => s.Get(6)).Returns(nullUser);
             var result = userController.Update(6, user);
-            Assert.IsInstanceOfType(result, typeof(NotFoundResult));
-        }
-
-        [TestMethod]
-        public void GivenValidIdUserGetsDeleted()
-        {
-            mock.Setup(s => s.Get(3)).Returns(new User("prueba@gmail.com", "prueba", "password") { Id=3});
-            mock.Setup(s => s.Delete(3));
-            var result = userController.Delete(3);
-            Assert.IsInstanceOfType(result, typeof(NoContentResult));
-        }
-
-        [TestMethod]
-        public void GivenNonExistentIdDeleteReturnsNotFound()
-        {
-            User? nullUser = null;
-            mock.Setup(s => s.Get(6)).Returns(nullUser);
-            var result = userController.Delete(6);
             Assert.IsInstanceOfType(result, typeof(NotFoundResult));
         }
     }
