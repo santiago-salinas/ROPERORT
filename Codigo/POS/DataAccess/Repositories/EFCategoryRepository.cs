@@ -21,9 +21,9 @@ namespace DataAccess.Repositories
 
                 return categories;
             }
-            catch
+            catch (Exception ex)
             {
-                throw new DatabaseException("Error while getting all categories from database");
+                throw new DatabaseException($"Unexpected exception while getting all categories : {ex.Message}");
             }
         }
 
@@ -35,9 +35,13 @@ namespace DataAccess.Repositories
 
                 return CategoryEntity.FromEntity(category);
             }
-            catch
+            catch (InvalidOperationException ex)
             {
-                throw new DatabaseException("Error while trying to get category " + name);
+                if (ex.InnerException != null)
+                {
+                    throw new DatabaseException(ex.InnerException.Message);
+                }
+                throw new DatabaseException("Database operation exception while getting category " + name);
             }
         }
     }

@@ -28,9 +28,9 @@ namespace DataAccess.Repositories
                 return users;
 
             }
-            catch
+            catch (Exception ex)
             {
-                throw new DatabaseException("Error while getting all users from database");
+                throw new DatabaseException($"Unexpected exception while getting all users: {ex.Message}");
             }
 
         }
@@ -46,11 +46,14 @@ namespace DataAccess.Repositories
                 return UserEntity.FromEntity(user);
 
             }
-            catch
+            catch (InvalidOperationException ex)
             {
-                throw new DatabaseException("Error while trying to get user with id" + id);
+                if (ex.InnerException != null)
+                {
+                    throw new DatabaseException(ex.InnerException.Message);
+                }
+                throw new DatabaseException("Database operation exception while getting user with id: " + id);
             }
-
         }
 
         public void Add(User user)
@@ -61,9 +64,13 @@ namespace DataAccess.Repositories
                 _context.UserEntities.Add(entity);
                 _context.SaveChanges();
             }
-            catch
+            catch(DbUpdateException ex)
             {
-                throw new DatabaseException("Error while trying to add user " + user.Email);
+                if(ex.InnerException != null)
+                {
+                    throw new DatabaseException(ex.InnerException.Message);
+                }
+                throw new DatabaseException("Database update exception while adding " + user.Email);
             }
         }
 
@@ -75,9 +82,13 @@ namespace DataAccess.Repositories
                 _context.UserEntities.Remove(entity);
                 _context.SaveChanges();
             }
-            catch
+            catch (DbUpdateException ex)
             {
-                throw new DatabaseException("Error while trying to delete user with id" + id);
+                if (ex.InnerException != null)
+                {
+                    throw new DatabaseException(ex.InnerException.Message);
+                }
+                throw new DatabaseException("Database update exception while removing user with id " + id);
             }
         }
 
@@ -89,9 +100,13 @@ namespace DataAccess.Repositories
                 _context.UserEntities.Update(entity);
                 _context.SaveChanges();
             }
-            catch
+            catch(DbUpdateException ex)
             {
-                throw new DatabaseException("Error while trying to update user " + user.Email);
+                if (ex.InnerException != null)
+                {
+                    throw new DatabaseException(ex.InnerException.Message);
+                }
+                throw new DatabaseException("Database update exception while updating user " + user.Email);
             }
         }
     }

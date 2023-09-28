@@ -28,9 +28,9 @@ namespace DataAccess.Repositories
 
                 return purchases;
             }
-            catch
+            catch (Exception ex)
             {
-                throw new DatabaseException("Error while getting all purchases from database");
+                throw new DatabaseException($"Unexpected exception while getting all purchases : {ex.Message}");
             }
         }
         public Purchase? Get(int id)
@@ -47,9 +47,13 @@ namespace DataAccess.Repositories
 
                 return purchase;
             }
-            catch
+            catch (InvalidOperationException ex)
             {
-                throw new DatabaseException("Error while trying to get purchase with id " + id);
+                if (ex.InnerException != null)
+                {
+                    throw new DatabaseException(ex.InnerException.Message);
+                }
+                throw new DatabaseException("Database operation exception while getting purchase with id: " + id);
             }
         }
 
@@ -61,9 +65,13 @@ namespace DataAccess.Repositories
                 _context.PurchaseEntities.Add(entity);
                 _context.SaveChanges();
             }
-            catch
+            catch (DbUpdateException ex)
             {
-                throw new DatabaseException("Error while trying to add purchase " + purchase.Id);
+                if (ex.InnerException != null)
+                {
+                    throw new DatabaseException(ex.InnerException.Message);
+                }
+                throw new DatabaseException("Database update exception while adding purchase with Id: " + purchase.Id);
             }
         }
 
@@ -75,9 +83,13 @@ namespace DataAccess.Repositories
                 _context.PurchaseEntities.Remove(entity);
                 _context.SaveChanges();
             }
-            catch
+            catch (DbUpdateException ex)
             {
-                throw new DatabaseException("Error while trying to delete purchase with id " + id);
+                if (ex.InnerException != null)
+                {
+                    throw new DatabaseException(ex.InnerException.Message);
+                }
+                throw new DatabaseException("Database update exception while deleting purchase with Id: " + id);
             }
         }
 
@@ -89,9 +101,13 @@ namespace DataAccess.Repositories
                 _context.PurchaseEntities.Update(entity);
                 _context.SaveChanges();
             }
-            catch
+            catch (DbUpdateException ex)
             {
-                throw new DatabaseException("Error while trying to update purchase " + purchase.Id);
+                if (ex.InnerException != null)
+                {
+                    throw new DatabaseException(ex.InnerException.Message);
+                }
+                throw new DatabaseException("Database update exception while updating purchase with Id: " + purchase.Id);
             }
         }
     }

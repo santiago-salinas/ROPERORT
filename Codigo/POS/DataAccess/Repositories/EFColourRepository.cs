@@ -23,29 +23,28 @@ namespace DataAccess.Repositories
                 List<Colour> colours = entities.Select(c => ColourEntity.FromEntity(c)).ToList();
 
                 return colours;
-
             }
-            catch
+            catch (Exception ex)
             {
-                throw new DatabaseException("Error while getting all colours from database");
+                throw new DatabaseException($"Unexpected exception while getting all colours : {ex.Message}");
             }
-
         }
 
         public Colour? Get(string name)
         {
             try
             {
-
                 ColourEntity entity = _context.ColourEntities.First(p => p.Name == name);
 
                 return ColourEntity.FromEntity(entity);
-
-
             }
-            catch
+            catch (InvalidOperationException ex)
             {
-                throw new DatabaseException("Error while trying to get colour " + name);
+                if (ex.InnerException != null)
+                {
+                    throw new DatabaseException(ex.InnerException.Message);
+                }
+                throw new DatabaseException("Database operation exception while getting colour " + name);
             }
         }
     }
