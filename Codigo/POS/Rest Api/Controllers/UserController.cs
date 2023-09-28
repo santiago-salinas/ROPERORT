@@ -19,9 +19,6 @@ public class UserController : ControllerBase
         _userService = userService;
     }
 
-    [HttpGet]
-    public ActionResult<List<User>> GetAll() => _userService.GetAll();
-
     [HttpGet("{id}")]
     [ServiceFilter(typeof(AuthenticationFilter))]
     public ActionResult<User> Get(int id)
@@ -64,19 +61,6 @@ public class UserController : ControllerBase
 
         _userService.Update(user);
 
-        return NoContent();
-    }
-
-    [HttpDelete("{id}")]
-    [ServiceFilter(typeof(AuthenticationFilter))]
-
-    public IActionResult Delete(int id)
-    {
-        User? user = _userService.Get(id);
-        if (user == null)
-            return NotFound();
-
-        _userService.Delete(id);
         return NoContent();
     }
 }
