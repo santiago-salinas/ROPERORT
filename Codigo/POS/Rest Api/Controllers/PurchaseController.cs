@@ -1,12 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Services.Models;
 using Services.Exceptions;
-using Rest_Api.Controllers.Exceptions;
 using Rest_Api.Filters;
 using Services.Interfaces;
 
 namespace Rest_Api.Controllers;
-
 
 [ApiController]
 [Route("[controller]")]
