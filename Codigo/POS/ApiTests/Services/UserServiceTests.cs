@@ -1,5 +1,6 @@
 using Moq;
 using Services;
+using Services.Exceptions;
 using Services.Interfaces;
 using Services.Models;
 
@@ -35,6 +36,14 @@ namespace ApiTests.Services
         }
 
         [TestMethod]
+        [ExpectedException(typeof(Service_ObjectHandlingException))]
+        public void GetAll_Fails_ThrowsException()
+        {
+            _userRepository.Setup(r => r.GetAll()).Throws(new DatabaseException("Get all fails"));
+            List<User> users = _userService.GetAll();
+        }
+
+        [TestMethod]
         public void Get_ReturnsUserById()
         {
             var id = 1;
@@ -45,6 +54,15 @@ namespace ApiTests.Services
 
             Assert.IsNotNull(user);
             Assert.AreEqual(expectedUser.Id, user.Id);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Service_ObjectHandlingException))]
+        public void Get_Fails_ThrowsException()
+        {
+            int userId = 1;
+            _userRepository.Setup(r => r.Get(userId)).Throws(new DatabaseException("Get all fails"));
+            User user = _userService.Get(userId);
         }
 
         [TestMethod]
@@ -62,6 +80,16 @@ namespace ApiTests.Services
         }
 
         [TestMethod]
+        [ExpectedException(typeof(Service_ObjectHandlingException))]
+        public void Add_Fails_ThrowsException()
+        {
+            var newUser = new User("prueba@gmail.com", "Cuareim 1451", "password") { Id = 2 };
+            _userRepository.Setup(repo => repo.Add(newUser)).Throws(new DatabaseException("Add fails"));
+
+            _userService.Add(newUser);
+        }
+
+        [TestMethod]
         public void Delete_UserIsRemovedFromList()
         {
             var userIdToRemove = 1;
@@ -71,6 +99,15 @@ namespace ApiTests.Services
             var deletedUser = _userService.Get(userIdToRemove);
 
             Assert.IsNull(deletedUser);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Service_ObjectHandlingException))]
+        public void Delete_Fails_ThrowsException()
+        {
+            int userId = 1;
+            _userRepository.Setup(r => r.Delete(userId)).Throws(new DatabaseException("Delete fails"));
+            _userService.Delete(userId);
         }
 
         [TestMethod]
@@ -88,6 +125,18 @@ namespace ApiTests.Services
             Assert.AreEqual(updatedUser.Id, user.Id);
             Assert.AreEqual(updatedUser.Email, user.Email);
             Assert.AreEqual(updatedUser.Address, user.Address);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Service_ObjectHandlingException))]
+
+        public void Update_Fails_ThrowsException()
+        {
+            var userIdToUpdate = 1;
+            var updatedUser = new User("prueba@hotmail.com", "Calle 1234", "password") { Id = userIdToUpdate };
+            _userRepository.Setup(repo => repo.Update(updatedUser)).Throws(new DatabaseException("Update fails"));
+
+            _userService.Update(updatedUser);
         }
     }
 }
