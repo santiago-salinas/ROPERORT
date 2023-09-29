@@ -19,12 +19,4 @@ public class CategoryService : IGetService<Category>
             throw new Service_ObjectHandlingException("Exception catched from the repository: " + ex.Message);
         };
     }
-    public Category? Get(string name)
-    {
-        try { return _repository.Get(name); }
-        catch (DatabaseException ex)
-        {
-            throw new Service_ObjectHandlingException("Exception catched from the repository: " + ex.Message);
-        }
-    }
 }
