@@ -157,7 +157,7 @@ namespace ApiTests.Services
             colour.Name = "Colour";
 
             Category category = new Category();
-            category.Name = "404NOTFOUND";            
+            category.Name = "Category";            
 
             _brandRepository.Setup(r => r.Get(brand.Name)).Returns(brand);
             _colourRepository.Setup(r => r.Get(colour.Name)).Returns(null as Colour);
@@ -219,7 +219,7 @@ namespace ApiTests.Services
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Service_ArgumentException))]
+        [ExpectedException(typeof(Service_ObjectHandlingException))]
         public void Add_Fails_ThrowsExcpetion()
         {
             Brand brand = new Brand();
@@ -415,7 +415,7 @@ namespace ApiTests.Services
             List<Product> products = _productService.GetFiltered(category, brand, name);
         }
 
-
+        
         private List<Product> _mockProducts = new List<Product>()
         {
             new Product

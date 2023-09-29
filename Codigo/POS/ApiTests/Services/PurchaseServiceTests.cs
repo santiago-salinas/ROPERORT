@@ -2,6 +2,8 @@
 using Services;
 using Services.Models;
 using Services.Interfaces;
+using DataAccess.Repositories;
+using Services.Exceptions;
 
 namespace ApiTests.Services
 {
@@ -96,6 +98,14 @@ namespace ApiTests.Services
         }
 
         [TestMethod]
+        [ExpectedException(typeof(Service_ObjectHandlingException))]
+        public void GetAll_Fails_ThrowsException()
+        {
+            _purchaseRepository.Setup(r => r.GetAll()).Throws(new DatabaseException("Get all fails"));
+            List<Purchase> purchases = _purchaseService.GetAll();
+        }
+
+        [TestMethod]
         public void Get_ReturnsPurchaseById()
         {
             var id = 1;
@@ -106,6 +116,15 @@ namespace ApiTests.Services
 
             Assert.IsNotNull(purchase);
             Assert.AreEqual(expectedPurchase.Id, purchase.Id);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Service_ObjectHandlingException))]
+        public void Get_Fails_ThrowsException()
+        {
+            int purchaseId = 1;
+            _purchaseRepository.Setup(r => r.Get(purchaseId)).Throws(new DatabaseException("Get all fails"));
+            Purchase purchase = _purchaseService.Get(purchaseId);
         }
 
         [TestMethod]
@@ -120,6 +139,42 @@ namespace ApiTests.Services
 
             Assert.IsNotNull(addedPurchase);
             Assert.AreEqual(newPurchase.Id, addedPurchase.Id);
-        }        
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Service_ObjectHandlingException))]
+        public void Add_Fails_ThrowsException()
+        {
+            var newPurchase = _testPurchase;
+            _purchaseRepository.Setup(repo => repo.Add(newPurchase)).Throws(new DatabaseException("Add fails"));
+
+            _purchaseService.Add(newPurchase);
+        }
+
+        [TestMethod]
+        public void GetPurchaseHistory_ReturnsListOfPurchases()
+        {
+            var purchaseList = new List<Purchase>
+            {
+                _testPurchase,
+                _testPurchaseTwo
+            };
+            _purchaseRepository.Setup(repo => repo.GetAll()).Returns(purchaseList);
+
+            var purchases = _purchaseService.GetPurchaseHistory(_testUser.Email);
+            var expectedResult = new List<Purchase> { _testPurchase };
+
+            Assert.IsNotNull(purchases);
+            Assert.AreEqual(expectedResult.Count, purchases.Count);
+            Assert.AreEqual(expectedResult.First(), _testPurchase);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Service_ObjectHandlingException))]
+        public void GetPurchaseHistoryl_Fails_ThrowsException()
+        {
+            _purchaseRepository.Setup(r => r.GetAll()).Throws(new DatabaseException("Get all fails"));
+            List<Purchase> purchases = _purchaseService.GetPurchaseHistory(_testUser.Email);
+        }
     }
 }
