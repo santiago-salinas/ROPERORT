@@ -17,7 +17,7 @@ namespace Rest_Api.Filters
 
         public void OnAuthorization(AuthorizationFilterContext context)
         {
-            string header = context.HttpContext.Request.Headers["Authorization"];
+            string header = context.HttpContext.Request.Headers["auth"];
             if (header is null)
             {
                 context.Result = new ContentResult()

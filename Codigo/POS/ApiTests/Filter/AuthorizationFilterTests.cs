@@ -69,7 +69,7 @@ namespace ApiTests.Filter
 
             var modelState = new ModelStateDictionary();
             var httpContext = new DefaultHttpContext();
-            httpContext.Request.Headers["Authorization"] = "admin";
+            httpContext.Request.Headers["auth"] = "admin";
             var context = new AuthorizationFilterContext(
                 new ActionContext(httpContext: httpContext,
                                   routeData: new Microsoft.AspNetCore.Routing.RouteData(),
@@ -91,7 +91,7 @@ namespace ApiTests.Filter
 
             var modelState = new ModelStateDictionary();
             var httpContext = new DefaultHttpContext();
-            httpContext.Request.Headers["Authorization"] = "customer";
+            httpContext.Request.Headers["auth"] = "customer";
 
             var context = new AuthorizationFilterContext(
                 new ActionContext(httpContext: httpContext,
@@ -114,7 +114,7 @@ namespace ApiTests.Filter
 
             var modelState = new ModelStateDictionary();
             var httpContext = new DefaultHttpContext();
-            httpContext.Request.Headers["Authorization"] = "nonexistent";
+            httpContext.Request.Headers["auth"] = "nonexistent";
 
             var context = new AuthorizationFilterContext(
                 new ActionContext(httpContext: httpContext,
