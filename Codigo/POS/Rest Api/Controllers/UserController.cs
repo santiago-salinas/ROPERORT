@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Rest_Api.DTOs;
 using Rest_Api.Filters;
 using Services.Exceptions;
 using Services.Interfaces;
@@ -37,13 +38,14 @@ public class UserController : ControllerBase
     }
 
     [HttpPost]
-    public IActionResult Create(User user)
+    public IActionResult Create(UserDTO userDTO)
     {
         try
         {
+            User newUser = new User(userDTO.Email, userDTO.Address, userDTO.Password);
             Role customerRole = new Role("Customer");
-            user.AddRole(customerRole);
-            _userService.Add(user);
+            newUser.AddRole(customerRole);
+            _userService.Add(newUser);
         }
         catch (Service_ObjectHandlingException e)
         {
