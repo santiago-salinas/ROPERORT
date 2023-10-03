@@ -4,6 +4,7 @@ using Services.Exceptions;
 using Services.Interfaces;
 using Services.Models;
 using Rest_Api.Filters;
+using Services.Models.Exceptions;
 
 namespace Rest_Api.Controllers;
 
@@ -12,7 +13,6 @@ namespace Rest_Api.Controllers;
 [Route("[controller]")]
 [ExceptionFilter]
 [ServiceFilter(typeof(AuthenticationFilter))]
-
 public class ProductController : ControllerBase
 {
     private readonly IProductService _productService;
@@ -60,12 +60,18 @@ public class ProductController : ControllerBase
     {
         if (id != product.Id)
             return BadRequest();
+        try
+        {
+            Product? existingProduct = _productService.Get(id);
+            if (existingProduct == null)
+                return NotFound();
 
-        Product? existingProduct = _productService.Get(id);
-        if (existingProduct == null)
-            return NotFound();
-
-        _productService.Update(product);
+            _productService.Update(product);
+        }
+        catch (Service_ObjectHandlingException e)
+        {
+            return BadRequest(e.Message);
+        }
 
         return Ok();
     }
