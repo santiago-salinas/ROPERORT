@@ -65,19 +65,17 @@ namespace ApiTests.Services
             _testPurchase = new Purchase
             {
                 Id = 1,
-                Client = _testUser,
-                Products = _testCart,
-                Date = DateTime.Now,
-                AppliedPromotion = "Promo1"
+                User = _testUser,
+                Cart = _testCart,
+                Date = DateTime.Now
             };
 
             _testPurchaseTwo = new Purchase
             {
                 Id = 2,
-                Client = _testUserTwo,
-                Products = _testCartTwo,
-                Date = DateTime.Now,
-                AppliedPromotion = "Promo2"
+                User = _testUserTwo,
+                Cart = _testCartTwo,
+                Date = DateTime.Now
             };
         }
 
@@ -161,7 +159,7 @@ namespace ApiTests.Services
             };
             _purchaseRepository.Setup(repo => repo.GetAll()).Returns(purchaseList);
 
-            var purchases = _purchaseService.GetPurchaseHistory(_testUser.Email);
+            var purchases = _purchaseService.GetPurchaseHistoryFromUser(_testUser.Id);
             var expectedResult = new List<Purchase> { _testPurchase };
 
             Assert.IsNotNull(purchases);
@@ -174,7 +172,7 @@ namespace ApiTests.Services
         public void GetPurchaseHistoryl_Fails_ThrowsException()
         {
             _purchaseRepository.Setup(r => r.GetAll()).Throws(new DatabaseException("Get all fails"));
-            List<Purchase> purchases = _purchaseService.GetPurchaseHistory(_testUser.Email);
+            List<Purchase> purchases = _purchaseService.GetPurchaseHistoryFromUser(_testUser.Id);
         }
     }
 }
