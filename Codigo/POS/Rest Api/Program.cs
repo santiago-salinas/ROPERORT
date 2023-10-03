@@ -52,7 +52,7 @@ builder.Services.AddScoped(sp =>
 });
 
 
-builder.Services.AddScoped<AuthorizationFilter>(sp =>
+builder.Services.AddScoped(sp =>
 {
     return new AuthorizationFilter(repositoriesFactory.UserRepository);
 });

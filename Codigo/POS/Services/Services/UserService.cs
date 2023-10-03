@@ -18,11 +18,11 @@ public class UserService : IUserService
     {
         try
         {            
-            _userRepository.Add(entity);
             if (!UserRolesAreValid(entity))
             {
                 throw new Service_ArgumentException("User to be added contains inexistent role/s");
             }
+            _userRepository.Add(entity);
         }
         catch (DatabaseException ex) 
         {

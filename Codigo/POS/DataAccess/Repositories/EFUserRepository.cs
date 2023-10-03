@@ -44,7 +44,6 @@ namespace DataAccess.Repositories
                     .First(u => u.Id == id);
 
                 return UserEntity.FromEntity(user);
-
             }
             catch (InvalidOperationException ex)
             {
@@ -56,9 +55,16 @@ namespace DataAccess.Repositories
         {
             try
             {
-                UserEntity entity = UserEntity.FromModel(user);
-                _context.UserEntities.Add(entity);
-                _context.SaveChanges();
+                if(!UserExists(user.Email))
+                {
+                    UserEntity entity = UserEntity.FromModel(user);
+                    _context.UserEntities.Add(entity);
+                    _context.SaveChanges();
+                }
+                else
+                {
+                    throw new DatabaseException("User already exists");
+                }
             }
             catch(DbUpdateException ex)
             {
@@ -72,11 +78,11 @@ namespace DataAccess.Repositories
             {
                 if (ex.InnerException != null)
                 {
-                    throw new DatabaseException("Exception while converting user from model: " + ex.InnerException.Message);
+                    throw new DatabaseException("Invalid operation exception: " + ex.InnerException.Message);
                 }
                 else
                 {
-                    throw new DatabaseException("Exception while converting user from model: " + ex.Message);
+                    throw new DatabaseException("Invalid operation exception: " + ex.Message);
                 }
             }
         }
@@ -85,9 +91,16 @@ namespace DataAccess.Repositories
         {
             try
             {
-                UserEntity entity = _context.UserEntities.First(p => p.Id == id);
-                _context.UserEntities.Remove(entity);
-                _context.SaveChanges();
+                UserEntity? entity = _context.UserEntities.FirstOrDefault(p => p.Id == id);
+                if (entity != null)
+                {
+                    _context.UserEntities.Remove(entity);
+                    _context.SaveChanges();
+                }
+                else
+                {
+                    throw new DatabaseException("User to delete does not exist");
+                }
             }
             catch (DbUpdateException ex)
             {
@@ -114,9 +127,16 @@ namespace DataAccess.Repositories
         {
             try
             {
-                UserEntity entity = UserEntity.FromModel(user);
-                _context.UserEntities.Update(entity);
-                _context.SaveChanges();
+                if(UserExists(user.Email))
+                {
+                    UserEntity entity = UserEntity.FromModel(user);
+                    _context.UserEntities.Update(entity);
+                    _context.SaveChanges();
+                }
+                else
+                {
+                    throw new DatabaseException("User to update does not exist");
+                }                
             }
             catch(DbUpdateException ex)
             {
@@ -130,13 +150,18 @@ namespace DataAccess.Repositories
             {
                 if (ex.InnerException != null)
                 {
-                    throw new DatabaseException("Exception while converting user from model: " + ex.InnerException.Message);
+                    throw new DatabaseException("Invalid operation exception: " + ex.InnerException.Message);
                 }
                 else
                 {
-                    throw new DatabaseException("Exception while converting user from model: " + ex.Message);
+                    throw new DatabaseException("Invalid operation exception: " + ex.Message);
                 }
             }
+        }
+
+        private bool UserExists(string email)
+        {
+            return _context.UserEntities.Any(x => x.Email == email);
         }
     }
 }
