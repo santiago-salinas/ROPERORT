@@ -24,9 +24,7 @@ namespace DataAccess.Entities
             return new PurchasedProductEntity
             {
                 Amount = cartLine.Quantity,
-                Product = ProductEntity.FromModel(cartLine.Product, context),
                 ProductId = cartLine.Product.Id,
-                Purchase = PurchaseEntity.FromModel(purchase, context),
                 PurchaseId = purchase.Id,
             };
         }

@@ -22,9 +22,10 @@ namespace DataAccess.Entities
             return new PurchaseEntity
             {
                 Id = model.Id,
-                User = UserEntity.FromModel(model.User),
+                User = context.UserEntities.First(u => u.Email == model.User.Email),
                 Date = model.Date,
                 Items = cart.Products.Select(p => PurchasedProductEntity.FromModel(model, p, context)).ToList(),
+                AppliedPromotion = cart.AppliedPromo.Name ?? "No promo applied",
             };
         }
 

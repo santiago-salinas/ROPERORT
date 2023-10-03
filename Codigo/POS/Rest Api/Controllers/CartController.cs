@@ -89,7 +89,7 @@ public class CartController : ControllerBase
         {
             Cart = cart,
             User = user,
-            Date = DateTime.Now
+            Date = DateTime.Now,            
         };
 
         _purchaseService.Add(purchase);
