@@ -60,6 +60,11 @@ namespace DataAccess.Repositories
 
         public void Add(Product product)
         {
+            if (!CheckIfNameIsAvailable(product.Name))
+            {
+                throw new DatabaseException("Product name already in use");
+            }
+
             try
             {
                 ProductEntity entity = ProductEntity.FromModel(product, _context);
@@ -91,7 +96,7 @@ namespace DataAccess.Repositories
         {
             try
             {
-                ProductEntity entity = _context.ProductEntities.First(p => p.Id == id);
+                ProductEntity? entity = _context.ProductEntities.FirstOrDefault(p => p.Id == id);
                 _context.ProductEntities.Remove(entity);
                 _context.SaveChanges();
             }
@@ -120,9 +125,20 @@ namespace DataAccess.Repositories
         {
             try
             {
-                ProductEntity entity = ProductEntity.FromModel(product, _context);
-                _context.ProductEntities.Update(entity);
+                ProductEntity newEntity = ProductEntity.FromModel(product, _context);
+                ProductEntity oldEntity = _context.ProductEntities.Find(product.Id);
+
+                oldEntity.Colours = newEntity.Colours;
+                oldEntity.Brand = newEntity.Brand;
+                oldEntity.Category = newEntity.Category;
+                oldEntity.Price = newEntity.Price;
+                oldEntity.Description = newEntity.Description;
+
+                if(oldEntity.Name != newEntity.Name && CheckIfNameIsAvailable(newEntity.Name))
+                    oldEntity.Name = newEntity.Name;
+                _context.ProductEntities.Update(oldEntity);
                 _context.SaveChanges();
+
             }
             catch (DbUpdateException ex)
             {
@@ -143,6 +159,11 @@ namespace DataAccess.Repositories
                     throw new DatabaseException("Exception while converting product from model: " + ex.Message);
                 }
             }
+        }
+
+        private bool CheckIfNameIsAvailable(string name)
+        {
+            return !_context.ProductEntities.Any(p => p.Name == name);
         }
     }
 }

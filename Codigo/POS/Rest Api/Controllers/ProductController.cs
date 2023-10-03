@@ -67,7 +67,7 @@ public class ProductController : ControllerBase
 
         _productService.Update(product);
 
-        return NoContent();
+        return Ok();
     }
 
     // DELETE action

@@ -76,7 +76,6 @@ public class ProductService : IProductService
         try
         {
             _productRepository.Update(product);
-
         }
         catch (DatabaseException ex)
         {
