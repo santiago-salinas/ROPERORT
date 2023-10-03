@@ -4,18 +4,17 @@ namespace Services.Models
 {
     public class User
     {
-        public User(string email, string address, string password)
+        public User(string email, string address, string password, List<Role>? roles = null)
         {
             Email = email;
             Address = address;
             Password = password;
-            Roles = new List<Role>();
+            Roles = roles ?? new List<Role>();
             Token = $"token{Email}secure";
         }
 
         public User()
         {
-            Token = $"token{Email}secure";
             Roles = new List<Role>();
         }
 
@@ -55,7 +54,12 @@ namespace Services.Models
                 _address = value;
             }
         }
-        public List<Role>? Roles { get; }
+        public List<Role>? Roles { set; get; }
+
+        public void GenerateToken()
+        {
+            Token = $"token{Email}secure";
+        }
 
         public void AddRole(Role role)
         {

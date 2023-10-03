@@ -9,6 +9,7 @@ namespace Rest_Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [ExceptionFilter]
     public class AdminController : ControllerBase
     {
         private readonly IUserService _userService;
@@ -41,8 +42,9 @@ namespace Rest_Api.Controllers
         [ServiceFilter(typeof(AuthorizationFilter))]
         public IActionResult Create(User user)
         {
-            try 
-            { 
+            try
+            {
+                user.GenerateToken();
                 _userService.Add(user);
             }
             catch (Service_ObjectHandlingException e)
