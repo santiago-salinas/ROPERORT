@@ -30,7 +30,6 @@ namespace Services.Models
             return sum;
         }
 
-
         public double DiscountedPriceUYU
         {
             get
@@ -43,7 +42,6 @@ namespace Services.Models
 
                 return TotalPrice();
             }
-
         }
 
         public Promo? AppliedPromo { get; set; }
