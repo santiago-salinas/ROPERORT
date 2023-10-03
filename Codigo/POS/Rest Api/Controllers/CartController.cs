@@ -64,6 +64,11 @@ public class CartController : ControllerBase
         string auth = HttpContext.Request.Headers["auth"];
         User? user = users.FirstOrDefault(u => u.Token.Equals(auth));
 
+        if (user == null || !user.Roles.Contains(new Role() { Name="Customer" })) 
+        {
+            return StatusCode(403, "User is not customer");
+        }
+
         if (cartDto == null || cartDto.Products.Count == 0)
         {
             return BadRequest("Empty Cart");
@@ -84,7 +89,7 @@ public class CartController : ControllerBase
         {
             Cart = cart,
             User = user,
-            Date = DateTime.Now
+            Date = DateTime.Now,            
         };
 
         _purchaseService.Add(purchase);

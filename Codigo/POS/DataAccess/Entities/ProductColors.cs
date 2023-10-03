@@ -9,8 +9,6 @@ namespace DataAccess.Entities
 
         public string ColourName { get; set; }
         public ColourEntity Colour { get; set; }
-
-
         public ProductColors() { }
         public ProductColors(ProductEntity product, Colour colour, EFContext context)
         {

@@ -12,6 +12,8 @@ namespace DataAccess.Entities
         public ICollection<PurchasedProductEntity> Items { get; set; }
         public string? AppliedPromotion { get; set; }
         public DateTime Date { get; set; }
+        public double FinalPrice { get; set; }
+        public double MoneyDiscounted { get; set; }
 
 
         public PurchaseEntity() { }
@@ -22,9 +24,12 @@ namespace DataAccess.Entities
             return new PurchaseEntity
             {
                 Id = model.Id,
-                User = UserEntity.FromModel(model.User),
+                User = context.UserEntities.First(u => u.Email == model.User.Email),
                 Date = model.Date,
                 Items = cart.Products.Select(p => PurchasedProductEntity.FromModel(model, p, context)).ToList(),
+                AppliedPromotion = cart.AppliedPromo.Name ?? "No promo applied",
+                MoneyDiscounted = cart.PriceUYU - cart.DiscountedPriceUYU,
+                FinalPrice = cart.DiscountedPriceUYU,
             };
         }
 

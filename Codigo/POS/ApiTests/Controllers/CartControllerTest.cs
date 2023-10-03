@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Moq;
 using Rest_Api.Controllers;
 using Rest_Api.DTOs;
@@ -200,6 +201,90 @@ namespace ApiTests.Controllers
             double expectedValue = 600;
             Assert.AreEqual(expectedValue, createdCart.DiscountedPriceUYU);
 
+        }
+
+        [TestMethod]
+        public void BuyCartSuccessTest()
+        {
+            User user = new User("prueba@gmail.com", "Calle 123", "password") { Id = 5, Token = "unbuentoken" };
+            user.AddRole(new Role() { Name = "Customer" });
+            List<User> users = new List<User>();
+            users.Add(user);
+
+            mockUser.Setup(s => s.GetAll()).Returns(users);
+            var mockPurchase = new Mock<IPurchaseService>(MockBehavior.Loose);
+
+            var httpContext = new DefaultHttpContext();
+            httpContext.Request.Headers["auth"] = "unbuentoken";
+
+            var controller = new CartController(mockProduct.Object, mockDiscounts.Object, mockPurchase.Object, mockUser.Object);
+            controller.ControllerContext = new ControllerContext
+            {
+                HttpContext = httpContext
+            };
+
+            CartDTO cartDto = new CartDTO();
+            CartLineDTO cartLineDto = new CartLineDTO()
+            {
+                Id = 1,
+                Quantity = 3
+            };
+            cartDto.Products.Add(cartLineDto);
+
+            var result = controller.Buy(cartDto);
+            Assert.IsInstanceOfType(result, typeof(OkResult));
+        }
+
+        [TestMethod] 
+        public void BuyCartFailTestNotCustomer()
+        {
+            User user = new User("prueba@gmail.com", "Calle 123", "password") { Id = 5, Token = "unbuentoken" };
+            List<User> users = new List<User>();
+            users.Add(user);
+
+            mockUser.Setup(s => s.GetAll()).Returns(users);
+            var mockPurchase = new Mock<IPurchaseService>(MockBehavior.Loose);
+
+            var httpContext = new DefaultHttpContext();
+            httpContext.Request.Headers["auth"] = "unbuentoken";
+
+            var controller = new CartController(mockProduct.Object, mockDiscounts.Object, mockPurchase.Object, mockUser.Object);
+            controller.ControllerContext = new ControllerContext
+            {
+                HttpContext = httpContext
+            };
+
+            CartDTO cartDto = new CartDTO();
+            var result = controller.Buy(cartDto);
+            var createdResult = result as ObjectResult;
+            Assert.AreEqual(403, createdResult.StatusCode);
+        }
+
+        [TestMethod]
+        public void BuyCartFailEmptyCart()
+        {
+            User user = new User("prueba@gmail.com", "Calle 123", "password") { Id = 5, Token = "unbuentoken" };
+            user.AddRole(new Role() { Name = "Customer" });
+            List<User> users = new List<User>();
+            users.Add(user);
+
+            mockUser.Setup(s => s.GetAll()).Returns(users);
+            var mockPurchase = new Mock<IPurchaseService>(MockBehavior.Loose);
+
+            var httpContext = new DefaultHttpContext();
+            httpContext.Request.Headers["auth"] = "unbuentoken";
+
+            var controller = new CartController(mockProduct.Object, mockDiscounts.Object, mockPurchase.Object, mockUser.Object);
+            controller.ControllerContext = new ControllerContext
+            {
+                HttpContext = httpContext
+            };
+
+            CartDTO cartDto = new CartDTO();
+            var result = controller.Buy(cartDto);
+            var createdResult = result as BadRequestObjectResult;
+            Assert.AreEqual("Empty Cart", createdResult.Value);
+            Assert.AreEqual(400, createdResult.StatusCode);
         }
     }
 }
