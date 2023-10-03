@@ -19,16 +19,21 @@ public class UserController : ControllerBase
         _userService = userService;
     }
 
-    [HttpGet("{id}")]
+    [HttpGet]
     [ServiceFilter(typeof(AuthenticationFilter))]
-    public ActionResult<User> Get(int id)
+    public ActionResult<User> Get()
     {
-        User? user = _userService.Get(id);
+        List<User> users = _userService.GetAll();
+        string auth = HttpContext.Request.Headers["auth"];
+        User? user = users.FirstOrDefault(u => u.Token.Equals(auth));
 
         if (user == null)
             return NotFound();
 
-        return user;
+        if (user.Token.Equals(auth))
+            return user;
+
+        return StatusCode(403, "Invalid authentication token");
     }
 
     [HttpPost]
