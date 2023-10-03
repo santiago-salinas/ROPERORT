@@ -12,7 +12,6 @@ namespace Rest_Api.Controllers;
 [ApiController]
 [Route("[controller]")]
 [ExceptionFilter]
-[ServiceFilter(typeof(AuthenticationFilter))]
 public class ProductController : ControllerBase
 {
     private readonly IProductService _productService;
@@ -37,8 +36,8 @@ public class ProductController : ControllerBase
 
     // POST action
     [HttpPost]
+    [ServiceFilter(typeof(AuthenticationFilter))]
     [ServiceFilter(typeof(AuthorizationFilter))]
-
     public IActionResult Create(Product product)
     {
         try
@@ -55,7 +54,7 @@ public class ProductController : ControllerBase
     // PUT action
     [HttpPut("{id}")]
     [ServiceFilter(typeof(AuthorizationFilter))]
-
+    [ServiceFilter(typeof(AuthenticationFilter))]
     public IActionResult Update(int id, Product product)
     {
         if (id != product.Id)
@@ -79,7 +78,7 @@ public class ProductController : ControllerBase
     // DELETE action
     [HttpDelete("{id}")]
     [ServiceFilter(typeof(AuthorizationFilter))]
-
+    [ServiceFilter(typeof(AuthenticationFilter))]
     public IActionResult Delete(int id)
     {
         Product? product = _productService.Get(id);
@@ -87,7 +86,7 @@ public class ProductController : ControllerBase
             return NotFound();
 
         _productService.Delete(id);
-        return NoContent();
+        return Ok();
     }
 
     [HttpGet("filtered")]
