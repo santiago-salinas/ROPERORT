@@ -11,12 +11,22 @@ namespace ApiTests.Services
     {
         private UserService _userService;
         private Mock<ICRUDRepository<User>> _userRepository;
+        private Mock<IGetRepository<Role>> _roleRepository;
+
+        private List<Role> _validRoles = new List<Role>()
+        {
+            new Role() { Name = "Admin"},
+            new Role() { Name = "Customer"}
+        };
 
         [TestInitialize]
         public void TestInitialize()
         {
-            _userRepository = new Mock<ICRUDRepository<User>>();
-            _userService = new UserService(_userRepository.Object);
+            _userRepository = new Mock<ICRUDRepository<User>>(MockBehavior.Strict);
+            _roleRepository = new Mock<IGetRepository<Role>>(MockBehavior.Strict);
+            _roleRepository.Setup(repo => repo.GetAll()).Returns(_validRoles);
+
+            _userService = new UserService(_userRepository.Object, _roleRepository.Object);
         }
 
         [TestMethod]
@@ -90,10 +100,23 @@ namespace ApiTests.Services
         }
 
         [TestMethod]
+        [ExpectedException(typeof(Service_ArgumentException))]
+        public void Add_WithWrongRole_ThrowsException()
+        {
+            var userIdToUpdate = 1;
+            var updatedUser = new User("prueba@hotmail.com", "Calle 1234", "password") { Id = userIdToUpdate };
+            updatedUser.AddRole(new Role("ERROR"));
+
+            _userService.Add(updatedUser);
+        }
+
+        [TestMethod]
         public void Delete_UserIsRemovedFromList()
         {
             var userIdToRemove = 1;
             _userRepository.Setup(repo => repo.Delete(userIdToRemove));
+            _userRepository.Setup(repo => repo.Get(userIdToRemove)).Returns(null as User);
+
 
             _userService.Delete(userIdToRemove);
             var deletedUser = _userService.Get(userIdToRemove);
@@ -135,6 +158,17 @@ namespace ApiTests.Services
             var userIdToUpdate = 1;
             var updatedUser = new User("prueba@hotmail.com", "Calle 1234", "password") { Id = userIdToUpdate };
             _userRepository.Setup(repo => repo.Update(updatedUser)).Throws(new DatabaseException("Update fails"));
+
+            _userService.Update(updatedUser);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Service_ArgumentException))]
+        public void Update_WithWrongRole_ThrowsException()
+        {
+            var userIdToUpdate = 1;
+            var updatedUser = new User("prueba@hotmail.com", "Calle 1234", "password") { Id = userIdToUpdate };
+            updatedUser.AddRole(new Role("ERROR"));
 
             _userService.Update(updatedUser);
         }

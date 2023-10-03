@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using Rest_Api.Controllers;
+using Rest_Api.DTOs;
 using Services.Exceptions;
 using Services.Interfaces;
 using Services.Models;
@@ -66,9 +67,15 @@ namespace ApiTests.Controllers
         [TestMethod]
         public void GivenValidUserItGetsCreated()
         {
-            var user = new User("prueba@gmail.com", "prueba", "password") { Id = 3 };
+            User user = new User("prueba@gmail.com", "prueba", "password") { Id = 3 };
+            UserDTO dto = new UserDTO()
+            {
+                Email = user.Email,
+                Address = user.Address,
+                Password = user.Password,
+            };
             mock.Setup(s => s.Add(user));
-            var result = userController.Create(user);
+            var result = userController.Create(dto);
             var createdResult = result as OkResult;
             Assert.AreEqual(createdResult.StatusCode, 200);
         }
@@ -76,16 +83,22 @@ namespace ApiTests.Controllers
         [TestMethod]
         public void GivenInvalidUserCreateReturnsBadRequest()
         {
-            var user = new User("prueba@gmail.com", "prueba", "password");
-            mock.Setup(s => s.Add(user)).Throws(new Service_ObjectHandlingException(""));
-            var result = userController.Create(user);
+            User user = new User("prueba@gmail.com", "prueba", "password");
+            UserDTO dto = new UserDTO()
+            {
+                Email = user.Email,
+                Address = user.Address,
+                Password = user.Password,
+            };
+            mock.Setup(s => s.Add(It.Is<User>(u => u.Equals(user)))).Throws(new Service_ObjectHandlingException(""));
+            var result = userController.Create(dto);
             Assert.IsInstanceOfType(result, typeof(BadRequestObjectResult));
         }
 
         [TestMethod]
         public void GivenCorrectValuesUserGetsUpdated()
         {
-            var user = new User("prueba@gmail.com", "prueba", "password") { Id = 3 };
+            User user = new User("prueba@gmail.com", "prueba", "password") { Id = 3 };
             mock.Setup(s => s.Get(3)).Returns(user);
             mock.Setup(s => s.Update(user));
             var result = userController.Update(3, user);

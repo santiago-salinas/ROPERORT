@@ -1,3 +1,5 @@
+using Services.Exceptions;
+
 namespace Services.Models
 {
     public class Role
@@ -33,7 +35,7 @@ namespace Services.Models
         private void ValidateRole(string name)
         {
             if (RoleIsNotValid(name))
-                throw new Exception("Invalid role");
+                throw new Service_ArgumentException("Invalid role");
         }
 
         private bool RoleIsNotValid(string name)

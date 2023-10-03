@@ -1,3 +1,4 @@
+using Services.Exceptions;
 using Services.Models;
 
 namespace ApiTests.Models
@@ -47,7 +48,7 @@ namespace ApiTests.Models
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception), "Invalid role")]
+        [ExpectedException(typeof(Service_ArgumentException), "Invalid role")]
         public void ThrowsExceptionWhenGivenInvalidRoleName()
         {
             someRole.Name = InvalidRole;

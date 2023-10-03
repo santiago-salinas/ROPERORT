@@ -6,17 +6,23 @@ namespace Services;
 
 public class UserService : IUserService
 {
-    private readonly ICRUDRepository<User> _repository;
-    public UserService(ICRUDRepository<User> repository)
+    private readonly ICRUDRepository<User> _userRepository;
+    private readonly IGetRepository<Role> _roleRepository;
+    public UserService(ICRUDRepository<User> userRepo, IGetRepository<Role> roleRepo)
     {
-        _repository = repository;
+        _userRepository = userRepo;
+        _roleRepository = roleRepo;
     }
 
     public void Add(User entity)
     {
         try
-        {
-            _repository.Add(entity);
+        {            
+            if (!UserRolesAreValid(entity))
+            {
+                throw new Service_ArgumentException("User to be added contains inexistent role/s");
+            }
+            _userRepository.Add(entity);
         }
         catch (DatabaseException ex) 
         {
@@ -28,7 +34,7 @@ public class UserService : IUserService
     {
         try
         {
-            _repository.Delete(id);
+            _userRepository.Delete(id);
         }
         catch (DatabaseException ex)
         {
@@ -40,7 +46,7 @@ public class UserService : IUserService
     {
         try
         {
-            return _repository.Get(id);
+            return _userRepository.Get(id);
         }
         catch (DatabaseException ex)
         {
@@ -52,7 +58,7 @@ public class UserService : IUserService
     {
         try
         {
-            return _repository.GetAll();
+            return _userRepository.GetAll();
         }
         catch (DatabaseException ex)
         {
@@ -64,11 +70,30 @@ public class UserService : IUserService
     {
         try
         {
-            _repository.Update(entity);
+            if (!UserRolesAreValid(entity))
+            {
+                throw new Service_ArgumentException("User is trying to be updated with inexistent roles");
+            }
+            _userRepository.Update(entity);
         }
         catch (DatabaseException ex)
         {
             throw new Service_ObjectHandlingException("Exception catched from the repository: " + ex.Message);
         }
+    }
+
+    private bool UserRolesAreValid(User user)
+    {
+        List<Role> availableRoles = _roleRepository.GetAll();
+        List<Role> userRoles = user.Roles;
+        foreach (Role role in userRoles)
+        {
+            if (!availableRoles.Contains(role))
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
