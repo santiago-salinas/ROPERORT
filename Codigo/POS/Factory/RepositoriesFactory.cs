@@ -15,7 +15,7 @@ namespace Factory
         public IGetRepository<Brand> BrandRepository { get; set; }
         public IGetRepository<Colour> ColourRepository { get; set; }
         public IGetRepository<Category> CategoryRepository { get; set; }
-
+        public IGetRepository<Role> RoleRepository { get; set; }
 
         public void SetupRepositories()
         {
@@ -25,6 +25,7 @@ namespace Factory
             BrandRepository = new EFBrandRepository(_context);
             ColourRepository = new EFColourRepository(_context);
             CategoryRepository = new EFCategoryRepository(_context);
+            RoleRepository = new EFRolesRepository(_context);
         }
     }
 }

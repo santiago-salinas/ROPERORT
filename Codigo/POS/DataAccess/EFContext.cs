@@ -48,6 +48,7 @@ namespace DataAccess
         public DbSet<ColourEntity> ColourEntities { get; set; }
         public DbSet<BrandEntity> BrandEntities { get; set; }
         public DbSet<CategoryEntity> CategoryEntities { get; set; }
+        public DbSet<RoleEntity> RoleEntities { get; set; }
 
         public DbSet<AssignedRoles> AssignedRoles { get; set; }
         public DbSet<ProductColors> ProductColors { get; set; }

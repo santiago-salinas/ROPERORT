@@ -11,12 +11,14 @@ namespace ApiTests.Services
     {
         private UserService _userService;
         private Mock<ICRUDRepository<User>> _userRepository;
+        private Mock<IGetRepository<Role>> _roleRepository;
 
         [TestInitialize]
         public void TestInitialize()
         {
-            _userRepository = new Mock<ICRUDRepository<User>>();
-            _userService = new UserService(_userRepository.Object);
+            _userRepository = new Mock<ICRUDRepository<User>>(MockBehavior.Strict);
+            _roleRepository = new Mock<IGetRepository<Role>>(MockBehavior.Strict);
+            _userService = new UserService(_userRepository.Object, _roleRepository.Object);
         }
 
         [TestMethod]

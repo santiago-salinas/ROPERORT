@@ -30,7 +30,10 @@ namespace Factory
                 CategoryRepository = RepositoriesFactory.CategoryRepository,
             };
             PurchaseService = new PurchaseService(RepositoriesFactory.PurchaseRepository);
-            UserService = new UserService(RepositoriesFactory.UserRepository);
+            UserService = new UserService(
+                RepositoriesFactory.UserRepository, 
+                RepositoriesFactory.RoleRepository
+            );
             BrandService = new BrandService(RepositoriesFactory.BrandRepository);
             ColourService = new ColourService(RepositoriesFactory.ColourRepository);
             CategoryService = new CategoryService(RepositoriesFactory.CategoryRepository);
