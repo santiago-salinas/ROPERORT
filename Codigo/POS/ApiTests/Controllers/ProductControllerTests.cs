@@ -137,7 +137,7 @@ namespace ApiTests.Controllers
             _mock.Setup(s => s.Get(testProduct.Id)).Returns(testProduct);
             _mock.Setup(s => s.Update(testProduct));
             var result = _productController.Update(testProduct.Id, testProduct);
-            Assert.IsInstanceOfType(result, typeof(NoContentResult));
+            Assert.IsInstanceOfType(result, typeof(OkResult));
         }
 
         [TestMethod]

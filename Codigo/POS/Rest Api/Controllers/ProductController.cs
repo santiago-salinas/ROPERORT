@@ -4,6 +4,7 @@ using Services.Exceptions;
 using Services.Interfaces;
 using Services.Models;
 using Rest_Api.Filters;
+using Services.Models.Exceptions;
 
 namespace Rest_Api.Controllers;
 
@@ -11,7 +12,6 @@ namespace Rest_Api.Controllers;
 [ApiController]
 [Route("[controller]")]
 [ExceptionFilter]
-
 public class ProductController : ControllerBase
 {
     private readonly IProductService _productService;
@@ -37,6 +37,7 @@ public class ProductController : ControllerBase
     // POST action
     [HttpPost]
     [ServiceFilter(typeof(AuthenticationFilter))]
+    [ServiceFilter(typeof(AuthorizationFilter))]
     public IActionResult Create(Product product)
     {
         try
@@ -52,23 +53,31 @@ public class ProductController : ControllerBase
 
     // PUT action
     [HttpPut("{id}")]
+    [ServiceFilter(typeof(AuthorizationFilter))]
     [ServiceFilter(typeof(AuthenticationFilter))]
     public IActionResult Update(int id, Product product)
     {
         if (id != product.Id)
             return BadRequest();
+        try
+        {
+            Product? existingProduct = _productService.Get(id);
+            if (existingProduct == null)
+                return NotFound();
 
-        Product? existingProduct = _productService.Get(id);
-        if (existingProduct == null)
-            return NotFound();
+            _productService.Update(product);
+        }
+        catch (Service_ObjectHandlingException e)
+        {
+            return BadRequest(e.Message);
+        }
 
-        _productService.Update(product);
-
-        return NoContent();
+        return Ok();
     }
 
     // DELETE action
     [HttpDelete("{id}")]
+    [ServiceFilter(typeof(AuthorizationFilter))]
     [ServiceFilter(typeof(AuthenticationFilter))]
     public IActionResult Delete(int id)
     {
@@ -77,7 +86,7 @@ public class ProductController : ControllerBase
             return NotFound();
 
         _productService.Delete(id);
-        return NoContent();
+        return Ok();
     }
 
     [HttpGet("filtered")]
