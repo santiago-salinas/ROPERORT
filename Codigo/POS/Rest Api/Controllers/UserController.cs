@@ -53,6 +53,23 @@ public class UserController : ControllerBase
         return Ok();
     }
 
+    [HttpDelete]
+    [ServiceFilter(typeof(AuthenticationFilter))]
+    public IActionResult Delete()
+    {
+        List<User> users = _userService.GetAll();
+        string auth = HttpContext.Request.Headers["auth"];
+        User? user = users.FirstOrDefault(u => u.Token.Equals(auth));
+
+        if (user == null)
+            return NotFound();
+
+        if(user is not null)
+            _userService.Delete(user.Id);
+        
+        return NoContent();
+    }
+
     [HttpPut("{id}")]
     [ServiceFilter(typeof(AuthenticationFilter))]
     public IActionResult Update(int id, User user)

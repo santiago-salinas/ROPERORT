@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Moq;
 using Rest_Api.Controllers;
 using Services;
@@ -11,8 +12,14 @@ namespace ApiTests.Controllers
     [TestClass]
     public class PurchaseControllerTest
     {
-        private Mock<IPurchaseService> mock;
+        private Mock<IPromoService> _mockDiscounts;
+        private Mock<IPurchaseService> _mockPurchaseService;
+        private Mock<IProductService> _mockProductsService;
+        private Mock<IUserService> _mockUsersService;
+
         private PurchaseController _purchaseController;
+
+
         private User _testUser;
         private User _testUserTwo;
 
@@ -22,11 +29,27 @@ namespace ApiTests.Controllers
         private Purchase _testPurchase;
         private Purchase _testPurchaseTwo;
 
+        private DateTime _nowDate;
+
+        List<Purchase> _purchaseHistory;
+        List<User> _allUsers;
+
         [TestInitialize]
         public void TestInitialize()
         {
-            mock = new Mock<IPurchaseService>(MockBehavior.Strict);
-            _purchaseController = new PurchaseController(mock.Object);
+            _nowDate = DateTime.Now;
+            _mockProductsService = new Mock<IProductService>(MockBehavior.Loose);
+            _mockPurchaseService = new Mock<IPurchaseService>(MockBehavior.Loose);
+            _mockUsersService = new Mock<IUserService>(MockBehavior.Loose);
+
+
+            _testUser = new User("email1@gmail.com", "address1", "password") { Id = 1, Token = "unbuentoken" };
+            _testUserTwo = new User("email2@gmail.com", "address2", "password") { Id = 2, Token = "unmaltoken" };
+            _allUsers = new List<User>();
+            _allUsers.Add(_testUser);
+            _allUsers.Add(_testUserTwo);
+            _mockUsersService.Setup(s => s.GetAll()).Returns(_allUsers);
+
 
             Product product1 = new Product();
             product1.PriceUYU = 10.0;
@@ -48,96 +71,104 @@ namespace ApiTests.Controllers
             _testCart.Products.Add(cartLine1);
             _testCart.Products.Add(cartLine2);
 
-            _testCart.AppliedPromo = promo;
+            
 
-            _testUser = new User("email1@gmail.com", "address1", "password") { Id = 1 };
-            _testUserTwo = new User("email2@gmail.com", "address2", "password") { Id = 2 };
-
-             _testCartTwo = new Cart();
+            _testCartTwo = new Cart();
 
             _testPurchase = new Purchase
             {
                 Id = 1,
-                Client = _testUser,
-                Products = _testCart,
-                Date = DateTime.Now,
-                AppliedPromotion = "Promo1"
+                User = _testUser,
+                Cart = _testCart,
+                Date = DateTime.Now
             };
 
             _testPurchaseTwo = new Purchase
             {
                 Id = 2,
-                Client = _testUserTwo,
-                Products = _testCartTwo,
-                Date = DateTime.Now,
-                AppliedPromotion = "Promo2"
+                User = _testUserTwo,
+                Cart = _testCartTwo,
+                Date = DateTime.Now
             };
+
+            
+            _purchaseHistory = new List<Purchase>();
+            _purchaseHistory.Add(_testPurchase);
+
+            _mockPurchaseService.Setup(s => s.GetPurchaseHistoryFromUser(1)).Returns(_purchaseHistory);
+            _mockPurchaseService.Setup(s => s.Get(1)).Returns(_testPurchase);
+
+
+            _purchaseController = new PurchaseController(_mockPurchaseService.Object, _mockUsersService.Object);
         }
 
-        [TestMethod]
-        public void GivenValidId_GetReturnsUser()
-        {
-            var expectedOutcome = _testPurchase;
-            mock.Setup(s => s.Get(5)).Returns(expectedOutcome);
-            var result = _purchaseController.Get(5);
-            var createdResult = result as ActionResult<Purchase>;
-            Assert.AreEqual(expectedOutcome, createdResult.Value);
-        }
 
         [TestMethod]
-        public void GivenInvalidId_GetReturnsNotFound()
+        public void GetPurchaseHistoryFromAuthToken()
         {
-            Purchase? nullPurchase = null;
-            mock.Setup(s => s.Get(7)).Returns(nullPurchase);
-            var result = _purchaseController.Get(7);
-            Assert.AreEqual(result.Value, null);
-        }
+            
+            var httpContext = new DefaultHttpContext();
+            httpContext.Request.Headers["auth"] = "unbuentoken";
 
-        [TestMethod]
-        public void GivenValidPurchase_ItGetsCreated()
-        {
-            Purchase purchase = _testPurchase;
-            mock.Setup(s => s.Add(purchase));
-            var result = _purchaseController.Create(purchase);
-            var createdResult = result as OkResult;
-            Assert.AreEqual(createdResult.StatusCode, 200);
-        }
-
-        [TestMethod]
-        public void GivenInvalidPurchase_Create_ReturnsBadRequest()
-        {
-            var purchase = _testPurchase;
-            mock.Setup(s => s.Add(purchase)).Throws(new Service_ObjectHandlingException(""));
-            var result = _purchaseController.Create(purchase);
-            Assert.IsInstanceOfType(result, typeof(BadRequestObjectResult));
-        }
-
-        [TestMethod]
-        public void GivenValidEmail_GetPurchaseHistory_ReturnsPurchasesFromGivenUser()
-        {
-            Purchase purchaseUserOne = new Purchase
+            _purchaseController.ControllerContext = new ControllerContext
             {
-                Id = 2,
-                Client = _testUser,
-                Products = _testCartTwo,
-                Date = DateTime.Now,
-                AppliedPromotion = "Promo2"
+                HttpContext = httpContext
             };
-            Purchase purchaseUserTwo = new Purchase
-            {
-                Id = 2,
-                Client = _testUserTwo,
-                Products = _testCartTwo,
-                Date = DateTime.Now,
-                AppliedPromotion = "Promo2"
-            };
-
-            List<Purchase> getAll = new List<Purchase>() { purchaseUserOne, purchaseUserTwo };
-            List<Purchase> purchaseHistory = new List<Purchase>() { purchaseUserOne };
-            mock.Setup(s => s.GetPurchaseHistory(_testUser.Address)).Returns(purchaseHistory);
-            var result = _purchaseController.GetPurchaseHistory(_testUser.Address);
+                        
+            var result = _purchaseController.GetPurchaseHistory();
             var createdResult = result as ActionResult<List<Purchase>>;
-            Assert.AreEqual(purchaseHistory, createdResult.Value);
+            Assert.AreEqual(_purchaseHistory, createdResult.Value);
+        }
+
+        [TestMethod]
+        public void GetPurchaseHistoryFromAuthTokenDenied()
+        {
+
+            var httpContext = new DefaultHttpContext();
+            httpContext.Request.Headers["auth"] = "unmaltoken";
+
+            _purchaseController.ControllerContext = new ControllerContext
+            {
+                HttpContext = httpContext
+            };
+
+            var result = _purchaseController.GetPurchaseHistory();
+            var createdResult = result as ActionResult<List<Purchase>>;
+            Assert.AreEqual(null, createdResult.Value);
+        }
+
+        [TestMethod]
+        public void GetPurchaseWithIdFromAuthToken()
+        {
+
+            var httpContext = new DefaultHttpContext();
+            httpContext.Request.Headers["auth"] = "unbuentoken";
+
+            _purchaseController.ControllerContext = new ControllerContext
+            {
+                HttpContext = httpContext
+            };
+
+            var result = _purchaseController.Get(1);
+            var createdResult = result as ActionResult<Purchase>;
+            Assert.AreEqual(_testPurchase, createdResult.Value);
+        }
+
+        [TestMethod]
+        public void GetPurchaseWithIdFromAuthTokenDenied()
+        {
+
+            var httpContext = new DefaultHttpContext();
+            httpContext.Request.Headers["auth"] = "unmaltoken";
+
+            _purchaseController.ControllerContext = new ControllerContext
+            {
+                HttpContext = httpContext
+            };
+
+            var result = _purchaseController.Get(1);
+            var createdResult = result as ActionResult<Purchase>;
+            Assert.AreEqual(null, createdResult.Value);
         }
 
     }

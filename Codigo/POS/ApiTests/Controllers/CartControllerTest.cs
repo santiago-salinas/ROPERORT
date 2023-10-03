@@ -4,17 +4,27 @@ using Rest_Api.Controllers;
 using Rest_Api.DTOs;
 using Services.Interfaces;
 using Services.Models;
+using System.Drawing;
 
 namespace ApiTests.Controllers
 {
     [TestClass]
     public class CartControllerTest
     {
-        public Mock<IPromoService> mockDiscounts = new Mock<IPromoService>(MockBehavior.Strict);
+        private Mock<IPromoService> mockDiscounts;
+        private Mock<IProductService>  mockProduct;
+        private Mock<IPurchaseService> mockPurchase;
+        private Mock<IUserService> mockUser;
+
 
         [TestInitialize]
         public void TestInitialize()
         {
+            mockDiscounts = new Mock<IPromoService>(MockBehavior.Strict);
+            mockPurchase = new Mock<IPurchaseService>(MockBehavior.Strict);
+            mockUser = new Mock<IUserService>(MockBehavior.Strict);
+            mockProduct = new Mock<IProductService>(MockBehavior.Loose);
+
             mockDiscounts.Setup(s => s.GetAll()).Returns(new List<Promo>
             {
             new FidelityPromo(),
@@ -22,11 +32,7 @@ namespace ApiTests.Controllers
             new TwentyPercentOff(),
             new TotalLookPromo()
             });
-        }
 
-        [TestMethod]
-        public void CartControllerTestSuccess()
-        {
             Brand brand = new Brand();
             brand.Name = "Adidas";
 
@@ -41,7 +47,6 @@ namespace ApiTests.Controllers
                 colour
             };
 
-            var mockProduct = new Mock<IProductService>(MockBehavior.Strict);
             mockProduct.Setup(s => s.Get(1)).Returns(new Product
             {
                 Id = 1,
@@ -52,7 +57,12 @@ namespace ApiTests.Controllers
                 Category = category,
                 Colours = colours
             });
-            var controller = new CartController(mockProduct.Object, mockDiscounts.Object);
+        }
+
+        [TestMethod]
+        public void CartControllerTestSuccess()
+        {
+            var controller = new CartController(mockProduct.Object, mockDiscounts.Object, mockPurchase.Object, mockUser.Object);
 
             CartDTO cartDto = new CartDTO();
             CartLineDTO cartLineDto = new CartLineDTO()
@@ -76,32 +86,8 @@ namespace ApiTests.Controllers
         [TestMethod]
         public void FailedNegativeQuantity()
         {
-            Brand brand = new Brand();
-            brand.Name = "Adidas";
-
-            Category category = new Category();
-            category.Name = "Shorts";
-
-            Colour colour = new Colour();
-            colour.Name = "Red";
-
-            List<Colour> colours = new List<Colour>
-            {
-                colour
-            };
-
-            var mockProduct = new Mock<IProductService>(MockBehavior.Strict);
-            mockProduct.Setup(s => s.Get(1)).Returns(new Product
-            {
-                Id = 1,
-                Name = "Cap1",
-                PriceUYU = 600,
-                Description = "Stylish Cap.",
-                Brand = brand,
-                Category = category,
-                Colours = colours
-            });
-            var controller = new CartController(mockProduct.Object, mockDiscounts.Object);
+            
+            var controller = new CartController(mockProduct.Object, mockDiscounts.Object, mockPurchase.Object, mockUser.Object);
 
 
             CartDTO cartDto = new CartDTO();
@@ -126,33 +112,7 @@ namespace ApiTests.Controllers
         [TestMethod]
         public void FailedZeroQuantity()
         {
-            Brand brand = new Brand();
-            brand.Name = "Adidas";
-
-            Category category = new Category();
-            category.Name = "Shorts";
-
-            Colour colour = new Colour();
-            colour.Name = "Red";
-
-            List<Colour> colours = new List<Colour>
-            {
-                colour
-            };
-
-            var mockProduct = new Mock<IProductService>(MockBehavior.Strict);
-            mockProduct.Setup(s => s.Get(1)).Returns(new Product
-            {
-                Id = 1,
-                Name = "Cap1",
-                PriceUYU = 600,
-                Description = "Stylish Cap.",
-                Brand = brand,
-                Category = category,
-                Colours = colours
-            });
-
-            var controller = new CartController(mockProduct.Object, mockDiscounts.Object);
+            var controller = new CartController(mockProduct.Object, mockDiscounts.Object, mockPurchase.Object, mockUser.Object);
 
 
             CartDTO cartDto = new CartDTO();
@@ -177,34 +137,7 @@ namespace ApiTests.Controllers
         [TestMethod]
         public void FailedBadProductId()
         {
-            Brand brand = new Brand();
-            brand.Name = "Adidas";
-
-            Category category = new Category();
-            category.Name = "Shorts";
-
-            Colour colour = new Colour();
-            colour.Name = "Red";
-
-            List<Colour> colours = new List<Colour>
-            {
-                colour
-            };
-
-            var mockProduct = new Mock<IProductService>(MockBehavior.Loose);
-            mockProduct.Setup(s => s.Get(1)).Returns(new Product
-            {
-                Id = 1,
-                Name = "Cap1",
-                PriceUYU = 600,
-                Description = "Stylish Cap.",
-                Brand = brand,
-                Category = category,
-                Colours = colours
-            });
-
-            var controller = new CartController(mockProduct.Object, mockDiscounts.Object);
-
+            var controller = new CartController(mockProduct.Object, mockDiscounts.Object, mockPurchase.Object, mockUser.Object);
 
             CartDTO cartDto = new CartDTO();
             CartLineDTO cartLineDto = new CartLineDTO()
@@ -229,7 +162,7 @@ namespace ApiTests.Controllers
         public void FailedEmptyCart()
         {
             var mockProduct = new Mock<IProductService>(MockBehavior.Loose);
-            var controller = new CartController(mockProduct.Object, mockDiscounts.Object);
+            var controller = new CartController(mockProduct.Object, mockDiscounts.Object, mockPurchase.Object, mockUser.Object);
 
 
             CartDTO cartDto = new CartDTO();
@@ -246,32 +179,7 @@ namespace ApiTests.Controllers
         [TestMethod]
         public void CartDiscountAppliedSuccess()
         {
-            Brand brand = new Brand();
-            brand.Name = "Adidas";
-
-            Category category = new Category();
-            category.Name = "Shorts";
-
-            Colour colour = new Colour();
-            colour.Name = "Red";
-
-            List<Colour> colours = new List<Colour>
-            {
-                colour
-            };
-
-            var mockProduct = new Mock<IProductService>(MockBehavior.Strict);
-            mockProduct.Setup(s => s.Get(1)).Returns(new Product
-            {
-                Id = 1,
-                Name = "Cap1",
-                PriceUYU = 600,
-                Description = "Stylish Cap.",
-                Brand = brand,
-                Category = category,
-                Colours = colours
-            });
-            var controller = new CartController(mockProduct.Object, mockDiscounts.Object);
+            var controller = new CartController(mockProduct.Object, mockDiscounts.Object, mockPurchase.Object, mockUser.Object);
 
 
             CartDTO cartDto = new CartDTO();

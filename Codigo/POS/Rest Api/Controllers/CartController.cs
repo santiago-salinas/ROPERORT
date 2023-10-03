@@ -5,6 +5,7 @@ using Services.Models;
 using Services.Models.Promos;
 using Services;
 using Rest_Api.Filters;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Rest_Api.Controllers;
 
@@ -17,13 +18,18 @@ public class CartController : ControllerBase
 {
     private readonly IProductService _productService;
     private readonly IPromoService _promoService;
+    private readonly IPurchaseService _purchaseService;
+    private readonly IUserService _userService;
+
 
     private const int _zero = 0;
 
-    public CartController(IProductService cartService, IPromoService promoService)
+    public CartController(IProductService cartService, IPromoService promoService, IPurchaseService purchaseService, IUserService userService)
     {
         _productService = cartService;
         _promoService = promoService;
+        _purchaseService = purchaseService;
+        _userService = userService;
     }
 
     // POST action
@@ -48,6 +54,43 @@ public class CartController : ControllerBase
         }
 
     }
+
+    // POST action
+    [HttpPost("buy")]
+    [ServiceFilter(typeof(AuthenticationFilter))]
+    public IActionResult Buy(CartDTO cartDto)
+    {
+        List<User> users = _userService.GetAll();
+        string auth = HttpContext.Request.Headers["auth"];
+        User? user = users.FirstOrDefault(u => u.Token.Equals(auth));
+
+        if (cartDto == null || cartDto.Products.Count == 0)
+        {
+            return BadRequest("Empty Cart");
+        }
+
+        Cart cart = new Cart();
+        try
+        {
+            cart = CartDTOtoObject(cartDto);
+            cart = ApplyPromoToCart(cart);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+
+        Purchase purchase = new Purchase()
+        {
+            Cart = cart,
+            User = user,
+            Date = DateTime.Now
+        };
+
+        _purchaseService.Add(purchase);
+        return Ok();
+    }
+
 
     [NonAction]
     public Cart ApplyPromoToCart(Cart cart)
