@@ -17,14 +17,13 @@ namespace DataAccess.Entities
         public PurchaseEntity() { }
         public static PurchaseEntity FromModel(Purchase model, EFContext context)
         {
-            Cart cart = model.Products;
+            Cart cart = model.Cart;
 
             return new PurchaseEntity
             {
                 Id = model.Id,
-                User = UserEntity.FromModel(model.Client),
+                User = UserEntity.FromModel(model.User),
                 Date = model.Date,
-                AppliedPromotion = model.AppliedPromotion,
                 Items = cart.Products.Select(p => PurchasedProductEntity.FromModel(model, p, context)).ToList(),
             };
         }
@@ -47,10 +46,9 @@ namespace DataAccess.Entities
             return new Purchase
             {
                 Id = entity.Id,
-                Client = UserEntity.FromEntity(entity.User),
+                User = UserEntity.FromEntity(entity.User),
                 Date = entity.Date,
-                AppliedPromotion = entity.AppliedPromotion,
-                Products = cart,
+                Cart = cart,
             };
         }
 

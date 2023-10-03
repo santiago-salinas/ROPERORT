@@ -55,7 +55,7 @@ namespace Services
             }
         }
 
-        public List<Purchase> GetPurchaseHistory(string email)
+        public List<Purchase> GetPurchaseHistoryFromUser(int id)
         {
             List<Purchase> list;
             try
@@ -66,7 +66,7 @@ namespace Services
             {
                 throw new Service_ObjectHandlingException("Exception catched from the repository: " + ex.Message);
             }
-            List<Purchase> history = list.Where(p => p.Client.Email == email).ToList();
+            List<Purchase> history = list.Where(p => p.User.Id == id).ToList();
             return history;
         }
     }
