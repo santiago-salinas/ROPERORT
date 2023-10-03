@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Moq;
 using Rest_Api.Controllers;
 using Services.Exceptions;
@@ -21,22 +22,44 @@ namespace ApiTests.Controllers
         }
 
         [TestMethod]
-        public void GivenValidIdGetReturnsUser()
+        public void GivenValidAuthGetReturnsUser()
         {
-            var expectedOutcome = new User("prueba@gmail.com", "Calle 123", "password") { Id=5};
-            mock.Setup(s => s.Get(5)).Returns(expectedOutcome);
-            var result = userController.Get(5);
+            List<User> expectedOutcome = new List<User>();
+            User user = new User("prueba@gmail.com", "Calle 123", "password") { Id = 5, Token = "unbuentoken" };
+            expectedOutcome.Add(user);
+
+            var httpContext = new DefaultHttpContext();
+            httpContext.Request.Headers["auth"] = "unbuentoken";
+
+            userController.ControllerContext = new ControllerContext
+            {
+                HttpContext = httpContext
+            };
+
+            mock.Setup(s => s.GetAll()).Returns(expectedOutcome);
+            var result = userController.Get();
             var createdResult = result as ActionResult<User>;
-            Assert.AreEqual(expectedOutcome, createdResult.Value);
+            Assert.AreEqual(user, createdResult.Value);
         }
 
 
         [TestMethod]
-        public void GivenInvalidIdGetReturnsNotFound()
+        public void GivenInvalidAuthGetReturnsNotFound()
         {
-            User? nullUser = null;
-            mock.Setup(s => s.Get(7)).Returns(nullUser);
-            var result = userController.Get(7);
+            List<User> expectedOutcome = new List<User>();
+            User user = new User("prueba@gmail.com", "Calle 123", "password") { Id = 5, Token = "unmalisimotoken" };
+            expectedOutcome.Add(user);
+
+            var httpContext = new DefaultHttpContext();
+            httpContext.Request.Headers["auth"] = "unbuentoken";
+
+            userController.ControllerContext = new ControllerContext
+            {
+                HttpContext = httpContext
+            };
+
+            mock.Setup(s => s.GetAll()).Returns(expectedOutcome);
+            var result = userController.Get();
             Assert.AreEqual(result.Value, null);
         }
 
@@ -72,7 +95,7 @@ namespace ApiTests.Controllers
         [TestMethod]
         public void GivenDifferentValuesUpdateReturnsBadRequest()
         {
-            var user = new User("prueba@gmail.com", "Calle", "password") { Id=4 };
+            var user = new User("prueba@gmail.com", "Calle", "password") { Id = 4 };
             var result = userController.Update(5, user);
             Assert.IsInstanceOfType(result, typeof(BadRequestResult));
         }
@@ -80,7 +103,7 @@ namespace ApiTests.Controllers
         [TestMethod]
         public void GivenNonExistentIdUpdateReturnsNotFound()
         {
-            var user = new User("prueba@gmail.com", "Calle", "password") { Id=6};
+            var user = new User("prueba@gmail.com", "Calle", "password") { Id = 6 };
             User? nullUser = null;
             mock.Setup(s => s.Get(6)).Returns(nullUser);
             var result = userController.Update(6, user);
