@@ -256,7 +256,8 @@ namespace ApiTests.Controllers
 
             CartDTO cartDto = new CartDTO();
             var result = controller.Buy(cartDto);
-            Assert.IsInstanceOfType(result, typeof(ForbidResult));
+            var createdResult = result as ObjectResult;
+            Assert.AreEqual(403, createdResult.StatusCode);
         }
 
         [TestMethod]

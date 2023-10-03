@@ -42,14 +42,6 @@ public class PurchaseController : ControllerBase
         return StatusCode(403, "Invalid authentication token");
     }
 
-    // POST action
-    [HttpPost]
-    public IActionResult Create(CartDTO product)
-    {
-        return BadRequest("Purchases must be made trough URI/cart/purchase with valid auth token");
-    }
-
-
     [HttpGet("history")]
     [ServiceFilter(typeof(AuthenticationFilter))]
     public ActionResult<List<Purchase>> GetPurchaseHistory()
