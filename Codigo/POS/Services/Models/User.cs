@@ -76,6 +76,14 @@ namespace Services.Models
             return;
         }
 
+        public override bool Equals(object obj)
+        {
+            User otherUser = (User)obj;
+
+            return Email == otherUser.Email &&
+                   Address == otherUser.Address &&
+                   Password == otherUser.Password;
+        }
         private string? _mail;
         private string? _password;
         private string? _token;
