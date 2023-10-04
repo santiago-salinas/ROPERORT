@@ -208,5 +208,30 @@ namespace ApiTests.Controllers
             var result = _productController.Delete(0);
             Assert.IsInstanceOfType(result, typeof(NotFoundResult));
         }
+
+        [TestMethod]
+        public void GetFiltered_ReturnsListOfProducts()
+        {
+
+            Category category = new Category("Category");
+            string name = "Product";
+            var expectedProducts = new List<Product>
+            {
+                new Product { Id = 1, Name = "Product1", Category = category, Brand = new Brand("Brand1") },
+                new Product { Id = 2, Name = "Product2", Category = category, Brand = new Brand("Brand2") }
+            };
+
+            _mock.Setup(p => p.GetFiltered(category, It.IsAny<Brand>(), name))
+                .Returns(expectedProducts);
+
+            var result = _productController.GetFiltered(category: category.Name, name: name);
+
+            ActionResult<List<Product>> okResult = result;
+            Assert.IsNotNull(okResult);
+
+            List<Product> products = okResult.Value;
+            Assert.IsNotNull(products);
+            CollectionAssert.AreEqual(expectedProducts, products);
+        }
     }
 }

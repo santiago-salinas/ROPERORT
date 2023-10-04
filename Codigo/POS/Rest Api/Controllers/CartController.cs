@@ -20,8 +20,6 @@ public class CartController : ControllerBase
     private readonly IPromoService _promoService;
     private readonly IPurchaseService _purchaseService;
     private readonly IUserService _userService;
-
-
     private const int _zero = 0;
 
     public CartController(IProductService cartService, IPromoService promoService, IPurchaseService purchaseService, IUserService userService)
@@ -52,7 +50,6 @@ public class CartController : ControllerBase
         {
             return BadRequest(e.Message);
         }
-
     }
 
     // POST action
@@ -98,7 +95,7 @@ public class CartController : ControllerBase
 
 
     [NonAction]
-    public Cart ApplyPromoToCart(Cart cart)
+    private Cart ApplyPromoToCart(Cart cart)
     {
         List<Promo> promos = _promoService.GetAll();
 

@@ -10,6 +10,8 @@ namespace Rest_Api.Controllers
     [ApiController]
     [Route("[controller]")]
     [ExceptionFilter]
+    [ServiceFilter(typeof(AuthenticationFilter))]
+    [ServiceFilter(typeof(AuthorizationFilter))]
     public class AdminController : ControllerBase
     {
         private readonly IUserService _userService;
@@ -22,13 +24,9 @@ namespace Rest_Api.Controllers
         }
 
         [HttpGet("Users")]
-        [ServiceFilter(typeof(AuthenticationFilter))]
-        [ServiceFilter(typeof(AuthorizationFilter))]
         public ActionResult<List<User>> GetAllUsers() => _userService.GetAll();
 
         [HttpGet("Users/{id}")]
-        [ServiceFilter(typeof(AuthenticationFilter))]
-        [ServiceFilter(typeof(AuthorizationFilter))]
         public ActionResult<User> Get(int id)
         {
             User? user = _userService.Get(id);
@@ -38,8 +36,6 @@ namespace Rest_Api.Controllers
         }
 
         [HttpPost("Users")]
-        [ServiceFilter(typeof(AuthenticationFilter))]
-        [ServiceFilter(typeof(AuthorizationFilter))]
         public IActionResult Create(User user)
         {
             try
@@ -56,8 +52,6 @@ namespace Rest_Api.Controllers
         }
 
         [HttpPut("Users/{id}")]
-        [ServiceFilter(typeof(AuthenticationFilter))]
-        [ServiceFilter(typeof(AuthorizationFilter))]
         public IActionResult Update(int id, User user)
         {
             if (id != user.Id)
@@ -73,8 +67,6 @@ namespace Rest_Api.Controllers
         }
 
         [HttpDelete("Users/{id}")]
-        [ServiceFilter(typeof(AuthenticationFilter))]
-        [ServiceFilter(typeof(AuthorizationFilter))]
         public IActionResult Delete(int id)
         {
             User? user = _userService.Get(id);
@@ -86,8 +78,6 @@ namespace Rest_Api.Controllers
         }
 
         [HttpGet("Purchases")]
-        [ServiceFilter(typeof(AuthenticationFilter))]
-        [ServiceFilter(typeof(AuthorizationFilter))]
         public ActionResult<List<Purchase>> GetAllPurchases() => _purchaseService.GetAll();
     }
 }
