@@ -31,10 +31,7 @@ public class UserController : ControllerBase
         if (user == null)
             return NotFound();
 
-        if (user.Token.Equals(auth))
-            return user;
-
-        return StatusCode(403, "Invalid authentication token");
+        return user;
     }
 
     [HttpPost]

@@ -32,7 +32,6 @@ namespace Rest_Api.Controllers
             }
 
             return Ok(found.Token);
-
         }
     }
 }

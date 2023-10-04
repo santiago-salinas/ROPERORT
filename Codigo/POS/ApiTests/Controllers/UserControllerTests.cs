@@ -122,5 +122,42 @@ namespace ApiTests.Controllers
             var result = userController.Update(6, user);
             Assert.IsInstanceOfType(result, typeof(NotFoundResult));
         }
+
+        [TestMethod]
+        public void GivenValidToken_Delete_ReturnsNoContentResult()
+        {
+            var httpContext = new DefaultHttpContext();
+            httpContext.Request.Headers["auth"] = "unbuentoken";
+
+            userController.ControllerContext = new ControllerContext
+            {
+                HttpContext = httpContext
+            };
+
+            List<User> user = new List<User>() { new User("prueba@gmail.com", "Calle", "password") { Id = 6, Token = "unbuentoken", } };
+            mock.Setup(s => s.GetAll()).Returns(user);
+            mock.Setup(s => s.Delete(6));
+
+            var result = userController.Delete();
+            Assert.IsInstanceOfType(result, typeof(NoContentResult));
+        }
+
+        [TestMethod]
+        public void GivenInvalidToken_Delete_ReturnsNotFound()
+        {
+            var httpContext = new DefaultHttpContext();
+            httpContext.Request.Headers["auth"] = "malToken";
+
+            userController.ControllerContext = new ControllerContext
+            {
+                HttpContext = httpContext
+            };
+
+            List<User> user = new List<User>() { new User("prueba@gmail.com", "Calle", "password") { Id = 6, Token = "unbuentoken", } };
+            mock.Setup(s => s.GetAll()).Returns(user);
+
+            var result = userController.Delete();
+            Assert.IsInstanceOfType(result, typeof(NotFoundResult));
+        }
     }
 }

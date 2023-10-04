@@ -4,6 +4,11 @@ namespace Services.Models
 {
     public class User
     {
+        private string? _mail;
+        private string? _password;
+        private string? _token;
+        private string? _address;
+
         public User(string email, string address, string password, List<Role>? roles = null)
         {
             Email = email;
@@ -88,10 +93,7 @@ namespace Services.Models
                    Address == otherUser.Address &&
                    Password == otherUser.Password;
         }
-        private string? _mail;
-        private string? _password;
-        private string? _token;
-        private string? _address;
+        
 
         private void ValidateMail(string value)
         {
