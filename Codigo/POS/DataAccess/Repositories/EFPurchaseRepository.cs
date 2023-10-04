@@ -48,6 +48,7 @@ namespace DataAccess.Repositories
             try
             {
                 PurchaseEntity purchaseEntity = _context.PurchaseEntities
+                    .Where(p => p.Id == id)
                     .Include(p => p.User)
                     .Include(p => p.Items)
                         .ThenInclude(i => i.Product)
