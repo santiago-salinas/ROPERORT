@@ -39,7 +39,7 @@ public class PurchaseController : ControllerBase
         if(purchase.User.Id == user.Id)
             return purchase;
 
-        return StatusCode(403, "Invalid authentication token");
+        return StatusCode(403, "Invalid authorization. Not your purchase");
     }
 
     [HttpGet("history")]

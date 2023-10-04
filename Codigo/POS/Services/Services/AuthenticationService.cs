@@ -4,11 +4,11 @@ using Services.Models;
 
 namespace Services;
 
-public class AuthService
+public class AuthenticationService
 {
     private readonly ICRUDRepository<User> _repository;
 
-    public AuthService(ICRUDRepository<User> repo)
+    public AuthenticationService(ICRUDRepository<User> repo)
     {
         _repository = repo;
     }

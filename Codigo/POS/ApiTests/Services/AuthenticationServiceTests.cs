@@ -7,16 +7,16 @@ using Services;
 namespace ApiTests.Services
 {
     [TestClass]
-    public class AuthServiceTests
+    public class AuthenticationServiceTests
     {
         private Mock<ICRUDRepository<User>> _userRepository;
-        private AuthService _authService;
+        private AuthenticationService _authenticationService;
 
         [TestInitialize]
         public void TestInitialize()
         {
             _userRepository = new Mock<ICRUDRepository<User>>(MockBehavior.Strict);
-            _authService = new AuthService(_userRepository.Object);
+            _authenticationService = new AuthenticationService(_userRepository.Object);
         }
 
         [TestMethod]
@@ -40,7 +40,7 @@ namespace ApiTests.Services
 
             _userRepository.Setup(repo => repo.GetAll()).Returns(users);
 
-            var result = _authService.LogIn(user);
+            var result = _authenticationService.LogIn(user);
 
             Assert.AreEqual("token123", result);
         }
@@ -66,7 +66,7 @@ namespace ApiTests.Services
 
             _userRepository.Setup(repo => repo.GetAll()).Returns(users);
 
-            var result = _authService.LogIn(user);
+            var result = _authenticationService.LogIn(user);
 
             Assert.AreEqual(string.Empty, result);
         }
@@ -77,7 +77,7 @@ namespace ApiTests.Services
         {
             _userRepository.Setup(repo => repo.GetAll()).Throws(new DatabaseException("Database error"));
 
-            _authService.LogIn(new User());
+            _authenticationService.LogIn(new User());
         }
 
         [TestMethod]
@@ -95,7 +95,7 @@ namespace ApiTests.Services
 
             _userRepository.Setup(repo => repo.GetAll()).Returns(users);
 
-            var result = _authService.IsLogged(token);
+            var result = _authenticationService.IsLogged(token);
 
             Assert.IsTrue(result);
         }
@@ -109,7 +109,7 @@ namespace ApiTests.Services
 
             _userRepository.Setup(repo => repo.GetAll()).Returns(users);
 
-            var result = _authService.IsLogged(token);
+            var result = _authenticationService.IsLogged(token);
 
             Assert.IsFalse(result);
         }
@@ -131,7 +131,7 @@ namespace ApiTests.Services
 
             _userRepository.Setup(repo => repo.GetAll()).Throws(new DatabaseException("Get all fails"));
 
-            var result = _authService.IsLogged(token);
+            var result = _authenticationService.IsLogged(token);
         }
     }
 }

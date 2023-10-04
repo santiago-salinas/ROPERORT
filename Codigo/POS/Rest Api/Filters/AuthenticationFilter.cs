@@ -9,10 +9,10 @@ namespace Rest_Api.Filters
     public class AuthenticationFilter : Attribute, IAuthorizationFilter
     {
 
-        private static AuthService auth;
+        private static AuthenticationService auth;
         public AuthenticationFilter(ICRUDRepository<User> repo)
         {
-            auth = new AuthService(repo);
+            auth = new AuthenticationService(repo);
         }
 
         public void OnAuthorization(AuthorizationFilterContext context)

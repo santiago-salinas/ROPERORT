@@ -40,7 +40,7 @@ namespace Services.Models
                     cartLine.Product.Colours.Contains(colour))
                 .ToList();
 
-                cartLinesWithColor.OrderBy(p => p.Product.PriceUYU);
+                cartLinesWithColor = cartLinesWithColor.OrderBy(p => p.Product.PriceUYU).ToList();
 
                 int amountOfParticipatingProducts = _zero;
                 List<Product> participatingProducts = new List<Product>();
@@ -55,6 +55,7 @@ namespace Services.Models
 
                 if (amountOfParticipatingProducts >= _minimumApplicableSameColour)
                 {
+                    participatingProducts = participatingProducts.OrderBy(p => p.PriceUYU).ToList();
                     double discount = (participatingProducts.Last().PriceUYU * _discountPercentage);
 
                     Discounts.Add(discount);

@@ -1,5 +1,6 @@
 ﻿using Services.Models;
 using System.ComponentModel.DataAnnotations;
+using System.Xml.Linq;
 
 
 namespace DataAccess.Entities
@@ -27,7 +28,7 @@ namespace DataAccess.Entities
                 User = context.UserEntities.First(u => u.Email == model.User.Email),
                 Date = model.Date,
                 Items = cart.Products.Select(p => PurchasedProductEntity.FromModel(model, p, context)).ToList(),
-                AppliedPromotion = cart.AppliedPromo.Name ?? "No promo applied",
+                AppliedPromotion = cart.AppliedPromo?.Name ?? "No promo applied",
                 MoneyDiscounted = cart.PriceUYU - cart.DiscountedPriceUYU,
                 FinalPrice = cart.DiscountedPriceUYU,
             };
@@ -35,6 +36,7 @@ namespace DataAccess.Entities
 
         public static Purchase FromEntity(PurchaseEntity entity)
         {
+
             Cart cart = new Cart()
             {
                 Products = entity.Items.Select(p =>
@@ -46,6 +48,7 @@ namespace DataAccess.Entities
                     };
                     return line;
                 }).ToList(),
+                AppliedPromo = GetPromo(entity.AppliedPromotion),
             };
 
             return new Purchase
@@ -55,6 +58,20 @@ namespace DataAccess.Entities
                 Date = entity.Date,
                 Cart = cart,
             };
+        }
+
+        private static Promo? GetPromo(string name)
+        {
+
+            List<Promo> promoList = new List<Promo>
+            {
+                new FidelityPromo(),
+                new ThreeForTwoPromo(),
+                new TwentyPercentOff(),
+                new TotalLookPromo()
+            };
+
+            return promoList.FirstOrDefault(p => p.Name == name);
         }
 
     }
