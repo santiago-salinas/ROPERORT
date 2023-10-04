@@ -11,12 +11,12 @@ namespace Services.Models
         {
             double bestValue = cart.PriceUYU;
             List<CartLine> lines = cart.Products;
-            List<CartLine> productsAllCategories = lines.GroupBy(p => p.Product.Category).Select(b => b.First()).ToList();
-            foreach (CartLine productOfOneCategory in productsAllCategories)
+            List<Category> categories = lines.Select(p => p.Product.Category).Distinct().ToList();
+
+            foreach (Category category in categories)
             {
                 var discountedPrice = cart.PriceUYU;
-                var product = productOfOneCategory.Product;
-                List<CartLine> categoryProducts = GetProductsFromCategory(lines, product.Category);
+                List<CartLine> categoryProducts = GetProductsFromCategory(lines, category);
                 if (ThereAreAtLeast3Products(categoryProducts))
                 {
                     double discount = GetCheapestProductValue(categoryProducts);
@@ -30,7 +30,7 @@ namespace Services.Models
 
         private List<CartLine> GetProductsFromCategory(List<CartLine> lines, Category category)
         {
-            List<CartLine> result = lines.Where(p => p.Product.Category == category).ToList();
+            List<CartLine> result = lines.Where(p => p.Product.Category.Name.Equals(category.Name)).ToList();
             return result;
         }
 
@@ -49,5 +49,6 @@ namespace Services.Models
                 quantity += line.Quantity;
             return quantity > 2;
         }
+
     }
 }

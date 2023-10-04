@@ -12,12 +12,11 @@ namespace Services.Models
         {
             double bestValue = cart.PriceUYU;
             List<CartLine> lines = cart.Products;
-            List<CartLine> productsAllBrands = lines.GroupBy(p => p.Product.Brand).Select(b => b.First()).ToList();
-            foreach (CartLine productOfOneBrand in productsAllBrands)
+            List<Brand> brands = lines.Select(p => p.Product.Brand).Distinct().ToList();
+            foreach (Brand brand in brands)
             {
                 var discountedPrice = cart.PriceUYU;
-                var product = productOfOneBrand.Product;
-                List<CartLine> brandProducts = GetProductsFromBrand(lines, product.Brand);
+                List<CartLine> brandProducts = GetProductsFromBrand(lines, brand);
                 if (ThereAreAtLeast3Products(brandProducts))
                 {
                     double discount = GetTwoCheapestProductsValues(brandProducts);
@@ -32,7 +31,7 @@ namespace Services.Models
         private List<CartLine> GetProductsFromBrand(List<CartLine> lines, Brand brand)
         {
 
-            List<CartLine> result = lines.Where(p => p.Product.Brand == brand).ToList();
+            List<CartLine> result = lines.Where(p => p.Product.Brand.Name.Equals(brand.Name)).ToList();
             return result;
         }
 
