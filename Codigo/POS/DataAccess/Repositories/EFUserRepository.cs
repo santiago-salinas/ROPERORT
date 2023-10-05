@@ -126,17 +126,27 @@ namespace DataAccess.Repositories
         public void Update(User user)
         {
             try
-            {
-                if(UserExists(user.Email))
+            {           
+                UserEntity newEntity = UserEntity.FromModel(user);
+                UserEntity oldEntity = _context.UserEntities.Find(user.Id);
+
+                if (oldEntity.Email != newEntity.Email && UserExists(newEntity.Email))
                 {
-                    UserEntity entity = UserEntity.FromModel(user);
-                    _context.UserEntities.Update(entity);
-                    _context.SaveChanges();
+                    throw new DatabaseException("New email already in use");
                 }
-                else
-                {
-                    throw new DatabaseException("User to update does not exist");
-                }                
+
+                oldEntity.Address = newEntity.Address;
+                oldEntity.Roles = newEntity.Roles;
+                oldEntity.Email = newEntity.Email;
+                oldEntity.Password = newEntity.Password;
+
+                user.Email = newEntity.Email;
+                user.GenerateToken();
+
+                oldEntity.Token = user.Token;
+ 
+                _context.UserEntities.Update(oldEntity);
+                _context.SaveChanges();                               
             }
             catch(DbUpdateException ex)
             {

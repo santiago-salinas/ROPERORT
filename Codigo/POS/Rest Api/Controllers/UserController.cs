@@ -69,7 +69,7 @@ public class UserController : ControllerBase
         return NoContent();
     }
 
-    [HttpPut("{id}")]
+    [HttpPut]
     [ServiceFilter(typeof(AuthenticationFilter))]
     public IActionResult Update(UserDTO userDTO)
     {
