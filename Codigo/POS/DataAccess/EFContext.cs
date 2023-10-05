@@ -26,7 +26,10 @@ namespace DataAccess
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<UserEntity>().HasAlternateKey(u => u.Email);
+            modelBuilder.Entity<UserEntity>()
+                .HasIndex(e => e.Email)
+                .IsUnique();
+
             modelBuilder.Entity<ProductEntity>()
                 .HasIndex(e => e.Name)
                 .IsUnique();

@@ -203,7 +203,8 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasAlternateKey("Email");
+                    b.HasIndex("Email")
+                        .IsUnique();
 
                     b.ToTable("UserEntities");
                 });

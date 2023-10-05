@@ -69,18 +69,23 @@ public class UserController : ControllerBase
         return NoContent();
     }
 
-    [HttpPut("{id}")]
+    [HttpPut]
     [ServiceFilter(typeof(AuthenticationFilter))]
-    public IActionResult Update(int id, User user)
+    public IActionResult Update(UserDTO userDTO)
     {
-        if (id != user.Id)
-            return BadRequest();
+        List<User> users = _userService.GetAll();
 
-        User? existingUser = _userService.Get(id);
+        string auth = HttpContext.Request.Headers["auth"];
+        User? existingUser = users.FirstOrDefault(u => u.Token.Equals(auth));
+
         if (existingUser == null)
             return NotFound();
 
-        _userService.Update(user);
+        existingUser.Address = userDTO.Address;
+        existingUser.Password = userDTO.Password;
+        existingUser.Email = userDTO.Email;
+
+        _userService.Update(existingUser);
 
         return NoContent();
     }

@@ -60,7 +60,7 @@ namespace DataAccess.Repositories
 
         public void Add(Product product)
         {
-            if (!CheckIfNameIsAvailable(product.Name))
+            if (NameAlreadyInUse(product.Name))
             {
                 throw new DatabaseException("Product name already in use");
             }
@@ -128,17 +128,20 @@ namespace DataAccess.Repositories
                 ProductEntity newEntity = ProductEntity.FromModel(product, _context);
                 ProductEntity oldEntity = _context.ProductEntities.Find(product.Id);
 
+                if (oldEntity.Name != newEntity.Name && NameAlreadyInUse(newEntity.Name))
+                {
+                    throw new DatabaseException("New product name already in use");
+                }
+
                 oldEntity.Colours = newEntity.Colours;
                 oldEntity.Brand = newEntity.Brand;
                 oldEntity.Category = newEntity.Category;
                 oldEntity.Price = newEntity.Price;
                 oldEntity.Description = newEntity.Description;
+                oldEntity.Name = newEntity.Name;                
 
-                if(oldEntity.Name != newEntity.Name && CheckIfNameIsAvailable(newEntity.Name))
-                    oldEntity.Name = newEntity.Name;
                 _context.ProductEntities.Update(oldEntity);
                 _context.SaveChanges();
-
             }
             catch (DbUpdateException ex)
             {
@@ -161,9 +164,9 @@ namespace DataAccess.Repositories
             }
         }
 
-        private bool CheckIfNameIsAvailable(string name)
+        private bool NameAlreadyInUse(string name)
         {
-            return !_context.ProductEntities.Any(p => p.Name == name);
+            return _context.ProductEntities.Any(p => p.Name == name);
         }
     }
 }

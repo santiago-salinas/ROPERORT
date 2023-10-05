@@ -99,27 +99,51 @@ namespace ApiTests.Controllers
         public void GivenCorrectValuesUserGetsUpdated()
         {
             User user = new User("prueba@gmail.com", "prueba", "password") { Id = 3 };
-            mock.Setup(s => s.Get(3)).Returns(user);
+            user.GenerateToken();
+
+            var httpContext = new DefaultHttpContext();
+            httpContext.Request.Headers["auth"] = user.Token;
+            userController.ControllerContext = new ControllerContext
+            {
+                HttpContext = httpContext
+            };
+
+            
+            UserDTO userDTO = new UserDTO()
+            {
+                Address = "prueba",
+                Email = "prueba@gmail.com",
+                Password = "password"
+            };
+
+            mock.Setup(s => s.GetAll()).Returns(new List<User>() { user });
             mock.Setup(s => s.Update(user));
-            var result = userController.Update(3, user);
+            var result = userController.Update(userDTO);
             Assert.IsInstanceOfType(result, typeof(NoContentResult));
         }
 
         [TestMethod]
-        public void GivenDifferentValuesUpdateReturnsBadRequest()
+        public void GivenNonExistentToken_UpdateReturnsNotFound()
         {
-            var user = new User("prueba@gmail.com", "Calle", "password") { Id = 4 };
-            var result = userController.Update(5, user);
-            Assert.IsInstanceOfType(result, typeof(BadRequestResult));
-        }
+            User user = new User("prueba@gmail.com", "Calle", "password") { Id = 3 };
+            user.GenerateToken();
 
-        [TestMethod]
-        public void GivenNonExistentIdUpdateReturnsNotFound()
-        {
-            var user = new User("prueba@gmail.com", "Calle", "password") { Id = 6 };
+            var httpContext = new DefaultHttpContext();
+            httpContext.Request.Headers["auth"] = "OtroToken";
+            userController.ControllerContext = new ControllerContext
+            {
+                HttpContext = httpContext
+            };
+
             User? nullUser = null;
-            mock.Setup(s => s.Get(6)).Returns(nullUser);
-            var result = userController.Update(6, user);
+            UserDTO userDTO = new UserDTO()
+            {
+                Address = "Calle",
+                Email = "prueba@gmail.com",
+                Password = "password"
+            };
+            mock.Setup(s => s.GetAll()).Returns(new List<User>() { user });
+            var result = userController.Update(userDTO);
             Assert.IsInstanceOfType(result, typeof(NotFoundResult));
         }
 
