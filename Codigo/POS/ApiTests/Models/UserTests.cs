@@ -1,0 +1,102 @@
+using Services.Models;
+namespace ApiTests.Models
+{
+    [TestClass]
+    public class UserTests
+    {
+        private const int ValidId = 5;
+        private const string ValidMail1 = "prueba@gmail.com";
+        private const string ValidMail2 = "prueba@outlook.uy";
+        private const string MailWithoutAt = "pruebagmail.com";
+        private const string ValidPassword = "password";
+        private const string InvalidPassword = "";
+        private const string MailWithoutDomain = "prueba@.";
+        private const string ValidAddress = "Cuareim 1451";
+        private const string NullString = "";
+
+        private Role someRole = new Role()
+        {
+            Name = "Customer"
+        };
+        private User someUser;
+
+        [TestInitialize]
+        public void TestInit()
+        {
+            someUser = new User(ValidMail1, ValidAddress, ValidPassword) { Id= ValidId };
+        }
+
+
+        [TestMethod]
+        public void CreateUserSuccessTest()
+        {
+            var user = new User(ValidMail2, ValidAddress, ValidPassword) { Id= ValidId };
+            Assert.IsNotNull(user);
+            Assert.AreEqual(ValidMail2, user.Email);
+            Assert.AreEqual(ValidAddress, user.Address);
+        }
+
+        [TestMethod]
+        public void AddRoleSuccessTest()
+        {
+            someUser.AddRole(someRole);
+            Assert.IsTrue(someUser.Roles.Contains(someRole));
+        }
+
+        [TestMethod]
+        public void DoesntAddSameRoleTwice()
+        {
+            someUser.AddRole(someRole);
+            Role newRole = new Role()
+            {
+                Name = "Customer"
+            };
+            someUser.AddRole(newRole);
+            var expectedNumberOfRoles = 1;
+            Assert.AreEqual(someUser.Roles.Count, expectedNumberOfRoles);
+        }
+
+        [TestMethod]
+        public void RemoveRoleSuccessTest()
+        {
+            someUser.AddRole(someRole);
+            someUser.RevokeRole(someRole);
+            Assert.IsFalse(someUser.Roles.Contains(someRole));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception), "Mail Address is not valid")]
+        public void ThrowsExceptionWhenPasswordIsNull()
+        {
+            someUser.Password = "";
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception), "Mail Address is not valid")]
+        public void ThrowsExceptionWhenMailDosentHaveAt()
+        {
+            someUser.Email = MailWithoutAt;
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception), "Mail Address is not valid")]
+        public void ThrowsExceptionWhenMailDosentHaveDomain()
+        {
+            someUser.Email = MailWithoutDomain;
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception), "Mail Address is not valid")]
+        public void ThrowsExceptionWhenMailIsBlank()
+        {
+            someUser.Email = NullString;
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception), "Address is not valid")]
+        public void ThrowsExceptionWhenAddressIsBlank()
+        {
+            someUser.Address = NullString;
+        }
+    }
+}
