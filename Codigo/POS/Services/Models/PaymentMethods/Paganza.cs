@@ -8,5 +8,9 @@ namespace Services.Models.PaymentMethods
 {
     public class Paganza : PaymentMethod
     {
+        public override double ApplyDiscount(double price)
+        {
+            return price * 0.9;
+        }
     }
 }

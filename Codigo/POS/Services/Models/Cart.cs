@@ -1,9 +1,12 @@
 using Services.Models.Exceptions;
+using Services.Models.PaymentMethods;
 
 namespace Services.Models
 {
     public class Cart
     {
+        public PaymentMethod PaymentMethod { get; set; }
+
         public List<CartLine> Products { get; set; }
 
         public Cart()
@@ -34,13 +37,20 @@ namespace Services.Models
         {
             get
             {
+                double price;
                 Promo possiblePromo = AppliedPromo;
                 if (possiblePromo is not null)
                 {
-                    return possiblePromo.ApplyDiscount(this);
+                    price = possiblePromo.ApplyDiscount(this);
                 }
-
-                return TotalPrice();
+                else
+                {
+                    price = TotalPrice();
+                }
+                if (PaymentMethod == null)
+                    return price;
+                else
+                    return PaymentMethod.ApplyDiscount(price);
             }
         }
 

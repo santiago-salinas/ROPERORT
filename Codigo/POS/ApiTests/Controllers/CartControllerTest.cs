@@ -231,7 +231,7 @@ namespace ApiTests.Controllers
             };
             cartDto.Products.Add(cartLineDto);
 
-            var result = controller.Buy(cartDto);
+            var result = controller.Buy(cartDto, null);
             Assert.IsInstanceOfType(result, typeof(OkResult));
         }
 
@@ -255,7 +255,7 @@ namespace ApiTests.Controllers
             };
 
             CartDTO cartDto = new CartDTO();
-            var result = controller.Buy(cartDto);
+            var result = controller.Buy(cartDto, null);
             var createdResult = result as ObjectResult;
             Assert.AreEqual(403, createdResult.StatusCode);
         }
@@ -281,7 +281,7 @@ namespace ApiTests.Controllers
             };
 
             CartDTO cartDto = new CartDTO();
-            var result = controller.Buy(cartDto);
+            var result = controller.Buy(cartDto, null);
             var createdResult = result as BadRequestObjectResult;
             Assert.AreEqual("Empty Cart", createdResult.Value);
             Assert.AreEqual(400, createdResult.StatusCode);

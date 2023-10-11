@@ -9,5 +9,10 @@ namespace Services.Models.PaymentMethods
     public abstract class PaymentMethod
     {
         public string Id { get; set; }
+
+        public virtual double ApplyDiscount(double price)
+        {
+            return price;
+        }
     }
 }

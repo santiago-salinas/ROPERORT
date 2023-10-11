@@ -1,3 +1,5 @@
+using Services.Models.PaymentMethods;
+
 namespace Services.Models
 {
     public class Purchase
@@ -6,5 +8,7 @@ namespace Services.Models
         public User User { get; set; }
         public Cart Cart { get; set; }
         public DateTime Date { get; set; }
+
+        public PaymentMethod PaymentMethod { get; set; }
     }
 }

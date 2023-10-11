@@ -12,12 +12,6 @@ namespace ApiTests.Models
     [TestClass]
     public class PaymentMethodsTests
     {
-        [TestInitialize]
-        public void TestInit()
-        {
-
-        }
-
         [TestMethod]
         public void GivenValidCompaniesCreditCardWorksProperly()
         {
@@ -57,6 +51,17 @@ namespace ApiTests.Models
         {
             Debit debit = new Debit()
                 { Id = "123456789", Bank = "NonExistent" };
+        }
+
+        [TestMethod]
+        public void PaganzaDiscountWorksProperly()
+        {
+            Paganza pay = new Paganza()
+                { Id = "123456789" };
+            double price = 10;
+            double expectedDiscountedPrice = 9;
+            var result = pay.ApplyDiscount(price);
+            Assert.AreEqual(result, expectedDiscountedPrice);
         }
     }
 }

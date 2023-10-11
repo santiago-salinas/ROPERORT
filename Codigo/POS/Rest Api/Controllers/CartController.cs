@@ -6,6 +6,7 @@ using Services.Models.Promos;
 using Services;
 using Rest_Api.Filters;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Services.Models.PaymentMethods;
 
 namespace Rest_Api.Controllers;
 
@@ -55,7 +56,7 @@ public class CartController : ControllerBase
     // POST action
     [HttpPost("buy")]
     [ServiceFilter(typeof(AuthenticationFilter))]
-    public IActionResult Buy(CartDTO cartDto)
+    public IActionResult Buy(CartDTO cartDto, PaymentMethod payment)
     {
         List<User> users = _userService.GetAll();
         string auth = HttpContext.Request.Headers["auth"];
@@ -86,7 +87,8 @@ public class CartController : ControllerBase
         {
             Cart = cart,
             User = user,
-            Date = DateTime.Now,            
+            Date = DateTime.Now,  
+            PaymentMethod = payment
         };
 
         _purchaseService.Add(purchase);
