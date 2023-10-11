@@ -17,7 +17,7 @@ namespace Services.Models
             {
                 if (value <= 0)
                 {
-                    throw new Models_ArgumentException("Product price cannot be below zero or less");
+                    throw new Models_ArgumentException("Product price cannot be zero or less");
                 }
                 _priceUYU = value;
             }
@@ -28,6 +28,10 @@ namespace Services.Models
             get { return _stock; }
             set
             {
+                if (value < 0)
+                {
+                    throw new Models_ArgumentException("Product stock cannot be below zero");
+                }
                 _stock = value;
             }
         }

@@ -33,6 +33,7 @@ namespace DataAccess.Entities
                 Description = product.Description,
                 Brand = brand,
                 Category = category,
+                Stock = product.Stock,
             };
 
             retValue.Colours = product.Colours.Select(c => new ProductColors(retValue, c, context)).ToList();
@@ -51,6 +52,7 @@ namespace DataAccess.Entities
                 Brand = BrandEntity.FromEntity(entity.Brand),
                 Category = CategoryEntity.FromEntity(entity.Category),
                 Colours = entity.Colours.Select(c => ColourEntity.FromEntity(c.Colour)).ToList(),
+                Stock = entity.Stock,
             };
         }
     }
