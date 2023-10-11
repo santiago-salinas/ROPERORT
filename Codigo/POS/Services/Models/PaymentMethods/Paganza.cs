@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace Services.Models.PaymentMethods
 {
-    public abstract class PaymentMethod
+    public class Paganza : PaymentMethod
     {
-        public string Id { get; set; }
     }
 }
