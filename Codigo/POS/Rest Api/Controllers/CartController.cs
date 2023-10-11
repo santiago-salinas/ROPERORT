@@ -3,9 +3,11 @@ using Rest_Api.DTOs;
 using Services.Interfaces;
 using Services.Models;
 using Services.Models.Promos;
+using Services.Exceptions;
 using Services;
 using Rest_Api.Filters;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Services.Models.Exceptions;
 
 namespace Rest_Api.Controllers;
 
@@ -77,7 +79,7 @@ public class CartController : ControllerBase
             cart = CartDTOtoObject(cartDto);
             cart = ApplyPromoToCart(cart);
         }
-        catch (Exception e)
+        catch (Models_ArgumentException e)
         {
             return BadRequest(e.Message);
         }
@@ -118,8 +120,14 @@ public class CartController : ControllerBase
             newline.Product = _productService.Get(line.Id);
             if (newline.Product == null)
             {
-                throw new ArgumentException("Product id was not found");
+                throw new Models_ArgumentException("Product id was not found");
             }
+
+            if (newline.Product.Stock < line.Quantity)
+            {
+                throw new Models_ArgumentException("Not enough stock available to purchase " + newline.Product.Name);
+            }
+
             newline.Quantity = line.Quantity;
 
             ret.Products.Add(newline);

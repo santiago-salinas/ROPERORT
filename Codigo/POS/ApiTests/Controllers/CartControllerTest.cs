@@ -312,7 +312,7 @@ namespace ApiTests.Controllers
             var result = controller.Buy(cartDto);
             var createdResult = result as BadRequestObjectResult;
 
-            Assert.AreEqual("Not enough stock available", createdResult.Value);
+            Assert.AreEqual("Not enough stock available to purchase " + product.Name, createdResult.Value);
             Assert.AreEqual(400, createdResult.StatusCode);
         }
     }
