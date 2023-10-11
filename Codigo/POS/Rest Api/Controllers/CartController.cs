@@ -48,7 +48,7 @@ public class CartController : ControllerBase
             cart = ApplyPromoToCart(cart);
             return CreatedAtAction(nameof(Create), cart.DiscountedPriceUYU, cart);
         }
-        catch (Exception e)
+        catch (Models_ArgumentException e)
         {
             return BadRequest(e.Message);
         }

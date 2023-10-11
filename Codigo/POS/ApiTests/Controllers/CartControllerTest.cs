@@ -174,6 +174,30 @@ namespace ApiTests.Controllers
         }
 
         [TestMethod]
+        public void Failed_TryToAddMoreStockThanAvailable()
+        {
+            Product product = new Product() { Id = 2, Stock = 2, Name = "Product" };
+            _mockProduct.Setup(s => s.Get(product.Id)).Returns(product);
+
+            var controller = new CartController(_mockProduct.Object, _mockDiscounts.Object, _mockPurchase.Object, _mockUser.Object);
+
+            CartDTO cartDto = new CartDTO();
+            CartLineDTO cartLineDto = new CartLineDTO()
+            {
+                Id = 2,
+                Quantity = 50
+            };
+
+            cartDto.Products.Add(cartLineDto);
+
+            var result = controller.Create(cartDto);
+            var createdResult = result as BadRequestObjectResult;
+
+            Assert.AreEqual("Not enough stock available to purchase " + product.Name, createdResult.Value);
+            Assert.AreEqual(400, createdResult.StatusCode);
+        }
+
+        [TestMethod]
         public void CartDiscountAppliedSuccess()
         {
             var controller = new CartController(_mockProduct.Object, _mockDiscounts.Object, _mockPurchase.Object, _mockUser.Object);
@@ -287,7 +311,7 @@ namespace ApiTests.Controllers
             {
                 user
             };
-            Product product = new Product() { Id = 1, Stock = 2};
+            Product product = new Product() { Id = 1, Stock = 2, Name = "Product"};
 
             _mockUser.Setup(s => s.GetAll()).Returns(users);
             _mockProduct.Setup(s => s.Get(product.Id)).Returns(product);
