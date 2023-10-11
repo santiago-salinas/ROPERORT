@@ -26,7 +26,6 @@ namespace ApiTests.Models
 
             double totalPrice = cart.PriceUYU;
 
-
             Assert.AreEqual(10.0, totalPrice);
         }
 

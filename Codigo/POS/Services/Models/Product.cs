@@ -7,6 +7,7 @@ namespace Services.Models
         public Product()
         { }
         private double _priceUYU;
+        private int _stock;
         public int Id { get; set; }
         public string Name { get; set; }
         public double PriceUYU
@@ -22,8 +23,14 @@ namespace Services.Models
             }
         }
         public string Description { get; set; }
-
-
+        public int Stock
+        {
+            get { return _stock; }
+            set
+            {
+                _stock = value;
+            }
+        }
         public Brand Brand { get; set; }
         public Category Category { get; set; }
         public List<Colour> Colours { get; set; }
