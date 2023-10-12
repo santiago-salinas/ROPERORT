@@ -14,5 +14,7 @@ namespace Services.Models.PaymentMethods
         {
             return price;
         }
+
+        public abstract string GetType();
     }
 }

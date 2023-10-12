@@ -12,5 +12,10 @@ namespace Services.Models.PaymentMethods
         {
             return price * 0.9;
         }
+
+        public override string GetType()
+        {
+            return "Paganza";
+        }
     }
 }

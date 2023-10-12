@@ -8,5 +8,9 @@ namespace Services.Models.PaymentMethods
 {
     public class Paypal : PaymentMethod
     {
+        public override string GetType()
+        {
+            return "Paypal";
+        }
     }
 }

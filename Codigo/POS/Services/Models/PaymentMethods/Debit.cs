@@ -30,5 +30,14 @@ namespace Services.Models.PaymentMethods
             if (!validBank)
                 throw new Service_ArgumentException("Invalid bank");
         }
+
+        public override string GetType()
+        {
+            return "Debit";
+        }
+        public override string ToString()
+        {
+            return this.Bank;
+        }
     }
 }

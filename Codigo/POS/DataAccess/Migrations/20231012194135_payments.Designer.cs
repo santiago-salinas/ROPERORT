@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(EFContext))]
-    [Migration("20230910233037_v4")]
-    partial class v4
+    [Migration("20231012194135_payments")]
+    partial class payments
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -69,6 +69,28 @@ namespace DataAccess.Migrations
                     b.ToTable("ColourEntities");
                 });
 
+            modelBuilder.Entity("DataAccess.Entities.PaymentMethodEntity", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Bank")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Company")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PaymentMethods");
+                });
+
             modelBuilder.Entity("DataAccess.Entities.ProductColors", b =>
                 {
                     b.Property<int>("ProductId")
@@ -111,11 +133,12 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasAlternateKey("Name");
-
                     b.HasIndex("BrandName");
 
                     b.HasIndex("CategoryName");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("ProductEntities");
                 });
@@ -152,10 +175,22 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
+                    b.Property<double>("FinalPrice")
+                        .HasColumnType("float");
+
+                    b.Property<double>("MoneyDiscounted")
+                        .HasColumnType("float");
+
+                    b.Property<string>("PaymentMethodId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("PaymentMethodId");
 
                     b.HasIndex("UserId");
 
@@ -169,7 +204,7 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Name");
 
-                    b.ToTable("RoleEntity");
+                    b.ToTable("RoleEntities");
                 });
 
             modelBuilder.Entity("DataAccess.Entities.UserEntity", b =>
@@ -188,9 +223,18 @@ namespace DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Token")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
-                    b.HasAlternateKey("Email");
+                    b.HasIndex("Email")
+                        .IsUnique();
 
                     b.ToTable("UserEntities");
                 });
@@ -269,11 +313,19 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("DataAccess.Entities.PurchaseEntity", b =>
                 {
+                    b.HasOne("DataAccess.Entities.PaymentMethodEntity", "PaymentMethod")
+                        .WithMany()
+                        .HasForeignKey("PaymentMethodId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("DataAccess.Entities.UserEntity", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("PaymentMethod");
 
                     b.Navigation("User");
                 });

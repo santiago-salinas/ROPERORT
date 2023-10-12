@@ -7,6 +7,7 @@ using Services;
 using Rest_Api.Filters;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Services.Models.PaymentMethods;
+using Services.Exceptions;
 
 namespace Rest_Api.Controllers;
 
@@ -56,7 +57,7 @@ public class CartController : ControllerBase
     // POST action
     [HttpPost("buy")]
     [ServiceFilter(typeof(AuthenticationFilter))]
-    public IActionResult Buy(CartDTO cartDto, PaymentMethod payment)
+    public IActionResult Buy(CartDTO cartDto)
     {
         List<User> users = _userService.GetAll();
         string auth = HttpContext.Request.Headers["auth"];
@@ -83,12 +84,14 @@ public class CartController : ControllerBase
             return BadRequest(e.Message);
         }
 
+        var paying = CreateMethod(cartDto);
+
         Purchase purchase = new Purchase()
         {
             Cart = cart,
             User = user,
             Date = DateTime.Now,  
-            PaymentMethod = payment
+            PaymentMethod = paying,
         };
 
         _purchaseService.Add(purchase);
@@ -128,5 +131,35 @@ public class CartController : ControllerBase
         }
 
         return ret;
+    }
+
+    [NonAction]
+    private PaymentMethod CreateMethod(CartDTO cart)
+    {
+        switch (cart.PaymentMethod.ToUpper())
+        {
+            case "PAGANZA":
+                return new Paganza() { Id = cart.PaymentId, };
+                break;
+            case "PAYPAL":
+                return new Paypal() { Id = cart.PaymentId, };
+                break;
+            case "DEBIT":
+                return new Debit()
+                {
+                    Id = cart.PaymentId,
+                    Bank = cart.Bank,
+                };
+                break;
+            case "CREDITCARD":
+                return new CreditCard()
+                {
+                    Id = cart.PaymentId,
+                    Company = cart.Company,
+                };
+                break;
+            default:
+                throw new DatabaseException("Not supported payment method");
+        }
     }
 }

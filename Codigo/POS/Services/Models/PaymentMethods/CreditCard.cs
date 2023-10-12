@@ -29,5 +29,14 @@ namespace Services.Models.PaymentMethods
             if (!validCompany) 
                 throw new Service_ArgumentException("Invalid company");
         }
+
+        public override string GetType()
+        {
+            return "CreditCard";
+        }
+        public override string ToString()
+        {
+            return Company;
+        }
     }
 }
