@@ -6,6 +6,18 @@ namespace Services.Models
     {
         public Product()
         { }
+        public int Stock
+        {
+            get { return _stock; }
+            set
+            {
+                if (value < 0)
+                {
+                    throw new Models_ArgumentException("Product stock cannot be below zero");
+                }
+                _stock = value;
+            }
+        }
         private double _priceUYU;
         private int _stock;
         public int Id { get; set; }
@@ -23,18 +35,7 @@ namespace Services.Models
             }
         }
         public string Description { get; set; }
-        public int Stock
-        {
-            get { return _stock; }
-            set
-            {
-                if (value < 0)
-                {
-                    throw new Models_ArgumentException("Product stock cannot be below zero");
-                }
-                _stock = value;
-            }
-        }
+        
         public Brand Brand { get; set; }
         public Category Category { get; set; }
         public List<Colour> Colours { get; set; }
