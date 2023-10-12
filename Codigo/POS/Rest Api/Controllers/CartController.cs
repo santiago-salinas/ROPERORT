@@ -91,7 +91,9 @@ public class CartController : ControllerBase
             Date = DateTime.Now,            
         };
 
+        ModifyProductStock(purchase.Cart.Products);
         _purchaseService.Add(purchase);
+
         return Ok();
     }
 
@@ -134,5 +136,16 @@ public class CartController : ControllerBase
         }
 
         return ret;
+    }
+
+    [NonAction]
+    public void ModifyProductStock(List<CartLine> cartLines)
+    {
+        foreach(CartLine line in cartLines)
+        {
+            Product newStock = line.Product;
+            newStock.Stock -= line.Quantity;
+            _productService.Update(newStock);
+        }
     }
 }
