@@ -5,6 +5,7 @@ using Rest_Api.Controllers;
 using Rest_Api.DTOs;
 using Services.Interfaces;
 using Services.Models;
+using Services.Models.PaymentMethods;
 using System.Drawing;
 
 namespace ApiTests.Controllers
@@ -230,6 +231,8 @@ namespace ApiTests.Controllers
                 Quantity = 3
             };
             cartDto.Products.Add(cartLineDto);
+            cartDto.PaymentMethod = "Paypal";
+            cartDto.PaymentId = "ValidID";
 
             var result = controller.Buy(cartDto);
             Assert.IsInstanceOfType(result, typeof(OkResult));
@@ -284,6 +287,40 @@ namespace ApiTests.Controllers
             var result = controller.Buy(cartDto);
             var createdResult = result as BadRequestObjectResult;
             Assert.AreEqual("Empty Cart", createdResult.Value);
+            Assert.AreEqual(400, createdResult.StatusCode);
+        }
+
+        [TestMethod]
+        public void BuyCartFailNoPaymentMethod()
+        {
+            User user = new User("prueba@gmail.com", "Calle 123", "password") { Id = 5, Token = "unbuentoken" };
+            user.AddRole(new Role() { Name = "Customer" });
+            List<User> users = new List<User>();
+            users.Add(user);
+
+            mockUser.Setup(s => s.GetAll()).Returns(users);
+            var mockPurchase = new Mock<IPurchaseService>(MockBehavior.Loose);
+
+            var httpContext = new DefaultHttpContext();
+            httpContext.Request.Headers["auth"] = "unbuentoken";
+
+            var controller = new CartController(mockProduct.Object, mockDiscounts.Object, mockPurchase.Object, mockUser.Object);
+            controller.ControllerContext = new ControllerContext
+            {
+                HttpContext = httpContext
+            };
+
+            CartDTO cartDto = new CartDTO();
+            CartLineDTO cartLineDto = new CartLineDTO()
+            {
+                Id = 1,
+                Quantity = 3
+            };
+            cartDto.Products.Add(cartLineDto);
+            var result = controller.Buy(cartDto);
+
+            var createdResult = result as BadRequestObjectResult;
+            Assert.AreEqual("Invalid payment method", createdResult.Value);
             Assert.AreEqual(400, createdResult.StatusCode);
         }
     }

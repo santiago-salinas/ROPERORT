@@ -57,5 +57,6 @@ namespace DataAccess
 
         public DbSet<AssignedRoles> AssignedRoles { get; set; }
         public DbSet<ProductColors> ProductColors { get; set; }
+        public DbSet<PaymentMethodEntity> PaymentMethods { get; set; }
     }
 }
