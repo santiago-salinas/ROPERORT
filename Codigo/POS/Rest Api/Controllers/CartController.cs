@@ -73,6 +73,11 @@ public class CartController : ControllerBase
             return BadRequest("Empty Cart");
         }
 
+        if(cartDto.PaymentMethod == null || cartDto.PaymentId == null)
+        {
+            return BadRequest("Invalid payment method");
+        }
+
         Cart cart = new Cart();
         try
         {
