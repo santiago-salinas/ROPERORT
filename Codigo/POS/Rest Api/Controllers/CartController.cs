@@ -79,6 +79,7 @@ public class CartController : ControllerBase
         }
 
         Cart cart = new Cart();
+
         try
         {
             cart = CartDTOtoObject(cartDto);
@@ -89,14 +90,12 @@ public class CartController : ControllerBase
             return BadRequest(e.Message);
         }
 
-        var paying = CreateMethod(cartDto);
-
         Purchase purchase = new Purchase()
         {
             Cart = cart,
             User = user,
             Date = DateTime.Now,  
-            PaymentMethod = paying,
+            PaymentMethod = cart.PaymentMethod,
         };
 
         _purchaseService.Add(purchase);
@@ -134,6 +133,9 @@ public class CartController : ControllerBase
 
             ret.Products.Add(newline);
         }
+
+        var paying = CreateMethod(cartDto);
+        ret.PaymentMethod = paying;
 
         return ret;
     }
