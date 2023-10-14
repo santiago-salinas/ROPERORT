@@ -1,11 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Rest_Api.DTOs;
 using Services.Interfaces;
 using Services.Models;
 using Services.Models.Promos;
+using Services.Exceptions;
 using Services;
 using Rest_Api.Filters;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Services.Models.Exceptions;
 using Services.Models.PaymentMethods;
 using Services.Exceptions;
 
@@ -44,11 +46,20 @@ public class CartController : ControllerBase
         Cart cart = new Cart();
         try
         {
-            cart = CartDTOtoObject(cartDto);
+            cart = CartDTOtoObject(cartDto, false);
             cart = ApplyPromoToCart(cart);
+
+            if(ProductQuantitiesWereModified(cartDto.Products, cart.Products))
+            {
+                return new ObjectResult(cart)
+                {
+                    StatusCode = 206
+                };
+            }
+
             return CreatedAtAction(nameof(Create), cart.DiscountedPriceUYU, cart);
         }
-        catch (Exception e)
+        catch (Models_ArgumentException e)
         {
             return BadRequest(e.Message);
         }
@@ -82,10 +93,10 @@ public class CartController : ControllerBase
 
         try
         {
-            cart = CartDTOtoObject(cartDto);
+            cart = CartDTOtoObject(cartDto,true);
             cart = ApplyPromoToCart(cart);
         }
-        catch (Exception e)
+        catch (Models_ArgumentException e)
         {
             return BadRequest(e.Message);
         }
@@ -98,7 +109,9 @@ public class CartController : ControllerBase
             PaymentMethod = cart.PaymentMethod,
         };
 
+        ModifyProductStock(purchase.Cart.Products);
         _purchaseService.Add(purchase);
+
         return Ok();
     }
 
@@ -116,7 +129,7 @@ public class CartController : ControllerBase
     }
 
     [NonAction]
-    private Cart CartDTOtoObject(CartDTO cartDto)
+    private Cart CartDTOtoObject(CartDTO cartDto, bool isBuying)
     {
         Cart ret = new Cart();
 
@@ -127,9 +140,22 @@ public class CartController : ControllerBase
             newline.Product = _productService.Get(line.Id);
             if (newline.Product == null)
             {
-                throw new ArgumentException("Product id was not found");
+                throw new Models_ArgumentException("Product id was not found");
             }
-            newline.Quantity = line.Quantity;
+
+            if (newline.Product.Stock >= line.Quantity)
+            {
+                newline.Quantity = line.Quantity;
+            }
+            else
+            {
+                if (isBuying)
+                {
+                    throw new Models_ArgumentException("Not enough stock available to purchase " + newline.Product.Name);
+                }
+
+                newline.Quantity = newline.Product.Stock;
+            }
 
             ret.Products.Add(newline);
         }
@@ -140,6 +166,32 @@ public class CartController : ControllerBase
         return ret;
     }
 
+    [NonAction]
+    private void ModifyProductStock(List<CartLine> cartLines)
+    {
+        foreach(CartLine line in cartLines)
+        {
+            Product newStock = line.Product;
+            newStock.Stock -= line.Quantity;
+            _productService.Update(newStock);
+        }
+    }
+
+    [NonAction]
+    private bool ProductQuantitiesWereModified(List<CartLineDTO> cartLineDTOs, List<CartLine> cartLines)
+    {
+        foreach(CartLineDTO line in cartLineDTOs)
+        {
+            CartLine respectiveCartline = cartLines.Find(c => c.Product.Id == line.Id);
+            if(respectiveCartline.Quantity != line.Quantity)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+    
     [NonAction]
     private PaymentMethod CreateMethod(CartDTO cart)
     {
