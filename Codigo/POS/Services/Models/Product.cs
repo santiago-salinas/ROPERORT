@@ -9,6 +9,8 @@ namespace Services.Models
         private double _priceUYU;
         public int Id { get; set; }
         public string Name { get; set; }
+        public bool Exclude { get; set; }
+
         public double PriceUYU
         {
             get { return _priceUYU; }
