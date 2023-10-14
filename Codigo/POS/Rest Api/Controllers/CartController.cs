@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Rest_Api.DTOs;
 using Services.Interfaces;
 using Services.Models;
@@ -8,6 +8,8 @@ using Services;
 using Rest_Api.Filters;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Services.Models.Exceptions;
+using Services.Models.PaymentMethods;
+using Services.Exceptions;
 
 namespace Rest_Api.Controllers;
 
@@ -82,7 +84,13 @@ public class CartController : ControllerBase
             return BadRequest("Empty Cart");
         }
 
+        if(cartDto.PaymentMethod == null || cartDto.PaymentId == null)
+        {
+            return BadRequest("Invalid payment method");
+        }
+
         Cart cart = new Cart();
+
         try
         {
             cart = CartDTOtoObject(cartDto,true);
@@ -97,7 +105,8 @@ public class CartController : ControllerBase
         {
             Cart = cart,
             User = user,
-            Date = DateTime.Now,            
+            Date = DateTime.Now,  
+            PaymentMethod = cart.PaymentMethod,
         };
 
         ModifyProductStock(purchase.Cart.Products);
@@ -151,11 +160,14 @@ public class CartController : ControllerBase
             ret.Products.Add(newline);
         }
 
+        var paying = CreateMethod(cartDto);
+        ret.PaymentMethod = paying;
+
         return ret;
     }
 
     [NonAction]
-    public void ModifyProductStock(List<CartLine> cartLines)
+    private void ModifyProductStock(List<CartLine> cartLines)
     {
         foreach(CartLine line in cartLines)
         {
@@ -166,7 +178,7 @@ public class CartController : ControllerBase
     }
 
     [NonAction]
-    public bool ProductQuantitiesWereModified(List<CartLineDTO> cartLineDTOs, List<CartLine> cartLines)
+    private bool ProductQuantitiesWereModified(List<CartLineDTO> cartLineDTOs, List<CartLine> cartLines)
     {
         foreach(CartLineDTO line in cartLineDTOs)
         {
@@ -178,5 +190,35 @@ public class CartController : ControllerBase
         }
 
         return false;
+    }
+    
+    [NonAction]
+    private PaymentMethod CreateMethod(CartDTO cart)
+    {
+        switch (cart.PaymentMethod.ToUpper())
+        {
+            case "PAGANZA":
+                return new Paganza() { Id = cart.PaymentId, };
+                break;
+            case "PAYPAL":
+                return new Paypal() { Id = cart.PaymentId, };
+                break;
+            case "DEBIT":
+                return new Debit()
+                {
+                    Id = cart.PaymentId,
+                    Bank = cart.Bank,
+                };
+                break;
+            case "CREDITCARD":
+                return new CreditCard()
+                {
+                    Id = cart.PaymentId,
+                    Company = cart.Company,
+                };
+                break;
+            default:
+                throw new DatabaseException("Not supported payment method");
+        }
     }
 }

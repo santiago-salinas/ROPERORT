@@ -1,4 +1,5 @@
 ﻿using Services.Models;
+using Services.Models.PaymentMethods;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
 
@@ -15,6 +16,7 @@ namespace DataAccess.Entities
         public DateTime Date { get; set; }
         public double FinalPrice { get; set; }
         public double MoneyDiscounted { get; set; }
+        public PaymentMethodEntity  PaymentMethod { get; set; }
 
 
         public PurchaseEntity() { }
@@ -31,11 +33,13 @@ namespace DataAccess.Entities
                 AppliedPromotion = cart.AppliedPromo?.Name ?? "No promo applied",
                 MoneyDiscounted = cart.PriceUYU - cart.DiscountedPriceUYU,
                 FinalPrice = cart.DiscountedPriceUYU,
+                PaymentMethod = context.PaymentMethods.First(p =>  p.Id == model.PaymentMethod.Id),
             };
         }
 
         public static Purchase FromEntity(PurchaseEntity entity)
         {
+            PaymentMethod paymentModel = PaymentMethodEntity.FromEntity(entity.PaymentMethod);
 
             Cart cart = new Cart()
             {
@@ -49,6 +53,7 @@ namespace DataAccess.Entities
                     return line;
                 }).ToList(),
                 AppliedPromo = GetPromo(entity.AppliedPromotion),
+                PaymentMethod = paymentModel
             };
 
             return new Purchase
@@ -57,6 +62,7 @@ namespace DataAccess.Entities
                 User = UserEntity.FromEntity(entity.User),
                 Date = entity.Date,
                 Cart = cart,
+                PaymentMethod = paymentModel
             };
         }
 
@@ -73,6 +79,5 @@ namespace DataAccess.Entities
 
             return promoList.FirstOrDefault(p => p.Name == name);
         }
-
     }
 }

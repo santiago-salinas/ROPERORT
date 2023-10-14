@@ -5,6 +5,7 @@ using Rest_Api.Controllers;
 using Rest_Api.DTOs;
 using Services.Interfaces;
 using Services.Models;
+using Services.Models.PaymentMethods;
 using System.Drawing;
 
 namespace ApiTests.Controllers
@@ -72,6 +73,8 @@ namespace ApiTests.Controllers
             var controller = new CartController(_mockProduct.Object, _mockDiscounts.Object, _mockPurchase.Object, _mockUser.Object);
 
             CartDTO cartDto = new CartDTO();
+            cartDto.PaymentMethod = "DEBIT";
+            cartDto.Bank = "SANTANDER";
             CartLineDTO cartLineDto = new CartLineDTO()
             {
                 Id = 1,
@@ -214,6 +217,8 @@ namespace ApiTests.Controllers
             var controller = new CartController(_mockProduct.Object, _mockDiscounts.Object, _mockPurchase.Object, _mockUser.Object);
 
             CartDTO cartDto = new CartDTO();
+            cartDto.PaymentMethod = "DEBIT";
+            cartDto.Bank = "SANTANDER";
             CartLineDTO cartLineDto = new CartLineDTO()
             {
                 Id = 1,
@@ -259,6 +264,8 @@ namespace ApiTests.Controllers
                 Quantity = 3
             };
             cartDto.Products.Add(cartLineDto);
+            cartDto.PaymentMethod = "Paypal";
+            cartDto.PaymentId = "ValidID";
 
             var result = controller.Buy(cartDto);
             Assert.IsInstanceOfType(result, typeof(OkResult));
@@ -323,7 +330,7 @@ namespace ApiTests.Controllers
             {
                 user
             };
-           
+
             _mockUser.Setup(s => s.GetAll()).Returns(users);
             _mockProduct.Setup(s => s.Get(_testProduct.Id)).Returns(_testProduct);
 
@@ -348,6 +355,40 @@ namespace ApiTests.Controllers
             var createdResult = result as BadRequestObjectResult;
 
             Assert.AreEqual("Not enough stock available to purchase " + _testProduct.Name, createdResult.Value);
+            Assert.AreEqual(400, createdResult.StatusCode);
+        }
+
+      [TestMethod]
+      public void BuyCartFailNoPaymentMethod()
+      {
+            User user = new User("prueba@gmail.com", "Calle 123", "password") { Id = 5, Token = "unbuentoken" };
+            user.AddRole(new Role() { Name = "Customer" });
+            List<User> users = new List<User>();
+            users.Add(user);
+
+            mockUser.Setup(s => s.GetAll()).Returns(users);
+            var mockPurchase = new Mock<IPurchaseService>(MockBehavior.Loose);
+
+            var httpContext = new DefaultHttpContext();
+            httpContext.Request.Headers["auth"] = "unbuentoken";
+
+            var controller = new CartController(mockProduct.Object, mockDiscounts.Object, mockPurchase.Object, mockUser.Object);
+            controller.ControllerContext = new ControllerContext
+            {
+                HttpContext = httpContext
+            };
+
+            CartDTO cartDto = new CartDTO();
+            CartLineDTO cartLineDto = new CartLineDTO()
+            {
+                Id = 1,
+                Quantity = 3
+            };
+            cartDto.Products.Add(cartLineDto);
+            var result = controller.Buy(cartDto);
+
+            var createdResult = result as BadRequestObjectResult;
+            Assert.AreEqual("Invalid payment method", createdResult.Value);
             Assert.AreEqual(400, createdResult.StatusCode);
         }
     }

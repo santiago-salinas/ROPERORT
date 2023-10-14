@@ -75,6 +75,15 @@ namespace DataAccess.Repositories
         {
             try
             {
+                var paymentModel = purchase.PaymentMethod;
+                var possiblePayment = _context.PaymentMethods.FirstOrDefault(p => paymentModel.Id.Equals(p.Id));
+                if (possiblePayment == null)
+                {
+                    PaymentMethodEntity paymentEntity = PaymentMethodEntity.FromModel(paymentModel, _context);
+                    _context.PaymentMethods.Add(paymentEntity);
+                    _context.SaveChanges();
+                }
+
                 PurchaseEntity entity = PurchaseEntity.FromModel(purchase, _context);
                 _context.PurchaseEntities.Add(entity);
                 _context.SaveChanges();
