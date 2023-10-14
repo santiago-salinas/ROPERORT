@@ -195,6 +195,8 @@ public class CartController : ControllerBase
     [NonAction]
     private PaymentMethod CreateMethod(CartDTO cart)
     {
+        if (cart.PaymentMethod == null)
+            return null;
         switch (cart.PaymentMethod.ToUpper())
         {
             case "PAGANZA":
@@ -216,6 +218,9 @@ public class CartController : ControllerBase
                     Id = cart.PaymentId,
                     Company = cart.Company,
                 };
+                break;
+            case "":
+                return null;
                 break;
             default:
                 throw new DatabaseException("Not supported payment method");

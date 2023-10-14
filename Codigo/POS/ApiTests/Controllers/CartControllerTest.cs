@@ -90,8 +90,6 @@ namespace ApiTests.Controllers
             var controller = new CartController(_mockProduct.Object, _mockDiscounts.Object, _mockPurchase.Object, _mockUser.Object);
 
             CartDTO cartDto = new CartDTO();
-            cartDto.PaymentMethod = "DEBIT";
-            cartDto.Bank = "SANTANDER";
             CartLineDTO cartLineDto = new CartLineDTO()
             {
                 Id = 1,
@@ -236,8 +234,6 @@ namespace ApiTests.Controllers
             var controller = new CartController(_mockProduct.Object, _mockDiscounts.Object, _mockPurchase.Object, _mockUser.Object);
 
             CartDTO cartDto = new CartDTO();
-            cartDto.PaymentMethod = "DEBIT";
-            cartDto.Bank = "SANTANDER";
             CartLineDTO cartLineDto = new CartLineDTO()
             {
                 Id = 1,
