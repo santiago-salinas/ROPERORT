@@ -188,6 +188,8 @@ namespace ApiTests.Controllers
                 Id = _testProduct.Id,
                 Quantity = 50
             };
+            cartDto.PaymentMethod = "DEBIT";
+            cartDto.Bank = "SANTANDER";
             cartDto.Products.Add(cartLineDto);
             
             var result = controller.Create(cartDto);
@@ -349,6 +351,9 @@ namespace ApiTests.Controllers
                 Id = 1,
                 Quantity = 50
             };
+            cartDto.PaymentMethod = "DEBIT";
+            cartDto.Bank = "SANTANDER";
+            cartDto.PaymentId = "ValidID";
             cartDto.Products.Add(cartLineDto);
 
             var result = controller.Buy(cartDto);
@@ -366,13 +371,13 @@ namespace ApiTests.Controllers
             List<User> users = new List<User>();
             users.Add(user);
 
-            mockUser.Setup(s => s.GetAll()).Returns(users);
+            _mockUser.Setup(s => s.GetAll()).Returns(users);
             var mockPurchase = new Mock<IPurchaseService>(MockBehavior.Loose);
 
             var httpContext = new DefaultHttpContext();
             httpContext.Request.Headers["auth"] = "unbuentoken";
 
-            var controller = new CartController(mockProduct.Object, mockDiscounts.Object, mockPurchase.Object, mockUser.Object);
+            var controller = new CartController(_mockProduct.Object, _mockDiscounts.Object, mockPurchase.Object, _mockUser.Object);
             controller.ControllerContext = new ControllerContext
             {
                 HttpContext = httpContext
