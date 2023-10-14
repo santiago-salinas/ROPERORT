@@ -18,6 +18,8 @@ namespace ApiTests.Controllers
         private Mock<IPurchaseService> _mockPurchase;
         private Mock<IUserService> _mockUser;
         private Product _testProduct;
+        private Product _testProduct2;
+
         private User _testUser;
 
         [TestInitialize]
@@ -71,17 +73,16 @@ namespace ApiTests.Controllers
                 Brand = brand,
                 Category = category,
                 Colours = colours,
-                Stock = 10,
+                Stock = 100,
                 Exclude = true,
             };
 
            _testUser = new User("prueba@gmail.com", "Calle 123", "password") { Id = 5, Token = "unbuentoken" };
 
             _mockProduct.Setup(s => s.Get(_testProduct.Id)).Returns(_testProduct);
-            _mockProduct.Setup(s => s.Get(_testProduct2.Id)).Returns(_testProduct);
+            _mockProduct.Setup(s => s.Get(_testProduct2.Id)).Returns(_testProduct2);
         }
       
-        }
 
         [TestMethod]
         public void CartControllerTestSuccess()
@@ -250,7 +251,6 @@ namespace ApiTests.Controllers
             var createdResult = result as CreatedAtActionResult;
 
             Cart createdCart = (Cart)createdResult.Value;
-            double originalValue = 600;
             double expectedValue = 600;
             Assert.AreEqual(expectedValue, createdCart.DiscountedPriceUYU);
         }
@@ -416,7 +416,7 @@ namespace ApiTests.Controllers
         [TestMethod]
         public void CartDiscountAppliedWithExcludedProductsSuccess()
         {
-            var controller = new CartController(mockProduct.Object, mockDiscounts.Object, mockPurchase.Object, mockUser.Object);
+            var controller = new CartController(_mockProduct.Object, _mockDiscounts.Object, _mockPurchase.Object, _mockUser.Object);
 
 
             CartDTO cartDto = new CartDTO();
@@ -443,8 +443,7 @@ namespace ApiTests.Controllers
             var createdResult = result as CreatedAtActionResult;
 
             Cart createdCart = (Cart)createdResult.Value;
-            double originalValue = 600;
-            double expectedValue = 600;
+            double expectedValue = 60600;
             Assert.AreEqual(expectedValue, createdCart.DiscountedPriceUYU);
 
         }

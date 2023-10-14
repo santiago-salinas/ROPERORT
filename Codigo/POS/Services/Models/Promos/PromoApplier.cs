@@ -21,14 +21,15 @@ namespace Services.Models.Promos
             if (cart is null || cart.Products.Count == _zero) { return new Cart(); }
             if(_promos is null) { return new Cart(); }
 
-            cart = RemoveExludedProducts(cart);
+            Cart promotionalCart = RemoveExcludedProducts(cart);
 
-            double bestPrice = cart.PriceUYU;
+
+            double bestPrice = promotionalCart.PriceUYU;
             Promo? bestPromoToClient = null;
 
             foreach (Promo promo in _promos)
             {
-                double newPrice = promo.ApplyDiscount(cart);
+                double newPrice = promo.ApplyDiscount(promotionalCart);
                 if (newPrice < bestPrice)
                 {
                     bestPromoToClient = promo;
@@ -44,25 +45,23 @@ namespace Services.Models.Promos
             return cart;
         }
 
-        public Cart RemoveExludedProducts(Cart cart)
+        public Cart RemoveExcludedProducts(Cart cart)
         {
-            List<CartLine> exclduedLines = new List<CartLine>();
-            foreach(CartLine cartLine in cart.Products)
+            Cart newCart = new Cart();
+
+            foreach (CartLine cartLine in cart.Products)
             {
                 Product product = cartLine.Product;
-                bool isExluded = product.Exclude;
-                if (isExluded)
+                bool isExcluded = product.Exclude;
+
+                if (!isExcluded)
                 {
-                    exclduedLines.Add(cartLine);
+                    newCart.Products.Add(cartLine);
                 }
             }
 
-            foreach (CartLine excluded in exclduedLines)
-            {
-                cart.Products.Remove(excluded);
-            }
-
-            return cart;
+            return newCart;
         }
+
     }
 }
