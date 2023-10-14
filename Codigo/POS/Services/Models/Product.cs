@@ -22,6 +22,8 @@ namespace Services.Models
         private int _stock;
         public int Id { get; set; }
         public string Name { get; set; }
+        public bool Exclude { get; set; }
+
         public double PriceUYU
         {
             get { return _priceUYU; }

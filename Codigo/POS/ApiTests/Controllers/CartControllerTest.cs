@@ -61,10 +61,26 @@ namespace ApiTests.Controllers
                 Colours = colours,
                 Stock = 10,
             };
+          
+          _testProduct2 = new Product()
+            {
+                Id = 10,
+                Name = "Cap2",
+                PriceUYU = 6000,
+                Description = "Stylish Cap.",
+                Brand = brand,
+                Category = category,
+                Colours = colours,
+                Stock = 10,
+                Exclude = true,
+            };
 
            _testUser = new User("prueba@gmail.com", "Calle 123", "password") { Id = 5, Token = "unbuentoken" };
 
             _mockProduct.Setup(s => s.Get(_testProduct.Id)).Returns(_testProduct);
+            _mockProduct.Setup(s => s.Get(_testProduct2.Id)).Returns(_testProduct);
+        }
+      
         }
 
         [TestMethod]
@@ -395,6 +411,42 @@ namespace ApiTests.Controllers
             var createdResult = result as BadRequestObjectResult;
             Assert.AreEqual("Invalid payment method", createdResult.Value);
             Assert.AreEqual(400, createdResult.StatusCode);
+        }
+
+        [TestMethod]
+        public void CartDiscountAppliedWithExcludedProductsSuccess()
+        {
+            var controller = new CartController(mockProduct.Object, mockDiscounts.Object, mockPurchase.Object, mockUser.Object);
+
+
+            CartDTO cartDto = new CartDTO();
+            cartDto.PaymentMethod = "DEBIT";
+            cartDto.Bank = "SANTANDER";
+            CartLineDTO cartLineDto = new CartLineDTO()
+            {
+                Id = 1,
+                Quantity = 3
+            };
+
+            cartDto.Products.Add(cartLineDto);
+
+            cartLineDto = new CartLineDTO()
+            {
+                Id = 10,
+                Quantity = 10
+            };
+
+            cartDto.Products.Add(cartLineDto);
+
+            var result = controller.Create(cartDto);
+
+            var createdResult = result as CreatedAtActionResult;
+
+            Cart createdCart = (Cart)createdResult.Value;
+            double originalValue = 600;
+            double expectedValue = 600;
+            Assert.AreEqual(expectedValue, createdCart.DiscountedPriceUYU);
+
         }
     }
 }
