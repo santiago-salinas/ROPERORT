@@ -17,7 +17,7 @@ namespace DataAccess.Entities
 
         public BrandEntity Brand { get; set; }
         public CategoryEntity Category { get; set; }
-
+        public int Stock { get; set; }
         public IList<ProductColors> Colours { get; set; }
 
 
@@ -35,7 +35,8 @@ namespace DataAccess.Entities
                 Description = product.Description,
                 Brand = brand,
                 Category = category,
-                Exclude = product.Exclude
+                Exclude = product.Exclude,
+                Stock = product.Stock
             };
 
             retValue.Colours = product.Colours.Select(c => new ProductColors(retValue, c, context)).ToList();
@@ -54,7 +55,8 @@ namespace DataAccess.Entities
                 Brand = BrandEntity.FromEntity(entity.Brand),
                 Category = CategoryEntity.FromEntity(entity.Category),
                 Colours = entity.Colours.Select(c => ColourEntity.FromEntity(c.Colour)).ToList(),
-                Exclude = entity.Exclude
+                Exclude = entity.Exclude,
+                Stock = entity.Stock
             };
         }
     }

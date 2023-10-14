@@ -44,7 +44,6 @@ namespace DataAccess.Repositories
         }
         public Purchase? Get(int id)
         {
-
             try
             {
                 PurchaseEntity purchaseEntity = _context.PurchaseEntities

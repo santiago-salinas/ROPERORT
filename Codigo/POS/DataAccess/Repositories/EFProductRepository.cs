@@ -138,7 +138,8 @@ namespace DataAccess.Repositories
                 oldEntity.Category = newEntity.Category;
                 oldEntity.Price = newEntity.Price;
                 oldEntity.Description = newEntity.Description;
-                oldEntity.Name = newEntity.Name;                
+                oldEntity.Name = newEntity.Name;
+                oldEntity.Stock = newEntity.Stock;
 
                 _context.ProductEntities.Update(oldEntity);
                 _context.SaveChanges();
