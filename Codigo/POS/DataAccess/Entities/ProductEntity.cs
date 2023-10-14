@@ -13,6 +13,8 @@ namespace DataAccess.Entities
         public string Name { get; set; }
         public double Price { get; set; }
         public string Description { get; set; }
+        public bool Exclude { get; set; }
+
         public BrandEntity Brand { get; set; }
         public CategoryEntity Category { get; set; }
 
@@ -33,6 +35,7 @@ namespace DataAccess.Entities
                 Description = product.Description,
                 Brand = brand,
                 Category = category,
+                Exclude = product.Exclude
             };
 
             retValue.Colours = product.Colours.Select(c => new ProductColors(retValue, c, context)).ToList();
@@ -51,6 +54,7 @@ namespace DataAccess.Entities
                 Brand = BrandEntity.FromEntity(entity.Brand),
                 Category = CategoryEntity.FromEntity(entity.Category),
                 Colours = entity.Colours.Select(c => ColourEntity.FromEntity(c.Colour)).ToList(),
+                Exclude = entity.Exclude
             };
         }
     }
