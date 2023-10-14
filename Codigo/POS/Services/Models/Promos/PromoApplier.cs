@@ -21,6 +21,8 @@ namespace Services.Models.Promos
             if (cart is null || cart.Products.Count == _zero) { return new Cart(); }
             if(_promos is null) { return new Cart(); }
 
+            cart = RemoveExludedProducts(cart);
+
             double bestPrice = cart.PriceUYU;
             Promo? bestPromoToClient = null;
 
@@ -37,6 +39,27 @@ namespace Services.Models.Promos
             if (bestPromoToClient != null)
             {
                 cart.AppliedPromo = bestPromoToClient;
+            }
+
+            return cart;
+        }
+
+        public Cart RemoveExludedProducts(Cart cart)
+        {
+            List<CartLine> exclduedLines = new List<CartLine>();
+            foreach(CartLine cartLine in cart.Products)
+            {
+                Product product = cartLine.Product;
+                bool isExluded = product.Exclude;
+                if (isExluded)
+                {
+                    exclduedLines.Add(cartLine);
+                }
+            }
+
+            foreach (CartLine excluded in exclduedLines)
+            {
+                cart.Products.Remove(excluded);
             }
 
             return cart;
