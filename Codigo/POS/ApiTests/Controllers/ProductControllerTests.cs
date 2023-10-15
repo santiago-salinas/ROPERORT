@@ -244,7 +244,8 @@ namespace ApiTests.Controllers
                 PriceUYU = 20.0,
                 Brand = new Brand("Nike"),
                 Category = new Category("T-Shirt"),
-                Colours = new List<Colour>() { new Colour("Blue")}
+                Colours = new List<Colour>() { new Colour("Blue")},
+                Exclude = true,
             },
             new Product
             {
@@ -253,7 +254,8 @@ namespace ApiTests.Controllers
                 PriceUYU = 50.0,
                 Brand = new Brand("Puma"),
                 Category = new Category("Pants"),
-                Colours = new List<Colour>() { new Colour("Green"), new Colour("Red") }
+                Colours = new List<Colour>() { new Colour("Green"), new Colour("Red") },
+                Exclude = true,
             },
             new Product
             {
@@ -262,7 +264,8 @@ namespace ApiTests.Controllers
                 PriceUYU = 20.0,
                 Brand = new Brand("Nike"),
                 Category = new Category("T-Shirt"),
-                Colours = new List<Colour> { new Colour("Red") }
+                Colours = new List<Colour> { new Colour("Red") },
+                Exclude = false,
             },
 
             new Product
@@ -272,7 +275,8 @@ namespace ApiTests.Controllers
                 PriceUYU = 100.0,
                 Brand = new Brand("Puma"),
                 Category = new Category("Pants"),
-                Colours = new List<Colour> { new Colour("Green"), new Colour("Red") }
+                Colours = new List<Colour> { new Colour("Green"), new Colour("Red") },
+                Exclude = false,
             },
 
             new Product
@@ -282,7 +286,8 @@ namespace ApiTests.Controllers
                 PriceUYU = 60.0,
                 Brand = new Brand("Nike"),
                 Category = new Category("T-Shirt"),
-                Colours = new List<Colour> { new Colour("Blue"), new Colour("Green") }
+                Colours = new List<Colour> { new Colour("Blue"), new Colour("Green") },
+                Exclude = false,
             }
         };
      }

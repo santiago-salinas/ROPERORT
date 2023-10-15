@@ -394,7 +394,7 @@ namespace ApiTests.Services
 
             List<Product> products = _productService.GetFiltered(maximumPrice: maxPrice, minimumPrice: minPrice);
 
-            Assert.AreEqual(3, products.Count);
+            Assert.AreEqual(2, products.Count);
             Assert.IsTrue(products.All(p => p.PriceUYU >= minPrice && p.PriceUYU <= maxPrice));
         }
 
@@ -406,7 +406,7 @@ namespace ApiTests.Services
 
             List<Product> products = _productService.GetFiltered(excludedFromPromos: filter);
 
-            Assert.AreEqual(3, products.Count);
+            Assert.AreEqual(2, products.Count);
             Assert.IsTrue(products.All(p => p.Exclude.Equals(filter)));
         }
 
@@ -450,7 +450,8 @@ namespace ApiTests.Services
                 PriceUYU = 20.0,
                 Brand = new Brand("Nike"),
                 Category = new Category("T-Shirt"),
-                Colours = new List<Colour>() { new Colour("Blue")}
+                Colours = new List<Colour>() { new Colour("Blue")},
+                Exclude = true,
             },
             new Product
             {
@@ -459,7 +460,8 @@ namespace ApiTests.Services
                 PriceUYU = 50.0,
                 Brand = new Brand("Puma"),
                 Category = new Category("Pants"),
-                Colours = new List<Colour>() { new Colour("Green"), new Colour("Red") }
+                Colours = new List<Colour>() { new Colour("Green"), new Colour("Red") },
+                Exclude = true,
             },
             new Product
             {
@@ -468,7 +470,8 @@ namespace ApiTests.Services
                 PriceUYU = 20.0,
                 Brand = new Brand("Nike"),
                 Category = new Category("T-Shirt"),
-                Colours = new List<Colour> { new Colour("Red") }
+                Colours = new List<Colour> { new Colour("Red") },
+                Exclude = false,
             },
 
             new Product
@@ -478,7 +481,8 @@ namespace ApiTests.Services
                 PriceUYU = 100.0,
                 Brand = new Brand("Puma"),
                 Category = new Category("Pants"),
-                Colours = new List<Colour> { new Colour("Green"), new Colour("Red") }
+                Colours = new List<Colour> { new Colour("Green"), new Colour("Red") },
+                Exclude = false,
             },
 
             new Product
@@ -488,7 +492,8 @@ namespace ApiTests.Services
                 PriceUYU = 60.0,
                 Brand = new Brand("Nike"),
                 Category = new Category("T-Shirt"),
-                Colours = new List<Colour> { new Colour("Blue"), new Colour("Green") }
+                Colours = new List<Colour> { new Colour("Blue"), new Colour("Green") },
+                Exclude = false,
             }
         };
 

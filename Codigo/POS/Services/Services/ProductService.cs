@@ -111,7 +111,19 @@ public class ProductService : IProductService
         if (name != null)
         {
             result = result.Where(p => p.Name.Contains(name));
+        }
+        if(maximumPrice != null)
+        {
+            result = result.Where(p => p.PriceUYU <= maximumPrice);
+        }
+        if(minimumPrice != null)
+        {
+            result = result.Where(p => p.PriceUYU >= minimumPrice);
         }        
+        if (excludedFromPromos != null)
+        {
+            result = result.Where(p => p.Exclude ==  excludedFromPromos);
+        }
 
         return result.ToList();
     }
