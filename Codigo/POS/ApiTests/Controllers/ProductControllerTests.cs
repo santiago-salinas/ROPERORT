@@ -5,7 +5,7 @@ using Rest_Api.Controllers;
 using Services.Exceptions;
 using Services.Interfaces;
 using Services.Models;
-
+using Services.Models.DTOs;
 
 namespace ApiTests.Controllers
 {
@@ -221,11 +221,17 @@ namespace ApiTests.Controllers
                 _mockProducts[2],
                 _mockProducts[4],
             };
+            ProductFilterDTO filter = new ProductFilterDTO()
+            {
+                Category = category.Name,
+                Name = name
+            };
 
-            _mock.Setup(p => p.GetFiltered(category, null, name,null,null,null))
+
+            _mock.Setup(p => p.GetFiltered(filter))
                 .Returns(expectedProducts);
 
-            var result = _productController.GetFiltered(category: category.Name, name: name);
+            var result = _productController.GetFiltered(filter);
 
             ActionResult<List<Product>> okResult = result;
             Assert.IsNotNull(okResult);

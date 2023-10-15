@@ -5,6 +5,7 @@ using Services.Interfaces;
 using Services.Models;
 using Rest_Api.Filters;
 using Services.Models.Exceptions;
+using Services.Models.DTOs;
 
 namespace Rest_Api.Controllers;
 
@@ -89,18 +90,10 @@ public class ProductController : ControllerBase
         return Ok();
     }
 
-    [HttpGet("filtered")]
-    public ActionResult<List<Product>> GetFiltered(
-        [FromQuery] string? category = null, 
-        [FromQuery] string? brand = null, 
-        [FromQuery] string? name = null,
-        [FromQuery] double? minimumPrice = null,
-        [FromQuery] double? maximumPrice = null,
-        [FromQuery] bool? excludedFromPromos = null)
+    [HttpPost("filtered")]
+    public ActionResult<List<Product>> GetFiltered(ProductFilterDTO filters)
     {
-        Category? categoryFilter = category != null ? new Category(category) : null;
-        Brand? brandFilter = brand != null ? new Brand(brand) : null;
-        return _productService.GetFiltered(categoryFilter, brandFilter, name,minimumPrice,maximumPrice,excludedFromPromos);
+        return _productService.GetFiltered(filters);
     }
 
 }
