@@ -386,6 +386,31 @@ namespace ApiTests.Services
         }
 
         [TestMethod]
+        public void GetFiltered_ByPrice()
+        {
+            _repository.Setup(r => r.GetAll()).Returns(_mockProducts);
+            double maxPrice = 60;
+            double minPrice = 50;
+
+            List<Product> products = _productService.GetFiltered(maximumPrice: maxPrice, minimumPrice: minPrice);
+
+            Assert.AreEqual(3, products.Count);
+            Assert.IsTrue(products.All(p => p.PriceUYU >= minPrice && p.PriceUYU <= maxPrice));
+        }
+
+        [TestMethod]
+        public void GetFiltered_ByExcluded()
+        {
+            _repository.Setup(r => r.GetAll()).Returns(_mockProducts);
+            bool filter = true;
+
+            List<Product> products = _productService.GetFiltered(excludedFromPromos: filter);
+
+            Assert.AreEqual(3, products.Count);
+            Assert.IsTrue(products.All(p => p.Exclude.Equals(filter)));
+        }
+
+        [TestMethod]
         public void GetAll_FilterByVariosParameters()
         {
             _repository.Setup(r => r.GetAll()).Returns(_mockProducts);

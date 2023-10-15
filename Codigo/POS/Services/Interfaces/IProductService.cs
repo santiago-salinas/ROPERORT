@@ -14,6 +14,11 @@ namespace Services.Interfaces
 
         public void Update(Product product);
 
-        public List<Product> GetFiltered(Category? category = null, Brand? brand = null, string? name = null);
+        public List<Product> GetFiltered(Category? category = null, 
+                                         Brand? brand = null, 
+                                         string? name = null, 
+                                         double? minimumPrice = null, 
+                                         double? maximumPrice = null, 
+                                         bool? excludedFromPromos = null);
     }
 }

@@ -90,11 +90,17 @@ public class ProductController : ControllerBase
     }
 
     [HttpGet("filtered")]
-    public ActionResult<List<Product>> GetFiltered([FromQuery] string? category = null, [FromQuery] string? brand = null, [FromQuery] string? name = null)
+    public ActionResult<List<Product>> GetFiltered(
+        [FromQuery] string? category = null, 
+        [FromQuery] string? brand = null, 
+        [FromQuery] string? name = null,
+        [FromQuery] double? minimumPrice = null,
+        [FromQuery] double? maximumPrice = null,
+        [FromQuery] bool? excludedFromPromos = null)
     {
         Category? categoryFilter = category != null ? new Category(category) : null;
         Brand? brandFilter = brand != null ? new Brand(brand) : null;
-        return _productService.GetFiltered(categoryFilter, brandFilter, name);
+        return _productService.GetFiltered(categoryFilter, brandFilter, name,minimumPrice,maximumPrice,excludedFromPromos);
     }
 
 }

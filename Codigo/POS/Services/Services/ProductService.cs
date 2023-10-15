@@ -83,7 +83,12 @@ public class ProductService : IProductService
         }
     }
 
-    public List<Product> GetFiltered(Category? category = null, Brand? brand = null, string? name = null)
+    public List<Product> GetFiltered(Category? category = null, 
+                                     Brand? brand = null, 
+                                     string? name = null, 
+                                     double? minimumPrice = null, 
+                                     double? maximumPrice = null, 
+                                     bool? excludedFromPromos = null)
     {
         IEnumerable<Product> result;
         try
@@ -94,7 +99,6 @@ public class ProductService : IProductService
         {
             throw new Service_ObjectHandlingException("Exception catched from the repository: " + ex.Message);
         }
-
 
         if (category != null)
         {
@@ -107,7 +111,7 @@ public class ProductService : IProductService
         if (name != null)
         {
             result = result.Where(p => p.Name.Contains(name));
-        }
+        }        
 
         return result.ToList();
     }

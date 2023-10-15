@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DataAccess.Repositories;
+using Microsoft.AspNetCore.Mvc;
 using Moq;
 using Rest_Api.Controllers;
 using Services.Exceptions;
@@ -212,16 +213,16 @@ namespace ApiTests.Controllers
         [TestMethod]
         public void GetFiltered_ReturnsListOfProducts()
         {
-
-            Category category = new Category("Category");
-            string name = "Product";
+            Category category = new Category("T-Shirt");
+            string name = "Name";
             var expectedProducts = new List<Product>
             {
-                new Product { Id = 1, Name = "Product1", Category = category, Brand = new Brand("Brand1") },
-                new Product { Id = 2, Name = "Product2", Category = category, Brand = new Brand("Brand2") }
+                _mockProducts[0],
+                _mockProducts[2],
+                _mockProducts[4],
             };
 
-            _mock.Setup(p => p.GetFiltered(category, It.IsAny<Brand>(), name))
+            _mock.Setup(p => p.GetFiltered(category, null, name,null,null,null))
                 .Returns(expectedProducts);
 
             var result = _productController.GetFiltered(category: category.Name, name: name);
@@ -233,5 +234,56 @@ namespace ApiTests.Controllers
             Assert.IsNotNull(products);
             CollectionAssert.AreEqual(expectedProducts, products);
         }
-    }
+
+        private List<Product> _mockProducts = new List<Product>()
+        {
+            new Product
+            {
+                Name = "Name 1",
+                Description = "Description 1",
+                PriceUYU = 20.0,
+                Brand = new Brand("Nike"),
+                Category = new Category("T-Shirt"),
+                Colours = new List<Colour>() { new Colour("Blue")}
+            },
+            new Product
+            {
+                Name = "Name 2",
+                Description = "Description 2",
+                PriceUYU = 50.0,
+                Brand = new Brand("Puma"),
+                Category = new Category("Pants"),
+                Colours = new List<Colour>() { new Colour("Green"), new Colour("Red") }
+            },
+            new Product
+            {
+                Name = "Name 3",
+                Description = "Description 3",
+                PriceUYU = 20.0,
+                Brand = new Brand("Nike"),
+                Category = new Category("T-Shirt"),
+                Colours = new List<Colour> { new Colour("Red") }
+            },
+
+            new Product
+            {
+                Name = "Name 4",
+                Description = "Description 4",
+                PriceUYU = 100.0,
+                Brand = new Brand("Puma"),
+                Category = new Category("Pants"),
+                Colours = new List<Colour> { new Colour("Green"), new Colour("Red") }
+            },
+
+            new Product
+            {
+                Name = "Name 5",
+                Description = "Description 5",
+                PriceUYU = 60.0,
+                Brand = new Brand("Nike"),
+                Category = new Category("T-Shirt"),
+                Colours = new List<Colour> { new Colour("Blue"), new Colour("Green") }
+            }
+        };
+     }
 }
