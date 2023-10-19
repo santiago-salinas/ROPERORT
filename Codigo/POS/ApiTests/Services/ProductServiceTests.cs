@@ -3,6 +3,7 @@ using Services;
 using Services.Exceptions;
 using Services.Interfaces;
 using Services.Models;
+using Services.Models.DTOs;
 using System.Drawing;
 
 namespace ApiTests.Services
@@ -365,9 +366,10 @@ namespace ApiTests.Services
         public void GetFiltered_ByBrand()
         {
             _repository.Setup(r => r.GetAll()).Returns(_mockProducts);
-            Brand filter = new Brand("Puma");
+            string brand = "Puma";
+            ProductFilterDTO filter = new ProductFilterDTO() { Brand = brand};
 
-            List<Product> products = _productService.GetFiltered(brand: filter);
+            List<Product> products = _productService.GetFiltered(filter);
 
             Assert.AreEqual(2, products.Count);
             Assert.IsTrue(products.All(p => p.Brand.Equals(filter)));
@@ -377,12 +379,40 @@ namespace ApiTests.Services
         public void GetFiltered_ByCategory()
         {
             _repository.Setup(r => r.GetAll()).Returns(_mockProducts);
-            Category filter = new Category("T-Shirt");
+            string category = "T-Shirt";
+            ProductFilterDTO filter = new ProductFilterDTO() { Category = category };
 
-            List<Product> products = _productService.GetFiltered(category: filter);
+            List<Product> products = _productService.GetFiltered(filter);
 
             Assert.AreEqual(3, products.Count);
             Assert.IsTrue(products.All(p => p.Category.Equals(filter)));
+        }
+
+        [TestMethod]
+        public void GetFiltered_ByPrice()
+        {
+            _repository.Setup(r => r.GetAll()).Returns(_mockProducts);
+            double maxPrice = 60;
+            double minPrice = 50;
+            ProductFilterDTO filter = new ProductFilterDTO() { MaximumPrice = maxPrice, MinimumPrice = minPrice };
+
+            List<Product> products = _productService.GetFiltered(filter);
+
+            Assert.AreEqual(2, products.Count);
+            Assert.IsTrue(products.All(p => p.PriceUYU >= minPrice && p.PriceUYU <= maxPrice));
+        }
+
+        [TestMethod]
+        public void GetFiltered_ByExcluded()
+        {
+            _repository.Setup(r => r.GetAll()).Returns(_mockProducts);
+            bool excluded = true;
+            ProductFilterDTO filter = new ProductFilterDTO() { ExcludedFromPromos = excluded};
+
+            List<Product> products = _productService.GetFiltered(filter);
+
+            Assert.AreEqual(2, products.Count);
+            Assert.IsTrue(products.All(p => p.Exclude.Equals(filter)));
         }
 
         [TestMethod]
@@ -393,11 +423,19 @@ namespace ApiTests.Services
             Brand brand = new Brand("Nike");
             string name = "Other name";
 
-            List<Product> products = _productService.GetFiltered(category, brand, name);
+            ProductFilterDTO filter = new ProductFilterDTO()
+            {
+                Category = category.Name,
+                Brand = brand.Name,
+                Name = name,
+            };
+
+            List<Product> products = _productService.GetFiltered(filter);
 
             Assert.AreEqual(0, products.Count);
 
-            products = _productService.GetFiltered(category, brand);
+            filter.Name = null;
+            products = _productService.GetFiltered(filter);
 
             Assert.AreEqual(3, products.Count);
             Assert.IsTrue(products.All(p => p.Category.Equals(category) && p.Brand.Equals(brand)));
@@ -411,8 +449,14 @@ namespace ApiTests.Services
             Category category = new Category("T-Shirt");
             Brand brand = new Brand("Nike");
             string name = "Other name";
+            ProductFilterDTO filters = new ProductFilterDTO()
+            {
+                Category = category.Name,
+                Brand = brand.Name,
+                Name = name
+            };
 
-            List<Product> products = _productService.GetFiltered(category, brand, name);
+            List<Product> products = _productService.GetFiltered(filters);
         }
 
         
@@ -425,7 +469,8 @@ namespace ApiTests.Services
                 PriceUYU = 20.0,
                 Brand = new Brand("Nike"),
                 Category = new Category("T-Shirt"),
-                Colours = new List<Colour>() { new Colour("Blue")}
+                Colours = new List<Colour>() { new Colour("Blue")},
+                Exclude = true,
             },
             new Product
             {
@@ -434,7 +479,8 @@ namespace ApiTests.Services
                 PriceUYU = 50.0,
                 Brand = new Brand("Puma"),
                 Category = new Category("Pants"),
-                Colours = new List<Colour>() { new Colour("Green"), new Colour("Red") }
+                Colours = new List<Colour>() { new Colour("Green"), new Colour("Red") },
+                Exclude = true,
             },
             new Product
             {
@@ -443,7 +489,8 @@ namespace ApiTests.Services
                 PriceUYU = 20.0,
                 Brand = new Brand("Nike"),
                 Category = new Category("T-Shirt"),
-                Colours = new List<Colour> { new Colour("Red") }
+                Colours = new List<Colour> { new Colour("Red") },
+                Exclude = false,
             },
 
             new Product
@@ -453,7 +500,8 @@ namespace ApiTests.Services
                 PriceUYU = 100.0,
                 Brand = new Brand("Puma"),
                 Category = new Category("Pants"),
-                Colours = new List<Colour> { new Colour("Green"), new Colour("Red") }
+                Colours = new List<Colour> { new Colour("Green"), new Colour("Red") },
+                Exclude = false,
             },
 
             new Product
@@ -463,7 +511,8 @@ namespace ApiTests.Services
                 PriceUYU = 60.0,
                 Brand = new Brand("Nike"),
                 Category = new Category("T-Shirt"),
-                Colours = new List<Colour> { new Colour("Blue"), new Colour("Green") }
+                Colours = new List<Colour> { new Colour("Blue"), new Colour("Green") },
+                Exclude = false,
             }
         };
 
