@@ -1,0 +1,18 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>{{ name }}</mat-card-title>
+    <mat-card-subtitle>{{ brand }} / {{ category }} </mat-card-subtitle>
+    <mat-card-subtitle> {{ colours }} </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>{{ description }}</p>
+  </mat-card-content>
+  <mat-card-actions class="card-actions">
+    <mat-card-title>${{ priceUYU }}</mat-card-title>
+    <div class="add-to-cart-button">
+      <button mat-flat-button color="primary" (click)="addToCart()">
+        <mat-icon>shopping_cart</mat-icon> Add to Cart
+      </button>
+    </div>
+  </mat-card-actions>
+</mat-card>
