@@ -18,7 +18,7 @@ import { ProductCardComponent } from '../product-card/product-card.component';
         [description]=product.description
         [brand]=product.brand.name
         [category]=product.category.name
-        [colours]=product.colours>
+        [colours]=getNameList(product.colours)>
     </app-product-card>
   `,
   styleUrls: ['./home.component.scss']
@@ -34,5 +34,9 @@ export class HomeComponent implements OnInit {
       console.log(data);
       this.data = data;
     });
+  }
+
+  getNameList(colors: any[]): string {
+    return colors.map((color) => color.name).join(', ');
   }
 }
