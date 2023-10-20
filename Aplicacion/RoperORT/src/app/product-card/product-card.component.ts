@@ -1,6 +1,8 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
+
 
 
 @Component({
@@ -8,8 +10,13 @@ import {MatCardModule} from '@angular/material/card';
   templateUrl: './product-card.component.html',
   styleUrls: ['./product-card.component.scss'],
   standalone: true,
-  imports: [MatCardModule, MatButtonModule],
+  imports: [MatCardModule, MatButtonModule,MatIconModule],
 })
 export class ProductCardComponent {
-  longText = `This Batsuit was used by George Clooney.`;
+  @Input() name:string = "Example name";
+  @Input() priceUYU:number = 0;
+  @Input() description:string = "Example description";
+  @Input() brand:string = "NullBrand";
+  @Input() category:string = "nullCategory";
+  @Input() colours = "nullColours";
 }
