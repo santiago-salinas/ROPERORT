@@ -14,7 +14,7 @@ import { ProductCardComponent } from '../product-card/product-card.component';
     <app-product-card
     *ngFor="let product of data; let i= index"
         [name] = product.name
-        [priceUYU]=product.price
+        [priceUYU]=product.priceUYU
         [description]=product.description
         [brand]=product.brand.name
         [category]=product.category.name

@@ -8,9 +8,9 @@
     <p>{{ description }}</p>
   </mat-card-content>
   <mat-card-actions class="card-actions">
-    <mat-card-title>$2000</mat-card-title>
+    <mat-card-title>${{ priceUYU }}</mat-card-title>
     <div class="add-to-cart-button">
-      <button mat-flat-button color="primary">
+      <button mat-flat-button color="primary" (click)="addToCart()">
         <mat-icon>shopping_cart</mat-icon> Add to Cart
       </button>
     </div>
