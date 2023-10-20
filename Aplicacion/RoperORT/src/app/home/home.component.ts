@@ -8,9 +8,6 @@ import { ProductCardComponent } from '../product-card/product-card.component';
   standalone: true,
   imports: [CommonModule,ProductCardComponent],
   template: `
-    <p>
-      home works!
-    </p>
     <app-product-card
     *ngFor="let product of data; let i= index"
         [name] = product.name
@@ -30,10 +27,16 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dataService.getData().subscribe((data) => {
-      console.log(data);
-      this.data = data;
-    });
+    this.dataService.getData().subscribe(
+      (data) => {
+        console.log(data);
+        this.data = data;
+      },
+      (error) => {
+        alert('API Is Not Responding. Reloading after OK');
+        location.reload();
+      }
+    );
   }
 
   getNameList(colors: any[]): string {
