@@ -1,0 +1,13 @@
+.example-card {
+    max-width: 400px;
+  }
+
+  .card-actions {
+   display: flex;
+   justify-content: space-between;
+  align-items: center;
+}
+
+.add-to-cart-button {
+  flex: 0 0 auto;
+}

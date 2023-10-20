@@ -9,18 +9,20 @@ import { LogoComponent } from './logo/logo.component';
 import { ProductCardComponent } from './product-card/product-card.component';
 
 import { HomeComponent } from './home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
     LogoComponent,
-    ProductCardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HomeComponent,
     HttpClientModule,
+    BrowserAnimationsModule,
+    ProductCardComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
