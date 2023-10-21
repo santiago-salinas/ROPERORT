@@ -10,12 +10,13 @@ import { ProductCardComponent } from './product-card/product-card.component';
 
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TabComponent } from './tab/tab.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LogoComponent,
+    LogoComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +24,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HomeComponent,
     HttpClientModule,
     BrowserAnimationsModule,
-    ProductCardComponent
+    ProductCardComponent,
+    TabComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

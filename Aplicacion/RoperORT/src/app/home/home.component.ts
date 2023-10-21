@@ -2,12 +2,14 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit, ChangeDetectorRef} from '@angular/core';
 import { DataService } from '../data.service';
 import { ProductCardComponent } from '../product-card/product-card.component';
+import { TabComponent } from '../tab/tab.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule,ProductCardComponent],
+  imports: [CommonModule,ProductCardComponent,TabComponent],
   template: `
+    <app-tab></app-tab>
     <app-product-card
     *ngFor="let product of data; let i= index"
         [name] = product.name
