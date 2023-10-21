@@ -21,7 +21,7 @@ namespace Rest_Api.Controllers
 
         // POST action
         [HttpPost]
-        public IActionResult Create(CredentialsDTO credentials)
+        public ActionResult<TokenDTO> Create(CredentialsDTO credentials)
         {
             List<User> users = _userService.GetAll();
             User? found = users.FirstOrDefault(user => user.Email == credentials.Email && user.Password == credentials.Password);
@@ -31,7 +31,9 @@ namespace Rest_Api.Controllers
                 return BadRequest("Invalid Credentials");
             }
 
-            return Ok(found.Token);
+            TokenDTO response = new TokenDTO(found.Token);
+
+            return Ok(response);
         }
     }
 }

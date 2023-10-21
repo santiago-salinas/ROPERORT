@@ -10,17 +10,6 @@ import { TabComponent } from '../tab/tab.component';
   imports: [CommonModule,ProductCardComponent,TabComponent],
   template: `
     <app-tab></app-tab>
-    <!--
-    <app-product-card
-    *ngFor="let product of data; let i= index"
-        [name] = product.name
-        [priceUYU]=product.priceUYU
-        [description]=product.description
-        [brand]=product.brand.name
-        [category]=product.category.name
-        [colours]=getNameList(product.colours)>
-    </app-product-card>
--->
   `,
   styleUrls: ['./home.component.scss']
 })
@@ -31,7 +20,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dataService.getData().subscribe(
+    this.dataService.getProducts().subscribe(
       (data) => {
         console.log(data);
         this.data = data;

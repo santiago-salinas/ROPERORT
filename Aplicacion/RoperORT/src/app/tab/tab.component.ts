@@ -25,7 +25,7 @@ export class TabComponent {
   }
 
   ngOnInit(): void {
-    this.dataService.getData().subscribe(
+    this.dataService.getProducts().subscribe(
       (data) => {
         console.log(data);
         this.data = data;
