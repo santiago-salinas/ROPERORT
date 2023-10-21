@@ -11,6 +11,7 @@ import { ProductCardComponent } from './product-card/product-card.component';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TabComponent } from './tab/tab.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { TabComponent } from './tab/tab.component';
     HttpClientModule,
     BrowserAnimationsModule,
     ProductCardComponent,
-    TabComponent
+    TabComponent,
+    LoginComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

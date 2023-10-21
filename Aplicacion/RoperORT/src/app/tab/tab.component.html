@@ -1,6 +1,23 @@
 <mat-tab-group>
-    <mat-tab label="Productos"> Content 1 </mat-tab>
-    <mat-tab label="Usuarios"> Content 2 </mat-tab>
-    <mat-tab label="Log In">Content 3</mat-tab>
+
+    <mat-tab label="Productos">
+        <app-product-card
+            *ngFor="let product of data; let i= index"
+            [name] = product.name
+            [priceUYU]=product.priceUYU
+            [description]=product.description
+            [brand]=product.brand.name
+            [category]=product.category.name
+            [colours]=getNameList(product.colours)>
+        </app-product-card>
+    </mat-tab>
+
+    <mat-tab label="Usuarios">
+        <a> {{getUsers()}} </a>
+    </mat-tab>
+
+    <mat-tab label="Log In">
+        <app-login></app-login>
+    </mat-tab>
+
 </mat-tab-group>
-  

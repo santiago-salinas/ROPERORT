@@ -10,6 +10,7 @@ import { TabComponent } from '../tab/tab.component';
   imports: [CommonModule,ProductCardComponent,TabComponent],
   template: `
     <app-tab></app-tab>
+    <!--
     <app-product-card
     *ngFor="let product of data; let i= index"
         [name] = product.name
@@ -19,6 +20,7 @@ import { TabComponent } from '../tab/tab.component';
         [category]=product.category.name
         [colours]=getNameList(product.colours)>
     </app-product-card>
+-->
   `,
   styleUrls: ['./home.component.scss']
 })
