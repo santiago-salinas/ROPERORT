@@ -10,5 +10,11 @@ namespace Rest_Api.DTOs
         {
             Token = token;
         }
+
+        public override bool Equals(object? obj)
+        {
+            TokenDTO other = obj as TokenDTO;
+            return Token.Equals(other.Token);
+        }
     }
 }

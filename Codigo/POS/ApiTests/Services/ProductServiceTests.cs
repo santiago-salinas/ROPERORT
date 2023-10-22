@@ -367,12 +367,13 @@ namespace ApiTests.Services
         {
             _repository.Setup(r => r.GetAll()).Returns(_mockProducts);
             string brand = "Puma";
+            Brand brandObj = new Brand(brand);
             ProductFilterDTO filter = new ProductFilterDTO() { Brand = brand};
 
             List<Product> products = _productService.GetFiltered(filter);
 
             Assert.AreEqual(2, products.Count);
-            Assert.IsTrue(products.All(p => p.Brand.Equals(filter)));
+            Assert.IsTrue(products.All(p => p.Brand.Equals(brandObj)));
         }
 
         [TestMethod]
@@ -380,12 +381,13 @@ namespace ApiTests.Services
         {
             _repository.Setup(r => r.GetAll()).Returns(_mockProducts);
             string category = "T-Shirt";
+            Category categoryObj = new Category(category);
             ProductFilterDTO filter = new ProductFilterDTO() { Category = category };
 
             List<Product> products = _productService.GetFiltered(filter);
 
             Assert.AreEqual(3, products.Count);
-            Assert.IsTrue(products.All(p => p.Category.Equals(filter)));
+            Assert.IsTrue(products.All(p => p.Category.Equals(categoryObj)));
         }
 
         [TestMethod]
@@ -412,7 +414,7 @@ namespace ApiTests.Services
             List<Product> products = _productService.GetFiltered(filter);
 
             Assert.AreEqual(2, products.Count);
-            Assert.IsTrue(products.All(p => p.Exclude.Equals(filter)));
+            Assert.IsTrue(products.All(p => p.Exclude.Equals(filter.ExcludedFromPromos)));
         }
 
         [TestMethod]
