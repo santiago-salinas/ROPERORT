@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, ChangeDetectorRef} from '@angular/core';
-import { DataService } from '../data.service';
+import { LoginService } from '../data.service';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { TabComponent } from '../tab/tab.component';
 
@@ -16,21 +16,10 @@ import { TabComponent } from '../tab/tab.component';
 export class HomeComponent implements OnInit {
   data: any;
 
-  constructor(private dataService: DataService) {
+  constructor(private dataService: LoginService) {
   }
 
-  ngOnInit(): void {
-    this.dataService.getProducts().subscribe(
-      (data) => {
-        console.log(data);
-        this.data = data;
-      },
-      (error) => {
-        alert('API Is Not Responding. Reloading after OK');
-        location.reload();
-      }
-    );
-  }
+  ngOnInit(): void { }
 
   getNameList(colors: any[]): string {
     return colors.map((color) => color.name).join(', ');

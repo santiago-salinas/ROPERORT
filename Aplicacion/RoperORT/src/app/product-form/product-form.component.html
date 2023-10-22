@@ -1,0 +1,17 @@
+<form [formGroup]="productForm">
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Colors</mat-label>
+    <mat-select formControlName="colors" multiple>
+      <mat-option *ngFor="let color of availableColors" [value]="color">
+        {{ color }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button (click)="submitForm()">Save</button>
+</form>

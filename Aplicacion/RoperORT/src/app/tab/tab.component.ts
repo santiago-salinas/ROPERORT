@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { MatTabsModule } from '@angular/material/tabs';
-import { DataService } from '../data.service';
+import { ProductService } from '../product.service';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { LoginComponent } from '../login/login.component';
 
@@ -17,7 +17,7 @@ export class TabComponent {
   data: any;
   text="";
 
-  constructor(private dataService: DataService) {
+  constructor(private dataService: ProductService) {
   }
 
   getUsers(){

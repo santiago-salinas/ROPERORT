@@ -3,12 +3,7 @@
     <mat-tab label="Productos">
         <app-product-card
             *ngFor="let product of data; let i= index"
-            [name] = product.name
-            [priceUYU]=product.priceUYU
-            [description]=product.description
-            [brand]=product.brand.name
-            [category]=product.category.name
-            [colours]=getNameList(product.colours)>
+            [productDetails]="product">
         </app-product-card>
     </mat-tab>
 

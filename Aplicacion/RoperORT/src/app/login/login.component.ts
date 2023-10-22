@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { DataService } from '../data.service';
+import { LoginService } from '../data.service';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 
@@ -15,9 +15,9 @@ import {MatInputModule} from '@angular/material/input';
 export class LoginComponent {
   email: string = "";
   password: string = "";
-  service: DataService;
+  service: LoginService;
 
-  constructor(private dataService: DataService) {
+  constructor(private dataService: LoginService) {
     this.service = dataService;
   }
 

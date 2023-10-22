@@ -5,14 +5,10 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class DataService {
+export class LoginService {
   activeToken: string = "";
 
   constructor(private http: HttpClient) {}
-
-  getProducts(): Observable<any> {
-    return this.http.get('https://localhost:7207/product');
-  }
 
   logIn(email: string, password: string): Observable<any> {
     return this.http.post('https://localhost:7207/login',
