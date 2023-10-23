@@ -1,0 +1,18 @@
+<mat-tab-group>
+
+    <mat-tab label="Productos">
+        <app-product-card
+            *ngFor="let product of data; let i= index"
+            [productDetails]="product">
+        </app-product-card>
+    </mat-tab>
+
+    <mat-tab label="Usuarios">
+        <a> {{getUsers()}} </a>
+    </mat-tab>
+
+    <mat-tab label="Log In">
+        <app-login></app-login>
+    </mat-tab>
+
+</mat-tab-group>

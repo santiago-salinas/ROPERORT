@@ -3,6 +3,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
+import { Product } from '../models/product.model';
 
 
 
@@ -18,12 +19,7 @@ import {MatIconModule} from '@angular/material/icon';
 export class ProductCardComponent {
   constructor(private _snackBar: MatSnackBar) {}
 
-  @Input() name:string = "Example name";
-  @Input() priceUYU:string = "0";
-  @Input() description:string = "Example description";
-  @Input() brand:string = "NullBrand";
-  @Input() category:string = "nullCategory";
-  @Input() colours = "nullColours";
+  @Input() productDetails: Product = new Product();
 
   addToCart() {
     const message = `Not Implemented`;
@@ -33,5 +29,9 @@ export class ProductCardComponent {
     this._snackBar.open(message, action, {
       duration: 3000, // Specify the duration in milliseconds
     });
+  }
+
+  getColoursNames(): string {
+    return this.productDetails.colours.map((colour) => colour.name).join(', ');
   }
 }
