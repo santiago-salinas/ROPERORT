@@ -32,8 +32,7 @@ export class LoginComponent {
         this.loggedIn = true;
       },
       (error) => {
-        alert('API Is Not Responding. Reloading after OK');
-        location.reload();
+        alert(error.error);
       }
     );
   }
