@@ -2,36 +2,27 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule, FormBuilder  } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+//Pages
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LogoComponent } from './logo/logo.component';
-import { ProductCardComponent } from './product-card/product-card.component';
-
-import { HomeComponent } from './home/home.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { TabComponent } from './tab/tab.component';
-import { LoginComponent } from './login/login.component';
-import { ProductFormComponent } from './product-form/product-form.component';
+import { HomeComponent } from './pages/home/home.component';
+import { LoginComponent } from './pages/login/login.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LogoComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule,
     AppRoutingModule,
-    HomeComponent,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    ProductCardComponent,
-    TabComponent,
-    LoginComponent,
-    FormsModule,
-    ProductFormComponent
+    HttpClientModule, //Se necesita?
+    FormsModule, //Se necesita?
+    ReactiveFormsModule, //Se necesita?
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

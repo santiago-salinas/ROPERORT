@@ -3,9 +3,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
-import { Product } from '../models/product.model';
-
-
+import { Product } from 'src/app/models/product.model';
 
 @Component({
   selector: 'app-product-card',
