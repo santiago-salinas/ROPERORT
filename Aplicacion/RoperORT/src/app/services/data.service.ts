@@ -19,6 +19,10 @@ export class LoginService {
     )
   }
 
+  logOut(){
+    this.activeToken = "";
+  }
+
   storeToken(newToken: string){
     this.activeToken = newToken;
   }
