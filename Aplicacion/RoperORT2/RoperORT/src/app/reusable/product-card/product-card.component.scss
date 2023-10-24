@@ -1,0 +1,19 @@
+.example-card {
+    max-width: 400px;
+    margin: 20px;
+    background-color: rgb(255, 240, 240);
+  }
+
+  .card-actions {
+   display: flex;
+   justify-content: space-between;
+  align-items: center;
+}
+
+.add-to-cart-button {
+  flex: 0 0 auto;
+}
+
+.text-small{
+    font-size: 10px;
+}
