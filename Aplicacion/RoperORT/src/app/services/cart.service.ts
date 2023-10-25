@@ -6,12 +6,25 @@ import { Product } from 'src/app/models/product.model';
 import { CartLine } from 'src/app/models/cartLine.model';
 
 import { ProductService } from 'src/app/services/product.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
+  productsInCart: CartLine[] = [];
+  private cartDataSubject = new BehaviorSubject<number>(0);
+  cartData$ = this.cartDataSubject.asObservable();
+
   constructor(private http: HttpClient, private productService: ProductService) {
+    //Lo primero que hace el service es obtener de local storage el carrito
+    const cartProductList = JSON.parse(localStorage.getItem('cart') || '[]');
+    this.productsInCart = cartProductList || [];
+   }
+
+   update():void{
+    localStorage.setItem('cart', JSON.stringify(this.productsInCart));
+    this.cartDataSubject.next(Math.random());
    }
 
    addProduct(product : Product, quantity : number){
@@ -27,16 +40,39 @@ export class CartService {
     } else {
       this.productsInCart.push(cartLine);
     }
+    //Si se modifica el carrito se guarda en local storage
+    this.update();
    }
 
-   productsInCart: CartLine[] = [];
+   removeProduct(product: Product) {
+    const index = this.productsInCart.findIndex(item => item.Id === product.id);
 
-  getProducts(): Observable<any> {
-    return this.http.get('https://localhost:7207/product');
+    if (index !== -1) {
+      this.productsInCart.splice(index, 1);
+    }
+    this.update();
   }
 
-  evaluateCart(): Observable<any> {
-    console.log(this.productsInCart)
+  modifyProduct(product: Product, newQuantity: number) {
+    const existingCartItem = this.productsInCart.find(item => item.Id === product.id);
+
+    if (existingCartItem) {
+      existingCartItem.Quantity = newQuantity;
+    } else {
+      const cartLine: CartLine = {
+        Id: product.id,
+        Quantity: newQuantity
+      };
+      this.productsInCart.push(cartLine);
+    }
+
+    this.update();
+
+  }
+
+
+  getCart(): Observable<any> {
     return this.http.post('https://localhost:7207/cart',{Products : this.productsInCart});
   }
+
 }

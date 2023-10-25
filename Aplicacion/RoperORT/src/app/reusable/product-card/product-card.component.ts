@@ -22,11 +22,11 @@ import { CartService } from '../../services/cart.service';
 
 export class ProductCardComponent {
   constructor(private _snackBar: MatSnackBar, private router: Router, private cartService: CartService) {
-    this.value = 1;
+    this.quantity = 1;
   }
 
   @Input() productDetails: Product = new Product();
-  value:number
+  @Input() quantity:number = 0;
 
   async snackFloat(message: string) {
     return new Promise<void>((resolve) => {
@@ -49,31 +49,34 @@ export class ProductCardComponent {
   }
 
   removeFromCart() {
-    this.snackFloat("Not Implemented");
+    this.cartService.removeProduct(this.productDetails);
   }
 
   correctValue() {
-    if (this.value < 1) {
-      this.value = 1;
+    if (this.quantity < 1) {
+      this.quantity = 1;
+      this.cartService.modifyProduct(this.productDetails, this.quantity);
     }
   }
 
   async decrementValue(){
-    if(this.value <= 1){
-      this.value=1;
+    if(this.quantity <= 1){
+      this.quantity=1;
       await this.snackFloat("To delete an item, use delete button");
     }else{
-      this.value-=1;
+      this.quantity-=1;
     }
+    this.cartService.modifyProduct(this.productDetails, this.quantity);
   }
 
   async incrementValue(){
-    if(this.value >= 99){
-      this.value=98;
+    if(this.quantity >= 99){
+      this.quantity=98;
       this.snackFloat("Cortala hermano");
     }else{
-      this.value+=1;
+      this.quantity+=1;
     }
+    this.cartService.modifyProduct(this.productDetails, this.quantity);
   }
 
 

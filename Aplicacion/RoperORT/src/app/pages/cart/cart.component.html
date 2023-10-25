@@ -1,17 +1,19 @@
 <div class="page-container">
   <div class="content">
-    <p>cart works!</p>
     <app-product-card
-      *ngFor="let product of productList; let i = index"
-      [productDetails]="product"
+      *ngFor="let product of cartProducts; let i = index"
+      [productDetails]="product.product"
+      [quantity]="product.quantity"
     >
     </app-product-card>
   </div>
   <div class="blue-div">
-    <app-product-card
-      *ngFor="let product of cartProductList; let i = index"
-      [productDetails]="product"
-    >
-    </app-product-card>
+    <p>
+      Applied Promo: {{ cartData.appliedPromo }}
+      <br />
+      Price: {{ cartData.priceUYU }}
+      <br />
+      DiscountedPrice : {{ cartData.discountedPriceUYU }}
+    </p>
   </div>
 </div>

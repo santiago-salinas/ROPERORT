@@ -13,37 +13,40 @@ import { ProductCardComponent } from 'src/app/reusable/product-card/product-card
 })
 
 export class CartComponent {
-  productList : Product[] = [];
-  cartProductList : Product[] = [];
+  cartProducts : any[] = [];
+  cartData : any = [];
+
 
   constructor(private cartService: CartService) {
   }
 
-  ngOnInit(): void {
-    this.cartService.getProducts().subscribe(
-      (data:Product[]) => {
-        console.log(data);
-        this.productList = data;
-      },
-      (error:any) => {
-        alert('API Is Not Responding. Reloading after OK');
-        location.reload();
-      }
-    );
 
-    this.cartService.evaluateCart().subscribe(
-      (data:any) => {
-        console.log(data);
-        this.cartProductList = data.Products;
-      },
-      (error:any) => {
-        //alert('API Is Not Responding. Reloading after OK');
-        //location.reload();
-      }
-    );
+  ngOnInit(): void {
+    this.cartService.cartData$.subscribe(() => {
+      this.refreshCart();
+    });
+
+    this.refreshCart();
   }
 
   getNameList(colors: Product[]): string {
     return colors.map((color) => color.name).join(', ');
+  }
+
+  refreshCart():void{
+    this.cartService.getCart().subscribe(
+      (data:any) => {
+        console.log("Consiguiendo el carrito");
+        console.log(data);
+        console.log(data.products);
+        this.cartData = data;
+        this.cartProducts = data.products;
+
+      },
+      (error:any) => {
+        //console.log(error)
+        //alert(error.error)
+      }
+    );
   }
 }
