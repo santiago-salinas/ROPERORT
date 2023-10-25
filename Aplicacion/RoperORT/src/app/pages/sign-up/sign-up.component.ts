@@ -38,6 +38,19 @@ export class SignUpComponent {
       this.service.signUp(this.email, this.password, this.address).subscribe(
         (data) => {
           console.log(data);
+          this.service.logIn(this.email, this.password).subscribe(
+            (data) => {
+              console.log(data);
+              this.router.navigate(['/home']);
+            },
+            (error) => {
+              const message = error.error;
+              const action = "Close";
+              this._snackBar.open(message, action, {
+                duration: 3000,
+              });
+            }
+          )
         },
         (error) => {
           const message = error.error;

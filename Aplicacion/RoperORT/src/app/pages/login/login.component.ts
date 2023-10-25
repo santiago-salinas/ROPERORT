@@ -19,11 +19,12 @@ import { MatInputModule } from '@angular/material/input';
 export class LoginComponent {
   email: string = "";
   password: string = "";
-  loggedIn: boolean = false;
+  loggedIn: boolean;
   service: LoginService;
 
   constructor(private dataService: LoginService, private router: Router, private _snackBar: MatSnackBar) {
     this.service = dataService;
+    this.loggedIn = dataService.activeToken != "";
   }
 
   logIn(){
