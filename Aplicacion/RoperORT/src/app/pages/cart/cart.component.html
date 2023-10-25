@@ -1,1 +1,11 @@
-<p>cart works!</p>
+<div class="page-container">
+  <div class="content">
+    <p>cart works!</p>
+    <app-product-card
+      *ngFor="let product of productList; let i = index"
+      [productDetails]="product"
+    >
+    </app-product-card>
+  </div>
+  <div class="blue-div"></div>
+</div>

@@ -4,6 +4,8 @@ import { Product } from 'src/app/models/product.model';
 import { ProductService } from 'src/app/services/product.service';
 import { ProductCardComponent } from 'src/app/reusable/product-card/product-card.component';
 
+
+
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
