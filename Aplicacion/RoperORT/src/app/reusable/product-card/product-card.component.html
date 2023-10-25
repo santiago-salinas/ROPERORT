@@ -17,6 +17,19 @@
       </button>
     </div>
     <div class="remove-from-cart-button" *ngIf="isCartRoute()">
+      <button color="secondary" (click)="decrementValue()">
+        <mat-icon>remove</mat-icon>
+      </button>
+      <input
+        type="number"
+        min="1"
+        [(ngModel)]="value"
+        (input)="value = value >= 1 ? value : 1"
+        class="value-input"
+      />
+      <button color="secondary" (click)="incrementValue()">
+        <mat-icon>add</mat-icon>
+      </button>
       <button mat-flat-button color="primary" (click)="removeFromCart()">
         <mat-icon>delete</mat-icon> Remove
       </button>

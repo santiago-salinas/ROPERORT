@@ -6,6 +6,9 @@ import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import { Product } from 'src/app/models/product.model';
 
+import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,23 +16,54 @@ import { Router } from '@angular/router';
   templateUrl: './product-card.component.html',
   styleUrls: ['./product-card.component.scss'],
   standalone: true,
-  imports: [CommonModule,MatCardModule, MatButtonModule,MatIconModule,MatSnackBarModule],
+  imports: [CommonModule,MatCardModule, MatButtonModule,MatIconModule,MatSnackBarModule, FormsModule,MatInputModule],
 })
 
 
 export class ProductCardComponent {
-  constructor(private _snackBar: MatSnackBar, private router: Router) {}
+  constructor(private _snackBar: MatSnackBar, private router: Router) {
+    this.value = 1;
+  }
 
   @Input() productDetails: Product = new Product();
+  value:number
+
+  async snackFloat(message: string) {
+    return new Promise<void>((resolve) => {
+      const action = 'Close';
+  
+      // Open the snack bar
+      this._snackBar.open(message, action, {
+        duration: 3000, // Specify the duration in milliseconds
+      });
+  
+      // Delay for a short time (e.g., 100ms) before resolving the Promise
+      setTimeout(() => {
+        resolve();
+      }, 100);
+    });
+  }
 
   addToCart() {
-    const message = `Not Implemented`;
-    const action = 'Close';
+    this.snackFloat("Not Implemented");
+  }
 
-    // Open the snack bar
-    this._snackBar.open(message, action, {
-      duration: 3000, // Specify the duration in milliseconds
-    });
+  async decrementValue(){
+    if(this.value <= 1){
+      this.value=1;
+      await this.snackFloat("To delete an item, use delete button");
+    }else{
+      this.value-=1;
+    }
+  }
+
+  async incrementValue(){
+    if(this.value >= 99){
+      this.value=98;
+      this.snackFloat("Cortala hermano");
+    }else{
+      this.value+=1;
+    }
   }
 
   removeFromCart() {
