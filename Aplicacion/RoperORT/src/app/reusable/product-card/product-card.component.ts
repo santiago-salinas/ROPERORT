@@ -48,6 +48,12 @@ export class ProductCardComponent {
     this.snackFloat("Not Implemented");
   }
 
+  correctValue() {
+    if (this.value < 1) {
+      this.value = 1;
+    }
+  }
+
   async decrementValue(){
     if(this.value <= 1){
       this.value=1;
