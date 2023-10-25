@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/data.service';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
@@ -20,7 +21,7 @@ export class LoginComponent {
   loggedIn: boolean = false;
   service: LoginService;
 
-  constructor(private dataService: LoginService) {
+  constructor(private dataService: LoginService, private router: Router) {
     this.service = dataService;
   }
 
@@ -42,5 +43,9 @@ export class LoginComponent {
     this.email = "";
     this.password = "";
     this.loggedIn = false;
+  }
+
+  signUp(){
+    this.router.navigate(['/sign-up']);
   }
 }
