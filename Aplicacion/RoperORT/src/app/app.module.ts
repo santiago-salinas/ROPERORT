@@ -9,6 +9,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
+import { ProductAdminCardComponent } from './product_management/product-admin-card/product-admin-card.component';
+import { ProductsAdminComponent } from './product_management/products-admin/products-admin.component';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { LoginComponent } from './pages/login/login.component';
     HttpClientModule, //Se necesita?
     FormsModule, //Se necesita?
     ReactiveFormsModule, //Se necesita?
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ProductsAdminComponent,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
