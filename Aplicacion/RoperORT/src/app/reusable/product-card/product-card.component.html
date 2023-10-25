@@ -1,7 +1,9 @@
 <mat-card class="example-card">
   <mat-card-header>
     <mat-card-title>{{ productDetails.name }}</mat-card-title>
-    <mat-card-subtitle>{{ productDetails.brand.name }} / {{ productDetails.category.name }} </mat-card-subtitle>
+    <mat-card-subtitle
+      >{{ productDetails.brand.name }} / {{ productDetails.category.name }}
+    </mat-card-subtitle>
     <mat-card-subtitle> {{ getColoursNames() }} </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
@@ -9,9 +11,14 @@
   </mat-card-content>
   <mat-card-actions class="card-actions">
     <mat-card-title>${{ productDetails.priceUYU }}</mat-card-title>
-    <div class="add-to-cart-button">
+    <div class="add-to-cart-button" *ngIf="isProductsRoute()">
       <button mat-flat-button color="primary" (click)="addToCart()">
         <mat-icon>shopping_cart</mat-icon> Add to Cart
+      </button>
+    </div>
+    <div class="remove-from-cart-button" *ngIf="isCartRoute()">
+      <button mat-flat-button color="primary" (click)="removeFromCart()">
+        <mat-icon>delete</mat-icon> Remove
       </button>
     </div>
   </mat-card-actions>
