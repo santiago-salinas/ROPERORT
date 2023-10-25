@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 
 import { Router } from '@angular/router';
-
+import { CartService } from '../../services/cart.service';
 @Component({
   selector: 'app-product-card',
   templateUrl: './product-card.component.html',
@@ -21,7 +21,7 @@ import { Router } from '@angular/router';
 
 
 export class ProductCardComponent {
-  constructor(private _snackBar: MatSnackBar, private router: Router) {
+  constructor(private _snackBar: MatSnackBar, private router: Router, private cartService: CartService) {
     this.value = 1;
   }
 
@@ -31,12 +31,12 @@ export class ProductCardComponent {
   async snackFloat(message: string) {
     return new Promise<void>((resolve) => {
       const action = 'Close';
-  
+
       // Open the snack bar
       this._snackBar.open(message, action, {
         duration: 3000, // Specify the duration in milliseconds
       });
-  
+
       // Delay for a short time (e.g., 100ms) before resolving the Promise
       setTimeout(() => {
         resolve();
@@ -45,6 +45,10 @@ export class ProductCardComponent {
   }
 
   addToCart() {
+    this.cartService.addProduct(this.productDetails, 1);
+  }
+
+  removeFromCart() {
     this.snackFloat("Not Implemented");
   }
 
@@ -72,15 +76,6 @@ export class ProductCardComponent {
     }
   }
 
-  removeFromCart() {
-    const message = `Not Implemented`;
-    const action = 'Close';
-
-    // Open the snack bar
-    this._snackBar.open(message, action, {
-      duration: 3000, // Specify the duration in milliseconds
-    });
-  }
 
   getColoursNames(): string {
     return this.productDetails.colours.map((colour) => colour.name).join(', ');

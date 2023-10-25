@@ -13,10 +13,10 @@ import { ProductCardComponent } from 'src/app/reusable/product-card/product-card
 })
 
 export class CartComponent {
-  productList : Product[];
+  productList : Product[] = [];
+  cartProductList : Product[] = [];
 
   constructor(private cartService: CartService) {
-    this.productList = [];
   }
 
   ngOnInit(): void {
@@ -28,6 +28,17 @@ export class CartComponent {
       (error:any) => {
         alert('API Is Not Responding. Reloading after OK');
         location.reload();
+      }
+    );
+
+    this.cartService.evaluateCart().subscribe(
+      (data:any) => {
+        console.log(data);
+        this.cartProductList = data.Products;
+      },
+      (error:any) => {
+        //alert('API Is Not Responding. Reloading after OK');
+        //location.reload();
       }
     );
   }
