@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/data.service';
 import { MatButtonModule } from '@angular/material/button';
@@ -12,7 +13,7 @@ import { MatInputModule } from '@angular/material/input';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
   standalone: true,
-  imports: [CommonModule,MatInputModule,MatButtonModule,FormsModule],
+  imports: [CommonModule,MatInputModule,MatButtonModule,FormsModule,MatSnackBarModule],
 })
 
 export class LoginComponent {
@@ -21,7 +22,7 @@ export class LoginComponent {
   loggedIn: boolean = false;
   service: LoginService;
 
-  constructor(private dataService: LoginService, private router: Router) {
+  constructor(private dataService: LoginService, private router: Router, private _snackBar: MatSnackBar) {
     this.service = dataService;
   }
 
@@ -33,7 +34,11 @@ export class LoginComponent {
         this.loggedIn = true;
       },
       (error) => {
-        alert(error.error);
+        const message = error.error;
+        const action = "Close";
+        this._snackBar.open(message, action, {
+          duration: 3000,
+        });
       }
     );
   }

@@ -16,7 +16,6 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
   declarations: [
     AppComponent,
     HomeComponent,
-    SignUpComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +23,8 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
     HttpClientModule, //Se necesita?
     FormsModule, //Se necesita?
     ReactiveFormsModule, //Se necesita?
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    SignUpComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

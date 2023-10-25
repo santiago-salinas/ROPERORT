@@ -26,4 +26,14 @@ export class LoginService {
   storeToken(newToken: string){
     this.activeToken = newToken;
   }
+
+  signUp(email: string, password: string, address: string): Observable<any> {
+    return this.http.post('https://localhost:7207/user',
+      {
+        "email": email,
+        "password": password,
+        "address": address
+      }
+    )
+  }
 }

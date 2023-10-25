@@ -1,1 +1,23 @@
-<p>sign-up works!</p>
+<mat-form-field>
+    <mat-label>Email</mat-label>
+    <input [(ngModel)]="email" matInput/>
+</mat-form-field>
+<br />
+<mat-form-field>
+    <mat-label>Contraseña</mat-label>
+    <input [(ngModel)]="password" type="password" matInput/>
+</mat-form-field>
+<br />
+<mat-form-field>
+    <mat-label>Repita contreseña</mat-label>
+    <input [(ngModel)]="confirmation" type="password" matInput/>
+</mat-form-field>
+<br>
+<mat-form-field>
+    <mat-label>Dirección</mat-label>
+    <input [(ngModel)]="address" matInput/>
+</mat-form-field>
+<br>
+<button mat-flat-button color="primary" (click)="signUp()">
+  Sign Up
+</button>
