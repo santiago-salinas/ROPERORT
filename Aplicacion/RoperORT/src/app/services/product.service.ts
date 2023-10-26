@@ -12,4 +12,16 @@ export class ProductService {
     return this.http.get('https://localhost:7207/product');
   }
 
+  getColours(): Observable<any> {
+    return this.http.get('https://localhost:7207/colour');
+  }
+
+  getBrands(): Observable<any> {
+    return this.http.get('https://localhost:7207/brand');
+  }
+
+  getCategories(): Observable<any> {
+    return this.http.get('https://localhost:7207/category');
+  }
+
 }
