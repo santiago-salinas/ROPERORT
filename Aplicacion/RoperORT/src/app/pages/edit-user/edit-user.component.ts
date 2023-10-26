@@ -67,10 +67,47 @@ export class EditUserComponent {
   }
 
   update(){
-
+    if(this.password != this.confirmation){
+      const message = "Passwords are different";
+      const action = "Close";
+      this._snackBar.open(message, action, {
+        duration: 3000,
+      });
+    } else {
+      this.service.updateUser(this.email, this.password, this.address).subscribe(
+        (data) => {
+          this.logIn();
+          const message = "Usuario modificado correctamente";
+          const action = "Close";
+          this._snackBar.open(message, action, {
+            duration: 3000,
+          });
+          this.router.navigate(['/home']);
+        },
+        (error) => {
+          const message = error.error;
+          const action = "Close";
+          this._snackBar.open(message, action, {
+            duration: 3000,
+          });
+        }
+      );
+    }
   }
 
   logIn(){
-
+    this.service.logIn(this.email, this.password).subscribe(
+      (data) => {
+        console.log(data);
+        this.service.storeToken(data.token);
+      },
+      (error) => {
+        const message = error.error;
+        const action = "Close";
+        this._snackBar.open(message, action, {
+          duration: 3000,
+        });
+      }
+    );
   }
 }
