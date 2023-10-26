@@ -7,32 +7,40 @@ import { LoginService } from 'src/app/services/data.service';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 
-
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  selector: 'app-edit-user',
+  templateUrl: './edit-user.component.html',
+  styleUrls: ['./edit-user.component.scss'],
   standalone: true,
   imports: [CommonModule,MatInputModule,MatButtonModule,FormsModule,MatSnackBarModule],
 })
 
-export class LoginComponent {
+export class EditUserComponent {
   email: string = "";
   password: string = "";
-  loggedIn: boolean;
+  confirmation: string = "";
+  address: string = "";
+  accepted: boolean = false;
+  logged: boolean;
   service: LoginService;
 
   constructor(private dataService: LoginService, private router: Router, private _snackBar: MatSnackBar) {
     this.service = dataService;
-    this.loggedIn = dataService.getToken() != "";
+    this.logged = dataService.getToken() != "";
   }
 
-  logIn(){
+  accept(){
     this.service.logIn(this.email, this.password).subscribe(
       (data) => {
-        console.log(data);
-        this.service.storeToken(data.token);
-        this.loggedIn = true;
+        if(data.token == this.dataService.getToken()){
+          this.accepted = true;
+        } else {
+          const message = "No puede editar a otro usuario";
+          const action = "Close";
+          this._snackBar.open(message, action, {
+            duration: 3000,
+          });
+        }
       },
       (error) => {
         const message = error.error;
@@ -44,14 +52,7 @@ export class LoginComponent {
     );
   }
 
-  logOut(){
-    this.service.logOut();
-    this.email = "";
-    this.password = "";
-    this.loggedIn = false;
-  }
+  update(){
 
-  signUp(){
-    this.router.navigate(['/sign-up']);
   }
 }

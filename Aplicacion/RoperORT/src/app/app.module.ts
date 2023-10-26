@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
+import { EditUserComponent } from './pages/edit-user/edit-user.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
     ReactiveFormsModule, //Se necesita?
     BrowserAnimationsModule,
     SignUpComponent,
+    EditUserComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
