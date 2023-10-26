@@ -19,7 +19,7 @@
 <br />
 
 <mat-form-field *ngIf="accepted==true&&logged">
-    <mat-label>Repita contreseña</mat-label>
+    <mat-label>Confirmar contreseña</mat-label>
     <input [(ngModel)]="confirmation" type="password" matInput/>
 </mat-form-field>
 <br>
@@ -29,5 +29,5 @@
 </mat-form-field>
 <br>
 <button mat-flat-button color="primary" (click)="update()" *ngIf="accepted==true&&logged">
-  Sign Up
+  Confirmar cambios
 </button>

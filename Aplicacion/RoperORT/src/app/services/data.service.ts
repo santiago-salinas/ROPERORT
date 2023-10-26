@@ -39,4 +39,12 @@ export class LoginService {
       }
     )
   }
+
+  getUser(): Observable<any>{
+    return this.http.get('https://localhost:7207/user',
+      {
+        headers: { "Auth": this.getToken() || "" }
+      }
+    )
+  }
 }

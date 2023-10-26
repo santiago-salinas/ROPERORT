@@ -22,11 +22,25 @@ export class EditUserComponent {
   address: string = "";
   accepted: boolean = false;
   logged: boolean;
+  user: any;
   service: LoginService;
 
   constructor(private dataService: LoginService, private router: Router, private _snackBar: MatSnackBar) {
     this.service = dataService;
     this.logged = dataService.getToken() != "";
+    this.service.getUser().subscribe(
+      (data) => {
+        this.user = data;
+        this.address = this.user.address;
+      },
+      (error) => {
+        const message = error.error;
+        const action = "Close";
+        this._snackBar.open(message, action, {
+          duration: 3000,
+        });
+      }
+    );
   }
 
   accept(){
@@ -53,6 +67,10 @@ export class EditUserComponent {
   }
 
   update(){
+
+  }
+
+  logIn(){
 
   }
 }
