@@ -36,7 +36,7 @@
         type="number"
         min="1"
         [(ngModel)]="quantity"
-        (focusout)="quantity = quantity >= 1 ? quantity : 1"
+        (focusout)="setValue()"
         class="value-input"
       />
       <button

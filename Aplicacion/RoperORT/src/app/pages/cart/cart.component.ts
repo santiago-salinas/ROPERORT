@@ -13,8 +13,9 @@ import { ProductCardComponent } from 'src/app/reusable/product-card/product-card
 })
 
 export class CartComponent {
-  cartProducts : any[] = [];
+  cartProducts : any = [];
   cartData : any = [];
+  emptyCart : boolean = true;
 
 
   constructor(private cartService: CartService) {
@@ -25,8 +26,6 @@ export class CartComponent {
     this.cartService.cartData$.subscribe(() => {
       this.refreshCart();
     });
-
-    this.refreshCart();
   }
 
   getNameList(colors: Product[]): string {
@@ -39,13 +38,16 @@ export class CartComponent {
         console.log("Consiguiendo el carrito");
         console.log(data);
         console.log(data.products);
+        this.emptyCart = false;
         this.cartData = data;
         this.cartProducts = data.products;
-
       },
       (error:any) => {
-        //console.log(error)
-        //alert(error.error)
+        if(error.error == "Empty Cart"){
+          this.emptyCart = true;
+        }else{
+          console.log(error);
+        }
       }
     );
   }

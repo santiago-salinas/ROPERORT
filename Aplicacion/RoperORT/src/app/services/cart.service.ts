@@ -13,7 +13,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class CartService {
   productsInCart: CartLine[] = [];
-  private cartDataSubject = new BehaviorSubject<number>(0);
+  private cartDataSubject = new BehaviorSubject<any>(null);
   cartData$ = this.cartDataSubject.asObservable();
 
   constructor(private http: HttpClient, private productService: ProductService) {
@@ -24,7 +24,7 @@ export class CartService {
 
    update():void{
     localStorage.setItem('cart', JSON.stringify(this.productsInCart));
-    this.cartDataSubject.next(Math.random());
+    this.cartDataSubject.next(this.productsInCart);
    }
 
    addProduct(product : Product, quantity : number){
@@ -69,7 +69,6 @@ export class CartService {
     this.update();
 
   }
-
 
   getCart(): Observable<any> {
     return this.http.post('https://localhost:7207/cart',{Products : this.productsInCart});

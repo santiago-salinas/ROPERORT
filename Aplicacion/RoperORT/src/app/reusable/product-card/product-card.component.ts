@@ -59,6 +59,16 @@ export class ProductCardComponent {
     }
   }
 
+  async setValue(){
+    if(this.quantity <= 1){
+      this.quantity=1;
+      await this.snackFloat("Negative Number");
+    }else if (this.quantity >= this.productDetails.stock){
+      this.quantity=this.productDetails.stock;
+    }
+    this.cartService.modifyProduct(this.productDetails, this.quantity);
+  }
+
   async decrementValue(){
     if(this.quantity <= 1){
       this.quantity=1;

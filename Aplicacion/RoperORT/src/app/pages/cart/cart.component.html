@@ -1,5 +1,6 @@
 <div class="page-container">
-  <div class="content">
+  <div class="content" *ngIf="emptyCart">The cart is empty.</div>
+  <div class="content" *ngIf="!emptyCart">
     <app-product-card
       *ngFor="let product of cartProducts; let i = index"
       [productDetails]="product.product"
@@ -13,7 +14,7 @@
       <br />
       Price: {{ cartData.priceUYU }}
       <br />
-      DiscountedPrice : {{ cartData.discountedPriceUYU }}
+      DiscountedPrice: {{ cartData.discountedPriceUYU }}
     </p>
   </div>
 </div>
