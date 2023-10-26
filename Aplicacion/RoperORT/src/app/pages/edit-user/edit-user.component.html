@@ -1,0 +1,33 @@
+<p *ngIf="!logged">
+    No ha iniciado sesión.
+</p>
+
+<mat-form-field *ngIf="logged">
+    <mat-label>Email</mat-label>
+    <input [(ngModel)]="email" matInput/>
+</mat-form-field>
+<br />
+<mat-form-field *ngIf="logged">
+    <mat-label>Contraseña</mat-label>
+    <input [(ngModel)]="password" type="password" matInput/>
+</mat-form-field>
+
+<br />
+<button mat-flat-button color="primary" (click)="accept()" *ngIf="accepted==false&&logged">
+  Continuar
+</button>
+<br />
+
+<mat-form-field *ngIf="accepted==true&&logged">
+    <mat-label>Confirmar contreseña</mat-label>
+    <input [(ngModel)]="confirmation" type="password" matInput/>
+</mat-form-field>
+<br>
+<mat-form-field *ngIf="accepted==true&&logged">
+    <mat-label>Dirección</mat-label>
+    <input [(ngModel)]="address" matInput/>
+</mat-form-field>
+<br>
+<button mat-flat-button color="primary" (click)="update()" *ngIf="accepted==true&&logged">
+  Confirmar cambios
+</button>

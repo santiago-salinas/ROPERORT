@@ -39,4 +39,25 @@ export class LoginService {
       }
     )
   }
+
+  getUser(): Observable<any>{
+    return this.http.get('https://localhost:7207/user',
+      {
+        headers: { "Auth": this.getToken() || "" }
+      }
+    )
+  }
+
+  updateUser(email: string, password: string, address: string): Observable<any>{
+    return this.http.put('https://localhost:7207/user',
+    {
+      "email": email,
+      "password": password,
+      "address": address
+    },
+    {
+      headers: { "Auth": this.getToken() || "" }
+    }
+    )
+  }
 }
