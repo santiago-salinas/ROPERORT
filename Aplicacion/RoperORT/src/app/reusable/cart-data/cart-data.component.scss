@@ -1,0 +1,25 @@
+p {
+    font-size: 16px;
+    margin: 0;
+  }
+
+  .promo-details {
+    background-color: #f7f7f7;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 10px;
+
+    strong {
+      font-weight: bold;
+    }
+  }
+
+  .original-price, .discounted-price {
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 10px;
+  }
+
+  .discounted-price {
+  }
