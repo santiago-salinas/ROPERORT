@@ -41,14 +41,33 @@ export class CartComponent {
         this.emptyCart = false;
         this.cartData = data;
         this.cartProducts = data.products;
+
       },
       (error:any) => {
-        if(error.error == "Empty Cart"){
+        console.log(error.status);
+        if (error.status === 420) {
+          alert("El carrito ha sufrido cambios en relación a la disponibilidad por stock de ciertos items.");
+          this.emptyCart = false;
+          this.cartData = error.error;
+          this.cartProducts = error.error.products;
+          localStorage.setItem('cart', JSON.stringify(this.transformObject(this.cartProducts)));
+        }
+        else if(error.error == "Empty Cart"){
           this.emptyCart = true;
         }else{
           console.log(error);
         }
       }
     );
+  }
+
+  transformObject(inputArray:any):any {
+    return inputArray.map((item:any) => {
+      const { product, quantity } = item;
+      return {
+        Id: product.id,
+        Quantity: quantity,
+      };
+    });
   }
 }

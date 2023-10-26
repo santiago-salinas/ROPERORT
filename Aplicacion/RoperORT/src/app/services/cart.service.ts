@@ -28,6 +28,8 @@ export class CartService {
    }
 
    addProduct(product : Product, quantity : number){
+    this.updateProductsLocal();
+
     const cartLine: CartLine = {
       Id: product.id,
       Quantity: quantity
@@ -45,6 +47,8 @@ export class CartService {
    }
 
    removeProduct(product: Product) {
+    this.updateProductsLocal();
+
     const index = this.productsInCart.findIndex(item => item.Id === product.id);
 
     if (index !== -1) {
@@ -54,6 +58,7 @@ export class CartService {
   }
 
   modifyProduct(product: Product, newQuantity: number) {
+    this.updateProductsLocal();
     const existingCartItem = this.productsInCart.find(item => item.Id === product.id);
 
     if (existingCartItem) {
@@ -68,6 +73,9 @@ export class CartService {
 
     this.update();
 
+  }
+  updateProductsLocal(): void{
+    this.productsInCart = JSON.parse(localStorage.getItem('cart') || '[]');
   }
 
   getCart(): Observable<any> {
