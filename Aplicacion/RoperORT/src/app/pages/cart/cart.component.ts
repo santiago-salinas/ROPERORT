@@ -3,13 +3,14 @@ import { CommonModule } from '@angular/common';
 import { Product } from 'src/app/models/product.model';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductCardComponent } from 'src/app/reusable/product-card/product-card.component';
+import { CartDataComponent } from 'src/app/reusable/cart-data/cart-data.component';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss'],
   standalone: true,
-  imports: [CommonModule, ProductCardComponent]
+  imports: [CommonModule, ProductCardComponent, CartDataComponent]
 })
 
 export class CartComponent {

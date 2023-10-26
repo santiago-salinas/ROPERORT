@@ -8,13 +8,7 @@
     >
     </app-product-card>
   </div>
-  <div class="blue-div">
-    <p>
-      Applied Promo: {{ cartData.appliedPromo }}
-      <br />
-      Price: {{ cartData.priceUYU }}
-      <br />
-      DiscountedPrice: {{ cartData.discountedPriceUYU }}
-    </p>
+  <div class="blue-div" *ngIf="!emptyCart">
+    <app-cart-data [promoData]="cartData"></app-cart-data>
   </div>
 </div>
