@@ -6,7 +6,6 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class LoginService {
-  activeToken: string = "";
 
   constructor(private http: HttpClient) {}
 
@@ -20,10 +19,24 @@ export class LoginService {
   }
 
   logOut(){
-    this.activeToken = "";
+    localStorage.setItem("activeToken", "");
   }
 
   storeToken(newToken: string){
-    this.activeToken = newToken;
+    localStorage.setItem("activeToken", newToken);
+  }
+
+  getToken(){
+    return localStorage.getItem("activeToken");
+  }
+
+  signUp(email: string, password: string, address: string): Observable<any> {
+    return this.http.post('https://localhost:7207/user',
+      {
+        "email": email,
+        "password": password,
+        "address": address
+      }
+    )
   }
 }

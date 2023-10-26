@@ -8,7 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
-
+import { LoginComponent } from './pages/login/login.component';
+import { SignUpComponent } from './pages/sign-up/sign-up.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { HomeComponent } from './pages/home/home.component';
     HttpClientModule, //Se necesita?
     FormsModule, //Se necesita?
     ReactiveFormsModule, //Se necesita?
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    SignUpComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
