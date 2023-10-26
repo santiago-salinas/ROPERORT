@@ -24,7 +24,7 @@ export class LoginComponent {
 
   constructor(private dataService: LoginService, private router: Router, private _snackBar: MatSnackBar) {
     this.service = dataService;
-    this.loggedIn = dataService.activeToken != "";
+    this.loggedIn = dataService.getToken() != null;
   }
 
   logIn(){
