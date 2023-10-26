@@ -34,11 +34,7 @@ export class EditUserComponent {
         this.address = this.user.address;
       },
       (error) => {
-        const message = error.error;
-        const action = "Close";
-        this._snackBar.open(message, action, {
-          duration: 3000,
-        });
+        this.showSnackbar(error.error, "Close", 3000);
       }
     );
   }
@@ -49,47 +45,27 @@ export class EditUserComponent {
         if(data.token == this.dataService.getToken()){
           this.accepted = true;
         } else {
-          const message = "No puede editar a otro usuario";
-          const action = "Close";
-          this._snackBar.open(message, action, {
-            duration: 3000,
-          });
+          this.showSnackbar("Cannot update other user", "Close", 3000);
         }
       },
       (error) => {
-        const message = error.error;
-        const action = "Close";
-        this._snackBar.open(message, action, {
-          duration: 3000,
-        });
+        this.showSnackbar(error.error, "Close", 3000);
       }
     );
   }
 
   update(){
     if(this.password != this.confirmation){
-      const message = "Passwords are different";
-      const action = "Close";
-      this._snackBar.open(message, action, {
-        duration: 3000,
-      });
+      this.showSnackbar("Passwords are different", "Close", 3000);
     } else {
       this.service.updateUser(this.email, this.password, this.address).subscribe(
         (data) => {
           this.logIn();
-          const message = "Usuario modificado correctamente";
-          const action = "Close";
-          this._snackBar.open(message, action, {
-            duration: 3000,
-          });
+          this.showSnackbar("User updated", "Close", 3000);
           this.router.navigate(['/home']);
         },
         (error) => {
-          const message = error.error;
-          const action = "Close";
-          this._snackBar.open(message, action, {
-            duration: 3000,
-          });
+          this.showSnackbar(error.error, "Close", 3000);
         }
       );
     }
@@ -102,12 +78,14 @@ export class EditUserComponent {
         this.service.storeToken(data.token);
       },
       (error) => {
-        const message = error.error;
-        const action = "Close";
-        this._snackBar.open(message, action, {
-          duration: 3000,
-        });
+        this.showSnackbar(error.error, "Close", 3000);
       }
     );
+  }
+
+  showSnackbar(message: string, action: string, duration: number){
+    this._snackBar.open(message, action, {
+      duration: duration,
+    });
   }
 }

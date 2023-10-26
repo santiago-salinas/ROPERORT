@@ -28,38 +28,30 @@ export class SignUpComponent {
 
   signUp(){
     if(this.password != this.confirmation){
-      const message = "Passwords are different";
-      const action = "Close";
-      this._snackBar.open(message, action, {
-        duration: 3000,
-      });
+      this.showSnackbar("Passwords are different", "Close", 3000);
     }
     else {
       this.service.signUp(this.email, this.password, this.address).subscribe(
         (data) => {
-          console.log(data);
           this.service.logIn(this.email, this.password).subscribe(
             (data) => {
-              console.log(data);
               this.router.navigate(['/home']);
             },
             (error) => {
-              const message = error.error;
-              const action = "Close";
-              this._snackBar.open(message, action, {
-                duration: 3000,
-              });
+              this.showSnackbar(error.error, "Close", 3000);
             }
           )
         },
         (error) => {
-          const message = error.error;
-          const action = "Close";
-          this._snackBar.open(message, action, {
-            duration: 3000,
-          });
+          this.showSnackbar(error.error, "Close", 3000);
         }
       );
     }
+  }
+
+  showSnackbar(message: string, action: string, duration: number){
+    this._snackBar.open(message, action, {
+      duration: duration,
+    });
   }
 }
