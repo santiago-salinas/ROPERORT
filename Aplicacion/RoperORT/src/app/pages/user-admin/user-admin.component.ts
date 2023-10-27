@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import { Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
 import { LoginService } from 'src/app/services/data.service';
 import { UserCardComponent } from 'src/app/reusable/user-card/user-card.component';
@@ -17,7 +18,7 @@ import { UserCardComponent } from 'src/app/reusable/user-card/user-card.componen
 export class UserAdminComponent {
   userList : User[];
 
-  constructor(private dataService: LoginService) {
+  constructor(private dataService: LoginService, private router: Router) {
     this.userList = [];
   }
 
@@ -27,13 +28,13 @@ export class UserAdminComponent {
         this.userList = data;
       },
       (error:any) => {
-        alert('API Is Not Responding. Reloading after OK');
-        location.reload();
+        alert("Access is exclusive to Admins");
+        this.router.navigate(['/home']);
       }
     );
   }
 
   addUser(){
-
+    this.router.navigate(['/user-creation']);
   }
 }

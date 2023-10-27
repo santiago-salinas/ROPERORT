@@ -72,4 +72,18 @@ export class LoginService {
     { headers: { "Auth": this.getToken() || "" } }
     )
   }
+
+  createUser(email: string, password: string, address: string, roles: string[]): Observable<any>{
+    return this.http.post('https://localhost:7207/admin/users',
+    {
+      "email": email,
+      "password": password,
+      "address": address,
+      "roles": roles.map(name => ({ name: name }))
+    },
+    {
+      headers: { "Auth": this.getToken() || "" }
+    }
+    )
+  }
 }

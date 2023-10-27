@@ -7,6 +7,7 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { EditUserComponent } from './pages/edit-user/edit-user.component';
 import { UserAdminComponent } from './pages/user-admin/user-admin.component';
+import { UserCreationComponent } from './pages/user-creation/user-creation.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'edit-user', component: EditUserComponent },
   { path: 'user-administration', component: UserAdminComponent },
+  { path: 'user-creation', component: UserCreationComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Default route
   { path: '**', redirectTo: '/home' }, // Handle 404 errors
 ];
