@@ -26,6 +26,7 @@ export class UserCardComponent {
   }
 
   @Input() userDetails: User = new User();
+
   getRoles(){
     let roles = "";
     if(this.userDetails.roles != null){
@@ -39,6 +40,22 @@ export class UserCardComponent {
   }
 
   deleteUser(){
+    this.service.deleteUser(this.userDetails.id).subscribe(
+      (data) => {
+        console.log(data);
+        const text = "User was deleted";
+        this.showSnackbar(text, "Close", 3000);
+        location.reload();
+      },
+      (error) => {
+        this.showSnackbar(error.error, "Close", 3000);
+      }
+    );
+  }
 
+  showSnackbar(message: string, action: string, duration: number){
+    this._snackBar.open(message, action, {
+      duration: duration,
+    });
   }
 }
