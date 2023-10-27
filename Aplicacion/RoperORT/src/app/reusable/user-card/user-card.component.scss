@@ -1,0 +1,57 @@
+/* Estilo para el contenedor principal */
+.user-card {
+    width: 500px; /* Ancho deseado */
+    margin: 10px; /* Márgenes exteriores */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+    border-radius: 5px; /* Bordes redondeados */
+  }
+  
+  /* Estilo para el encabezado */
+  .mat-card-header {
+    background-color: #007bff; /* Color de fondo del encabezado */
+    color: white; /* Color del texto del encabezado */
+  }
+  
+  /* Estilo para el título del encabezado */
+  .mat-card-title {
+    font-size: 1.5rem; /* Tamaño de fuente del título */
+  }
+  
+  /* Estilo para el subtítulo del encabezado */
+  .mat-card-subtitle {
+    font-size: 1rem; /* Tamaño de fuente del subtítulo */
+  }
+  
+  /* Estilo para el contenido del card */
+  .mat-card-content {
+    padding: 16px; /* Espaciado interior del contenido */
+  }
+  
+  /* Estilo para el botón "Editar Usuario" */
+  .edit-button button {
+    background-color: "primary"; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px; /* Espaciado interno */
+    font-size: 1rem; /* Tamaño de fuente */
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  /* Estilo para el botón "Eliminar" */
+  .delete-button button {
+    background-color: #B00020; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px; /* Espaciado interno */
+    font-size: 1rem; /* Tamaño de fuente */
+    cursor: pointer;
+  }
+  
+  /* Cambia el color del botón cuando se presiona */
+  button:active {
+    background-color: #007bff;
+  }
+  

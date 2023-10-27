@@ -60,4 +60,10 @@ export class LoginService {
     }
     )
   }
+
+  getAllUsers(): Observable<any>{
+    return this.http.get('https://localhost:7207/admin/users',
+    { headers: { "Auth": this.getToken() || "" } }
+    )
+  }
 }
