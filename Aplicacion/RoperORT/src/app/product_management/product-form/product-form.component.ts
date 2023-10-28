@@ -8,8 +8,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MAT_DIALOG_DATA, MatDialogRef, } from '@angular/material/dialog';
+import { MatCheckboxModule} from '@angular/material/checkbox';
+import { MAT_DIALOG_DATA, MatDialogRef, } from '@angular/material/dialog';
 import { ProductService } from 'src/app/services/product.service';
 import { MatCardModule } from '@angular/material/card';
 

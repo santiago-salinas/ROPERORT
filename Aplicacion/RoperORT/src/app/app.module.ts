@@ -13,6 +13,9 @@ import { ProductAdminCardComponent } from './product_management/product-admin-ca
 import { ProductsAdminComponent } from './product_management/products-admin/products-admin.component';
 import { ProductFormComponent } from './product_management/product-form/product-form.component';
 import { MatCardModule } from '@angular/material/card';
+import { DeleteConfirmationComponent } from './product_management/delete-confirmation/delete-confirmation.component';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 
 @NgModule({
@@ -29,6 +32,7 @@ import { MatCardModule } from '@angular/material/card';
     BrowserAnimationsModule,
     ProductsAdminComponent,
     MatCardModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

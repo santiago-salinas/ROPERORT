@@ -59,11 +59,15 @@ export class ProductService {
   }
 
   async createProduct(product: Product): Promise<any> {
-    return lastValueFrom(this.http.post('https://localhost:7207/product', product));
+    return lastValueFrom(this.http.post('https://localhost:7207/product', product, {headers: {auth: "tokenbwayne@gmail.comsecure"}}));
   }
 
   async updateProduct(product: Product): Promise<any> {
     return lastValueFrom(this.http.put('https://localhost:7207/product/'+product.id, product, {headers: {auth: "tokenbwayne@gmail.comsecure"}}));
+  }
+
+  async deleteProduct(id: number): Promise<any> {
+    return lastValueFrom(this.http.delete('https://localhost:7207/product/'+id, {headers: {auth: "tokenbwayne@gmail.comsecure"}}));
   }
 
 

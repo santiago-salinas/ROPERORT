@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewContainerRef } from '@angular/core';
 import {Input} from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -6,8 +6,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { Product } from 'src/app/models/product.model';
 import { MatDividerModule } from '@angular/material/divider';
 import { CommonModule } from '@angular/common';
-import {MatDialog, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import { ProductFormComponent } from '../product-form/product-form.component';
+import { DeleteConfirmationComponent } from '../delete-confirmation/delete-confirmation.component';
 
 
 
@@ -19,7 +20,9 @@ import { ProductFormComponent } from '../product-form/product-form.component';
   standalone: true,
 })
 export class ProductAdminCardComponent {
-  constructor(public dialog: MatDialog) {}
+  showCard: boolean = true;
+
+  constructor(public dialog: MatDialog, private viewContainerRef: ViewContainerRef) {}
 
   @Input() productDetails: Product = new Product();
 
@@ -37,7 +40,18 @@ export class ProductAdminCardComponent {
         this.productDetails = result;
       }
     });
+  }
 
+  deleteDialog(): void {
+    let dialogRef = this.dialog.open(DeleteConfirmationComponent, {
+      data: { productName: this.productDetails.name, productId: this.productDetails.id },
+    });
+
+    dialogRef.afterClosed().subscribe((result: boolean) => {
+      if (result) {
+        this.showCard = false;
+      }
+    });
   }
 }
 
