@@ -16,6 +16,8 @@ import { MatCardModule } from '@angular/material/card';
 import { DeleteConfirmationComponent } from './product_management/delete-confirmation/delete-confirmation.component';
 import { MatDialogModule } from '@angular/material/dialog';
 
+import { SignUpComponent } from './pages/sign-up/sign-up.component';
+import { EditUserComponent } from './pages/edit-user/edit-user.component';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     BrowserAnimationsModule,
     ProductsAdminComponent,
     MatCardModule,
-    MatDialogModule
+    MatDialogModule,
+    SignUpComponent,
+    EditUserComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

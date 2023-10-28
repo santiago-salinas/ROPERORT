@@ -53,7 +53,7 @@ public class CartController : ControllerBase
             {
                 return new ObjectResult(cart)
                 {
-                    StatusCode = 206
+                    StatusCode = 420
                 };
             }
 

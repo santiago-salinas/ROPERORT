@@ -1,0 +1,9 @@
+<p class="original-price">Original Price: ${{ promoData.priceUYU }}</p>
+<p *ngIf="promoData?.appliedPromo" class="promo-details">
+  Titulo: {{ promoData.appliedPromo.name }} Condicion:
+  {{ promoData.appliedPromo.condition }} Discount:
+  {{ promoData.appliedPromo.discount }}
+  <span class="discounted-price"
+    >Discounted Price: ${{ promoData.discountedPriceUYU }}</span
+  >
+</p>
