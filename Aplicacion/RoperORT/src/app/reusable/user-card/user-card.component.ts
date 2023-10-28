@@ -45,7 +45,12 @@ export class UserCardComponent {
         console.log(data);
         const text = "User was deleted";
         this.showSnackbar(text, "Close", 3000);
-        location.reload();
+        if(this.userDeletedItself(this.userDetails.token)){
+          this.service.logOut();
+          this.router.navigate(['/home']);
+        } else {
+          location.reload();
+        }
       },
       (error) => {
         this.showSnackbar(error.error, "Close", 3000);
@@ -57,5 +62,9 @@ export class UserCardComponent {
     this._snackBar.open(message, action, {
       duration: duration,
     });
+  }
+
+  userDeletedItself(deletedToken: string): boolean{
+    return deletedToken == this.service.getToken();
   }
 }
