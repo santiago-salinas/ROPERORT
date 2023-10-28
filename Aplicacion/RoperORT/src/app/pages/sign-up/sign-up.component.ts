@@ -7,48 +7,46 @@ import { LoginService } from 'src/app/services/data.service';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 
-
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  selector: 'app-sign-up',
+  templateUrl: './sign-up.component.html',
+  styleUrls: ['./sign-up.component.scss'],
   standalone: true,
   imports: [CommonModule,MatInputModule,MatButtonModule,FormsModule,MatSnackBarModule],
 })
 
-export class LoginComponent {
+export class SignUpComponent {
   email: string = "";
   password: string = "";
-  loggedIn: boolean;
+  confirmation: string = "";
+  address: string = "";
   service: LoginService;
 
   constructor(private dataService: LoginService, private router: Router, private _snackBar: MatSnackBar) {
     this.service = dataService;
-    this.loggedIn = dataService.getToken() != "";
-  }
-
-  logIn(){
-    this.service.logIn(this.email, this.password).subscribe(
-      (data) => {
-        console.log(data);
-        this.service.storeToken(data.token);
-        this.loggedIn = true;
-      },
-      (error) => {
-        this.showSnackbar(error.error, "Close", 3000);
-      }
-    );
-  }
-
-  logOut(){
-    this.service.logOut();
-    this.email = "";
-    this.password = "";
-    this.loggedIn = false;
   }
 
   signUp(){
-    this.router.navigate(['/sign-up']);
+    if(this.password != this.confirmation){
+      this.showSnackbar("Passwords are different", "Close", 3000);
+    }
+    else {
+      this.service.signUp(this.email, this.password, this.address).subscribe(
+        (data) => {
+          this.service.logIn(this.email, this.password).subscribe(
+            (data) => {
+              this.router.navigate(['/home']);
+            },
+            (error) => {
+              this.showSnackbar(error.error, "Close", 3000);
+            }
+          )
+        },
+        (error) => {
+          this.showSnackbar(error.error, "Close", 3000);
+        }
+      );
+    }
   }
 
   showSnackbar(message: string, action: string, duration: number){

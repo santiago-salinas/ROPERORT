@@ -14,6 +14,10 @@
   *ngIf='loggedIn==false'>
   Log In
 </button>
+<button mat-flat-button color="primary" (click)="signUp()" id="signUp"
+  *ngIf='loggedIn==false'>
+  Sign Up
+</button>
 <a *ngIf='loggedIn==true'>
   {{email}}
 </a>
