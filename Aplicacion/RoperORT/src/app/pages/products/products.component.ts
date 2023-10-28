@@ -20,16 +20,9 @@ export class ProductsComponent {
   }
 
   ngOnInit(): void {
-    this.dataService.getProducts().subscribe(
-      (data:Product[]) => {
-        console.log(data);
-        this.productList = data;
-      },
-      (error:any) => {
-        alert('API Is Not Responding. Reloading after OK');
-        location.reload();
-      }
-    );
+    this.dataService.updateProducts().then(() => {
+      this.productList = this.dataService.availableProducts;
+    });
   }
 
   getNameList(colors: Product[]): string {

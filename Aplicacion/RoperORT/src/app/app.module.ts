@@ -11,6 +11,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ProductAdminCardComponent } from './product_management/product-admin-card/product-admin-card.component';
 import { ProductsAdminComponent } from './product_management/products-admin/products-admin.component';
+import { ProductFormComponent } from './product_management/product-form/product-form.component';
+import { MatCardModule } from '@angular/material/card';
 
 
 @NgModule({
@@ -26,7 +28,7 @@ import { ProductsAdminComponent } from './product_management/products-admin/prod
     ReactiveFormsModule, //Se necesita?
     BrowserAnimationsModule,
     ProductsAdminComponent,
-
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

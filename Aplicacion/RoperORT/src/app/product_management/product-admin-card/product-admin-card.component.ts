@@ -34,7 +34,7 @@ export class ProductAdminCardComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        console.log(`Dialog result: ${result}`);
+        this.productDetails = result;
       }
     });
 
