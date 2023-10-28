@@ -1,14 +1,21 @@
 <div class="page-container">
   <div class="content" *ngIf="emptyCart">The cart is empty.</div>
+
   <div class="content" *ngIf="!emptyCart">
     <app-product-card
       *ngFor="let product of cartProducts; let i = index"
       [productDetails]="product.product"
       [quantity]="product.quantity"
-    >
-    </app-product-card>
+    ></app-product-card>
   </div>
-  <div class="blue-div" *ngIf="!emptyCart">
+
+  <div class="cartData" *ngIf="!emptyCart">
     <app-cart-data [promoData]="cartData"></app-cart-data>
+
+    <a routerLink="/home">
+      <button mat-flat-button color="primary">
+        <mat-icon>attach_money</mat-icon> Buy
+      </button>
+    </a>
   </div>
 </div>

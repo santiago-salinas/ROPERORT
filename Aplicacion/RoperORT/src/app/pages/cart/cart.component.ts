@@ -4,13 +4,16 @@ import { Product } from 'src/app/models/product.model';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductCardComponent } from 'src/app/reusable/product-card/product-card.component';
 import { CartDataComponent } from 'src/app/reusable/cart-data/cart-data.component';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss'],
   standalone: true,
-  imports: [CommonModule, ProductCardComponent, CartDataComponent]
+  imports: [CommonModule, ProductCardComponent, CartDataComponent,MatButtonModule,MatIconModule]
 })
 
 export class CartComponent {
