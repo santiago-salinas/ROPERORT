@@ -16,7 +16,31 @@
     ${{ promoData.priceUYU - promoData.discountedPriceUYU }}
     <br />
     <span class="discounted-price">
-      Precio Final: ${{ promoData.discountedPriceUYU }}
+      Precio: ${{ promoData.discountedPriceUYU }}
     </span>
+  </p>
+  <p *ngIf="paymentData?.paymentMethod" class="promo-details">
+    <strong class="centered-text">Método de Pago</strong><br />
+    <strong>Título: {{ paymentData.paymentName }}</strong
+    ><br />
+    <br />
+
+    <span *ngIf="paymentData.paymentMethod === 'PAGANZA'">
+      <strong>Descuento:</strong>
+      ${{ promoData.discountedPriceUYU * 0.1 }}
+      (10% off)
+      <br />
+      <span class="discounted-price">
+        Final Price: ${{
+          promoData.discountedPriceUYU - promoData.discountedPriceUYU * 0.1
+        }}
+      </span>
+    </span>
+    <span *ngIf="paymentData.paymentMethod !== 'PAGANZA'">
+      <span class="discounted-price">
+        Final Price: ${{ promoData.discountedPriceUYU }}
+      </span>
+    </span>
+    <br />
   </p>
 </div>

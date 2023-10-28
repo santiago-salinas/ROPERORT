@@ -21,11 +21,15 @@ export class BuyComponent {
   cartProducts : any = [];
   cartData : any = [];
   emptyCart : boolean = true;
-
+  paymentData : any = [];
 
   constructor(private cartService: CartService, private router: Router) {
   }
 
+  selectPayment(metodo : string){
+    this.cartService.payment(metodo, 1);
+    this.paymentData = this.cartService.getPayment();
+  }
   navigateToCartBuy() {
     this.router.navigate(['/cart/buy']);
   }
