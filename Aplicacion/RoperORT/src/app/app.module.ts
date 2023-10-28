@@ -9,6 +9,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
+import { ProductAdminCardComponent } from './product_management/product-admin-card/product-admin-card.component';
+import { ProductsAdminComponent } from './product_management/products-admin/products-admin.component';
+import { ProductFormComponent } from './product_management/product-form/product-form.component';
+import { MatCardModule } from '@angular/material/card';
+import { DeleteConfirmationComponent } from './product_management/delete-confirmation/delete-confirmation.component';
+import { MatDialogModule } from '@angular/material/dialog';
+
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { EditUserComponent } from './pages/edit-user/edit-user.component';
 
@@ -25,6 +32,9 @@ import { EditUserComponent } from './pages/edit-user/edit-user.component';
     FormsModule, //Se necesita?
     ReactiveFormsModule, //Se necesita?
     BrowserAnimationsModule,
+    ProductsAdminComponent,
+    MatCardModule,
+    MatDialogModule,
     SignUpComponent,
     EditUserComponent,
   ],
