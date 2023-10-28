@@ -1,9 +1,9 @@
+/* Default styles */
 .page-container {
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 100vh;
-  font-family: Arial, sans-serif; /* Set your preferred font */
+  font-family: Arial, sans-serif;
 }
 
 .content {
@@ -32,4 +32,18 @@ button {
 }
 
 
+@media screen and (max-width: 768px) {
+  .page-container {
+    flex-direction: column;
+  }
 
+  .content, .cartData {
+    flex: 1;
+  }
+
+  button {
+    float: none;
+    display: block;
+    margin-top: 10px;
+  }
+}

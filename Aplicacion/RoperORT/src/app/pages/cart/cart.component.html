@@ -12,10 +12,8 @@
   <div class="cartData" *ngIf="!emptyCart">
     <app-cart-data [promoData]="cartData"></app-cart-data>
 
-    <a routerLink="/home">
-      <button mat-flat-button color="primary">
-        <mat-icon>attach_money</mat-icon> Buy
-      </button>
-    </a>
+    <button mat-flat-button color="primary" (click)="navigateToCartBuy()">
+      <mat-icon>attach_money</mat-icon> Buy
+    </button>
   </div>
 </div>

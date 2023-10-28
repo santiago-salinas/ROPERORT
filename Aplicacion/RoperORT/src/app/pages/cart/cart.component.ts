@@ -6,6 +6,7 @@ import { ProductCardComponent } from 'src/app/reusable/product-card/product-card
 import { CartDataComponent } from 'src/app/reusable/cart-data/cart-data.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -22,9 +23,12 @@ export class CartComponent {
   emptyCart : boolean = true;
 
 
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService, private router: Router) {
   }
 
+  navigateToCartBuy() {
+    this.router.navigate(['/cart/buy']);
+  }
 
   ngOnInit(): void {
     this.cartService.cartData$.subscribe(() => {
