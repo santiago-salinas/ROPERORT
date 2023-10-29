@@ -140,6 +140,7 @@ namespace DataAccess.Repositories
                 oldEntity.Description = newEntity.Description;
                 oldEntity.Name = newEntity.Name;
                 oldEntity.Stock = newEntity.Stock;
+                oldEntity.Exclude = newEntity.Exclude;
 
                 _context.ProductEntities.Update(oldEntity);
                 _context.SaveChanges();
