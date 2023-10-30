@@ -93,4 +93,20 @@ export class LoginService {
       headers: { "Auth": this.getToken() || "" }
     })
   }
+
+  updateUserById(id: string, email: string, password: string, token: string, 
+      address: string, roles: string[]): Observable<any>{
+    return this.http.put('https://localhost:7207/admin/users/' + id,
+    {
+      "id": id,
+      "email": email,
+      "password": password,
+      "token": token,
+      "address": address,
+      "roles": roles.map(name => ({ name: name }))
+    },
+    {
+      headers: { "Auth": this.getToken() || "" }
+    })
+  }
 }
