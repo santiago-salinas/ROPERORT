@@ -86,4 +86,11 @@ export class LoginService {
     }
     )
   }
+
+  getUserById(id: string): Observable<any>{
+    return this.http.get('https://localhost:7207/admin/users/' + id,
+    {
+      headers: { "Auth": this.getToken() || "" }
+    })
+  }
 }
