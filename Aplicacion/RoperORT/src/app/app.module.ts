@@ -18,6 +18,10 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { EditUserComponent } from './pages/edit-user/edit-user.component';
+import { UserAdminComponent } from './pages/user-admin/user-admin.component';
+import { UserCardComponent } from './reusable/user-card/user-card.component';
+import { UserCreationComponent } from './pages/user-creation/user-creation.component';
+import { AdminEditingComponent } from './pages/admin-editing/admin-editing.component';
 
 
 @NgModule({
@@ -37,6 +41,10 @@ import { EditUserComponent } from './pages/edit-user/edit-user.component';
     MatDialogModule,
     SignUpComponent,
     EditUserComponent,
+    UserCardComponent,
+    UserAdminComponent,
+    UserCreationComponent,
+    AdminEditingComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
