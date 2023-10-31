@@ -33,18 +33,12 @@ export class LoginComponent {
         console.log(data);
         this.service.storeToken(data.token);
         this.loggedIn = true;
+        this.router.navigate(['/home']);
       },
       (error) => {
         this.showSnackbar(error.error, "Close", 3000);
       }
     );
-  }
-
-  logOut(){
-    this.service.logOut();
-    this.email = "";
-    this.password = "";
-    this.loggedIn = false;
   }
 
   signUp(){

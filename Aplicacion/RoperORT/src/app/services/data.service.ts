@@ -67,7 +67,7 @@ export class LoginService {
     )
   }
 
-  deleteUser(id: number): Observable<any>{
+  deleteUserById(id: number): Observable<any>{
     return this.http.delete('https://localhost:7207/admin/users/' + id,
     { headers: { "Auth": this.getToken() || "" } }
     )
@@ -108,5 +108,13 @@ export class LoginService {
     {
       headers: { "Auth": this.getToken() || "" }
     })
+  }
+
+  deleteUser(): Observable<any>{
+    return this.http.delete('https://localhost:7207/user',
+    {
+      headers: { "Auth": this.getToken() || "" }
+    }
+    )
   }
 }

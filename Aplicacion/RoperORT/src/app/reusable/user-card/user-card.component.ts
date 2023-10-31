@@ -40,7 +40,7 @@ export class UserCardComponent {
   }
 
   deleteUser(){
-    this.service.deleteUser(this.userDetails.id).subscribe(
+    this.service.deleteUserById(this.userDetails.id).subscribe(
       (data) => {
         console.log(data);
         const text = "User was deleted";
