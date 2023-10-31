@@ -15,6 +15,7 @@ import { ProductFormComponent } from './product_management/product-form/product-
 import { MatCardModule } from '@angular/material/card';
 import { DeleteConfirmationComponent } from './product_management/delete-confirmation/delete-confirmation.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatIconModule} from '@angular/material/icon';
 
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { EditUserComponent } from './pages/edit-user/edit-user.component';
@@ -22,6 +23,7 @@ import { UserAdminComponent } from './pages/user-admin/user-admin.component';
 import { UserCardComponent } from './reusable/user-card/user-card.component';
 import { UserCreationComponent } from './pages/user-creation/user-creation.component';
 import { AdminEditingComponent } from './pages/admin-editing/admin-editing.component';
+import { UserMenuComponent } from './pages/user-menu/user-menu.component';
 
 
 @NgModule({
@@ -35,6 +37,7 @@ import { AdminEditingComponent } from './pages/admin-editing/admin-editing.compo
     HttpClientModule, //Se necesita?
     FormsModule, //Se necesita?
     ReactiveFormsModule, //Se necesita?
+    MatIconModule,
     BrowserAnimationsModule,
     ProductsAdminComponent,
     MatCardModule,
@@ -45,6 +48,7 @@ import { AdminEditingComponent } from './pages/admin-editing/admin-editing.compo
     UserAdminComponent,
     UserCreationComponent,
     AdminEditingComponent,
+    UserMenuComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -33,6 +33,7 @@ export class LoginComponent {
         console.log(data);
         this.service.storeToken(data.token);
         this.loggedIn = true;
+        this.router.navigate(['/home']);
       },
       (error) => {
         this.showSnackbar(error.error, "Close", 3000);
