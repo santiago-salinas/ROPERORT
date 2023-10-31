@@ -76,12 +76,23 @@
   </div>
 
   <div class="cartData" *ngIf="!emptyCart">
-    <app-cart-data [promoData]="cartData" [paymentData]="paymentData"></app-cart-data>
+    <app-cart-data
+      [promoData]="cartData"
+      [paymentData]="paymentData"
+    ></app-cart-data>
+
+    <div *ngIf="methodSaved">
+      <p>Número de Cuenta</p>
+      <input min="1" [(ngModel)]="payId" class="value-input" />
+      <br />
+    </div>
     <button
       mat-flat-button
       color="primary"
       class="buyBtn"
-      (click)="navigateToCartBuy()"
+      (focusout)="paymentIdSet()"
+      (click)="processPayment()"
+      [disabled]="!methodSaved"
     >
       <mat-icon>attach_money</mat-icon> Buy
     </button>

@@ -14,7 +14,7 @@ import { BehaviorSubject } from 'rxjs';
 export class CartService {
   productsInCart: CartLine[] = [];
   paymentMethod: string = "";
-  paymentID : number = 0;
+  paymentID : string = "";
   paymentBank: string = "";
   paymentCompany: string = "";
   paymentName: string = "";
@@ -51,6 +51,24 @@ export class CartService {
     //Si se modifica el carrito se guarda en local storage
     this.update();
    }
+
+   getToken(){
+    return localStorage.getItem("activeToken");
+  }
+
+   processPayment(): Observable<any> {
+    return this.http.post('https://localhost:7207/cart/buy',
+    {Products : this.productsInCart,
+      PaymentMethod : this.paymentMethod,
+      PaymentId : this.paymentID,
+      Bank : this.paymentBank,
+      Company : this.paymentBank
+    },
+    {
+      headers: { "Auth": this.getToken() || "" }
+    });
+  }
+
    getPayment(){
     return {paymentMethod:this.paymentMethod,
       paymentID:this.paymentID,
@@ -59,12 +77,15 @@ export class CartService {
       paymentName:this.paymentName
     }
    }
-   payment(metodo: string, id: number) {
+   paymentIdSet(id: string) {
+    this.paymentID = id;
+   }
+
+   paymentDataSet(metodo: string) {
     switch (metodo) {
       case "PAGANZA":
         this.paymentName = "Paganza"
         this.paymentMethod = "PAGANZA";
-        this.paymentID = id;
         this.paymentBank = "";
         this.paymentCompany = "";
         break;
@@ -72,7 +93,6 @@ export class CartService {
       case "PAYPAL":
         this.paymentName = "PayPal"
         this.paymentMethod = "PAYPAL";
-        this.paymentID = id;
         this.paymentBank = "";
         this.paymentCompany = "";
         break;
@@ -80,7 +100,6 @@ export class CartService {
       case "BBVA":
         this.paymentName = "Debit - BBVA"
         this.paymentMethod = "DEBIT";
-        this.paymentID = id;
         this.paymentBank = "BBVA";
         this.paymentCompany = "";
         break;
@@ -88,7 +107,6 @@ export class CartService {
         case "ITAU":
         this.paymentName = "Debit - ITAU"
         this.paymentMethod = "DEBIT";
-        this.paymentID = id;
         this.paymentBank = "ITAU";
         this.paymentCompany = "";
         break;
@@ -96,7 +114,6 @@ export class CartService {
         case "SANTANDER":
         this.paymentName = "Debit - Santander"
         this.paymentMethod = "DEBIT";
-        this.paymentID = id;
         this.paymentBank = "SANTANDER";
         this.paymentCompany = "";
         break;
@@ -104,7 +121,6 @@ export class CartService {
       case "VISA":
         this.paymentName = "Credit - VISA"
         this.paymentMethod = "CREDITCARD";
-        this.paymentID = id;
         this.paymentBank = "";
         this.paymentCompany = "VISA";
         break;
@@ -112,7 +128,6 @@ export class CartService {
         case "MASTERCARD":
         this.paymentName = "Credit - Mastercard"
         this.paymentMethod = "CREDITCARD";
-        this.paymentID = id;
         this.paymentBank = "";
         this.paymentCompany = "MASTERCARD";
         break;
@@ -120,7 +135,6 @@ export class CartService {
       default:
         this.paymentName= "";
         this.paymentMethod = "";
-        this.paymentID = 0;
         this.paymentBank = "";
         this.paymentCompany = "";
         break;
