@@ -41,13 +41,6 @@ export class LoginComponent {
     );
   }
 
-  logOut(){
-    this.service.logOut();
-    this.email = "";
-    this.password = "";
-    this.loggedIn = false;
-  }
-
   signUp(){
     this.router.navigate(['/sign-up']);
   }
