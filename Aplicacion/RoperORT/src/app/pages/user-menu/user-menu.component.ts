@@ -50,10 +50,11 @@ export class UserMenuComponent {
   }
 
   edit(){
+    this.router.navigate(['/edit-user']);
   }
 
   manageUsers(){
-
+    this.router.navigate(['/user-administration']);
   }
 
   showSnackbar(message: string, action: string, duration: number){
