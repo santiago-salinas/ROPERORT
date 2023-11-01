@@ -177,6 +177,16 @@ export class CartService {
     return this.http.post('https://localhost:7207/cart',{Products : this.productsInCart});
   }
 
+  resetCart(){
+    localStorage.removeItem("cart");
+    this.productsInCart =[];
+    this.paymentMethod ="";
+    this.paymentID  ="";
+    this.paymentBank ="";
+    this.paymentCompany ="";
+    this.paymentName ="";
+  }
+
   Buy(): Observable<any> {
     return this.http.post('https://localhost:7207/cart/buy',{Products : this.productsInCart});
   }

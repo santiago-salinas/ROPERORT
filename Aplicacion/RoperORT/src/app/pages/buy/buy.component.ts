@@ -40,6 +40,7 @@ export class BuyComponent {
       (data:any) => {
         this.emptyCart = true;
         this.methodSaved = false;
+        this.cartService.resetCart();
       },
       (error:any) => {
         this.emptyCart = false;
@@ -96,6 +97,8 @@ export class BuyComponent {
           this.cartData = error.error;
           this.cartProducts = error.error.products;
           localStorage.setItem('cart', JSON.stringify(this.transformObject(this.cartProducts)));
+          window.location.reload();
+          this.router.navigate(['/cart/']);
         }
         else if(error.error == "Empty Cart"){
           this.emptyCart = true;
