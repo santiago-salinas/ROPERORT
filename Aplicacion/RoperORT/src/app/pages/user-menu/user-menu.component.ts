@@ -49,6 +49,10 @@ export class UserMenuComponent {
     this.router.navigate(['/home']);
   }
 
+  purchaseHistory(){
+    
+  }
+
   edit(){
     this.router.navigate(['/edit-user']);
   }

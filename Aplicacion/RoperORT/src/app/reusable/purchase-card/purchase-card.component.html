@@ -1,0 +1,20 @@
+<div class="purchase-card">
+    <h2 class="purchase-title">{{ purchase.email }}</h2>
+    <div class="purchase-details">
+      <p><strong>ID:</strong> {{ purchase.id }}</p>
+      <p><strong>Payment Method:</strong> {{ purchase.paymentMethod }}</p>
+      <p><strong>Date:</strong> {{ purchase.date }}</p>
+      <p><strong>Promo:</strong> {{ purchase.promo }}</p>
+      <p><strong>Price:</strong> {{ purchase.price | currency }}</p>
+      <p><strong>Discounted Price:</strong> {{ purchase.discountedPrice | currency }}</p>
+    </div>
+    <div class="product-list">
+      <h3>Products:</h3>
+      <ul>
+        <li *ngFor="let product of purchase.products">
+          {{ product.quantity }} x {{ product.name }} ({{ product.price | currency }} each)
+        </li>
+      </ul>
+    </div>
+  </div>
+  

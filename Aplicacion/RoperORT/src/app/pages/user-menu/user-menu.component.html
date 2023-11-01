@@ -1,5 +1,10 @@
 <h1>Bienvenido, {{email}}</h1>
 <br>
+<button mat-flat-button color="primary" (click)="purchaseHistory()"
+  *ngIf='loggedIn'>
+  View Purchases
+</button>
+<br>
 <button mat-flat-button color="primary" (click)="edit()"
   *ngIf='loggedIn'>
   Edit Account
