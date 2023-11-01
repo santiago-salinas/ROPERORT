@@ -1,20 +1,24 @@
-<div class="purchase-card">
-    <h2 class="purchase-title">{{ purchase.email }}</h2>
-    <div class="purchase-details">
-      <p><strong>ID:</strong> {{ purchase.id }}</p>
-      <p><strong>Payment Method:</strong> {{ purchase.paymentMethod }}</p>
-      <p><strong>Date:</strong> {{ purchase.date }}</p>
-      <p><strong>Promo:</strong> {{ purchase.promo }}</p>
-      <p><strong>Price:</strong> {{ purchase.price | currency }}</p>
-      <p><strong>Discounted Price:</strong> {{ purchase.discountedPrice | currency }}</p>
-    </div>
+<mat-card class="user-card">
+  <mat-card-header>
+    <mat-card-title>Purchase ID: {{ purchase.id }} - Client: {{ purchase.user.email }}</mat-card-title>
+  </mat-card-header>
+  <br>
+  <mat-card-content>
+    <p><strong>Date:</strong> {{ purchase.date }}</p>
+    <p><strong>Payment Method:</strong> {{ purchase.paymentMethod.id }}</p>
+
+    <p><strong>Original price:</strong> ${{ purchase.cart.priceUYU }} </p>
+    <p><strong>Discounted Price:</strong> ${{ purchase.cart.discountedPriceUYU }} </p>
+    <p *ngIf="purchase.cart.appliedPromo!=null"><strong>Promo:</strong> {{ purchase.cart.appliedPromo.name }}</p>
+
     <div class="product-list">
       <h3>Products:</h3>
       <ul>
-        <li *ngFor="let product of purchase.products">
-          {{ product.quantity }} x {{ product.name }} ({{ product.price | currency }} each)
+        <li *ngFor="let product of purchase.cart.products">
+          {{ product.quantity }} x {{ product.product.name }} - (${{ product.product.priceUYU }} each)
         </li>
       </ul>
     </div>
-  </div>
-  
+
+  </mat-card-content>
+</mat-card>

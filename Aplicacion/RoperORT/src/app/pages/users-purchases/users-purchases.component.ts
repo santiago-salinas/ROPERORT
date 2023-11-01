@@ -22,15 +22,8 @@ export class UsersPurchasesComponent {
 
   ngOnInit(): void {
     this.dataService.getThisUsersPurchases().subscribe(
-      (data: any) => {
+      (data: Purchase[]) => {
         this.purchaseList = data;
-        /*
-        for(let i = 0; i < data.length; i++){
-          let purchase = new Purchase();
-          purchase.id = data[i].id;
-          purchase.email = data[i].email;
-
-        }*/
       },
       (error:any) => {
         alert('API Is Not Responding. Reloading after OK');

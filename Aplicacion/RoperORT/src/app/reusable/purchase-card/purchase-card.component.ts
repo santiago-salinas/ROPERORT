@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {MatCardModule} from '@angular/material/card';
 import { Router } from '@angular/router';
 import { PurchaseService } from 'src/app/services/purchase.service';
 import { Purchase } from 'src/app/models/purchase.model';
@@ -9,7 +10,7 @@ import { Purchase } from 'src/app/models/purchase.model';
   templateUrl: './purchase-card.component.html',
   styleUrls: ['./purchase-card.component.scss'],
   standalone: true,
-  imports: [ CommonModule ]
+  imports: [ CommonModule, MatCardModule ]
 })
 export class PurchaseCardComponent {
   service: PurchaseService;
