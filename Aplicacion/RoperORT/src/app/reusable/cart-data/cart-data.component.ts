@@ -10,10 +10,9 @@ import { CommonModule } from '@angular/common';
 })
 export class CartDataComponent {
   @Input() promoData: any;
+  @Input() paymentData: any;
+
 
   constructor(){
-    console.log("HOLA!")
-
-    console.log(this.promoData)
   }
 }

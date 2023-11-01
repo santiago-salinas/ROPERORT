@@ -1,9 +1,46 @@
-<p class="original-price">Original Price: ${{ promoData.priceUYU }}</p>
-<p *ngIf="promoData?.appliedPromo" class="promo-details">
-  Titulo: {{ promoData.appliedPromo.name }} Condicion:
-  {{ promoData.appliedPromo.condition }} Discount:
-  {{ promoData.appliedPromo.discount }}
-  <span class="discounted-price"
-    >Discounted Price: ${{ promoData.discountedPriceUYU }}</span
-  >
-</p>
+<div class="promo-container">
+  <p class="original-price">Original Price: ${{ promoData.priceUYU }}</p>
+
+  <p *ngIf="promoData?.appliedPromo" class="promo-details">
+    <strong class="centered-text">Promoción Disponible</strong><br />
+    <strong>Titulo:</strong><br />
+    {{ promoData.appliedPromo.name }}<br /><br />
+    <strong>Condición:</strong><br />
+    {{ promoData.appliedPromo.condition }}<br /><br />
+    <strong>Discount:</strong><br />
+    {{ promoData.appliedPromo.discount }}
+    <br />
+    <br />
+    <br />
+    <strong>Descuento:</strong>
+    ${{ promoData.priceUYU - promoData.discountedPriceUYU }}
+    <br />
+    <span class="discounted-price">
+      Precio: ${{ promoData.discountedPriceUYU }}
+    </span>
+  </p>
+  <p *ngIf="paymentData?.paymentMethod" class="promo-details">
+    <strong class="centered-text">Método de Pago</strong><br />
+    <strong>Título: {{ paymentData.paymentName }}</strong
+    ><br />
+    <br />
+
+    <span *ngIf="paymentData.paymentMethod === 'PAGANZA'">
+      <strong>Descuento:</strong>
+      ${{ promoData.discountedPriceUYU * 0.1 }}
+      (10% off)
+      <br />
+      <span class="discounted-price">
+        Final Price: ${{
+          promoData.discountedPriceUYU - promoData.discountedPriceUYU * 0.1
+        }}
+      </span>
+    </span>
+    <span *ngIf="paymentData.paymentMethod !== 'PAGANZA'">
+      <span class="discounted-price">
+        Final Price: ${{ promoData.discountedPriceUYU }}
+      </span>
+    </span>
+    <br />
+  </p>
+</div>

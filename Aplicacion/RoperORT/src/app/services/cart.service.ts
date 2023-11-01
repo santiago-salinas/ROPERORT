@@ -13,6 +13,12 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class CartService {
   productsInCart: CartLine[] = [];
+  paymentMethod: string = "";
+  paymentID : string = "";
+  paymentBank: string = "";
+  paymentCompany: string = "";
+  paymentName: string = "";
+
   private cartDataSubject = new BehaviorSubject<any>(null);
   cartData$ = this.cartDataSubject.asObservable();
 
@@ -45,6 +51,95 @@ export class CartService {
     //Si se modifica el carrito se guarda en local storage
     this.update();
    }
+
+   getToken(){
+    return localStorage.getItem("activeToken");
+  }
+
+   processPayment(): Observable<any> {
+    return this.http.post('https://localhost:7207/cart/buy',
+    {Products : this.productsInCart,
+      PaymentMethod : this.paymentMethod,
+      PaymentId : this.paymentID,
+      Bank : this.paymentBank,
+      Company : this.paymentBank
+    },
+    {
+      headers: { "Auth": this.getToken() || "" }
+    });
+  }
+
+   getPayment(){
+    return {paymentMethod:this.paymentMethod,
+      paymentID:this.paymentID,
+      paymentBank:this.paymentBank,
+      paymentCompany:this.paymentCompany,
+      paymentName:this.paymentName
+    }
+   }
+   paymentIdSet(id: string) {
+    this.paymentID = id;
+   }
+
+   paymentDataSet(metodo: string) {
+    switch (metodo) {
+      case "PAGANZA":
+        this.paymentName = "Paganza"
+        this.paymentMethod = "PAGANZA";
+        this.paymentBank = "";
+        this.paymentCompany = "";
+        break;
+
+      case "PAYPAL":
+        this.paymentName = "PayPal"
+        this.paymentMethod = "PAYPAL";
+        this.paymentBank = "";
+        this.paymentCompany = "";
+        break;
+
+      case "BBVA":
+        this.paymentName = "Debit - BBVA"
+        this.paymentMethod = "DEBIT";
+        this.paymentBank = "BBVA";
+        this.paymentCompany = "";
+        break;
+
+        case "ITAU":
+        this.paymentName = "Debit - ITAU"
+        this.paymentMethod = "DEBIT";
+        this.paymentBank = "ITAU";
+        this.paymentCompany = "";
+        break;
+
+        case "SANTANDER":
+        this.paymentName = "Debit - Santander"
+        this.paymentMethod = "DEBIT";
+        this.paymentBank = "SANTANDER";
+        this.paymentCompany = "";
+        break;
+
+      case "VISA":
+        this.paymentName = "Credit - VISA"
+        this.paymentMethod = "CREDITCARD";
+        this.paymentBank = "";
+        this.paymentCompany = "VISA";
+        break;
+
+        case "MASTERCARD":
+        this.paymentName = "Credit - Mastercard"
+        this.paymentMethod = "CREDITCARD";
+        this.paymentBank = "";
+        this.paymentCompany = "MASTERCARD";
+        break;
+
+      default:
+        this.paymentName= "";
+        this.paymentMethod = "";
+        this.paymentBank = "";
+        this.paymentCompany = "";
+        break;
+    }
+  }
 
    removeProduct(product: Product) {
     this.updateProductsLocal();
@@ -80,6 +175,20 @@ export class CartService {
 
   getCart(): Observable<any> {
     return this.http.post('https://localhost:7207/cart',{Products : this.productsInCart});
+  }
+
+  resetCart(){
+    localStorage.removeItem("cart");
+    this.productsInCart =[];
+    this.paymentMethod ="";
+    this.paymentID  ="";
+    this.paymentBank ="";
+    this.paymentCompany ="";
+    this.paymentName ="";
+  }
+
+  Buy(): Observable<any> {
+    return this.http.post('https://localhost:7207/cart/buy',{Products : this.productsInCart});
   }
 
 }
