@@ -50,7 +50,7 @@ export class UserMenuComponent {
   }
 
   purchaseHistory(){
-    
+    this.router.navigate(['/purchases']);
   }
 
   edit(){
