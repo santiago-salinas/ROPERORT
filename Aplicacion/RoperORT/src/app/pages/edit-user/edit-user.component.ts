@@ -71,6 +71,21 @@ export class EditUserComponent {
     }
   }
 
+  deleteUser(){
+    this.service.deleteUser().subscribe(
+      (data) => {
+        console.log(data);
+        const text = "User was deleted";
+        this.showSnackbar(text, "Close", 3000);
+        this.service.logOut();
+        this.router.navigate(['/home']);
+      },
+      (error) => {
+        this.showSnackbar(error.error, "Close", 3000);
+      }
+    );
+  }
+
   logIn(){
     this.service.logIn(this.email, this.password).subscribe(
       (data) => {

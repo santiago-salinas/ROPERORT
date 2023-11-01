@@ -1,0 +1,16 @@
+<h1>Bienvenido, {{email}}</h1>
+<br>
+<button mat-flat-button color="primary" (click)="edit()"
+  *ngIf='loggedIn'>
+  Edit Account
+</button>
+<br><br>
+<button mat-flat-button color="primary" (click)="logOut()"
+  *ngIf='loggedIn'>
+  Log Out
+</button>
+<br><br>
+<button mat-flat-button color="primary" (click)="manageUsers()"
+  *ngIf='loggedIn&&isAdmin'>
+  Manage Users
+</button>

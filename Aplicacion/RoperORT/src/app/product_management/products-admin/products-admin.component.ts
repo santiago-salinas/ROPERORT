@@ -1,28 +1,28 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Product } from 'src/app/models/product.model';
 import { ProductService } from 'src/app/services/product.service';
-import { ProductCardComponent } from 'src/app/reusable/product-card/product-card.component';
-
+import { ProductAdminCardComponent } from 'src/app/product_management/product-admin-card/product-admin-card.component/.';
+import { Brand, Category, Colour } from 'src/app/models/basics.model';
 
 
 @Component({
-  selector: 'app-products',
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.scss'],
+  selector: 'app-product-admin',
+  templateUrl: './products-admin.component.html',
+  styleUrls: ['./products-admin.component.scss'],
   standalone: true,
-  imports: [CommonModule, ProductCardComponent]
+  imports: [CommonModule, ProductAdminCardComponent]
 })
-
-export class ProductsComponent {
+export class ProductsAdminComponent {
   productList : Product[];
+
 
   constructor(private dataService: ProductService) {
     this.productList = [];
   }
 
   ngOnInit(): void {
-    this.dataService.updateProducts().then(() => {
+    this.dataService.initializeData().then(() => {
       this.productList = this.dataService.availableProducts;
     });
   }

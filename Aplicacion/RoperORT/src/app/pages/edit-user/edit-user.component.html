@@ -31,3 +31,7 @@
 <button mat-flat-button color="primary" (click)="update()" *ngIf="accepted==true&&logged">
   Confirmar cambios
 </button>
+<br><br>
+<button mat-flat-button color="warn" (click)="deleteUser()" *ngIf="accepted==true&&logged">
+  Eliminar cuenta
+</button>
