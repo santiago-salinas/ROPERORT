@@ -62,7 +62,7 @@ export class CartService {
       PaymentMethod : this.paymentMethod,
       PaymentId : this.paymentID,
       Bank : this.paymentBank,
-      Company : this.paymentBank
+      Company : this.paymentCompany
     },
     {
       headers: { "Auth": this.getToken() || "" }
