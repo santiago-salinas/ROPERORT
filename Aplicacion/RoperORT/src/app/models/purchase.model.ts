@@ -3,7 +3,6 @@ export class Purchase {
     user: User = new User();
     cart: Cart = new Cart();
     date: string = "";
-    paymentMethod: PaymentMethod = new PaymentMethod();
 }
 
 class User {
@@ -18,10 +17,6 @@ class Product {
 class CartProduct {
     product: Product = new Product();
     quantity: number = 0;
-}
-  
-class PaymentMethod {
-    id: string = "";
 }
   
 class AppliedPromo {

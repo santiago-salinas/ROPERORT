@@ -21,4 +21,13 @@ export class PurchaseCardComponent {
 
   @Input() purchase: Purchase = new Purchase();
 
+  formatDate(dateTime: string): string{
+    let date = dateTime.split("T")[0];
+    let specificDateInfo = date.split("-");
+    let year = specificDateInfo[0];
+    let month = specificDateInfo[1];
+    let day = specificDateInfo[2];
+    let finalDate = day + "/" + month + "/" + year;
+    return finalDate;
+  }
 }
