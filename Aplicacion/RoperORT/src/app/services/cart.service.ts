@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+import { lastValueFrom } from 'rxjs';
 import { Product } from 'src/app/models/product.model';
 import { CartLine } from 'src/app/models/cartLine.model';
 
@@ -62,7 +62,7 @@ export class CartService {
       PaymentMethod : this.paymentMethod,
       PaymentId : this.paymentID,
       Bank : this.paymentBank,
-      Company : this.paymentBank
+      Company : this.paymentCompany
     },
     {
       headers: { "Auth": this.getToken() || "" }
@@ -173,8 +173,8 @@ export class CartService {
     this.productsInCart = JSON.parse(localStorage.getItem('cart') || '[]');
   }
 
-  getCart(): Observable<any> {
-    return this.http.post('https://localhost:7207/cart',{Products : this.productsInCart});
+  async getCart(): Promise<any> {
+    return lastValueFrom(this.http.post('https://localhost:7207/cart', { Products: this.productsInCart }, { headers: { auth: 'tokenbwayne@gmail.comsecure' } }));
   }
 
   resetCart(){

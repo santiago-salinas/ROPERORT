@@ -25,7 +25,6 @@ export class CartComponent {
 
 
   constructor(private cartService: CartService, private router: Router) {
-    
     this.refreshCart();
   }
 
