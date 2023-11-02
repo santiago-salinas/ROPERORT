@@ -10,13 +10,15 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 
 import { Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
+
 import { CartService } from '../../services/cart.service';
 @Component({
   selector: 'app-product-card',
   templateUrl: './product-card.component.html',
   styleUrls: ['./product-card.component.scss'],
   standalone: true,
-  imports: [CommonModule,MatCardModule, MatButtonModule,MatIconModule,MatSnackBarModule, FormsModule,MatInputModule],
+  imports: [CommonModule,MatCardModule, MatButtonModule,MatIconModule,MatSnackBarModule, FormsModule,MatInputModule, RouterModule],
 })
 
 

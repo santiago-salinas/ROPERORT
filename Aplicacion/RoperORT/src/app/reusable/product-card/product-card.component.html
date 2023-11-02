@@ -1,6 +1,6 @@
 <mat-card class="example-card">
   <mat-card-header>
-    <mat-card-title>{{ productDetails.name }}</mat-card-title>
+      <mat-card-title><a [routerLink]="['/products', productDetails.id]">{{ productDetails.name }}</a></mat-card-title>
     <mat-card-subtitle>
       {{ productDetails.brand.name }} / {{ productDetails.category.name }}
     </mat-card-subtitle>
