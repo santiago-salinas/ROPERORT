@@ -13,6 +13,7 @@ import { UserCreationComponent } from './pages/user-creation/user-creation.compo
 import { AdminEditingComponent } from './pages/admin-editing/admin-editing.component';
 import { UserMenuComponent } from './pages/user-menu/user-menu.component';
 import { UsersPurchasesComponent } from './pages/users-purchases/users-purchases.component';
+import { AdminPurchasesComponent } from './pages/admin-purchases/admin-purchases.component';
 
 
 const routes: Routes = [
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'admin-editing/:id', component: AdminEditingComponent },
   { path: 'user', component: UserMenuComponent },
   { path: 'purchases', component: UsersPurchasesComponent },
+  { path: 'admin-purchases', component: AdminPurchasesComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Default route
   { path: '**', redirectTo: '/home' }, // Handle 404 errors
 ];

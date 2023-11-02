@@ -26,6 +26,7 @@ import { AdminEditingComponent } from './pages/admin-editing/admin-editing.compo
 import { UserMenuComponent } from './pages/user-menu/user-menu.component';
 import { PurchaseCardComponent } from './reusable/purchase-card/purchase-card.component';
 import { UsersPurchasesComponent } from './pages/users-purchases/users-purchases.component';
+import { AdminPurchasesComponent } from './pages/admin-purchases/admin-purchases.component';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { UsersPurchasesComponent } from './pages/users-purchases/users-purchases
     UserMenuComponent,
     PurchaseCardComponent,
     UsersPurchasesComponent,
+    AdminPurchasesComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

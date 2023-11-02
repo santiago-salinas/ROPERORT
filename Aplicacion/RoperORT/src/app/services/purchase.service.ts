@@ -17,4 +17,12 @@ export class PurchaseService {
     }
   )
   }
+
+  getAllPurchases(): Observable<any>{
+    return this.http.get('https://localhost:7207/admin/purchases',
+    {
+      headers: { "Auth": this.service.getToken() || "" }
+    }
+  )
+  }
 }
