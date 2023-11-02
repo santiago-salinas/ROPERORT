@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { Product } from 'src/app/models/product.model';
 import { ProductService } from 'src/app/services/product.service';
 import { ProductAdminCardComponent } from 'src/app/product_management/product-admin-card/product-admin-card.component/.';
-import { Brand, Category, Colour } from 'src/app/models/basics.model';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 
 @Component({
@@ -16,13 +17,12 @@ import { Brand, Category, Colour } from 'src/app/models/basics.model';
 export class ProductsAdminComponent {
   productList : Product[];
 
-
-  constructor(private dataService: ProductService) {
+  constructor(private dataService: ProductService, private snackBar: MatSnackBar) {
     this.productList = [];
   }
 
   ngOnInit(): void {
-    this.dataService.initializeData().then(() => {
+    this.dataService.updateProducts().then(() => {
       this.productList = this.dataService.availableProducts;
     });
   }
@@ -30,4 +30,5 @@ export class ProductsAdminComponent {
   getNameList(colors: Product[]): string {
     return colors.map((color) => color.name).join(', ');
   }
+
 }

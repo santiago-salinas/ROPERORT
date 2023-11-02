@@ -1,29 +1,35 @@
 <mat-card>
   <mat-card-content>
-    <form [formGroup]="productForm">
+    <form [formGroup]="productForm" (ngSubmit)="submitForm()">
       <mat-form-field>
         <mat-label>Name</mat-label>
-        <input matInput formControlName="name" placeholder="Name" />
+        <input matInput formControlName="name" placeholder="Name" required />
+        <mat-error *ngIf="productForm.get('name')?.hasError('required')">Must fill this field</mat-error>
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Price</mat-label>
-        <input matInput formControlName="price" placeholder="Price" />
+        <input matInput formControlName="price" placeholder="Price" type="number" min="0" required />
+        <mat-error *ngIf="productForm.get('price')?.hasError('priceLessThanZero')">Price must be greater than zero</mat-error>
       </mat-form-field>
 
-      <mat-form-field>
+      <mat-form-field floatLabel="always">
         <mat-label>Stock</mat-label>
-        <input matInput formControlName="stock" placeholder="Stock" />
+        <input matInput type="number" class="example-right-align" placeholder="0" formControlName="stock" min="0" required />
+        <mat-error *ngIf="productForm.get('stock')?.hasError('required')">Stock must be at least 0</mat-error>
+
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Description</mat-label>
-        <textarea matInput formControlName="description" placeholder="Description"></textarea>
+        <textarea matInput formControlName="description" placeholder="Description" required></textarea>
+        <mat-error *ngIf="productForm.get('description')?.hasError('required')">Must fill this field</mat-error>
+
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Category</mat-label>
-        <mat-select formControlName="category">
+        <mat-select formControlName="category" required>
           <mat-option *ngFor="let category of availableCategories" [value]="category">
             {{ category }}
           </mat-option>
@@ -32,7 +38,7 @@
 
       <mat-form-field>
         <mat-label>Brand</mat-label>
-        <mat-select formControlName="brand">
+        <mat-select formControlName="brand" required>
           <mat-option *ngFor="let brand of availableBrands" [value]="brand">
             {{ brand }}
           </mat-option>
@@ -41,16 +47,17 @@
 
       <mat-form-field>
         <mat-label>Colours</mat-label>
-        <mat-select formControlName="colours" multiple>
+        <mat-select formControlName="colours" multiple required>
           <mat-option *ngFor="let color of availableColors" [value]="color">
             {{ color }}
           </mat-option>
         </mat-select>
+        <mat-error *ngIf="productForm.get('colours')?.hasError('required')">Must select at least one color</mat-error>
       </mat-form-field>
 
-      <mat-checkbox formControlName="exclude">Check this box</mat-checkbox>
+      <mat-checkbox formControlName="exclude">Excluded from promotions</mat-checkbox>
 
-      <button mat-raised-button (click)="submitForm()">Save</button>
+      <button mat-raised-button type="submit" [disabled]="!formIsValid">Save</button>
     </form>
   </mat-card-content>
 </mat-card>

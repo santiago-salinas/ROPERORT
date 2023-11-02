@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { lastValueFrom } from 'rxjs';
 import { Product } from '../models/product.model';
+import { throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +15,7 @@ export class ProductService {
   availableBrands: string[] = [];
   availableProducts: Product[] = [];
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private snackBar: MatSnackBar) {
   }
 
   async initializeData() {
@@ -68,7 +71,21 @@ export class ProductService {
   }
 
   async updateProduct(product: Product): Promise<any> {
-    return lastValueFrom(this.http.put('https://localhost:7207/product/'+product.id, product, {headers: {auth: "tokenbwayne@gmail.comsecure"}}));
+    try {
+      const response = await lastValueFrom(this.http.put('https://localhost:7207/product/' + product.id, product, {
+        headers: { auth: "tokenbwayne@gmail.comsecure" },
+      }));
+
+      return response;
+    } catch (error: any) {
+        if (error.status === 400) {
+          this.showErrorToast(error.error);
+        }
+        else if (error.status === 404) {
+          this.showErrorToast('Product not found');
+        }
+        throw error;
+    }
   }
 
   async deleteProduct(id: number): Promise<any> {
@@ -78,5 +95,14 @@ export class ProductService {
 
   private getNames(dataList: { name: string }[]): string[] {
     return dataList.map((item) => item.name);
+  }
+
+  private showErrorToast(message: string): void {
+    this.snackBar.open(message, 'Close', {
+      duration: 3000,
+      horizontalPosition: 'center',
+      verticalPosition: 'bottom',
+      panelClass: ['error-toast'],
+    });
   }
 }
