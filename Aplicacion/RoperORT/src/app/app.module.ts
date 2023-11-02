@@ -24,6 +24,7 @@ import { UserCardComponent } from './reusable/user-card/user-card.component';
 import { UserCreationComponent } from './pages/user-creation/user-creation.component';
 import { AdminEditingComponent } from './pages/admin-editing/admin-editing.component';
 import { UserMenuComponent } from './pages/user-menu/user-menu.component';
+import { ProductComponent } from './pages/product/product.component';
 
 
 @NgModule({

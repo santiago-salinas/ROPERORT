@@ -12,7 +12,7 @@ export class AppComponent {
     "Descubre tu estilo con ropa de calidad, solo en RoperORT",
     "Moda que te hace sentir ORTiginal en RoperORT",
     "Viste con confianza, viste con RoperORT",
-    "Tu estilo, tu elección, tu Ropero en RoperORT",
+    "Tu estilo, tu elección, tu Ropero en RoperORT", // :D
     "Moda que refleja tu personalidad, solo en RoperORT",
     "Estilo y comodidad se encuentran en RoperORT",
     "Viste con confianza y estilo, elige RoperORT",

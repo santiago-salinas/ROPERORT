@@ -46,6 +46,11 @@ export class ProductService {
     return lastValueFrom(this.http.get('https://localhost:7207/product'));
   }
 
+  async getProduct(id: number): Promise<any> {
+    return lastValueFrom(this.http.get(`https://localhost:7207/product/${id}`));
+}
+
+
   async getColours(): Promise<any> {
     return lastValueFrom(this.http.get('https://localhost:7207/colour'));
   }
