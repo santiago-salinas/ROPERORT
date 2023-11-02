@@ -1,0 +1,23 @@
+<mat-card class="user-card">
+  <mat-card-header>
+    <mat-card-title>Purchase ID: {{ purchase.id }} - Client: {{ purchase.user.email }}</mat-card-title>
+  </mat-card-header>
+  <br>
+  <mat-card-content>
+    <p><strong>Date:</strong> {{ formatDate(purchase.date) }}</p>
+
+    <p><strong>Original price:</strong> ${{ purchase.cart.priceUYU }} </p>
+    <p><strong>Final Price:</strong> ${{ purchase.cart.discountedPriceUYU }} </p>
+    <p *ngIf="purchase.cart.appliedPromo!=null"><strong>Promo:</strong> {{ purchase.cart.appliedPromo.name }}</p>
+
+    <div class="product-list">
+      <h3>Products:</h3>
+      <ul>
+        <li *ngFor="let product of purchase.cart.products">
+          {{ product.quantity }} x {{ product.product.name }} - (${{ product.product.priceUYU }} each)
+        </li>
+      </ul>
+    </div>
+
+  </mat-card-content>
+</mat-card>
