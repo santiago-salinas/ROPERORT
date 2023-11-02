@@ -7,6 +7,7 @@ import { CartDataComponent } from 'src/app/reusable/cart-data/cart-data.componen
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 @Component({
@@ -24,6 +25,8 @@ export class CartComponent {
 
 
   constructor(private cartService: CartService, private router: Router) {
+    
+    this.refreshCart();
   }
 
   navigateToCartBuy() {
@@ -31,6 +34,7 @@ export class CartComponent {
   }
 
   ngOnInit(): void {
+
     this.cartService.cartData$.subscribe(() => {
       this.refreshCart();
     });
@@ -40,34 +44,32 @@ export class CartComponent {
     return colors.map((color) => color.name).join(', ');
   }
 
-  refreshCart():void{
-    this.cartService.getCart().subscribe(
-      (data:any) => {
-        console.log("Consiguiendo el carrito");
-        console.log(data);
-        console.log(data.products);
+  async refreshCart(): Promise<void> {
+    try {
+      const data = await this.cartService.getCart();
+      console.log('Consiguiendo el carrito');
+      console.log(data);
+      console.log(data.products);
+      this.emptyCart = false;
+      this.cartData = data;
+      this.cartProducts = data.products;
+    } catch (error: any) {
+      console.log((error as HttpErrorResponse).status);
+      if ((error as HttpErrorResponse).status === 420) {
+        alert('El carrito ha sufrido cambios en relación a la disponibilidad por stock de ciertos items.');
         this.emptyCart = false;
-        this.cartData = data;
-        this.cartProducts = data.products;
-
-      },
-      (error:any) => {
-        console.log(error.status);
-        if (error.status === 420) {
-          alert("El carrito ha sufrido cambios en relación a la disponibilidad por stock de ciertos items.");
-          this.emptyCart = false;
-          this.cartData = error.error;
-          this.cartProducts = error.error.products;
-          localStorage.setItem('cart', JSON.stringify(this.transformObject(this.cartProducts)));
-        }
-        else if(error.error == "Empty Cart"){
-          this.emptyCart = true;
-        }else{
-          console.log(error);
-        }
+        this.cartData = (error as HttpErrorResponse).error;
+        this.cartProducts = (error as HttpErrorResponse).error.products;
+        localStorage.setItem('cart', JSON.stringify(this.transformObject(this.cartProducts)));
+      } else if ((error as HttpErrorResponse).error == 'Empty Cart') {
+        this.emptyCart = true;
+      } else {
+        console.log(error);
       }
-    );
+    }
   }
+
+
 
   transformObject(inputArray:any):any {
     return inputArray.map((item:any) => {

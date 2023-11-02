@@ -10,6 +10,16 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
+mat-card-title a {
+  text-decoration: none; /* Remove underline */
+  color: #007BFF; /* Set your desired color here */
+  transition: color 0.3s; /* Add a smooth color transition on hover */
+
+  &:hover {
+    color: #0056b3; /* Change color on hover */
+  }
+}
+
 .example-card {
     max-width: 400px;
     margin: 20px;

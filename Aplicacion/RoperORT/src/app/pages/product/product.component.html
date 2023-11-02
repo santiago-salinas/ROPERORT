@@ -1,0 +1,27 @@
+<div>
+  <h2>{{ product.name }}</h2>
+  <p>Brand: {{ product.brand.name }}</p>
+  <p>Category: {{ product.category.name }}</p>
+  <p>Colors: {{ getColoursNames() }}</p>
+  <br />
+  <p>Description: {{ product.description }}</p>
+  <br />
+  <small>
+    {{
+      product.exclude ? "Este producto no es elegible para promociones. " : ""
+    }}
+</small>
+  <br />
+  <p>Stock: {{ product.stock }}</p>
+
+  <div class="add-to-cart-button">
+    <button
+      mat-flat-button
+      color="primary"
+      (click)="addToCart()"
+      [disabled]="product.stock === 0"
+    >
+      <mat-icon>shopping_cart</mat-icon> Add to Cart
+    </button>
+  </div>
+</div>

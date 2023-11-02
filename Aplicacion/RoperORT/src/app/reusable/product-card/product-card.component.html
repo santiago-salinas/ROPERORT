@@ -1,6 +1,6 @@
 <mat-card class="example-card">
   <mat-card-header>
-    <mat-card-title>{{ productDetails.name }}</mat-card-title>
+      <mat-card-title><a [routerLink]="['/products', productDetails.id]">{{ productDetails.name }}</a></mat-card-title>
     <mat-card-subtitle>
       {{ productDetails.brand.name }} / {{ productDetails.category.name }}
     </mat-card-subtitle>
@@ -8,8 +8,13 @@
   </mat-card-header>
   <mat-card-content>
     <p>{{ productDetails.description }}</p>
-    <p>Stock: {{ productDetails.stock }}</p>
-    <!-- Display stock here -->
+    <p *ngIf="productDetails.exclude">
+      Stock: {{ productDetails.stock }}
+      <small
+        ><small>Este producto no es elegible para promociones.</small></small
+      >
+    </p>
+    <p *ngIf="!productDetails.exclude">Stock: {{ productDetails.stock }}</p>
   </mat-card-content>
   <mat-card-actions class="card-actions">
     <mat-card-title>${{ productDetails.priceUYU }}</mat-card-title>
