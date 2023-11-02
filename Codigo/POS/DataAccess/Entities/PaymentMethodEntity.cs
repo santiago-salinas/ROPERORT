@@ -27,9 +27,9 @@ namespace DataAccess.Entities
                 Company = ""
             };
             if (entity.Type.Equals("Debit"))
-                entity.Company = model.ToString();
-            if (entity.Type.Equals("CreditCard"))
                 entity.Bank = model.ToString();
+            if (entity.Type.Equals("CreditCard"))
+                entity.Company = model.ToString();
             return entity;
         }
 
