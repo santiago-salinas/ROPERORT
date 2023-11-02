@@ -27,6 +27,7 @@ import { UserMenuComponent } from './pages/user-menu/user-menu.component';
 import { PurchaseCardComponent } from './reusable/purchase-card/purchase-card.component';
 import { UsersPurchasesComponent } from './pages/users-purchases/users-purchases.component';
 import { AdminPurchasesComponent } from './pages/admin-purchases/admin-purchases.component';
+import { ProductComponent } from './pages/product/product.component';
 
 
 @NgModule({

@@ -1,0 +1,51 @@
+div {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    background-color: #f9f9f9;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: left;
+    font-family: Arial, sans-serif;
+  
+    h2 {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+  
+    p {
+      font-size: 16px;
+      margin: 5px 0;
+    }
+  
+    .add-to-cart-button {
+      margin-top: 20px;
+  
+      button {
+        display: flex;
+        align-items: center;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+  
+        &:hover {
+          background-color: #0056b3;
+        }
+  
+        mat-icon {
+          margin-right: 5px;
+        }
+      }
+  
+      button[disabled] {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+    }
+  }
+  

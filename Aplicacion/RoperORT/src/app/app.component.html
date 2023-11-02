@@ -52,19 +52,16 @@
   .toolbar img {
     margin: 0 16px;
   }
+  .toolbar img:hover {
+    opacity: 0.8;
+  }
 
-  .toolbar #twitter-logo {
-    height: 40px;
+  .toolbar #logo {
+    height: 20px;
     margin: 0 8px;
   }
 
-  .toolbar #youtube-logo {
-    height: 40px;
-    margin: 0 16px;
-  }
-
-  .toolbar #twitter-logo:hover,
-  .toolbar #youtube-logo:hover {
+  .toolbar #logo:hover {
     opacity: 0.8;
   }
 
@@ -95,46 +92,16 @@
     <img width="200" alt="Angular Logo" src="assets/logo.png" />
   </a>
 
-  <span>RoperORT</span>
+  <span>{{ randomSlogan }}</span>
   <div class="spacer"></div>
-  <a
-    href="http://localhost:4200/user"
-    title="User"
-  >
+  <a id="logo" routerLink="/user" title="User">
     <mat-icon>account_circle</mat-icon>
   </a>
-  <a
-    aria-label="Angular on YouTube"
-    target="_blank"
-    rel="noopener"
-    href="https://youtube.com/angular"
-    title="YouTube"
-  >
-    <svg
-      id="youtube-logo"
-      height="24"
-      width="24"
-      data-name="Logo"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="#fff"
-    >
-      <path d="M0 0h24v24H0V0z" fill="none" />
-      <path
-        d="M21.58 7.19c-.23-.86-.91-1.54-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.81.42c-.86.23-1.54.91-1.77 1.77C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.91 1.54 1.77 1.77C5.75 19 12 19 12 19s6.25 0 7.81-.42c.86-.23 1.54-.91 1.77-1.77C22 15.25 22 12 22 12s0-3.25-.42-4.81zM10 15V9l5.2 3-5.2 3z"
-      />
-    </svg>
+  <a id="logo" routerLink="/cart" title="Cart">
+    <mat-icon>shopping_cart</mat-icon>
   </a>
 </div>
 
 <div class="content" role="main">
   <router-outlet></router-outlet>
 </div>
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
