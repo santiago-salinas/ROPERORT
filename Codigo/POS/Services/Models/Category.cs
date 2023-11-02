@@ -1,7 +1,9 @@
+using Services.Interfaces;
+
 namespace Services.Models
 
 {
-    public class Category
+    public class Category : ICategory
     {
         public Category() { }
         public Category(string name) { Name = name; }

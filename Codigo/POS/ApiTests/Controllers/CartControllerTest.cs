@@ -30,7 +30,7 @@ namespace ApiTests.Controllers
             _mockUser = new Mock<IUserService>(MockBehavior.Strict);
             _mockProduct = new Mock<IProductService>(MockBehavior.Strict);
 
-            _mockDiscounts.Setup(s => s.GetAll()).Returns(new List<Promo>
+            _mockDiscounts.Setup(s => s.GetAll()).Returns(new List<IPromo>
             {
                 new FidelityPromo(),
                 new ThreeForTwoPromo(),
@@ -47,7 +47,7 @@ namespace ApiTests.Controllers
             Colour colour = new Colour();
             colour.Name = "Red";
 
-            List<Colour> colours = new List<Colour>
+            List<IColour> colours = new List<IColour>
             {
                 colour
             };
@@ -212,7 +212,7 @@ namespace ApiTests.Controllers
 
             Cart expectedCart = new Cart()
             {
-                Products = new List<CartLine>()
+                Products = new List<ICartLine>()
                 {
                     new CartLine() {
                         Product = _testProduct,

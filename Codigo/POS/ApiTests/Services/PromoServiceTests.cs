@@ -1,5 +1,6 @@
 ﻿using Services;
 using Services.Models;
+using Services.Interfaces;
 
 namespace ApiTests.Services
 {
@@ -11,10 +12,11 @@ namespace ApiTests.Services
         {
             var promoService = new PromoService();
 
-            var result = promoService.GetAll();
+
+            var result = promoService.GetAvailablePromosFromDirectory();
 
             Assert.IsNotNull(result);
-            Assert.IsInstanceOfType(result, typeof(List<Promo>));
+            Assert.IsInstanceOfType(result, typeof(List<IPromo>));
             Assert.AreEqual(4, result.Count);
         }
 
