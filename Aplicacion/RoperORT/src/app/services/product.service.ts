@@ -67,7 +67,18 @@ export class ProductService {
   }
 
   async createProduct(product: Product): Promise<any> {
-    return lastValueFrom(this.http.post('https://localhost:7207/product', product, {headers: {auth: "tokenbwayne@gmail.comsecure"}}));
+    try {
+      const response = await lastValueFrom(this.http.post('https://localhost:7207/product', product, {
+        headers: { auth: "tokenbwayne@gmail.comsecure" },
+      }));
+
+      return response;
+    } catch (error: any) {
+        if (error.status === 400) {
+          this.showErrorToast(error.error);
+        }
+        throw error;
+    }
   }
 
   async updateProduct(product: Product): Promise<any> {

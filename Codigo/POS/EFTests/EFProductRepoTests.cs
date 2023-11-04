@@ -162,7 +162,7 @@ namespace EFTests
             _context.ProductEntities.AddRange(_testProduct1, _testProduct2);
             _context.SaveChanges();
 
-            return _testProduct1.Id;
+            return (int)_testProduct1.Id;
         }
     }
 }

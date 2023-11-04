@@ -32,7 +32,7 @@ export class ProductAdminCardComponent {
 
   editDialog(): void {
     let dialogRef = this.dialog.open(ProductFormComponent, {
-      data: { product: this.productDetails },
+      data: this.productDetails,
     });
 
     dialogRef.afterClosed().subscribe(result => {

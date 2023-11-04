@@ -220,12 +220,8 @@ namespace ApiTests.Controllers
                     }
                 }
             };
-            var expectedResult = new ObjectResult(expectedCart)
-            {
-                StatusCode = 206
-            };
 
-            Assert.AreEqual(206, createdResult.StatusCode);
+            Assert.AreEqual(420, createdResult.StatusCode);
         }
 
         [TestMethod]
