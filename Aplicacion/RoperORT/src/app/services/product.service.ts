@@ -69,7 +69,7 @@ export class ProductService {
   async createProduct(product: Product): Promise<any> {
     try {
       const response = await lastValueFrom(this.http.post('https://localhost:7207/product', product, {
-        headers: { auth: "tokenbwayne@gmail.comsecure" },
+        headers: { auth: this.getToken() ?? "" },
       }));
 
       return response;
@@ -84,7 +84,7 @@ export class ProductService {
   async updateProduct(product: Product): Promise<any> {
     try {
       const response = await lastValueFrom(this.http.put('https://localhost:7207/product/' + product.id, product, {
-        headers: { auth: "tokenbwayne@gmail.comsecure" },
+        headers: { auth: this.getToken() ?? "" },
       }));
 
       return response;
@@ -100,7 +100,7 @@ export class ProductService {
   }
 
   async deleteProduct(id: number): Promise<any> {
-    return lastValueFrom(this.http.delete('https://localhost:7207/product/'+id, {headers: {auth: "tokenbwayne@gmail.comsecure"}}));
+    return lastValueFrom(this.http.delete('https://localhost:7207/product/'+id, {headers: {auth: this.getToken() || ""}}));
   }
 
 
@@ -115,5 +115,25 @@ export class ProductService {
       verticalPosition: 'bottom',
       panelClass: ['error-toast'],
     });
+  }
+
+  getToken(){
+    return localStorage.getItem("activeToken");
+  }
+
+  async checkIfAdmin(): Promise<boolean>{
+    try{
+      const response : any = await lastValueFrom(this.http.get('https://localhost:7207/user', { headers: { "auth": this.getToken() ?? "" } }));
+      if(response.roles.some((item: { name: string; }) => item.name !== 'Admin')){
+        this.showErrorToast("Not an admin");
+        return false;
+      }
+      return true;
+    }catch(error : any){
+      if (error.status === 403 || error.status === 401) {
+        this.showErrorToast("Not properly logged in");
+      }
+      return false;
+    }
   }
 }

@@ -7,6 +7,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import { ProductFormComponent } from '../product-form/product-form.component';
 import { MatButtonModule } from '@angular/material/button';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -19,13 +21,18 @@ import { MatButtonModule } from '@angular/material/button';
 export class ProductsAdminComponent {
   productList : Product[];
 
-  constructor(private dataService: ProductService, private snackBar: MatSnackBar, private dialog: MatDialog) {
+  constructor(private productService: ProductService, private snackBar: MatSnackBar, private dialog: MatDialog, private router: Router) {
     this.productList = [];
   }
 
-  ngOnInit(): void {
-    this.dataService.updateProducts().then(() => {
-      this.productList = this.dataService.availableProducts;
+  async ngOnInit(): Promise<void> {
+    let isAdmin = await this.productService.checkIfAdmin();
+    if(!isAdmin){
+      this.router.navigate(['/home']);
+    }
+
+    this.productService.updateProducts().then(() => {
+      this.productList = this.productService.availableProducts;
     });
   }
 
@@ -40,8 +47,8 @@ export class ProductsAdminComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.dataService.updateProducts().then(() => {
-          this.productList = this.dataService.availableProducts;
+        this.productService.updateProducts().then(() => {
+          this.productList = this.productService.availableProducts;
         });
       }
     });
