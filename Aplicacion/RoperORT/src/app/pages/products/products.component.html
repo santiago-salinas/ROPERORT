@@ -1,3 +1,53 @@
+<form [formGroup]="filterForm" (ngSubmit)="submitFilters()">
+  <mat-form-field class="field-full-width">
+    <mat-label>Name</mat-label>
+    <input type="text"
+           formControlName="name"
+           placeholder="Search by name..."
+           matInput>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Category</mat-label>
+    <mat-select formControlName="category" required>
+      <mat-option>None</mat-option>
+      <mat-option *ngFor="let category of availableCategories" [value]="category">
+        {{ category }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Brand</mat-label>
+    <mat-select formControlName="brand" required>
+      <mat-option>None</mat-option>
+      <mat-option *ngFor="let brand of availableBrands" [value]="brand">
+        {{ brand }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div>
+    <label class="label">Price Range</label>
+  </div>
+  <mat-slider
+      class="example-margin"
+      [max]="10000"
+      [min]="0"
+      [step]="100"
+      [discrete]="true"
+      [showTickMarks]="true">
+    <input matSliderStartThumb [(ngModel)]="minPrice" #slider1>
+    <input matSliderEndThumb [(ngModel)]="maxPrice" #slider2>
+  </mat-slider>
+
+  <mat-checkbox formControlName="exclude">Excluded from promotions</mat-checkbox>
+
+  <button mat-raised-button type="submit" >Filter</button>
+
+</form>
+
+
 <app-product-card
   *ngFor="let product of productList; let i = index"
   [productDetails]="product"

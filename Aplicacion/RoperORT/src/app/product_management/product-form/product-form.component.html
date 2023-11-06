@@ -17,14 +17,12 @@
         <mat-label>Stock</mat-label>
         <input matInput type="number" class="example-right-align" placeholder="0" formControlName="stock" min="0" required />
         <mat-error *ngIf="productForm.get('stock')?.hasError('required')">Stock must be at least 0</mat-error>
-
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Description</mat-label>
         <textarea matInput formControlName="description" placeholder="Description" required></textarea>
         <mat-error *ngIf="productForm.get('description')?.hasError('required')">Must fill this field</mat-error>
-
       </mat-form-field>
 
       <mat-form-field>

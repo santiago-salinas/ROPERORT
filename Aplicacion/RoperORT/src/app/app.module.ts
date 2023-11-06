@@ -20,6 +20,7 @@ import { UserCardComponent } from './reusable/user-card/user-card.component';
 import { UserCreationComponent } from './pages/user-creation/user-creation.component';
 import { AdminEditingComponent } from './pages/admin-editing/admin-editing.component';
 import { UserMenuComponent } from './pages/user-menu/user-menu.component';
+import { MatSliderModule } from '@angular/material/slider';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { UserMenuComponent } from './pages/user-menu/user-menu.component';
     UserCreationComponent,
     AdminEditingComponent,
     UserMenuComponent,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

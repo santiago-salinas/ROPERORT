@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Inject} from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule,Validators} from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { Product } from 'src/app/models/product.model';
 import { MatSelectModule } from '@angular/material/select';
@@ -22,7 +22,16 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   templateUrl: './product-form.component.html',
   styleUrls: ['./product-form.component.scss'],
   standalone: true,
-  imports: [MatInputModule, MatButtonModule, FormsModule, MatSelectModule, MatFormFieldModule, ReactiveFormsModule, MatCheckboxModule, CommonModule, MatCardModule, NgIf],
+  imports: [MatInputModule,
+    MatButtonModule,
+    FormsModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatCheckboxModule,
+    CommonModule,
+    MatCardModule,
+    NgIf],
 
 })
 export class ProductFormComponent implements OnInit{
