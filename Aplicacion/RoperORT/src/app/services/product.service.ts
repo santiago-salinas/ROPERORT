@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { lastValueFrom } from 'rxjs';
 import { Product } from '../models/product.model';
 import { throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, last } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
@@ -47,6 +47,24 @@ export class ProductService {
 
   async getProducts(): Promise<any> {
     return lastValueFrom(this.http.get('https://localhost:7207/product'));
+  }
+
+  async getFilteredProducts(name: string | null,
+    category: string | null,
+    brand: string | null,
+    minPrice: number | null,
+    maxPrice: number | null,
+    excludedFromPromos: boolean | null): Promise<any> {
+    let body = {
+      "name": name,
+      "category": category,
+      "brand": brand,
+      "minimumPrice": minPrice,
+      "maximumPrice": maxPrice,
+      "excludedFromPromos": excludedFromPromos
+    }
+
+    return lastValueFrom(this.http.post('https://localhost:7207/product/filtered', body));
   }
 
   async getProduct(id: number): Promise<any> {

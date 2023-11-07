@@ -14,6 +14,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSliderModule, MatSlider, MatSliderThumb} from '@angular/material/slider';
 import { MatCheckboxModule} from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
+import { MatRadioModule} from '@angular/material/radio';
 import { Input, Inject} from '@angular/core';
 
 import { FormBuilder, Validators} from '@angular/forms';
@@ -40,33 +41,33 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     MatSliderModule,
     MatSelectModule,
     MatCheckboxModule,
+    MatRadioModule
   ]
 })
 
 export class ProductsComponent {
   productList : Product[];
-  filterForm: FormGroup = new FormGroup('');
+  autoComplete: FormControl = new FormControl('');
   filteredOptions: Observable<string[]> | undefined;
 
-  name: string = '';
-  category: string = '';
-  brand: string = '';
-  minPrice: number = 0;
-  maxPrice: number = 1000;
+  name: string | null = null;
+  category: string | null = null;
+  brand: string | null = null;
+  minPrice: number | null = null;
+  maxPrice: number | null = null;
+  promotionsFilter: string = 'both';
+
 
   availableCategories: string[] = [];
   availableBrands: string[] = [];
 
   constructor(private dataService: ProductService,
-    private formBuilder: FormBuilder,
     ) {
     this.productList = [];
-
-    this.filterForm = this.formBuilder.group({
-      name: [""],
-      brand: [""],
-      category: [""],
-    });
+    this.filteredOptions = this.autoComplete.valueChanges.pipe(
+      startWith(''),
+      map(value => this.autoCompleteSearch(value))
+    );
   }
 
   async ngOnInit(): Promise<void> {
@@ -100,13 +101,18 @@ export class ProductsComponent {
   }
 
   submitFilters() {
-    if(!this.filterForm.valid) return;
+      let name = this.autoComplete.value == "" ?  null : this.autoComplete.value;
+      let category = this.category == "" ? null : this.category;
+      let brand = this.brand == "" ? null : this.brand;
+      let minPrice = this.minPrice == undefined ? null : this.minPrice;
+      let maxPrice = this.maxPrice == undefined ? null : this.maxPrice;
+      let excludedFromPromos;
+      if(this.promotionsFilter == 'enabled') excludedFromPromos = false;
+      else if(this.promotionsFilter == 'excluded') excludedFromPromos = true;
+      else excludedFromPromos = null;
 
-
-    console.log(this.filterForm.get('name')!.value);
-    console.log(this.filterForm.get('category')!.value);
-    console.log(this.filterForm.get('brand')!.value);
-    console.log(this.filterForm.get('minPrice')!.value);
-    console.log(this.filterForm.get('maxPrice')!.value);
+      this.dataService.getFilteredProducts(name, category, brand, minPrice, maxPrice, excludedFromPromos).then((products) => {
+        this.productList = products;
+      });
   }
 }
