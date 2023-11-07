@@ -1,6 +1,6 @@
 ﻿using Services.Interfaces;
 
-namespace Services.Models
+namespace Promotions
 {
     public class FidelityPromo : IPromo
     {

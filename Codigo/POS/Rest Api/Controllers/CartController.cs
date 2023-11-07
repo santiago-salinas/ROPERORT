@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using Rest_Api.DTOs;
 using Services.Interfaces;
 using Services.Models;
-using Services.Models.Promos;
 using Services.Exceptions;
 using Services;
 using Rest_Api.Filters;
@@ -106,7 +105,7 @@ public class CartController : ControllerBase
             Cart = cart,
             User = user,
             Date = DateTime.Now,  
-            PaymentMethod = cart.PaymentMethod,
+            PaymentMethod = (PaymentMethod)cart.PaymentMethod,
         };
 
         ModifyProductStock(purchase.Cart.Products);
@@ -119,7 +118,7 @@ public class CartController : ControllerBase
     [NonAction]
     private Cart ApplyPromoToCart(Cart cart)
     {
-        List<Promo> promos = _promoService.GetAll();
+        List<IPromo> promos = _promoService.GetAll();
 
         PromoApplier promoApplier = new PromoApplier(promos);
 
@@ -167,22 +166,22 @@ public class CartController : ControllerBase
     }
 
     [NonAction]
-    private void ModifyProductStock(List<CartLine> cartLines)
+    private void ModifyProductStock(List<ICartLine> cartLines)
     {
         foreach(CartLine line in cartLines)
         {
-            Product newStock = line.Product;
+            Product newStock = (Product)line.Product;
             newStock.Stock -= line.Quantity;
             _productService.Update(newStock);
         }
     }
 
     [NonAction]
-    private bool ProductQuantitiesWereModified(List<CartLineDTO> cartLineDTOs, List<CartLine> cartLines)
+    private bool ProductQuantitiesWereModified(List<CartLineDTO> cartLineDTOs, List<ICartLine> cartLines)
     {
         foreach(CartLineDTO line in cartLineDTOs)
         {
-            CartLine respectiveCartline = cartLines.Find(c => c.Product.Id == line.Id);
+            CartLine respectiveCartline = (CartLine)cartLines.Find(c => c.Product.Id == line.Id);
             if(respectiveCartline.Quantity != line.Quantity)
             {
                 return true;

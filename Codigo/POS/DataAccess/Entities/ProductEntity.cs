@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Services.Interfaces;
 using Services.Models;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -39,7 +40,7 @@ namespace DataAccess.Entities
                 Stock = product.Stock
             };
 
-            retValue.Colours = product.Colours.Select(c => new ProductColors(retValue, c, context)).ToList();
+            retValue.Colours = product.Colours.Select(c => new ProductColors(retValue, c as Colour, context)).ToList();
 
             return retValue;
         }
@@ -54,7 +55,7 @@ namespace DataAccess.Entities
                 Description = entity.Description,
                 Brand = BrandEntity.FromEntity(entity.Brand),
                 Category = CategoryEntity.FromEntity(entity.Category),
-                Colours = entity.Colours.Select(c => ColourEntity.FromEntity(c.Colour)).ToList(),
+                Colours = entity.Colours.Select(c => ColourEntity.FromEntity(c.Colour) as IColour).ToList(),
                 Exclude = entity.Exclude,
                 Stock = entity.Stock
             };

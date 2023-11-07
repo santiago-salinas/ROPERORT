@@ -1,5 +1,7 @@
-﻿using Services.Models;
+﻿using Services.Interfaces;
+using Services.Models;
 using Services.Models.PaymentMethods;
+using Services;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
 
@@ -29,7 +31,7 @@ namespace DataAccess.Entities
                 Id = model.Id,
                 User = context.UserEntities.First(u => u.Email == model.User.Email),
                 Date = model.Date,
-                Items = cart.Products.Select(p => PurchasedProductEntity.FromModel(model, p, context)).ToList(),
+                Items = cart.Products.Select(cartLine => PurchasedProductEntity.FromModel(model, cartLine as CartLine, context)).ToList(),
                 AppliedPromotion = cart.AppliedPromo?.Name ?? "No promo applied",
                 MoneyDiscounted = cart.PriceUYU - cart.DiscountedPriceUYU,
                 FinalPrice = cart.DiscountedPriceUYU,
@@ -50,7 +52,7 @@ namespace DataAccess.Entities
                         Product = ProductEntity.FromEntity(p.Product),
                         Quantity = p.Amount,
                     };
-                    return line;
+                    return line as ICartLine;
                 }).ToList(),
                 AppliedPromo = GetPromo(entity.AppliedPromotion),
                 PaymentMethod = paymentModel
@@ -66,16 +68,12 @@ namespace DataAccess.Entities
             };
         }
 
-        private static Promo? GetPromo(string name)
+        private static IPromo? GetPromo(string name)
         {
+            IPromoService promoService = new PromoService();
 
-            List<Promo> promoList = new List<Promo>
-            {
-                new FidelityPromo(),
-                new ThreeForTwoPromo(),
-                new TwentyPercentOff(),
-                new TotalLookPromo()
-            };
+
+            List<IPromo> promoList = promoService.GetAll();
 
             return promoList.FirstOrDefault(p => p.Name == name);
         }

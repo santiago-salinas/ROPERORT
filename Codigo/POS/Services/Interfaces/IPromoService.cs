@@ -9,8 +9,8 @@ namespace Services.Interfaces
 {
     public interface IPromoService
     {
-        public List<Promo> GetAll();
+        public List<IPromo> GetAll();
 
-        public Promo? Get(string name);
+        public IPromo? Get(string name);
     }
 }

@@ -9,4 +9,9 @@
     {
         public Service_ObjectHandlingException(string message) : base(message) { }
     }
+
+    public class Service_PromosHandlingException: Exception
+    {
+        public Service_PromosHandlingException(string message) : base(message) { }
+    }
 }

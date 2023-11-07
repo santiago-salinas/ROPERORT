@@ -1,6 +1,8 @@
+using Services.Interfaces;
+
 namespace Services.Models
 {
-    public class Colour
+    public class Colour : IColour
     {
         public string Name { get; set; }
 

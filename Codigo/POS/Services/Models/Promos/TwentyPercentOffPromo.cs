@@ -1,16 +1,26 @@
-﻿namespace Services.Models
+﻿using Services.Interfaces;
+namespace Services.Models
 {
-    public class TwentyPercentOff : Promo
+    public class TwentyPercentOff : IPromo
     {
-        public TwentyPercentOff() : base("20% OFF", "Having 2 any products", "20% OFF most expensive product") { }
+        public string Name { get; set; }
+        public string Condition { get; set; }
+        public string Discount { get; set; }
 
-        override public double ApplyDiscount(Cart cart)
+        public TwentyPercentOff() 
+        {
+            Name = "20% OFF";
+            Condition = "Having 2 any products";
+            Discount = "20% OFF most expensive product";
+        }
+
+        public double ApplyDiscount(ICart cart)
         {
             double retValue = cart.PriceUYU;
 
             if (HasAtLeastTwoProducts(cart))
             {
-                Product productToDiscount = SecondCheapestProduct(cart.Products);
+                IProduct productToDiscount = SecondCheapestProduct(cart.Products);
                 double priceToApplyDiscuount = productToDiscount.PriceUYU;
 
                 retValue -= (priceToApplyDiscuount * 0.2);
@@ -19,9 +29,9 @@
             return retValue;
         }
 
-        private Product SecondCheapestProduct(List<CartLine> cartLines)
+        private IProduct SecondCheapestProduct(List<ICartLine> cartLines)
         {
-            List<CartLine> sortedByPrice = cartLines.OrderBy(p => p.Product.PriceUYU).ToList();
+            List<ICartLine> sortedByPrice = cartLines.OrderBy(p => p.Product.PriceUYU).ToList();
             if (sortedByPrice.Count == 1 || sortedByPrice[0].Quantity >= 2)
             {
                 return sortedByPrice[0].Product;
@@ -32,12 +42,12 @@
             }
         }
 
-        private bool HasAtLeastTwoProducts(Cart cart)
+        private bool HasAtLeastTwoProducts(ICart cart)
         {
-            List<CartLine> lines = cart.Products;
+            List<ICartLine> lines = cart.Products;
 
             int amountOfItems = 0;
-            foreach (CartLine line in lines)
+            foreach (ICartLine line in lines)
             {
                 amountOfItems += line.Quantity;
                 if (amountOfItems == 2) return true;

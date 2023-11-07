@@ -1,5 +1,6 @@
 ﻿using Services;
 using Services.Models;
+using Services.Interfaces;
 
 namespace ApiTests.Services
 {
@@ -12,9 +13,8 @@ namespace ApiTests.Services
             var promoService = new PromoService();
 
             var result = promoService.GetAll();
-
             Assert.IsNotNull(result);
-            Assert.IsInstanceOfType(result, typeof(List<Promo>));
+            Assert.IsInstanceOfType(result, typeof(List<IPromo>));
             Assert.AreEqual(4, result.Count);
         }
 
@@ -22,12 +22,13 @@ namespace ApiTests.Services
         public void Get_ValidPromoName_ReturnsPromo()
         {
             var promoService = new PromoService();
-            var validPromoName = new FidelityPromo().Name;
+            promoService.GetAll();
+            var validPromoName = "3X1 Fidelity";
 
             var result = promoService.Get(validPromoName);
 
             Assert.IsNotNull(result);
-            Assert.IsInstanceOfType(result, typeof(Promo));
+            Assert.IsInstanceOfType(result, typeof(IPromo));
             Assert.AreEqual(validPromoName, result.Name);
         }
 
