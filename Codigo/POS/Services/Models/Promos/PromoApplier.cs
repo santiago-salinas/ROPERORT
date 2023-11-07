@@ -26,9 +26,9 @@ namespace Services.Models
 
 
             double bestPrice = promotionalCart.PriceUYU;
-            Promo? bestPromoToClient = null;
+            IPromo? bestPromoToClient = null;
 
-            foreach (Promo promo in _promos)
+            foreach (IPromo promo in _promos)
             {
                 double newPrice = promo.ApplyDiscount(promotionalCart);
                 if (newPrice < bestPrice)

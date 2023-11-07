@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Promotions\Promotions.csproj" />
+    <Compile Remove="Models\Promo.cs" />
   </ItemGroup>
 
 </Project>

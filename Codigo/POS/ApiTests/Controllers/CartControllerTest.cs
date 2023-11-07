@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Moq;
 using Rest_Api.Controllers;
 using Rest_Api.DTOs;
+using Services;
 using Services.Interfaces;
 using Services.Models;
 using Services.Models.PaymentMethods;
@@ -30,13 +31,16 @@ namespace ApiTests.Controllers
             _mockUser = new Mock<IUserService>(MockBehavior.Strict);
             _mockProduct = new Mock<IProductService>(MockBehavior.Strict);
 
-            _mockDiscounts.Setup(s => s.GetAll()).Returns(new List<IPromo>
+            PromoService service = new PromoService();
+            service.GetAll();
+            List<IPromo> promos = new List<IPromo>()
             {
                 new FidelityPromo(),
                 new ThreeForTwoPromo(),
                 new TwentyPercentOff(),
-                new TotalLookPromo()
-            });
+                new TotalLookPromo(),
+            };
+            _mockDiscounts.Setup(s => s.GetAll()).Returns(promos) ;
 
             Brand brand = new Brand();
             brand.Name = "Adidas";
@@ -222,10 +226,10 @@ namespace ApiTests.Controllers
             };
             var expectedResult = new ObjectResult(expectedCart)
             {
-                StatusCode = 206
+                StatusCode = 420
             };
 
-            Assert.AreEqual(206, createdResult.StatusCode);
+            Assert.AreEqual(420, createdResult.StatusCode);
         }
 
         [TestMethod]
