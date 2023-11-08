@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 import { MatButtonModule } from '@angular/material/button';
@@ -12,7 +13,7 @@ import { LoginService } from 'src/app/services/data.service';
   standalone: true,
   imports: [CommonModule,MatButtonModule]
 })
-export class UserMenuComponent {
+export class UserMenuComponent implements OnInit {
   email: string = "";
   isAdmin: boolean = false;
   loggedIn: boolean = false;
@@ -21,9 +22,11 @@ export class UserMenuComponent {
   constructor(private dataService: LoginService, private router: Router, private _snackBar: MatSnackBar) {
     this.service = dataService;
     this.loggedIn = dataService.getToken() != "";
+  }
 
+  ngOnInit(): void {
     if(!this.loggedIn){
-      router.navigate(['/login']);
+      this.router.navigate(['/login']);
     } else {
       this.service.getUser().subscribe(
         (data) => {
