@@ -15,6 +15,7 @@ import { AdminEditingComponent } from './pages/admin-editing/admin-editing.compo
 import { UserMenuComponent } from './pages/user-menu/user-menu.component';
 import { UsersPurchasesComponent } from './pages/users-purchases/users-purchases.component';
 import { AdminPurchasesComponent } from './pages/admin-purchases/admin-purchases.component';
+import { AdminGuard } from './guards/admin.guard';
 
 
 const routes: Routes = [
@@ -23,18 +24,18 @@ const routes: Routes = [
   { path: 'products', component: ProductsComponent },
   { path: 'products/:id', component: ProductComponent },
 
-  { path: 'product-administration', component: ProductsAdminComponent},
+  { path: 'admin/products', component: ProductsAdminComponent, canActivate: [AdminGuard] },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'cart', component: CartComponent },
   { path: 'cart/buy', component: BuyComponent },
 
   { path: 'edit-user', component: EditUserComponent },
-  { path: 'user-administration', component: UserAdminComponent },
-  { path: 'user-creation', component: UserCreationComponent },
-  { path: 'admin-editing/:id', component: AdminEditingComponent },
+  { path: 'admin', component: UserAdminComponent, canActivate: [AdminGuard] },
+  { path: 'admin/add-user', component: UserCreationComponent, canActivate: [AdminGuard] },
+  { path: 'admin/edit-user/:id', component: AdminEditingComponent, canActivate: [AdminGuard] },
   { path: 'user', component: UserMenuComponent },
   { path: 'purchases', component: UsersPurchasesComponent },
-  { path: 'admin-purchases', component: AdminPurchasesComponent },
+  { path: 'admin/purchases', component: AdminPurchasesComponent, canActivate: [AdminGuard] },
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Default route
   { path: '**', redirectTo: '/home' }, // Handle 404 errors
 ];

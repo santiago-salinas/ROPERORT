@@ -12,6 +12,13 @@
     >
     View All Purchases
 </button>
+<button
+    mat-flat-button
+    color="primary"
+    (click)="manageProducts()"
+    >
+    Manage Products
+</button>
 <br>
 <app-user-card
   *ngFor="let user of userList; let i = index"

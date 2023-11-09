@@ -26,11 +26,6 @@ export class ProductsAdminComponent {
   }
 
   async ngOnInit(): Promise<void> {
-    let isAdmin = await this.productService.checkIfAdmin();
-    if(!isAdmin){
-      this.router.navigate(['/home']);
-    }
-
     this.productService.updateProducts().then(() => {
       this.productList = this.productService.availableProducts;
     });
