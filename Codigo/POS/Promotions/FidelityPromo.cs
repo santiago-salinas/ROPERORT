@@ -1,6 +1,6 @@
-﻿using Services.Interfaces;
-
+using Services.Interfaces;
 namespace Promotions
+
 {
     public class FidelityPromo : IPromo
     {

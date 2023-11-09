@@ -10,7 +10,7 @@ namespace DataAccess.Entities
     public class ProductEntity
     {
         [Key]
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string Name { get; set; }
         public double Price { get; set; }
         public string Description { get; set; }
@@ -49,7 +49,7 @@ namespace DataAccess.Entities
         {
             return new Product
             {
-                Id = entity.Id,
+                Id = (int)entity.Id,
                 Name = entity.Name,
                 PriceUYU = entity.Price,
                 Description = entity.Description,

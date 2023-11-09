@@ -14,7 +14,7 @@ namespace DataAccess.Entities
         {
             ColourEntity colourEntity = context.ColourEntities.First(c => c.Name == colour.Name);
 
-            ProductId = product.Id;
+            ProductId = (int)product.Id;
             Product = product;
             ColourName = colour.Name;
             Colour = colourEntity;

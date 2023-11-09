@@ -68,6 +68,7 @@ namespace DataAccess.Repositories
             try
             {
                 ProductEntity entity = ProductEntity.FromModel(product, _context);
+                entity.Id = null;
                 _context.ProductEntities.Add(entity);
                 _context.SaveChanges();
             }

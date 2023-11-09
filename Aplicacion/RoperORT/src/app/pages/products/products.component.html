@@ -1,3 +1,62 @@
+
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Name</mat-label>
+    <input type="text"
+           aria-label="Name"
+           matInput
+           [formControl]="autoComplete"
+           [matAutocomplete]="auto">
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
+
+<mat-form-field>
+  <mat-label>Category</mat-label>
+  <mat-select [(ngModel)]="category" required>
+    <mat-option>None</mat-option>
+    <mat-option *ngFor="let category of availableCategories" [value]="category">
+      {{ category }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field>
+  <mat-label>Brand</mat-label>
+  <mat-select [(ngModel)]="brand" required>
+    <mat-option>None</mat-option>
+    <mat-option *ngFor="let brand of availableBrands" [value]="brand">
+      {{ brand }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<div class="numeric-inputs">
+  <mat-form-field class="numeric-input">
+    <mat-label>Min Price</mat-label>
+    <input type="number" [(ngModel)]="minPrice" placeholder="Min Price" matInput min="0">
+  </mat-form-field>
+
+  <mat-form-field class="numeric-input">
+    <mat-label>Max Price</mat-label>
+    <input type="number" [(ngModel)]="maxPrice" placeholder="Max Price" matInput min="0">
+  </mat-form-field>
+</div>
+
+<mat-radio-group [(ngModel)]="promotionsFilter">
+  <mat-radio-button [value]="'enabled'">Enabled for promotions</mat-radio-button>
+  <mat-radio-button [value]="'excluded'">Excluded from promotions</mat-radio-button>
+  <mat-radio-button [value]="'both'">Both</mat-radio-button>
+</mat-radio-group>
+
+
+<button mat-raised-button (click)="submitFilters()" >Filter</button>
+
+
 <app-product-card
   *ngFor="let product of productList; let i = index"
   [productDetails]="product"
