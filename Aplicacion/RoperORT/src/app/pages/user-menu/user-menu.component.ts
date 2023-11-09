@@ -60,7 +60,7 @@ export class UserMenuComponent implements OnInit {
     this.router.navigate(['/edit-user']);
   }
 
-  enterAdminModule(){
+  enterAdminModule(){   
     this.router.navigate(['/user-administration']);
   }
 

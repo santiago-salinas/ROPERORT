@@ -117,4 +117,25 @@ export class LoginService {
     }
     )
   }
+
+  isAdmin(): Promise<boolean> {
+    return new Promise<boolean>((resolve, reject) => {
+      this.getUser().subscribe(
+        (data) => {
+          for (let i = 0; i < data.roles.length; i++) {
+            const role = data.roles[i].name;
+            if (role === "Admin") {
+              resolve(true);
+              return;
+            }
+          }
+          resolve(false);
+        },
+        (error) => {
+          reject(error);
+        }
+      );
+    });
+  }
+  
 }

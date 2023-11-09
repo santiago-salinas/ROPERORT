@@ -15,6 +15,7 @@ import { AdminEditingComponent } from './pages/admin-editing/admin-editing.compo
 import { UserMenuComponent } from './pages/user-menu/user-menu.component';
 import { UsersPurchasesComponent } from './pages/users-purchases/users-purchases.component';
 import { AdminPurchasesComponent } from './pages/admin-purchases/admin-purchases.component';
+import { AdminGuard } from './guards/admin.guard';
 
 
 const routes: Routes = [
@@ -29,7 +30,7 @@ const routes: Routes = [
   { path: 'cart/buy', component: BuyComponent },
 
   { path: 'edit-user', component: EditUserComponent },
-  { path: 'user-administration', component: UserAdminComponent },
+  { path: 'user-administration', component: UserAdminComponent, canActivate: [AdminGuard] },
   { path: 'user-creation', component: UserCreationComponent },
   { path: 'admin-editing/:id', component: AdminEditingComponent },
   { path: 'user', component: UserMenuComponent },
