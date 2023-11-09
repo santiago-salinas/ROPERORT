@@ -36,7 +36,7 @@ export class UserCardComponent {
   }
 
   editUser(){
-    this.router.navigate(['/admin-editing', this.userDetails.id]);
+    this.router.navigate(['/admin/edit-user/', this.userDetails.id]);
   }
 
   deleteUser(){

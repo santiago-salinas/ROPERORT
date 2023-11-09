@@ -41,15 +41,15 @@ export class UserAdminComponent {
   }
 
   addUser(){
-    this.router.navigate(['/user-creation']);
+    this.router.navigate(['/admin/add-user']);
   }
 
   viewPurchases(){
-    this.router.navigate(['/admin-purchases']);
+    this.router.navigate(['/admin/purchases']);
   }
 
   manageProducts() {
-    this.router.navigate(['/product-administration']);
+    this.router.navigate(['/admin/products']);
   }
 
   showSnackbar(message: string, action: string, duration: number){

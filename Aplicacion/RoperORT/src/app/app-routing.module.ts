@@ -24,18 +24,18 @@ const routes: Routes = [
   { path: 'products', component: ProductsComponent },
   { path: 'products/:id', component: ProductComponent },
 
-  { path: 'product-administration', component: ProductsAdminComponent},
+  { path: 'admin/products', component: ProductsAdminComponent},
   { path: 'sign-up', component: SignUpComponent },
   { path: 'cart', component: CartComponent },
   { path: 'cart/buy', component: BuyComponent },
 
   { path: 'edit-user', component: EditUserComponent },
-  { path: 'user-administration', component: UserAdminComponent, canActivate: [AdminGuard] },
-  { path: 'user-creation', component: UserCreationComponent },
-  { path: 'admin-editing/:id', component: AdminEditingComponent },
+  { path: 'admin', component: UserAdminComponent, canActivate: [AdminGuard] },
+  { path: 'admin/add-user', component: UserCreationComponent },
+  { path: 'admin/edit-user/:id', component: AdminEditingComponent },
   { path: 'user', component: UserMenuComponent },
   { path: 'purchases', component: UsersPurchasesComponent },
-  { path: 'admin-purchases', component: AdminPurchasesComponent },
+  { path: 'admin/purchases', component: AdminPurchasesComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Default route
   { path: '**', redirectTo: '/home' }, // Handle 404 errors
 ];

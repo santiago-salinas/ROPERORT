@@ -61,7 +61,7 @@ export class UserMenuComponent implements OnInit {
   }
 
   enterAdminModule(){   
-    this.router.navigate(['/user-administration']);
+    this.router.navigate(['/admin']);
   }
 
   showSnackbar(message: string, action: string, duration: number){
