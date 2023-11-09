@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Services.Interfaces;
 
-namespace Services.Models.Promos
+namespace Services.Models
 {
     public class PromoApplier
     {
         private const int _zero = 0;
-        private List<Promo>? _promos = null;
+        private List<IPromo>? _promos = null;
 
-        public PromoApplier(List<Promo>? promos)
+        public PromoApplier(List<IPromo>? promos)
         {
             _promos = promos;
         }
@@ -25,9 +26,9 @@ namespace Services.Models.Promos
 
 
             double bestPrice = promotionalCart.PriceUYU;
-            Promo? bestPromoToClient = null;
+            IPromo? bestPromoToClient = null;
 
-            foreach (Promo promo in _promos)
+            foreach (IPromo promo in _promos)
             {
                 double newPrice = promo.ApplyDiscount(promotionalCart);
                 if (newPrice < bestPrice)
@@ -51,7 +52,7 @@ namespace Services.Models.Promos
 
             foreach (CartLine cartLine in cart.Products)
             {
-                Product product = cartLine.Product;
+                Product product = cartLine.Product as Product;
                 bool isExcluded = product.Exclude;
 
                 if (!isExcluded)

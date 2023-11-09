@@ -31,6 +31,7 @@ namespace DataAccess.Repositories
                             .ThenInclude(i => i.Product)
                                 .ThenInclude(p => p.Colours)
                                     .ThenInclude(c => c.Colour)
+                    .Include(p => p.PaymentMethod)
                         .ToList();
 
                 List<Purchase> purchases = purchaseEntities.Select(p => PurchaseEntity.FromEntity(p)).ToList();

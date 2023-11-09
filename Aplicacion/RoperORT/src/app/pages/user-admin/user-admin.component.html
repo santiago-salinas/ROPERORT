@@ -5,6 +5,13 @@
     >
     <mat-icon>add</mat-icon> Add User
 </button>
+<button
+    mat-flat-button
+    color="primary"
+    (click)="viewPurchases()"
+    >
+    View All Purchases
+</button>
 <br>
 <app-user-card
   *ngFor="let user of userList; let i = index"

@@ -21,6 +21,11 @@ import { UserCreationComponent } from './pages/user-creation/user-creation.compo
 import { AdminEditingComponent } from './pages/admin-editing/admin-editing.component';
 import { UserMenuComponent } from './pages/user-menu/user-menu.component';
 import { MatSliderModule } from '@angular/material/slider';
+import { PurchaseCardComponent } from './reusable/purchase-card/purchase-card.component';
+import { UsersPurchasesComponent } from './pages/users-purchases/users-purchases.component';
+import { AdminPurchasesComponent } from './pages/admin-purchases/admin-purchases.component';
+import { ProductComponent } from './pages/product/product.component';
+
 
 
 @NgModule({
@@ -46,7 +51,10 @@ import { MatSliderModule } from '@angular/material/slider';
     UserCreationComponent,
     AdminEditingComponent,
     UserMenuComponent,
-    MatSliderModule
+    MatSliderModule,
+    PurchaseCardComponent,
+    UsersPurchasesComponent,
+    AdminPurchasesComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,8 @@
+using Services.Interfaces;
+
 namespace Services.Models
 {
-    public abstract class Promo
+    public abstract class Promo : IPromo
     {
         public Promo(string name, string condition, string discount)
         {
@@ -12,7 +14,7 @@ namespace Services.Models
         public string Condition { get; set; }
         public string Discount { get; set; }
 
-        public abstract double ApplyDiscount(Cart cart);
+        public abstract double ApplyDiscount(ICart cart);
 
     }
 }

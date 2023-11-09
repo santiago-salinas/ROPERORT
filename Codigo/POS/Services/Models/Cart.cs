@@ -1,17 +1,18 @@
+using Services.Interfaces;
 using Services.Models.Exceptions;
 using Services.Models.PaymentMethods;
 
 namespace Services.Models
 {
-    public class Cart
+    public class Cart : ICart
     {
-        public PaymentMethod PaymentMethod { get; set; }
+        public IPaymentMethod PaymentMethod { get; set; }
 
-        public List<CartLine> Products { get; set; }
+        public List<ICartLine> Products { get; set; }
 
         public Cart()
         {
-            Products = new List<CartLine>();
+            Products = new List<ICartLine>();
         }
 
         public double PriceUYU
@@ -38,7 +39,7 @@ namespace Services.Models
             get
             {
                 double price;
-                Promo possiblePromo = AppliedPromo;
+                IPromo possiblePromo = AppliedPromo;
                 if (possiblePromo is not null)
                 {
                     price = possiblePromo.ApplyDiscount(this);
@@ -54,12 +55,12 @@ namespace Services.Models
             }
         }
 
-        public Promo? AppliedPromo { get; set; }
+        public IPromo? AppliedPromo { get; set; }
 
     }
-    public class CartLine
+    public class CartLine : ICartLine
     {
-        public Product Product { get; set; }
+        public IProduct Product { get; set; }
 
         private int _quantity;
 

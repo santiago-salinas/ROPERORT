@@ -44,6 +44,10 @@ export class UserAdminComponent {
     this.router.navigate(['/user-creation']);
   }
 
+  viewPurchases(){
+    this.router.navigate(['/admin-purchases']);
+  }
+
   showSnackbar(message: string, action: string, duration: number){
     this._snackBar.open(message, action, {
       duration: duration,

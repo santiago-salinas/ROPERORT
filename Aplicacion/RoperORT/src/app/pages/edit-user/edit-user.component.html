@@ -2,6 +2,7 @@
     No ha iniciado sesión.
 </p>
 
+<h1 *ngIf="logged&&!accepted">Primero, validemos tu cuenta</h1>
 <mat-form-field *ngIf="logged">
     <mat-label>Email</mat-label>
     <input [(ngModel)]="email" matInput/>

@@ -1,5 +1,10 @@
 <h1>Bienvenido, {{email}}</h1>
 <br>
+<button mat-flat-button color="primary" (click)="purchaseHistory()"
+  *ngIf='loggedIn'>
+  View Purchases
+</button>
+<br><br>
 <button mat-flat-button color="primary" (click)="edit()"
   *ngIf='loggedIn'>
   Edit Account
@@ -12,10 +17,11 @@
 <br><br>
 <button mat-flat-button color="primary" (click)="manageUsers()"
   *ngIf='loggedIn&&isAdmin'>
-  Manage Users
+  Admin Module
 </button>
 <br><br>
 <button mat-flat-button color="primary" (click)="manageProducts()"
   *ngIf='loggedIn&&isAdmin'>
   Manage Products
 </button>
+
