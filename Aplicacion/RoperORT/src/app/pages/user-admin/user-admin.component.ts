@@ -48,6 +48,10 @@ export class UserAdminComponent {
     this.router.navigate(['/admin-purchases']);
   }
 
+  manageProducts() {
+    this.router.navigate(['/product-administration']);
+  }
+
   showSnackbar(message: string, action: string, duration: number){
     this._snackBar.open(message, action, {
       duration: duration,

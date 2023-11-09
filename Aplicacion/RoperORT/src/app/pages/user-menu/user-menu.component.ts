@@ -60,12 +60,8 @@ export class UserMenuComponent implements OnInit {
     this.router.navigate(['/edit-user']);
   }
 
-  manageUsers(){
+  enterAdminModule(){
     this.router.navigate(['/user-administration']);
-  }
-
-  manageProducts(){
-    this.router.navigate(['/product-administration']);
   }
 
   showSnackbar(message: string, action: string, duration: number){
