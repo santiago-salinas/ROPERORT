@@ -48,7 +48,8 @@ export class ProductCardComponent {
 
   addToCart() {
     this.cartService.addProduct(this.productDetails, 1);
-  }
+    this.snackFloat("Se ha añadido uno más al carrito");
+    }
 
   removeFromCart() {
     this.cartService.removeProduct(this.productDetails);
