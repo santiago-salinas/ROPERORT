@@ -10,12 +10,10 @@ namespace DataAccess.Entities
         [ForeignKey(nameof(Purchase))]
         public int PurchaseId { get; set; }
 
-        [Key]
-        [ForeignKey(nameof(Product))]
-        public int ProductId { get; set; }
+        public string ProductName { get; set; }
         public PurchaseEntity Purchase { get; set; }
-        public ProductEntity Product { get; set; }
         public int Amount { get; set; }
+        public double ProductPrice { get; set; }
 
 
         public PurchasedProductEntity() { }
@@ -24,8 +22,9 @@ namespace DataAccess.Entities
             return new PurchasedProductEntity
             {
                 Amount = cartLine.Quantity,
-                ProductId = cartLine.Product.Id,
+                ProductName = cartLine.Product.Name,
                 PurchaseId = purchase.Id,
+                ProductPrice = cartLine.Product.PriceUYU,
             };
         }
     }

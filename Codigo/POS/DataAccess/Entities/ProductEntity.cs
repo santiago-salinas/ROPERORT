@@ -21,7 +21,6 @@ namespace DataAccess.Entities
         public int Stock { get; set; }
         public IList<ProductColors> Colours { get; set; }
 
-
         public ProductEntity() { Colours = new List<ProductColors>(); }
         public static ProductEntity FromModel(Product product, EFContext context)
         {

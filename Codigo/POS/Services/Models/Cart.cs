@@ -1,6 +1,7 @@
 using Services.Interfaces;
 using Services.Models.Exceptions;
 using Services.Models.PaymentMethods;
+using System.Net.Http.Headers;
 
 namespace Services.Models
 {
@@ -34,25 +35,44 @@ namespace Services.Models
             return sum;
         }
 
+        private double _discountedPrice;
+
         public double DiscountedPriceUYU
         {
+            set
+            {
+                if(value == null)
+                {
+                    _discountedPrice = CalculateDiscountedPrice();
+                }
+                else
+                {
+                    _discountedPrice = value;
+                }
+            }
+
             get
             {
-                double price;
-                IPromo possiblePromo = AppliedPromo;
-                if (possiblePromo is not null)
-                {
-                    price = possiblePromo.ApplyDiscount(this);
-                }
-                else
-                {
-                    price = TotalPrice();
-                }
-                if (PaymentMethod == null)
-                    return price;
-                else
-                    return PaymentMethod.ApplyDiscount(price);
+                return _discountedPrice;
             }
+        }
+
+        private double CalculateDiscountedPrice()
+        {
+            double price;
+            IPromo possiblePromo = AppliedPromo;
+            if (possiblePromo is not null)
+            {
+                price = possiblePromo.ApplyDiscount(this);
+            }
+            else
+            {
+                price = TotalPrice();
+            }
+            if (PaymentMethod == null)
+                return price;
+            else
+                return PaymentMethod.ApplyDiscount(price);
         }
 
         public IPromo? AppliedPromo { get; set; }

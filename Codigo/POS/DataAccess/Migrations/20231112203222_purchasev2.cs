@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DataAccess.Migrations
 {
-    public partial class payment : Migration
+    public partial class purchasev2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -113,6 +113,30 @@ namespace DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "PurchaseEntities",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserEmail = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    AppliedPromotion = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    FinalPrice = table.Column<double>(type: "float", nullable: false),
+                    MoneyDiscounted = table.Column<double>(type: "float", nullable: false),
+                    PaymentMethodId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PurchaseEntities", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_PurchaseEntities_PaymentMethods_PaymentMethodId",
+                        column: x => x.PaymentMethodId,
+                        principalTable: "PaymentMethods",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AssignedRoles",
                 columns: table => new
                 {
@@ -130,36 +154,6 @@ namespace DataAccess.Migrations
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_AssignedRoles_UserEntities_UserId",
-                        column: x => x.UserId,
-                        principalTable: "UserEntities",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "PurchaseEntities",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<int>(type: "int", nullable: false),
-                    AppliedPromotion = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    FinalPrice = table.Column<double>(type: "float", nullable: false),
-                    MoneyDiscounted = table.Column<double>(type: "float", nullable: false),
-                    PaymentMethodId = table.Column<string>(type: "nvarchar(450)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_PurchaseEntities", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_PurchaseEntities_PaymentMethods_PaymentMethodId",
-                        column: x => x.PaymentMethodId,
-                        principalTable: "PaymentMethods",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_PurchaseEntities_UserEntities_UserId",
                         column: x => x.UserId,
                         principalTable: "UserEntities",
                         principalColumn: "Id",
@@ -195,18 +189,13 @@ namespace DataAccess.Migrations
                 columns: table => new
                 {
                     PurchaseId = table.Column<int>(type: "int", nullable: false),
-                    ProductId = table.Column<int>(type: "int", nullable: false),
-                    Amount = table.Column<int>(type: "int", nullable: false)
+                    ProductName = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Amount = table.Column<int>(type: "int", nullable: false),
+                    ProductPrice = table.Column<double>(type: "float", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PurchasedProductEntity", x => new { x.PurchaseId, x.ProductId });
-                    table.ForeignKey(
-                        name: "FK_PurchasedProductEntity_ProductEntities_ProductId",
-                        column: x => x.ProductId,
-                        principalTable: "ProductEntities",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                    table.PrimaryKey("PK_PurchasedProductEntity", x => new { x.PurchaseId, x.ProductName });
                     table.ForeignKey(
                         name: "FK_PurchasedProductEntity_PurchaseEntities_PurchaseId",
                         column: x => x.PurchaseId,
@@ -242,19 +231,9 @@ namespace DataAccess.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_PurchasedProductEntity_ProductId",
-                table: "PurchasedProductEntity",
-                column: "ProductId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_PurchaseEntities_PaymentMethodId",
                 table: "PurchaseEntities",
                 column: "PaymentMethodId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_PurchaseEntities_UserId",
-                table: "PurchaseEntities",
-                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_UserEntities_Email",
@@ -278,6 +257,9 @@ namespace DataAccess.Migrations
                 name: "RoleEntities");
 
             migrationBuilder.DropTable(
+                name: "UserEntities");
+
+            migrationBuilder.DropTable(
                 name: "ColourEntities");
 
             migrationBuilder.DropTable(
@@ -294,9 +276,6 @@ namespace DataAccess.Migrations
 
             migrationBuilder.DropTable(
                 name: "PaymentMethods");
-
-            migrationBuilder.DropTable(
-                name: "UserEntities");
         }
     }
 }

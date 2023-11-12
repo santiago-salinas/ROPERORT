@@ -152,15 +152,16 @@ namespace DataAccess.Migrations
                     b.Property<int>("PurchaseId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
+                    b.Property<string>("ProductName")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("Amount")
                         .HasColumnType("int");
 
-                    b.HasKey("PurchaseId", "ProductId");
+                    b.Property<double>("ProductPrice")
+                        .HasColumnType("float");
 
-                    b.HasIndex("ProductId");
+                    b.HasKey("PurchaseId", "ProductName");
 
                     b.ToTable("PurchasedProductEntity");
                 });
@@ -298,19 +299,11 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("DataAccess.Entities.PurchasedProductEntity", b =>
                 {
-                    b.HasOne("DataAccess.Entities.ProductEntity", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("DataAccess.Entities.PurchaseEntity", "Purchase")
                         .WithMany("Items")
                         .HasForeignKey("PurchaseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Product");
 
                     b.Navigation("Purchase");
                 });
