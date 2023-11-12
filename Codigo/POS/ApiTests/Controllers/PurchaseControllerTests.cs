@@ -14,7 +14,7 @@ namespace ApiTests.Controllers
     {
         private Mock<IPromoService> _mockDiscounts;
         private Mock<IPurchaseService> _mockPurchaseService;
-        private Mock<IProductService> _mockProductsService;
+        private Mock<ProductService> _mockProductsService;
         private Mock<IUserService> _mockUsersService;
 
         private PurchaseController _purchaseController;
@@ -38,7 +38,7 @@ namespace ApiTests.Controllers
         public void TestInitialize()
         {
             _nowDate = DateTime.Now;
-            _mockProductsService = new Mock<IProductService>(MockBehavior.Loose);
+            _mockProductsService = new Mock<ProductService>(MockBehavior.Loose);
             _mockPurchaseService = new Mock<IPurchaseService>(MockBehavior.Loose);
             _mockUsersService = new Mock<IUserService>(MockBehavior.Loose);
 

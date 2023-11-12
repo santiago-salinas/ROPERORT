@@ -2,7 +2,7 @@ using Services.Interfaces;
 
 namespace Services.Models
 {
-    public class Colour : IColour
+    public class Colour
     {
         public string Name { get; set; }
 

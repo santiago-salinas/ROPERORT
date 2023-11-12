@@ -1,5 +1,6 @@
 ﻿using Services.Interfaces;
-namespace Services.Models
+using Services.Models;
+namespace TwentyPercentOff
 {
     public class TwentyPercentOff : IPromo
     {

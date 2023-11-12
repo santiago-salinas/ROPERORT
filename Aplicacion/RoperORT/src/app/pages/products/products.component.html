@@ -1,9 +1,9 @@
 <form class="example-form">
   <mat-form-field class="example-full-width">
-    <mat-label>Name</mat-label>
+    <mat-label>Nombre</mat-label>
     <input
       type="text"
-      aria-label="Name"
+      aria-label="Nombre"
       matInput
       [formControl]="autoComplete"
       [matAutocomplete]="auto"
@@ -20,7 +20,7 @@
 </form>
 
 <mat-form-field>
-  <mat-label>Category</mat-label>
+  <mat-label>Categoria</mat-label>
   <mat-select [(ngModel)]="category">
     <mat-option>None</mat-option>
     <mat-option *ngFor="let category of availableCategories" [value]="category">
@@ -30,7 +30,7 @@
 </mat-form-field>
 
 <mat-form-field>
-  <mat-label>Brand</mat-label>
+  <mat-label>Marca</mat-label>
   <mat-select [(ngModel)]="brand">
     <mat-option>None</mat-option>
     <mat-option *ngFor="let brand of availableBrands" [value]="brand">
@@ -41,22 +41,22 @@
 
 <div class="numeric-inputs">
   <mat-form-field class="numeric-input">
-    <mat-label>Min Price</mat-label>
+    <mat-label>Precio minimo</mat-label>
     <input
       type="number"
       [(ngModel)]="minPrice"
-      placeholder="Min Price"
+      placeholder="Precio minimo"
       matInput
       min="0"
     />
   </mat-form-field>
 
   <mat-form-field class="numeric-input">
-    <mat-label>Max Price</mat-label>
+    <mat-label>Precio máximo</mat-label>
     <input
       type="number"
       [(ngModel)]="maxPrice"
-      placeholder="Max Price"
+      placeholder="Precio máximo"
       matInput
       min="0"
     />
@@ -65,15 +65,15 @@
 
 <mat-radio-group [(ngModel)]="promotionsFilter">
   <mat-radio-button [value]="'enabled'"
-    >Enabled for promotions</mat-radio-button
+    >Solo habilitados para promociones</mat-radio-button
   >
   <mat-radio-button [value]="'excluded'"
-    >Excluded from promotions</mat-radio-button
+    >Solo excluidos de promociones</mat-radio-button
   >
-  <mat-radio-button [value]="'both'">Both</mat-radio-button>
+  <mat-radio-button [value]="'both'">Ambos</mat-radio-button>
 </mat-radio-group>
 
-<button mat-raised-button (click)="submitFilters()">Filter</button>
+<button mat-raised-button (click)="submitFilters()">Filtrar lista</button>
 
 <app-product-card
   *ngFor="let product of productList; let i = index"

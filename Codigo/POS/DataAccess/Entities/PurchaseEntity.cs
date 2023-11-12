@@ -52,7 +52,7 @@ namespace DataAccess.Entities
                         Product = ProductEntity.FromEntity(p.Product),
                         Quantity = p.Amount,
                     };
-                    return line as ICartLine;
+                    return line as CartLine;
                 }).ToList(),
                 AppliedPromo = GetPromo(entity.AppliedPromotion),
                 PaymentMethod = paymentModel

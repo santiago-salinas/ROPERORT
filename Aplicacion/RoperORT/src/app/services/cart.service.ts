@@ -48,7 +48,6 @@ export class CartService {
     } else {
       this.productsInCart.push(cartLine);
     }
-    //Si se modifica el carrito se guarda en local storage
     this.update();
    }
 
@@ -174,7 +173,7 @@ export class CartService {
   }
 
   async getCart(): Promise<any> {
-    return lastValueFrom(this.http.post('https://localhost:7207/cart', { Products: this.productsInCart }, { headers: { auth: 'tokenbwayne@gmail.comsecure' } }));
+    return lastValueFrom(this.http.post('https://localhost:7207/cart', { Products: this.productsInCart }, { headers: { auth: this.getToken() ?? "" } }));
   }
 
   resetCart(){

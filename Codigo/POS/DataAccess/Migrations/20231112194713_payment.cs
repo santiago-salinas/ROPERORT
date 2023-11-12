@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DataAccess.Migrations
 {
-    public partial class cool : Migration
+    public partial class payment : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Services.Models.PaymentMethods
 {
-    public abstract class PaymentMethod : IPaymentMethod
+    public abstract class PaymentMethod
     {
         public string Id { get; set; }
 

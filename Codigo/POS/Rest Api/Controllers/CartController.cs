@@ -166,18 +166,18 @@ public class CartController : ControllerBase
     }
 
     [NonAction]
-    private void ModifyProductStock(List<ICartLine> cartLines)
+    private void ModifyProductStock(List<CartLine> cartLines)
     {
         foreach(CartLine line in cartLines)
         {
-            Product newStock = (Product)line.Product;
+            Product newStock = line.Product;
             newStock.Stock -= line.Quantity;
             _productService.Update(newStock);
         }
     }
 
     [NonAction]
-    private bool ProductQuantitiesWereModified(List<CartLineDTO> cartLineDTOs, List<ICartLine> cartLines)
+    private bool ProductQuantitiesWereModified(List<CartLineDTO> cartLineDTOs, List<CartLine> cartLines)
     {
         foreach(CartLineDTO line in cartLineDTOs)
         {

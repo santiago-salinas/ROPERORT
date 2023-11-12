@@ -24,7 +24,7 @@ namespace ApiTests.Models
             Cart cart = new Cart();
             var product = new Product { Id = 1, Name = "Test Product", PriceUYU = 10.0 };
             var cartLine = new CartLine { Product = product, Quantity = 1 };
-            cart.Products = new List<ICartLine> { cartLine };
+            cart.Products = new List<CartLine> { cartLine };
 
             double totalPrice = cart.PriceUYU;
 
@@ -39,7 +39,7 @@ namespace ApiTests.Models
             var product2 = new Product { Id = 2, Name = "Product 2", PriceUYU = 15.0 };
             var cartLine1 = new CartLine { Product = product1, Quantity = 2 };
             var cartLine2 = new CartLine { Product = product2, Quantity = 3 };
-            cart.Products = new List<ICartLine> { cartLine1, cartLine2 };
+            cart.Products = new List<CartLine> { cartLine1, cartLine2 };
 
             double totalPrice = cart.PriceUYU;
 
@@ -53,7 +53,7 @@ namespace ApiTests.Models
             Cart cart = new Cart();
             var product = new Product { Id = 1, Name = "Test Product", PriceUYU = 10.0 };
             var cartLine = new CartLine { Product = product, Quantity = -1 };
-            cart.Products = new List<ICartLine> { cartLine };
+            cart.Products = new List<CartLine> { cartLine };
 
             double totalPrice = cart.PriceUYU;
 
@@ -68,7 +68,7 @@ namespace ApiTests.Models
             var product2 = new Product { Id = 2, Name = "Product 2", PriceUYU = 15.0 };
             var cartLine1 = new CartLine { Product = product1, Quantity = 2 };
             var cartLine2 = new CartLine { Product = product2, Quantity = 3 };
-            cart.Products = new List<ICartLine> { cartLine1, cartLine2 };
+            cart.Products = new List<CartLine> { cartLine1, cartLine2 };
 
             Paganza paganza = new Paganza() { Id = "12346" };
             cart.PaymentMethod = paganza;
@@ -86,7 +86,7 @@ namespace ApiTests.Models
             var product2 = new Product { Id = 2, Name = "Product 2", PriceUYU = 15.0 };
             var cartLine1 = new CartLine { Product = product1, Quantity = 2 };
             var cartLine2 = new CartLine { Product = product2, Quantity = 3 };
-            cart.Products = new List<ICartLine> { cartLine1, cartLine2 };
+            cart.Products = new List<CartLine> { cartLine1, cartLine2 };
 
             Paypal paypal = new Paypal() { Id = "12346" };
             cart.PaymentMethod = paypal;

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(EFContext))]
-    [Migration("20231101112722_cool")]
-    partial class cool
+    [Migration("20231112194713_payment")]
+    partial class payment
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -108,11 +108,11 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("DataAccess.Entities.ProductEntity", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"), 1L, 1);
 
                     b.Property<string>("BrandName")
                         .HasColumnType("nvarchar(450)");

@@ -1,6 +1,7 @@
 ﻿using Services.Interfaces;
+using Services.Models;
 
-namespace Services.Models
+namespace TotalLook
 {
     public class TotalLookPromo : IPromo
     {

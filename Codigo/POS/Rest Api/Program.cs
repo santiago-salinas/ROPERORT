@@ -69,17 +69,6 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowSpecificOrigins",
-        builder =>
-        {
-            builder.WithOrigins("http://localhost:4200")
-                   .AllowAnyHeader()
-                   .AllowAnyMethod();
-        });
-});
-
-builder.Services.AddCors(options =>
-{
     options.AddDefaultPolicy(builder =>
     {
         builder.AllowAnyOrigin()

@@ -1,16 +1,16 @@
-﻿namespace Services.Interfaces
+﻿/*namespace Services.Interfaces
 {
-    public interface ICart
+    public interface Cart
     {
-        IPaymentMethod PaymentMethod { get; set; }
-        List<ICartLine> Products { get; set; }
+        PaymentMethod PaymentMethod { get; set; }
+        List<CartLine> Products { get; set; }
         double PriceUYU { get; }
         double DiscountedPriceUYU { get; }
         IPromo? AppliedPromo { get; set; }
     }
-    public interface ICartLine
+    public interface CartLine
     {
         public int Quantity { get; set; }
-        public IProduct Product { get; set; }
+        public Product Product { get; set; }
     }
-}
+}*/

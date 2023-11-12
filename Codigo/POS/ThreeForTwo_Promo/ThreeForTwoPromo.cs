@@ -1,6 +1,7 @@
 ﻿using Services.Interfaces;
+using Services.Models;
 
-namespace Services.Models
+namespace ThreeForTwoPromo
 {
     public class ThreeForTwoPromo : IPromo
     {

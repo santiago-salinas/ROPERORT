@@ -1,10 +1,10 @@
 <div>
   <h2>{{ product.name }}</h2>
-  <p>Brand: {{ product.brand.name }}</p>
-  <p>Category: {{ product.category.name }}</p>
-  <p>Colors: {{ getColoursNames() }}</p>
+  <p>Marca: {{ product.brand.name }}</p>
+  <p>Categoria: {{ product.category.name }}</p>
+  <p>Colores: {{ getColoursNames() }}</p>
   <br />
-  <p>Description: {{ product.description }}</p>
+  <p>Descripción: {{ product.description }}</p>
   <br />
   <small>
     {{
@@ -21,7 +21,7 @@
       (click)="addToCart()"
       [disabled]="product.stock === 0"
     >
-      <mat-icon>shopping_cart</mat-icon> Add to Cart
+      <mat-icon>shopping_cart</mat-icon> Agregar al Carrito
     </button>
   </div>
 </div>

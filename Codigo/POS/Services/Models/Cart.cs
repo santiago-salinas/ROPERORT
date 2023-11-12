@@ -4,15 +4,15 @@ using Services.Models.PaymentMethods;
 
 namespace Services.Models
 {
-    public class Cart : ICart
+    public class Cart
     {
-        public IPaymentMethod PaymentMethod { get; set; }
+        public PaymentMethod PaymentMethod { get; set; }
 
-        public List<ICartLine> Products { get; set; }
+        public List<CartLine> Products { get; set; }
 
         public Cart()
         {
-            Products = new List<ICartLine>();
+            Products = new List<CartLine>();
         }
 
         public double PriceUYU
@@ -58,9 +58,9 @@ namespace Services.Models
         public IPromo? AppliedPromo { get; set; }
 
     }
-    public class CartLine : ICartLine
+    public class CartLine
     {
-        public IProduct Product { get; set; }
+        public Product Product { get; set; }
 
         private int _quantity;
 
