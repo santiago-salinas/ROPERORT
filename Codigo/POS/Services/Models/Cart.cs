@@ -41,14 +41,7 @@ namespace Services.Models
         {
             set
             {
-                if(value == null)
-                {
-                    _discountedPrice = CalculateDiscountedPrice();
-                }
-                else
-                {
-                    _discountedPrice = value;
-                }
+                _discountedPrice = value;                
             }
 
             get
@@ -57,7 +50,7 @@ namespace Services.Models
             }
         }
 
-        private double CalculateDiscountedPrice()
+        public void CalculateDiscountedPrice()
         {
             double price;
             IPromo possiblePromo = AppliedPromo;
@@ -69,10 +62,13 @@ namespace Services.Models
             {
                 price = TotalPrice();
             }
-            if (PaymentMethod == null)
-                return price;
-            else
-                return PaymentMethod.ApplyDiscount(price);
+            if (PaymentMethod != null)
+            {
+                price = PaymentMethod.ApplyDiscount(price);
+            }
+
+            DiscountedPriceUYU = price;
+
         }
 
         public IPromo? AppliedPromo { get; set; }

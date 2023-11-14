@@ -31,7 +31,7 @@ namespace ApiTests.Controllers
                 new Product { Id = 2, Name = "Product2" },
             };
             _mock.Setup(s => s.GetAll()).Returns(expectedProducts);
-            var result = _productController.GetAll();
+            var result = _productController.GetAll(new ProductFilterDTO());
             var createdResult = result;
             Assert.AreEqual(expectedProducts.Count, createdResult.Value.Count);
         }
@@ -231,7 +231,7 @@ namespace ApiTests.Controllers
             _mock.Setup(p => p.GetFiltered(filter))
                 .Returns(expectedProducts);
 
-            var result = _productController.GetFiltered(filter);
+            var result = _productController.GetAll(filter);
 
             ActionResult<List<Product>> okResult = result;
             Assert.IsNotNull(okResult);

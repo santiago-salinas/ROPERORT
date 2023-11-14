@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { lastValueFrom } from 'rxjs';
 import { Product } from '../models/product.model';
 import { throwError } from 'rxjs';
@@ -55,16 +55,18 @@ export class ProductService {
     minPrice: number | null,
     maxPrice: number | null,
     excludedFromPromos: boolean | null): Promise<any> {
-    let body = {
-      "name": name,
-      "category": category,
-      "brand": brand,
-      "minimumPrice": minPrice,
-      "maximumPrice": maxPrice,
-      "excludedFromPromos": excludedFromPromos
-    }
+      let params = new HttpParams();
 
-    return lastValueFrom(this.http.post('https://localhost:7207/product/filtered', body));
+      // Add each parameter only if it has a value
+      if (name) params = params.set('name', name);
+      if (category) params = params.set('category', category);
+      if (brand) params = params.set('brand', brand);
+      if (minPrice !== null) params = params.set('minimumPrice', minPrice.toString());
+      if (maxPrice !== null) params = params.set('maximumPrice', maxPrice.toString());
+      if (excludedFromPromos !== null) params = params.set('excludedFromPromos', excludedFromPromos.toString());
+
+      // Use the params in the request
+      return lastValueFrom(this.http.get('https://localhost:7207/product', {params: params} ));
   }
 
   async getProduct(id: number): Promise<any> {

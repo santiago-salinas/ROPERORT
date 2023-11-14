@@ -73,6 +73,7 @@ namespace ApiTests.Models
             Paganza paganza = new Paganza() { Id = "12346" };
             cart.PaymentMethod = paganza;
 
+            cart.CalculateDiscountedPrice();
             double finalPrice = cart.DiscountedPriceUYU;
 
             Assert.AreEqual(58.5, finalPrice);
@@ -91,6 +92,7 @@ namespace ApiTests.Models
             Paypal paypal = new Paypal() { Id = "12346" };
             cart.PaymentMethod = paypal;
 
+            cart.CalculateDiscountedPrice();
             double finalPrice = cart.DiscountedPriceUYU;
 
             Assert.AreEqual(65.0, finalPrice);

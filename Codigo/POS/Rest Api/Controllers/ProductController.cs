@@ -19,9 +19,26 @@ public class ProductController : ControllerBase
     public ProductController(IProductService productService)
     { _productService = productService; }
 
-    // GET all action
+
     [HttpGet]
-    public ActionResult<List<Product>> GetAll() => _productService.GetAll();
+    public ActionResult<List<Product>> GetAll
+        ([FromQuery] ProductFilterDTO filters)
+    {
+        if (!CheckFiltersAreNull(filters))
+        {
+            return _productService.GetFiltered(filters);
+        }
+        else
+        {
+            return _productService.GetAll();
+        }
+    }
+
+    private bool CheckFiltersAreNull(ProductFilterDTO filters)
+    {
+        var properties = typeof(ProductFilterDTO).GetProperties();
+        return properties.All(property => property.GetValue(filters) == null);
+    }
 
     // GET by Id action
     [HttpGet("{id}")]
@@ -88,12 +105,6 @@ public class ProductController : ControllerBase
 
         _productService.Delete(id);
         return Ok();
-    }
-
-    [HttpPost("filtered")]
-    public ActionResult<List<Product>> GetFiltered(ProductFilterDTO filters)
-    {
-        return _productService.GetFiltered(filters);
     }
 
 }
