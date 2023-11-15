@@ -4,25 +4,25 @@
       <mat-form-field>
         <mat-label>Nombre</mat-label>
         <input matInput formControlName="name" placeholder="Name" required />
-        <mat-error *ngIf="productForm.get('name')?.hasError('required')">Must fill this field</mat-error>
+        <mat-error *ngIf="productForm.get('name')?.hasError('required')">Se debe llenar este campo</mat-error>
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Precio</mat-label>
         <input matInput formControlName="price" placeholder="Price" type="number" min="0" required />
-        <mat-error *ngIf="productForm.get('price')?.hasError('priceLessThanZero')">Price must be greater than zero</mat-error>
+        <mat-error *ngIf="productForm.get('price')?.hasError('priceLessThanZero')">Precio debe ser mayor a cero</mat-error>
       </mat-form-field>
 
       <mat-form-field floatLabel="always">
         <mat-label>Stock</mat-label>
         <input matInput type="number" class="example-right-align" placeholder="0" formControlName="stock" min="0" required />
-        <mat-error *ngIf="productForm.get('stock')?.hasError('required')">Stock must be at least 0</mat-error>
+        <mat-error *ngIf="productForm.get('stock')?.hasError('required')">Stock debe ser al menos cero</mat-error>
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Descripcion</mat-label>
         <textarea matInput formControlName="description" placeholder="Description" required></textarea>
-        <mat-error *ngIf="productForm.get('description')?.hasError('required')">Must fill this field</mat-error>
+        <mat-error *ngIf="productForm.get('description')?.hasError('required')">Se debe llenar este campo</mat-error>
       </mat-form-field>
 
       <mat-form-field>
