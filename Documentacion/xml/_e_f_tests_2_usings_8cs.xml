@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="_e_f_tests_2_usings_8cs" kind="file" language="C#">
+    <compoundname>Usings.cs</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal">global<sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">Microsoft.VisualStudio.TestTools.UnitTesting;</highlight></codeline>
+    </programlisting>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/EFTests/Usings.cs"/>
+  </compounddef>
+</doxygen>

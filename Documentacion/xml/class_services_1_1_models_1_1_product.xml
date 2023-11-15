@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_services_1_1_models_1_1_product" kind="class" language="C#" prot="public">
+    <compoundname>Services::Models::Product</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_services_1_1_models_1_1_product_1a307b64ed30b4cd33f2a8597d2f82aabd" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Services.Models.Product._priceUYU</definition>
+        <argsstring></argsstring>
+        <name>_priceUYU</name>
+        <qualifiedname>Services.Models.Product._priceUYU</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Product.cs" line="9" column="24" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Product.cs" bodystart="9" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="class_services_1_1_models_1_1_product_1a77e238c3f32e5d0032db7689d382dcb1" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Services.Models.Product.Id</definition>
+        <argsstring></argsstring>
+        <name>Id</name>
+        <qualifiedname>Services.Models.Product.Id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Product.cs" line="10" column="20" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Product.cs" bodystart="10" bodyend="10"/>
+      </memberdef>
+      <memberdef kind="property" id="class_services_1_1_models_1_1_product_1ac8e95515a28634b93fe7919a918d1285" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Services.Models.Product.Name</definition>
+        <argsstring></argsstring>
+        <name>Name</name>
+        <qualifiedname>Services.Models.Product.Name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Product.cs" line="11" column="23" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Product.cs" bodystart="11" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="property" id="class_services_1_1_models_1_1_product_1a6e28b9de607507265e436950826eeb5e" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double Services.Models.Product.PriceUYU</definition>
+        <argsstring></argsstring>
+        <name>PriceUYU</name>
+        <qualifiedname>Services.Models.Product.PriceUYU</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Product.cs" line="12" column="23" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Product.cs" bodystart="13" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="property" id="class_services_1_1_models_1_1_product_1a3aceabd1e53ddc7cbb25aa3e0635a2cc" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Services.Models.Product.Description</definition>
+        <argsstring></argsstring>
+        <name>Description</name>
+        <qualifiedname>Services.Models.Product.Description</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Product.cs" line="24" column="23" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Product.cs" bodystart="24" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="property" id="class_services_1_1_models_1_1_product_1a84ea295dbec136a079da9d584013b49b" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type><ref refid="class_services_1_1_models_1_1_brand" kindref="compound">Brand</ref></type>
+        <definition>Brand Services.Models.Product.Brand</definition>
+        <argsstring></argsstring>
+        <name>Brand</name>
+        <qualifiedname>Services.Models.Product.Brand</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Product.cs" line="27" column="22" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Product.cs" bodystart="27" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="property" id="class_services_1_1_models_1_1_product_1ad8e13aa110474f3eafe04ac301a6b3a2" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type><ref refid="class_services_1_1_models_1_1_category" kindref="compound">Category</ref></type>
+        <definition>Category Services.Models.Product.Category</definition>
+        <argsstring></argsstring>
+        <name>Category</name>
+        <qualifiedname>Services.Models.Product.Category</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Product.cs" line="28" column="25" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Product.cs" bodystart="28" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="property" id="class_services_1_1_models_1_1_product_1a25f4dbd7bd2de55db94f412bff8f2253" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>List&lt; <ref refid="class_services_1_1_models_1_1_colour" kindref="compound">Colour</ref> &gt;</type>
+        <definition>List&lt;Colour&gt; Services.Models.Product.Colours</definition>
+        <argsstring></argsstring>
+        <name>Colours</name>
+        <qualifiedname>Services.Models.Product.Colours</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Product.cs" line="29" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Product.cs" bodystart="29" bodyend="29"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_services_1_1_models_1_1_product_1ad855ce6d6e391e651a5ac9c397f0fe91" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Services.Models.Product.Product</definition>
+        <argsstring>()</argsstring>
+        <name>Product</name>
+        <qualifiedname>Services.Models.Product.Product</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Product.cs" line="7" column="16" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Product.cs" bodystart="7" bodyend="8"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Product.cs" line="5" column="11" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Product.cs" bodystart="6" bodyend="30"/>
+    <listofallmembers>
+      <member refid="class_services_1_1_models_1_1_product_1a307b64ed30b4cd33f2a8597d2f82aabd" prot="private" virt="non-virtual"><scope>Services::Models::Product</scope><name>_priceUYU</name></member>
+      <member refid="class_services_1_1_models_1_1_product_1a84ea295dbec136a079da9d584013b49b" prot="public" virt="non-virtual"><scope>Services::Models::Product</scope><name>Brand</name></member>
+      <member refid="class_services_1_1_models_1_1_product_1ad8e13aa110474f3eafe04ac301a6b3a2" prot="public" virt="non-virtual"><scope>Services::Models::Product</scope><name>Category</name></member>
+      <member refid="class_services_1_1_models_1_1_product_1a25f4dbd7bd2de55db94f412bff8f2253" prot="public" virt="non-virtual"><scope>Services::Models::Product</scope><name>Colours</name></member>
+      <member refid="class_services_1_1_models_1_1_product_1a3aceabd1e53ddc7cbb25aa3e0635a2cc" prot="public" virt="non-virtual"><scope>Services::Models::Product</scope><name>Description</name></member>
+      <member refid="class_services_1_1_models_1_1_product_1a77e238c3f32e5d0032db7689d382dcb1" prot="public" virt="non-virtual"><scope>Services::Models::Product</scope><name>Id</name></member>
+      <member refid="class_services_1_1_models_1_1_product_1ac8e95515a28634b93fe7919a918d1285" prot="public" virt="non-virtual"><scope>Services::Models::Product</scope><name>Name</name></member>
+      <member refid="class_services_1_1_models_1_1_product_1a6e28b9de607507265e436950826eeb5e" prot="public" virt="non-virtual"><scope>Services::Models::Product</scope><name>PriceUYU</name></member>
+      <member refid="class_services_1_1_models_1_1_product_1ad855ce6d6e391e651a5ac9c397f0fe91" prot="public" virt="non-virtual"><scope>Services::Models::Product</scope><name>Product</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

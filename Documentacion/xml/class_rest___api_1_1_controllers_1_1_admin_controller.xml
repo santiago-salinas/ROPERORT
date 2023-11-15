@@ -1,0 +1,203 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_rest___api_1_1_controllers_1_1_admin_controller" kind="class" language="C#" prot="public">
+    <compoundname>Rest_Api::Controllers::AdminController</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ControllerBase</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_rest___api_1_1_controllers_1_1_admin_controller_1a315890cc7454de1bae6d7a9219924c26" prot="private" static="no" mutable="no">
+        <type>readonly <ref refid="interface_services_1_1_interfaces_1_1_i_user_service" kindref="compound">IUserService</ref></type>
+        <definition>readonly IUserService Rest_Api.Controllers.AdminController._userService</definition>
+        <argsstring></argsstring>
+        <name>_userService</name>
+        <qualifiedname>Rest_Api.Controllers.AdminController._userService</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/AdminController.cs" line="17" column="39" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/AdminController.cs" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_rest___api_1_1_controllers_1_1_admin_controller_1a72f3a013943f7df0fd31a7fd6aa641d0" prot="private" static="no" mutable="no">
+        <type>readonly <ref refid="interface_services_1_1_interfaces_1_1_i_purchase_service" kindref="compound">IPurchaseService</ref></type>
+        <definition>readonly IPurchaseService Rest_Api.Controllers.AdminController._purchaseService</definition>
+        <argsstring></argsstring>
+        <name>_purchaseService</name>
+        <qualifiedname>Rest_Api.Controllers.AdminController._purchaseService</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/AdminController.cs" line="18" column="43" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/AdminController.cs" bodystart="18" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_rest___api_1_1_controllers_1_1_admin_controller_1a725d5add6e8cbd72bfc8021013e1b91c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Rest_Api.Controllers.AdminController.AdminController</definition>
+        <argsstring>(IUserService userService, IPurchaseService purchaseService)</argsstring>
+        <name>AdminController</name>
+        <qualifiedname>Rest_Api.Controllers.AdminController.AdminController</qualifiedname>
+        <param>
+          <type><ref refid="interface_services_1_1_interfaces_1_1_i_user_service" kindref="compound">IUserService</ref></type>
+          <declname>userService</declname>
+        </param>
+        <param>
+          <type><ref refid="interface_services_1_1_interfaces_1_1_i_purchase_service" kindref="compound">IPurchaseService</ref></type>
+          <declname>purchaseService</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/AdminController.cs" line="20" column="16" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/AdminController.cs" bodystart="20" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="class_rest___api_1_1_controllers_1_1_admin_controller_1a9a3d54f987e878be8ce2f9ddd20cea20" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ActionResult&lt; List&lt; <ref refid="class_services_1_1_models_1_1_user" kindref="compound">User</ref> &gt; &gt;</type>
+        <definition>ActionResult&lt; List&lt; User &gt; &gt; Rest_Api.Controllers.AdminController.GetAllUsers</definition>
+        <argsstring>()</argsstring>
+        <name>GetAllUsers</name>
+        <qualifiedname>Rest_Api.Controllers.AdminController.GetAllUsers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/AdminController.cs" line="27" column="29"/>
+      </memberdef>
+      <memberdef kind="function" id="class_rest___api_1_1_controllers_1_1_admin_controller_1a6cf88240992e27928f9b51f99b0cfde2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult&lt; <ref refid="class_services_1_1_models_1_1_user" kindref="compound">User</ref> &gt;</type>
+        <definition>ActionResult&lt; User &gt; Rest_Api.Controllers.AdminController.Get</definition>
+        <argsstring>(int id)</argsstring>
+        <name>Get</name>
+        <qualifiedname>Rest_Api.Controllers.AdminController.Get</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/AdminController.cs" line="30" column="29" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/AdminController.cs" bodystart="30" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="class_rest___api_1_1_controllers_1_1_admin_controller_1af7e959324ccca73f5b753c438c526eb5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IActionResult</type>
+        <definition>IActionResult Rest_Api.Controllers.AdminController.Create</definition>
+        <argsstring>(User user)</argsstring>
+        <name>Create</name>
+        <qualifiedname>Rest_Api.Controllers.AdminController.Create</qualifiedname>
+        <param>
+          <type><ref refid="class_services_1_1_models_1_1_user" kindref="compound">User</ref></type>
+          <declname>user</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/AdminController.cs" line="39" column="30" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/AdminController.cs" bodystart="39" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="class_rest___api_1_1_controllers_1_1_admin_controller_1a2bb7093460a25c25c64f233a5216f491" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IActionResult</type>
+        <definition>IActionResult Rest_Api.Controllers.AdminController.Update</definition>
+        <argsstring>(int id, User user)</argsstring>
+        <name>Update</name>
+        <qualifiedname>Rest_Api.Controllers.AdminController.Update</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type><ref refid="class_services_1_1_models_1_1_user" kindref="compound">User</ref></type>
+          <declname>user</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/AdminController.cs" line="55" column="30" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/AdminController.cs" bodystart="55" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="class_rest___api_1_1_controllers_1_1_admin_controller_1ab9b7e9299cc50995b7ff15bfc184d579" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IActionResult</type>
+        <definition>IActionResult Rest_Api.Controllers.AdminController.Delete</definition>
+        <argsstring>(int id)</argsstring>
+        <name>Delete</name>
+        <qualifiedname>Rest_Api.Controllers.AdminController.Delete</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/AdminController.cs" line="70" column="30" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/AdminController.cs" bodystart="70" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="class_rest___api_1_1_controllers_1_1_admin_controller_1a844d9c9aa8fafcbcfeac27b410bb9fca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ActionResult&lt; List&lt; <ref refid="class_services_1_1_models_1_1_purchase" kindref="compound">Purchase</ref> &gt; &gt;</type>
+        <definition>ActionResult&lt; List&lt; Purchase &gt; &gt; Rest_Api.Controllers.AdminController.GetAllPurchases</definition>
+        <argsstring>()</argsstring>
+        <name>GetAllPurchases</name>
+        <qualifiedname>Rest_Api.Controllers.AdminController.GetAllPurchases</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/AdminController.cs" line="81" column="29"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ControllerBase</label>
+      </node>
+      <node id="1">
+        <label>Rest_Api.Controllers.AdminController</label>
+        <link refid="class_rest___api_1_1_controllers_1_1_admin_controller"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ControllerBase</label>
+      </node>
+      <node id="1">
+        <label>Rest_Api.Controllers.AdminController</label>
+        <link refid="class_rest___api_1_1_controllers_1_1_admin_controller"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/AdminController.cs" line="15" column="11" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/AdminController.cs" bodystart="16" bodyend="82"/>
+    <listofallmembers>
+      <member refid="class_rest___api_1_1_controllers_1_1_admin_controller_1a72f3a013943f7df0fd31a7fd6aa641d0" prot="private" virt="non-virtual"><scope>Rest_Api::Controllers::AdminController</scope><name>_purchaseService</name></member>
+      <member refid="class_rest___api_1_1_controllers_1_1_admin_controller_1a315890cc7454de1bae6d7a9219924c26" prot="private" virt="non-virtual"><scope>Rest_Api::Controllers::AdminController</scope><name>_userService</name></member>
+      <member refid="class_rest___api_1_1_controllers_1_1_admin_controller_1a725d5add6e8cbd72bfc8021013e1b91c" prot="public" virt="non-virtual"><scope>Rest_Api::Controllers::AdminController</scope><name>AdminController</name></member>
+      <member refid="class_rest___api_1_1_controllers_1_1_admin_controller_1af7e959324ccca73f5b753c438c526eb5" prot="public" virt="non-virtual"><scope>Rest_Api::Controllers::AdminController</scope><name>Create</name></member>
+      <member refid="class_rest___api_1_1_controllers_1_1_admin_controller_1ab9b7e9299cc50995b7ff15bfc184d579" prot="public" virt="non-virtual"><scope>Rest_Api::Controllers::AdminController</scope><name>Delete</name></member>
+      <member refid="class_rest___api_1_1_controllers_1_1_admin_controller_1a6cf88240992e27928f9b51f99b0cfde2" prot="public" virt="non-virtual"><scope>Rest_Api::Controllers::AdminController</scope><name>Get</name></member>
+      <member refid="class_rest___api_1_1_controllers_1_1_admin_controller_1a844d9c9aa8fafcbcfeac27b410bb9fca" prot="public" virt="non-virtual"><scope>Rest_Api::Controllers::AdminController</scope><name>GetAllPurchases</name></member>
+      <member refid="class_rest___api_1_1_controllers_1_1_admin_controller_1a9a3d54f987e878be8ce2f9ddd20cea20" prot="public" virt="non-virtual"><scope>Rest_Api::Controllers::AdminController</scope><name>GetAllUsers</name></member>
+      <member refid="class_rest___api_1_1_controllers_1_1_admin_controller_1a2bb7093460a25c25c64f233a5216f491" prot="public" virt="non-virtual"><scope>Rest_Api::Controllers::AdminController</scope><name>Update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

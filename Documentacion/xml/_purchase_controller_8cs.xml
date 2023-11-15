@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="_purchase_controller_8cs" kind="file" language="C#">
+    <compoundname>PurchaseController.cs</compoundname>
+    <innerclass refid="class_rest___api_1_1_controllers_1_1_purchase_controller" prot="public">Rest_Api::Controllers::PurchaseController</innerclass>
+    <innernamespace refid="namespace_rest___api">Rest_Api</innernamespace>
+    <innernamespace refid="namespace_rest___api_1_1_controllers">Rest_Api::Controllers</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">using<sp/></highlight><highlight class="normal">Microsoft.AspNetCore.Mvc;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_services_1_1_models" kindref="compound">Services.Models</ref>;</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_services_1_1_exceptions" kindref="compound">Services.Exceptions</ref>;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_rest___api_1_1_filters" kindref="compound">Rest_Api.Filters</ref>;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_services_1_1_interfaces" kindref="compound">Services.Interfaces</ref>;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_rest___api_1_1_d_t_os" kindref="compound">Rest_Api.DTOs</ref>;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_services" kindref="compound">Services</ref>;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_rest___api_1_1_controllers" kindref="compound">Rest_Api.Controllers</ref>;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal">[ApiController]</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">[Route(</highlight><highlight class="stringliteral">&quot;[controller]&quot;</highlight><highlight class="normal">)]</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">[<ref refid="class_rest___api_1_1_filters_1_1_exception_filter" kindref="compound">ExceptionFilter</ref>]</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15" refid="class_rest___api_1_1_controllers_1_1_purchase_controller" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_rest___api_1_1_controllers_1_1_purchase_controller" kindref="compound">PurchaseController</ref><sp/>:<sp/>ControllerBase</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>readonly<sp/><ref refid="interface_services_1_1_interfaces_1_1_i_purchase_service" kindref="compound">IPurchaseService</ref><sp/>_purchaseService;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>readonly<sp/><ref refid="interface_services_1_1_interfaces_1_1_i_user_service" kindref="compound">IUserService</ref><sp/>_userService;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_rest___api_1_1_controllers_1_1_purchase_controller" kindref="compound">PurchaseController</ref>(<ref refid="interface_services_1_1_interfaces_1_1_i_purchase_service" kindref="compound">IPurchaseService</ref><sp/>purchaseService,<sp/><ref refid="interface_services_1_1_interfaces_1_1_i_user_service" kindref="compound">IUserService</ref><sp/>userService)</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_purchaseService<sp/>=<sp/>purchaseService;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_userService<sp/>=<sp/>userService;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>GET<sp/>by<sp/>Id<sp/>action</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>[HttpGet(</highlight><highlight class="stringliteral">&quot;{id}&quot;</highlight><highlight class="normal">)]</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>[ServiceFilter(typeof(<ref refid="class_rest___api_1_1_filters_1_1_authentication_filter" kindref="compound">AuthenticationFilter</ref>))]</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>ActionResult&lt;Purchase&gt;<sp/><ref refid="class_rest___api_1_1_controllers_1_1_purchase_controller_1a9d6edcd39f28289a594b4e1ef8dd6b41" kindref="member">Get</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;User&gt;<sp/>users<sp/>=<sp/>_userService.<ref refid="interface_services_1_1_interfaces_1_1_i_user_service_1a76b3b63e714fe8c8d979cf3d6a679aa7" kindref="member">GetAll</ref>();</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>auth<sp/>=<sp/>HttpContext.Request.Headers[</highlight><highlight class="stringliteral">&quot;auth&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_services_1_1_models_1_1_user" kindref="compound">User</ref>?<sp/>user<sp/>=<sp/>users.FirstOrDefault(u<sp/>=&gt;<sp/>u.Token.Equals(auth));</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_services_1_1_models_1_1_purchase" kindref="compound">Purchase</ref>?<sp/>purchase<sp/>=<sp/>_purchaseService.Get(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(purchase<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NotFound();</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(purchase.<ref refid="class_services_1_1_models_1_1_purchase_1aa1151448bb827e2b5dd1510d5858b886" kindref="member">User</ref>.<ref refid="class_services_1_1_models_1_1_user_1a490b9370e8d8b8b17062f3ae51347fe8" kindref="member">Id</ref><sp/>==<sp/>user.<ref refid="class_services_1_1_models_1_1_user_1a490b9370e8d8b8b17062f3ae51347fe8" kindref="member">Id</ref>)</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>purchase;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>StatusCode(403,<sp/></highlight><highlight class="stringliteral">&quot;Invalid<sp/>authentication<sp/>token&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>[HttpGet(</highlight><highlight class="stringliteral">&quot;history&quot;</highlight><highlight class="normal">)]</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>[ServiceFilter(typeof(<ref refid="class_rest___api_1_1_filters_1_1_authentication_filter" kindref="compound">AuthenticationFilter</ref>))]</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>ActionResult&lt;List&lt;Purchase&gt;&gt;<sp/><ref refid="class_rest___api_1_1_controllers_1_1_purchase_controller_1a989f142412fe4746a05ebd417b55c32d" kindref="member">GetPurchaseHistory</ref>()</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;User&gt;<sp/>users<sp/>=<sp/>_userService.GetAll();</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>auth<sp/>=<sp/>HttpContext.Request.Headers[</highlight><highlight class="stringliteral">&quot;auth&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_services_1_1_models_1_1_user" kindref="compound">User</ref>?<sp/>user<sp/>=<sp/>users.FirstOrDefault(u<sp/>=&gt;<sp/>u.Token.Equals(auth));</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_purchaseService.GetPurchaseHistoryFromUser(user.<ref refid="class_services_1_1_models_1_1_user_1a490b9370e8d8b8b17062f3ae51347fe8" kindref="member">Id</ref>);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/PurchaseController.cs"/>
+  </compounddef>
+</doxygen>

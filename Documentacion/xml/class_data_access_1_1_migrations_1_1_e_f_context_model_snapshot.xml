@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_data_access_1_1_migrations_1_1_e_f_context_model_snapshot" kind="class" language="C#" prot="public">
+    <compoundname>DataAccess::Migrations::EFContextModelSnapshot</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ModelSnapshot</basecompoundref>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_data_access_1_1_migrations_1_1_e_f_context_model_snapshot_1a0b38c06e88e11daece250e055dcaa644" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DataAccess.Migrations.EFContextModelSnapshot.BuildModel</definition>
+        <argsstring>(ModelBuilder modelBuilder)</argsstring>
+        <name>BuildModel</name>
+        <qualifiedname>DataAccess.Migrations.EFContextModelSnapshot.BuildModel</qualifiedname>
+        <param>
+          <type>ModelBuilder</type>
+          <declname>modelBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Migrations/EFContextModelSnapshot.cs" line="16" column="33" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Migrations/EFContextModelSnapshot.cs" bodystart="16" bodyend="319"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>DataAccess.Migrations.EFContextModelSnapshot</label>
+        <link refid="class_data_access_1_1_migrations_1_1_e_f_context_model_snapshot"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ModelSnapshot</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>DataAccess.Migrations.EFContextModelSnapshot</label>
+        <link refid="class_data_access_1_1_migrations_1_1_e_f_context_model_snapshot"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ModelSnapshot</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Migrations/EFContextModelSnapshot.cs" line="14" column="12" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Migrations/EFContextModelSnapshot.cs" bodystart="15" bodyend="320"/>
+    <listofallmembers>
+      <member refid="class_data_access_1_1_migrations_1_1_e_f_context_model_snapshot_1a0b38c06e88e11daece250e055dcaa644" prot="protected" virt="non-virtual"><scope>DataAccess::Migrations::EFContextModelSnapshot</scope><name>BuildModel</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_services_1_1_models_1_1_promo" kind="class" language="C#" prot="public" abstract="yes">
+    <compoundname>Services::Models::Promo</compoundname>
+    <derivedcompoundref refid="class_services_1_1_models_1_1_fidelity_promo" prot="public" virt="non-virtual">Services.Models.FidelityPromo</derivedcompoundref>
+    <derivedcompoundref refid="class_services_1_1_models_1_1_three_for_two_promo" prot="public" virt="non-virtual">Services.Models.ThreeForTwoPromo</derivedcompoundref>
+    <derivedcompoundref refid="class_services_1_1_models_1_1_total_look_promo" prot="public" virt="non-virtual">Services.Models.TotalLookPromo</derivedcompoundref>
+    <derivedcompoundref refid="class_services_1_1_models_1_1_twenty_percent_off" prot="public" virt="non-virtual">Services.Models.TwentyPercentOff</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="class_services_1_1_models_1_1_promo_1a338412cb1bbbc36eb6bd31121278d510" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Services.Models.Promo.Name</definition>
+        <argsstring></argsstring>
+        <name>Name</name>
+        <qualifiedname>Services.Models.Promo.Name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Promo.cs" line="11" column="23" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Promo.cs" bodystart="11" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="property" id="class_services_1_1_models_1_1_promo_1a7e41365d888b0d3c1280266baa840c2e" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Services.Models.Promo.Condition</definition>
+        <argsstring></argsstring>
+        <name>Condition</name>
+        <qualifiedname>Services.Models.Promo.Condition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Promo.cs" line="12" column="23" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Promo.cs" bodystart="12" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="property" id="class_services_1_1_models_1_1_promo_1a279ac8a8cfb08e92a0aaf965467900f2" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Services.Models.Promo.Discount</definition>
+        <argsstring></argsstring>
+        <name>Discount</name>
+        <qualifiedname>Services.Models.Promo.Discount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Promo.cs" line="13" column="23" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Promo.cs" bodystart="13" bodyend="13"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_services_1_1_models_1_1_promo_1a069911154a986bf775a36b1abc395db4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Services.Models.Promo.Promo</definition>
+        <argsstring>(string name, string condition, string discount)</argsstring>
+        <name>Promo</name>
+        <qualifiedname>Services.Models.Promo.Promo</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>condition</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>discount</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Promo.cs" line="5" column="16" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Promo.cs" bodystart="5" bodyend="10"/>
+      </memberdef>
+      <memberdef kind="function" id="class_services_1_1_models_1_1_promo_1ac11aa140d440febde18c7f91f2a28b5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Services.Models.Promo.ApplyDiscount</definition>
+        <argsstring>(Cart cart)</argsstring>
+        <name>ApplyDiscount</name>
+        <qualifiedname>Services.Models.Promo.ApplyDiscount</qualifiedname>
+        <param>
+          <type><ref refid="class_services_1_1_models_1_1_cart" kindref="compound">Cart</ref></type>
+          <declname>cart</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Promo.cs" line="15" column="32"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Services.Models.Promo</label>
+        <link refid="class_services_1_1_models_1_1_promo"/>
+      </node>
+      <node id="2">
+        <label>Services.Models.FidelityPromo</label>
+        <link refid="class_services_1_1_models_1_1_fidelity_promo"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Services.Models.ThreeForTwoPromo</label>
+        <link refid="class_services_1_1_models_1_1_three_for_two_promo"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Services.Models.TotalLookPromo</label>
+        <link refid="class_services_1_1_models_1_1_total_look_promo"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Services.Models.TwentyPercentOff</label>
+        <link refid="class_services_1_1_models_1_1_twenty_percent_off"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Promo.cs" line="3" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Promo.cs" bodystart="4" bodyend="17"/>
+    <listofallmembers>
+      <member refid="class_services_1_1_models_1_1_promo_1ac11aa140d440febde18c7f91f2a28b5a" prot="public" virt="non-virtual"><scope>Services::Models::Promo</scope><name>ApplyDiscount</name></member>
+      <member refid="class_services_1_1_models_1_1_promo_1a7e41365d888b0d3c1280266baa840c2e" prot="public" virt="non-virtual"><scope>Services::Models::Promo</scope><name>Condition</name></member>
+      <member refid="class_services_1_1_models_1_1_promo_1a279ac8a8cfb08e92a0aaf965467900f2" prot="public" virt="non-virtual"><scope>Services::Models::Promo</scope><name>Discount</name></member>
+      <member refid="class_services_1_1_models_1_1_promo_1a338412cb1bbbc36eb6bd31121278d510" prot="public" virt="non-virtual"><scope>Services::Models::Promo</scope><name>Name</name></member>
+      <member refid="class_services_1_1_models_1_1_promo_1a069911154a986bf775a36b1abc395db4" prot="public" virt="non-virtual"><scope>Services::Models::Promo</scope><name>Promo</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

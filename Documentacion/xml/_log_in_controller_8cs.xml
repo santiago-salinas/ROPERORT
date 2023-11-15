@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="_log_in_controller_8cs" kind="file" language="C#">
+    <compoundname>LogInController.cs</compoundname>
+    <innerclass refid="class_rest___api_1_1_controllers_1_1_log_in_controller" prot="public">Rest_Api::Controllers::LogInController</innerclass>
+    <innernamespace refid="namespace_rest___api">Rest_Api</innernamespace>
+    <innernamespace refid="namespace_rest___api_1_1_controllers">Rest_Api::Controllers</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">using<sp/></highlight><highlight class="normal">Microsoft.AspNetCore.Mvc;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_rest___api_1_1_d_t_os" kindref="compound">Rest_Api.DTOs</ref>;</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_services_1_1_interfaces" kindref="compound">Services.Interfaces</ref>;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_services_1_1_models" kindref="compound">Services.Models</ref>;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_rest___api_1_1_filters" kindref="compound">Rest_Api.Filters</ref>;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_rest___api_1_1_controllers" kindref="compound">Rest_Api.Controllers</ref></highlight></codeline>
+<codeline lineno="8"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>[ApiController]</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>[Route(</highlight><highlight class="stringliteral">&quot;[controller]&quot;</highlight><highlight class="normal">)]</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>[<ref refid="class_rest___api_1_1_filters_1_1_exception_filter" kindref="compound">ExceptionFilter</ref>]</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="class_rest___api_1_1_controllers_1_1_log_in_controller" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_rest___api_1_1_controllers_1_1_log_in_controller" kindref="compound">LogInController</ref><sp/>:<sp/>ControllerBase</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="interface_services_1_1_interfaces_1_1_i_user_service" kindref="compound">IUserService</ref><sp/>_userService;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_rest___api_1_1_controllers_1_1_log_in_controller" kindref="compound">LogInController</ref>(<ref refid="interface_services_1_1_interfaces_1_1_i_user_service" kindref="compound">IUserService</ref><sp/>userService)</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_userService<sp/>=<sp/>userService;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>POST<sp/>action</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[HttpPost]</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>IActionResult<sp/><ref refid="class_rest___api_1_1_controllers_1_1_log_in_controller_1a3ca87cc1c80abc311554d7a913ac84f4" kindref="member">Create</ref>(<ref refid="class_rest___api_1_1_d_t_os_1_1_credentials_d_t_o" kindref="compound">CredentialsDTO</ref><sp/>credentials)</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;User&gt;<sp/>users<sp/>=<sp/>_userService.<ref refid="interface_services_1_1_interfaces_1_1_i_user_service_1a76b3b63e714fe8c8d979cf3d6a679aa7" kindref="member">GetAll</ref>();</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_services_1_1_models_1_1_user" kindref="compound">User</ref>?<sp/>found<sp/>=<sp/>users.FirstOrDefault(user<sp/>=&gt;<sp/>user.Email<sp/>==<sp/>credentials.<ref refid="class_rest___api_1_1_d_t_os_1_1_credentials_d_t_o_1a7c26a382892143a9e8c6a3c3e275469c" kindref="member">Email</ref><sp/>&amp;&amp;<sp/>user.Password<sp/>==<sp/>credentials.<ref refid="class_rest___api_1_1_d_t_os_1_1_credentials_d_t_o_1ab3318aed59401c86c316fce839cc76ee" kindref="member">Password</ref>);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(found<sp/>is<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>BadRequest(</highlight><highlight class="stringliteral">&quot;Invalid<sp/>Credentials&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Ok(found.<ref refid="class_services_1_1_models_1_1_user_1adfa99c0e5277556941b4fcc1253918ff" kindref="member">Token</ref>);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/LogInController.cs"/>
+  </compounddef>
+</doxygen>

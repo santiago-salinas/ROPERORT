@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_rest___api_1_1_models_1_1_cart_line" kind="class" language="C#" prot="public">
+    <compoundname>Rest_Api::Models::CartLine</compoundname>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="class_rest___api_1_1_models_1_1_cart_line_1aaaa40ae80c653273908a9fac8f6340b3" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type><ref refid="class_rest___api_1_1_models_1_1_product" kindref="compound">Product</ref></type>
+        <definition>Product Rest_Api.Models.CartLine.Product</definition>
+        <argsstring></argsstring>
+        <name>Product</name>
+        <qualifiedname>Rest_Api.Models.CartLine.Product</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Cart.cs" line="56" column="24" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Cart.cs" bodystart="56" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="property" id="class_rest___api_1_1_models_1_1_cart_line_1ad34f766356bb4baacb4689fef3627e49" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Rest_Api.Models.CartLine.Quantity</definition>
+        <argsstring></argsstring>
+        <name>Quantity</name>
+        <qualifiedname>Rest_Api.Models.CartLine.Quantity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Cart.cs" line="60" column="20" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Cart.cs" bodystart="61" bodyend="71"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_rest___api_1_1_models_1_1_cart_line_1af4ccb4db73d82ea08504b6c2867d1226" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Rest_Api.Models.CartLine._quantity</definition>
+        <argsstring></argsstring>
+        <name>_quantity</name>
+        <qualifiedname>Rest_Api.Models.CartLine._quantity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Cart.cs" line="58" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Cart.cs" bodystart="58" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Cart.cs" line="54" column="11" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Cart.cs" bodystart="55" bodyend="73"/>
+    <listofallmembers>
+      <member refid="class_rest___api_1_1_models_1_1_cart_line_1af4ccb4db73d82ea08504b6c2867d1226" prot="private" virt="non-virtual"><scope>Rest_Api::Models::CartLine</scope><name>_quantity</name></member>
+      <member refid="class_rest___api_1_1_models_1_1_cart_line_1aaaa40ae80c653273908a9fac8f6340b3" prot="public" virt="non-virtual"><scope>Rest_Api::Models::CartLine</scope><name>Product</name></member>
+      <member refid="class_rest___api_1_1_models_1_1_cart_line_1ad34f766356bb4baacb4689fef3627e49" prot="public" virt="non-virtual"><scope>Rest_Api::Models::CartLine</scope><name>Quantity</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

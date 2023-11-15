@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespace_data_access_1_1_repositories" kind="namespace" language="C#">
+    <compoundname>DataAccess::Repositories</compoundname>
+    <innerclass refid="class_data_access_1_1_repositories_1_1_e_f_brand_repository" prot="public">DataAccess::Repositories::EFBrandRepository</innerclass>
+    <innerclass refid="class_data_access_1_1_repositories_1_1_e_f_category_repository" prot="public">DataAccess::Repositories::EFCategoryRepository</innerclass>
+    <innerclass refid="class_data_access_1_1_repositories_1_1_e_f_colour_repository" prot="public">DataAccess::Repositories::EFColourRepository</innerclass>
+    <innerclass refid="class_data_access_1_1_repositories_1_1_e_f_product_repository" prot="public">DataAccess::Repositories::EFProductRepository</innerclass>
+    <innerclass refid="class_data_access_1_1_repositories_1_1_e_f_purchase_repository" prot="public">DataAccess::Repositories::EFPurchaseRepository</innerclass>
+    <innerclass refid="class_data_access_1_1_repositories_1_1_e_f_roles_repository" prot="public">DataAccess::Repositories::EFRolesRepository</innerclass>
+    <innerclass refid="class_data_access_1_1_repositories_1_1_e_f_user_repository" prot="public">DataAccess::Repositories::EFUserRepository</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Repositories/EFBrandRepository.cs" line="7" column="1"/>
+  </compounddef>
+</doxygen>

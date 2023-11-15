@@ -1,0 +1,171 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_api_tests_1_1_controllers_1_1_login_controller_tests" kind="class" language="C#" prot="public">
+    <compoundname>ApiTests::Controllers::LoginControllerTests</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_api_tests_1_1_controllers_1_1_login_controller_tests_1a4f3145b0a9d0f4cbfe92ef95699fa78b" prot="private" static="no" mutable="no">
+        <type>Mock&lt; <ref refid="interface_services_1_1_interfaces_1_1_i_user_service" kindref="compound">IUserService</ref> &gt;</type>
+        <definition>Mock&lt;IUserService&gt; ApiTests.Controllers.LoginControllerTests.mock</definition>
+        <argsstring></argsstring>
+        <name>mock</name>
+        <qualifiedname>ApiTests.Controllers.LoginControllerTests.mock</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/LogInControllerTests.cs" line="13" column="22" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/LogInControllerTests.cs" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_api_tests_1_1_controllers_1_1_login_controller_tests_1a73f4c3f06b55b62a870aec0d9401dc35" prot="private" static="no" mutable="no">
+        <type><ref refid="class_rest___api_1_1_controllers_1_1_user_controller" kindref="compound">UserController</ref></type>
+        <definition>UserController ApiTests.Controllers.LoginControllerTests.userController</definition>
+        <argsstring></argsstring>
+        <name>userController</name>
+        <qualifiedname>ApiTests.Controllers.LoginControllerTests.userController</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/LogInControllerTests.cs" line="14" column="32" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/LogInControllerTests.cs" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_api_tests_1_1_controllers_1_1_login_controller_tests_1a3005cb396006b8d4623f63fca9ae6f04" prot="private" static="no" mutable="no">
+        <type><ref refid="class_rest___api_1_1_controllers_1_1_log_in_controller" kindref="compound">LogInController</ref></type>
+        <definition>LogInController ApiTests.Controllers.LoginControllerTests.logInController</definition>
+        <argsstring></argsstring>
+        <name>logInController</name>
+        <qualifiedname>ApiTests.Controllers.LoginControllerTests.logInController</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/LogInControllerTests.cs" line="15" column="33" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/LogInControllerTests.cs" bodystart="15" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_api_tests_1_1_controllers_1_1_login_controller_tests_1a8c9cde7be9a959321234332bc3db7cc2" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string ApiTests.Controllers.LoginControllerTests.email</definition>
+        <argsstring></argsstring>
+        <name>email</name>
+        <qualifiedname>ApiTests.Controllers.LoginControllerTests.email</qualifiedname>
+        <initializer>= &quot;prueba@gmail.com&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/LogInControllerTests.cs" line="17" column="23" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/LogInControllerTests.cs" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_api_tests_1_1_controllers_1_1_login_controller_tests_1aa9b99fc465639a963211fc7e2f3bb075" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string ApiTests.Controllers.LoginControllerTests.password</definition>
+        <argsstring></argsstring>
+        <name>password</name>
+        <qualifiedname>ApiTests.Controllers.LoginControllerTests.password</qualifiedname>
+        <initializer>= &quot;password&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/LogInControllerTests.cs" line="18" column="23" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/LogInControllerTests.cs" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_api_tests_1_1_controllers_1_1_login_controller_tests_1a585bdb8d36e82fee674295d78c5d01a7" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string ApiTests.Controllers.LoginControllerTests.expectedToken</definition>
+        <argsstring></argsstring>
+        <name>expectedToken</name>
+        <qualifiedname>ApiTests.Controllers.LoginControllerTests.expectedToken</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/LogInControllerTests.cs" line="19" column="23" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/LogInControllerTests.cs" bodystart="19" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_api_tests_1_1_controllers_1_1_login_controller_tests_1ab7396ae94848fc0a3c5eb0758ddc4ce9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Controllers.LoginControllerTests.TestInitialize</definition>
+        <argsstring>()</argsstring>
+        <name>TestInitialize</name>
+        <qualifiedname>ApiTests.Controllers.LoginControllerTests.TestInitialize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/LogInControllerTests.cs" line="22" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/LogInControllerTests.cs" bodystart="22" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_controllers_1_1_login_controller_tests_1af3220c706973fb83f252a55df48887fa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Controllers.LoginControllerTests.GetTokenWithValidCredentials</definition>
+        <argsstring>()</argsstring>
+        <name>GetTokenWithValidCredentials</name>
+        <qualifiedname>ApiTests.Controllers.LoginControllerTests.GetTokenWithValidCredentials</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/LogInControllerTests.cs" line="36" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/LogInControllerTests.cs" bodystart="36" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_controllers_1_1_login_controller_tests_1afdb696b861f303a751ea544e475d7cb9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Controllers.LoginControllerTests.NotGetTokenWithInvalidCredentials</definition>
+        <argsstring>()</argsstring>
+        <name>NotGetTokenWithInvalidCredentials</name>
+        <qualifiedname>ApiTests.Controllers.LoginControllerTests.NotGetTokenWithInvalidCredentials</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/LogInControllerTests.cs" line="46" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/LogInControllerTests.cs" bodystart="46" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_controllers_1_1_login_controller_tests_1a2d76ee893ce8eb11c8e5401ea049aa88" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Controllers.LoginControllerTests.EmptyCredentials</definition>
+        <argsstring>()</argsstring>
+        <name>EmptyCredentials</name>
+        <qualifiedname>ApiTests.Controllers.LoginControllerTests.EmptyCredentials</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/LogInControllerTests.cs" line="56" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/LogInControllerTests.cs" bodystart="56" bodyend="63"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/LogInControllerTests.cs" line="11" column="11" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/LogInControllerTests.cs" bodystart="12" bodyend="64"/>
+    <listofallmembers>
+      <member refid="class_api_tests_1_1_controllers_1_1_login_controller_tests_1a8c9cde7be9a959321234332bc3db7cc2" prot="public" virt="non-virtual"><scope>ApiTests::Controllers::LoginControllerTests</scope><name>email</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_login_controller_tests_1a2d76ee893ce8eb11c8e5401ea049aa88" prot="public" virt="non-virtual"><scope>ApiTests::Controllers::LoginControllerTests</scope><name>EmptyCredentials</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_login_controller_tests_1a585bdb8d36e82fee674295d78c5d01a7" prot="public" virt="non-virtual"><scope>ApiTests::Controllers::LoginControllerTests</scope><name>expectedToken</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_login_controller_tests_1af3220c706973fb83f252a55df48887fa" prot="public" virt="non-virtual"><scope>ApiTests::Controllers::LoginControllerTests</scope><name>GetTokenWithValidCredentials</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_login_controller_tests_1a3005cb396006b8d4623f63fca9ae6f04" prot="private" virt="non-virtual"><scope>ApiTests::Controllers::LoginControllerTests</scope><name>logInController</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_login_controller_tests_1a4f3145b0a9d0f4cbfe92ef95699fa78b" prot="private" virt="non-virtual"><scope>ApiTests::Controllers::LoginControllerTests</scope><name>mock</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_login_controller_tests_1afdb696b861f303a751ea544e475d7cb9" prot="public" virt="non-virtual"><scope>ApiTests::Controllers::LoginControllerTests</scope><name>NotGetTokenWithInvalidCredentials</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_login_controller_tests_1aa9b99fc465639a963211fc7e2f3bb075" prot="public" virt="non-virtual"><scope>ApiTests::Controllers::LoginControllerTests</scope><name>password</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_login_controller_tests_1ab7396ae94848fc0a3c5eb0758ddc4ce9" prot="public" virt="non-virtual"><scope>ApiTests::Controllers::LoginControllerTests</scope><name>TestInitialize</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_login_controller_tests_1a73f4c3f06b55b62a870aec0d9401dc35" prot="private" virt="non-virtual"><scope>ApiTests::Controllers::LoginControllerTests</scope><name>userController</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

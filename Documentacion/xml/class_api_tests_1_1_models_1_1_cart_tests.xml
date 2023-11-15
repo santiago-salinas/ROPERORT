@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_api_tests_1_1_models_1_1_cart_tests" kind="class" language="C#" prot="public">
+    <compoundname>ApiTests::Models::CartTests</compoundname>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_api_tests_1_1_models_1_1_cart_tests_1a233f0fb4dc5beba89efe8b62417231db" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Models.CartTests.EmptyCartPrice</definition>
+        <argsstring>()</argsstring>
+        <name>EmptyCartPrice</name>
+        <qualifiedname>ApiTests.Models.CartTests.EmptyCartPrice</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/CartTests.cs" line="10" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/CartTests.cs" bodystart="10" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_models_1_1_cart_tests_1a92ef630d6b25f2a77873d9c86862f4cb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Models.CartTests.CartPrice</definition>
+        <argsstring>()</argsstring>
+        <name>CartPrice</name>
+        <qualifiedname>ApiTests.Models.CartTests.CartPrice</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/CartTests.cs" line="20" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/CartTests.cs" bodystart="20" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_models_1_1_cart_tests_1a38fd1baef22b92d4bc8dffa97da375e3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Models.CartTests.CartPriceMore</definition>
+        <argsstring>()</argsstring>
+        <name>CartPriceMore</name>
+        <qualifiedname>ApiTests.Models.CartTests.CartPriceMore</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/CartTests.cs" line="34" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/CartTests.cs" bodystart="34" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_models_1_1_cart_tests_1ab3e5675a22a3ce0fa28142ff1e6fcca7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Models.CartTests.CartFailsNegativeQuantity</definition>
+        <argsstring>()</argsstring>
+        <name>CartFailsNegativeQuantity</name>
+        <qualifiedname>ApiTests.Models.CartTests.CartFailsNegativeQuantity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/CartTests.cs" line="50" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/CartTests.cs" bodystart="50" bodyend="60"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/CartTests.cs" line="7" column="11" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/CartTests.cs" bodystart="8" bodyend="61"/>
+    <listofallmembers>
+      <member refid="class_api_tests_1_1_models_1_1_cart_tests_1ab3e5675a22a3ce0fa28142ff1e6fcca7" prot="public" virt="non-virtual"><scope>ApiTests::Models::CartTests</scope><name>CartFailsNegativeQuantity</name></member>
+      <member refid="class_api_tests_1_1_models_1_1_cart_tests_1a92ef630d6b25f2a77873d9c86862f4cb" prot="public" virt="non-virtual"><scope>ApiTests::Models::CartTests</scope><name>CartPrice</name></member>
+      <member refid="class_api_tests_1_1_models_1_1_cart_tests_1a38fd1baef22b92d4bc8dffa97da375e3" prot="public" virt="non-virtual"><scope>ApiTests::Models::CartTests</scope><name>CartPriceMore</name></member>
+      <member refid="class_api_tests_1_1_models_1_1_cart_tests_1a233f0fb4dc5beba89efe8b62417231db" prot="public" virt="non-virtual"><scope>ApiTests::Models::CartTests</scope><name>EmptyCartPrice</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

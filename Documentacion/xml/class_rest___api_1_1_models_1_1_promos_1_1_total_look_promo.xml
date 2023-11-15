@@ -1,0 +1,172 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_rest___api_1_1_models_1_1_promos_1_1_total_look_promo" kind="class" language="C#" prot="public">
+    <compoundname>Rest_Api::Models::Promos::TotalLookPromo</compoundname>
+    <basecompoundref refid="class_rest___api_1_1_models_1_1_promo" prot="public" virt="non-virtual">Rest_Api.Models.Promo</basecompoundref>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_rest___api_1_1_models_1_1_promos_1_1_total_look_promo_1abb96b3a4df89d752c05b46732ffab1bf" prot="private" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int Rest_Api.Models.Promos.TotalLookPromo._minimumApplicableSameColour</definition>
+        <argsstring></argsstring>
+        <name>_minimumApplicableSameColour</name>
+        <qualifiedname>Rest_Api.Models.Promos.TotalLookPromo._minimumApplicableSameColour</qualifiedname>
+        <initializer>= 3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Promos/TotalLookPromo.cs" line="7" column="27" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Promos/TotalLookPromo.cs" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_rest___api_1_1_models_1_1_promos_1_1_total_look_promo_1a2c9b0fc58a110fcaad14cfe2ce22a3c4" prot="private" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int Rest_Api.Models.Promos.TotalLookPromo._zero</definition>
+        <argsstring></argsstring>
+        <name>_zero</name>
+        <qualifiedname>Rest_Api.Models.Promos.TotalLookPromo._zero</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Promos/TotalLookPromo.cs" line="8" column="27" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Promos/TotalLookPromo.cs" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_rest___api_1_1_models_1_1_promos_1_1_total_look_promo_1a2c438992d666ab77505e2e9625a9f2f8" prot="private" static="yes" mutable="no">
+        <type>const double</type>
+        <definition>const double Rest_Api.Models.Promos.TotalLookPromo._discountPercentage</definition>
+        <argsstring></argsstring>
+        <name>_discountPercentage</name>
+        <qualifiedname>Rest_Api.Models.Promos.TotalLookPromo._discountPercentage</qualifiedname>
+        <initializer>= 0.5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Promos/TotalLookPromo.cs" line="9" column="30" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Promos/TotalLookPromo.cs" bodystart="9" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_rest___api_1_1_models_1_1_promos_1_1_total_look_promo_1a1e77c9f72b56deb448c7bb63354fa21b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Rest_Api.Models.Promos.TotalLookPromo.TotalLookPromo</definition>
+        <argsstring>()</argsstring>
+        <name>TotalLookPromo</name>
+        <qualifiedname>Rest_Api.Models.Promos.TotalLookPromo.TotalLookPromo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Promos/TotalLookPromo.cs" line="11" column="16" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Promos/TotalLookPromo.cs" bodystart="11" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="class_rest___api_1_1_models_1_1_promos_1_1_total_look_promo_1ab7d4e2bdfa293ef6d0cf2603717cd5cd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override double</type>
+        <definition>override double Rest_Api.Models.Promos.TotalLookPromo.ApplyDiscount</definition>
+        <argsstring>(Cart cart)</argsstring>
+        <name>ApplyDiscount</name>
+        <qualifiedname>Rest_Api.Models.Promos.TotalLookPromo.ApplyDiscount</qualifiedname>
+        <param>
+          <type><ref refid="class_rest___api_1_1_models_1_1_cart" kindref="compound">Cart</ref></type>
+          <declname>cart</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Promos/TotalLookPromo.cs" line="13" column="32" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Promos/TotalLookPromo.cs" bodystart="13" bodyend="30"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="class_rest___api_1_1_models_1_1_promos_1_1_total_look_promo_1a8068af79810b3b71bd1c5ece89d3f25d" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; double &gt;</type>
+        <definition>static List&lt; double &gt; Rest_Api.Models.Promos.TotalLookPromo.PossibleDiscounts</definition>
+        <argsstring>(Cart cart, List&lt; Colour &gt; colorsInCart)</argsstring>
+        <name>PossibleDiscounts</name>
+        <qualifiedname>Rest_Api.Models.Promos.TotalLookPromo.PossibleDiscounts</qualifiedname>
+        <param>
+          <type><ref refid="class_rest___api_1_1_models_1_1_cart" kindref="compound">Cart</ref></type>
+          <declname>cart</declname>
+        </param>
+        <param>
+          <type>List&lt; <ref refid="class_rest___api_1_1_models_1_1_colour" kindref="compound">Colour</ref> &gt;</type>
+          <declname>colorsInCart</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Promos/TotalLookPromo.cs" line="32" column="29" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Promos/TotalLookPromo.cs" bodystart="32" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="class_rest___api_1_1_models_1_1_promos_1_1_total_look_promo_1ae17ce755bb475be8b58fdc76f178c38d" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; <ref refid="class_rest___api_1_1_models_1_1_colour" kindref="compound">Colour</ref> &gt;</type>
+        <definition>static List&lt; Colour &gt; Rest_Api.Models.Promos.TotalLookPromo.ColorsInCart</definition>
+        <argsstring>(Cart cart)</argsstring>
+        <name>ColorsInCart</name>
+        <qualifiedname>Rest_Api.Models.Promos.TotalLookPromo.ColorsInCart</qualifiedname>
+        <param>
+          <type><ref refid="class_rest___api_1_1_models_1_1_cart" kindref="compound">Cart</ref></type>
+          <declname>cart</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Promos/TotalLookPromo.cs" line="68" column="29" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Promos/TotalLookPromo.cs" bodystart="68" bodyend="87"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Promo</label>
+        <link refid="class_rest___api_1_1_models_1_1_promo"/>
+      </node>
+      <node id="1">
+        <label>Rest_Api.Models.Promos.TotalLookPromo</label>
+        <link refid="class_rest___api_1_1_models_1_1_promos_1_1_total_look_promo"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Promo</label>
+        <link refid="class_rest___api_1_1_models_1_1_promo"/>
+      </node>
+      <node id="1">
+        <label>Rest_Api.Models.Promos.TotalLookPromo</label>
+        <link refid="class_rest___api_1_1_models_1_1_promos_1_1_total_look_promo"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Promos/TotalLookPromo.cs" line="5" column="11" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Promos/TotalLookPromo.cs" bodystart="6" bodyend="88"/>
+    <listofallmembers>
+      <member refid="class_rest___api_1_1_models_1_1_promos_1_1_total_look_promo_1a2c438992d666ab77505e2e9625a9f2f8" prot="private" virt="non-virtual"><scope>Rest_Api::Models::Promos::TotalLookPromo</scope><name>_discountPercentage</name></member>
+      <member refid="class_rest___api_1_1_models_1_1_promos_1_1_total_look_promo_1abb96b3a4df89d752c05b46732ffab1bf" prot="private" virt="non-virtual"><scope>Rest_Api::Models::Promos::TotalLookPromo</scope><name>_minimumApplicableSameColour</name></member>
+      <member refid="class_rest___api_1_1_models_1_1_promos_1_1_total_look_promo_1a2c9b0fc58a110fcaad14cfe2ce22a3c4" prot="private" virt="non-virtual"><scope>Rest_Api::Models::Promos::TotalLookPromo</scope><name>_zero</name></member>
+      <member refid="class_rest___api_1_1_models_1_1_promos_1_1_total_look_promo_1ab7d4e2bdfa293ef6d0cf2603717cd5cd" prot="public" virt="non-virtual"><scope>Rest_Api::Models::Promos::TotalLookPromo</scope><name>ApplyDiscount</name></member>
+      <member refid="class_rest___api_1_1_models_1_1_promos_1_1_total_look_promo_1ae17ce755bb475be8b58fdc76f178c38d" prot="private" virt="non-virtual"><scope>Rest_Api::Models::Promos::TotalLookPromo</scope><name>ColorsInCart</name></member>
+      <member refid="class_rest___api_1_1_models_1_1_promo_1aa230d56cd39c51e0826b9eef02bb2d7e" prot="public" virt="non-virtual"><scope>Rest_Api::Models::Promos::TotalLookPromo</scope><name>Condition</name></member>
+      <member refid="class_rest___api_1_1_models_1_1_promo_1a4b050b3e50eb5e3de3adf880c12f9f04" prot="public" virt="non-virtual"><scope>Rest_Api::Models::Promos::TotalLookPromo</scope><name>Discount</name></member>
+      <member refid="class_rest___api_1_1_models_1_1_promo_1a700f136d33a6d300244e9141681ef208" prot="public" virt="non-virtual"><scope>Rest_Api::Models::Promos::TotalLookPromo</scope><name>Name</name></member>
+      <member refid="class_rest___api_1_1_models_1_1_promos_1_1_total_look_promo_1a8068af79810b3b71bd1c5ece89d3f25d" prot="private" virt="non-virtual"><scope>Rest_Api::Models::Promos::TotalLookPromo</scope><name>PossibleDiscounts</name></member>
+      <member refid="class_rest___api_1_1_models_1_1_promo_1a0580a433eee283ddbb7410153c2ad236" prot="public" virt="non-virtual"><scope>Rest_Api::Models::Promos::TotalLookPromo</scope><name>Promo</name></member>
+      <member refid="class_rest___api_1_1_models_1_1_promos_1_1_total_look_promo_1a1e77c9f72b56deb448c7bb63354fa21b" prot="public" virt="non-virtual"><scope>Rest_Api::Models::Promos::TotalLookPromo</scope><name>TotalLookPromo</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

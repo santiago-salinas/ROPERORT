@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="_rest_01_api_2_models_2_exceptions_2_models_exceptions_8cs" kind="file" language="C#">
+    <compoundname>ModelsExceptions.cs</compoundname>
+    <innerclass refid="class_rest___api_1_1_models_1_1_exceptions_1_1_models___argument_exception" prot="public">Rest_Api::Models::Exceptions::Models_ArgumentException</innerclass>
+    <innernamespace refid="namespace_rest___api">Rest_Api</innernamespace>
+    <innernamespace refid="namespace_rest___api_1_1_models">Rest_Api::Models</innernamespace>
+    <innernamespace refid="namespace_rest___api_1_1_models_1_1_exceptions">Rest_Api::Models::Exceptions</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespace_rest___api_1_1_models_1_1_exceptions" refkind="compound"><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_rest___api_1_1_models_1_1_exceptions" kindref="compound">Rest_Api.Models.Exceptions</ref></highlight></codeline>
+<codeline lineno="2"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3" refid="class_rest___api_1_1_models_1_1_exceptions_1_1_models___argument_exception" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_rest___api_1_1_models_1_1_exceptions_1_1_models___argument_exception" kindref="compound">Models_ArgumentException</ref><sp/>:<sp/>Exception</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_rest___api_1_1_models_1_1_exceptions_1_1_models___argument_exception" kindref="compound">Models_ArgumentException</ref>(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>message)<sp/>:<sp/>base(message)<sp/>{<sp/>}</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Exceptions/ModelsExceptions.cs"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespace_data_access_1_1_migrations" kind="namespace" language="C#">
+    <compoundname>DataAccess::Migrations</compoundname>
+    <innerclass refid="class_data_access_1_1_migrations_1_1_create_e_commerce_db" prot="public">DataAccess::Migrations::CreateECommerceDb</innerclass>
+    <innerclass refid="class_data_access_1_1_migrations_1_1_e_f_context_model_snapshot" prot="public">DataAccess::Migrations::EFContextModelSnapshot</innerclass>
+    <innerclass refid="class_data_access_1_1_migrations_1_1productnamenotak" prot="public">DataAccess::Migrations::productnamenotak</innerclass>
+    <innerclass refid="class_data_access_1_1_migrations_1_1purchaseentitywithprice" prot="public">DataAccess::Migrations::purchaseentitywithprice</innerclass>
+    <innerclass refid="class_data_access_1_1_migrations_1_1roles" prot="public">DataAccess::Migrations::roles</innerclass>
+    <innerclass refid="class_data_access_1_1_migrations_1_1v0" prot="public">DataAccess::Migrations::v0</innerclass>
+    <innerclass refid="class_data_access_1_1_migrations_1_1v2" prot="public">DataAccess::Migrations::v2</innerclass>
+    <innerclass refid="class_data_access_1_1_migrations_1_1v3" prot="public">DataAccess::Migrations::v3</innerclass>
+    <innerclass refid="class_data_access_1_1_migrations_1_1v4" prot="public">DataAccess::Migrations::v4</innerclass>
+    <innerclass refid="class_data_access_1_1_migrations_1_1_v5" prot="public">DataAccess::Migrations::V5</innerclass>
+    <innerclass refid="class_data_access_1_1_migrations_1_1v7" prot="public">DataAccess::Migrations::v7</innerclass>
+    <innerclass refid="class_data_access_1_1_migrations_1_1v8" prot="public">DataAccess::Migrations::v8</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Migrations/20230905231524_CreateECommerceDb.cs" line="5" column="1"/>
+  </compounddef>
+</doxygen>

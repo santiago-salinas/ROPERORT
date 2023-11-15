@@ -1,0 +1,155 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="interface_services_1_1_interfaces_1_1_i_product_service" kind="interface" language="C#" prot="public">
+    <compoundname>Services::Interfaces::IProductService</compoundname>
+    <derivedcompoundref refid="class_services_1_1_product_service" prot="public" virt="non-virtual">Services.ProductService</derivedcompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="interface_services_1_1_interfaces_1_1_i_product_service_1a2e0f4026eba874b918d1f56de64a1959" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; <ref refid="class_services_1_1_models_1_1_product" kindref="compound">Product</ref> &gt;</type>
+        <definition>List&lt; Product &gt; Services.Interfaces.IProductService.GetAll</definition>
+        <argsstring>()</argsstring>
+        <name>GetAll</name>
+        <qualifiedname>Services.Interfaces.IProductService.GetAll</qualifiedname>
+        <reimplementedby refid="class_services_1_1_product_service_1ab5114eca5627b911ae2c6928cbf3117c">GetAll</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Interfaces/IProductService.cs" line="7" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_services_1_1_interfaces_1_1_i_product_service_1a4f2b90d933115fead7c2e5e354850614" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_services_1_1_models_1_1_product" kindref="compound">Product</ref>?</type>
+        <definition>Product? Services.Interfaces.IProductService.Get</definition>
+        <argsstring>(int id)</argsstring>
+        <name>Get</name>
+        <qualifiedname>Services.Interfaces.IProductService.Get</qualifiedname>
+        <reimplementedby refid="class_services_1_1_product_service_1a341634f4aea1afaccbd36485f40c38f0">Get</reimplementedby>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Interfaces/IProductService.cs" line="9" column="24"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_services_1_1_interfaces_1_1_i_product_service_1aac55677d0767425a789bca7481fcd540" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Services.Interfaces.IProductService.Add</definition>
+        <argsstring>(Product product)</argsstring>
+        <name>Add</name>
+        <qualifiedname>Services.Interfaces.IProductService.Add</qualifiedname>
+        <reimplementedby refid="class_services_1_1_product_service_1ac064de2e7c4787002fc736d46b973ff3">Add</reimplementedby>
+        <param>
+          <type><ref refid="class_services_1_1_models_1_1_product" kindref="compound">Product</ref></type>
+          <declname>product</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Interfaces/IProductService.cs" line="11" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_services_1_1_interfaces_1_1_i_product_service_1ada8d1e090d62877056ffe9786a70a1f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Services.Interfaces.IProductService.Delete</definition>
+        <argsstring>(int id)</argsstring>
+        <name>Delete</name>
+        <qualifiedname>Services.Interfaces.IProductService.Delete</qualifiedname>
+        <reimplementedby refid="class_services_1_1_product_service_1aca562a84ce9e0270dafd8589734bea1a">Delete</reimplementedby>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Interfaces/IProductService.cs" line="13" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_services_1_1_interfaces_1_1_i_product_service_1aab09d81a45f9a3633997df7429d10f5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Services.Interfaces.IProductService.Update</definition>
+        <argsstring>(Product product)</argsstring>
+        <name>Update</name>
+        <qualifiedname>Services.Interfaces.IProductService.Update</qualifiedname>
+        <reimplementedby refid="class_services_1_1_product_service_1afc231635bb8bd02858f5081794988263">Update</reimplementedby>
+        <param>
+          <type><ref refid="class_services_1_1_models_1_1_product" kindref="compound">Product</ref></type>
+          <declname>product</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Interfaces/IProductService.cs" line="15" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_services_1_1_interfaces_1_1_i_product_service_1a69bd0c77d0909cfd1a8d0bbf87b855c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; <ref refid="class_services_1_1_models_1_1_product" kindref="compound">Product</ref> &gt;</type>
+        <definition>List&lt; Product &gt; Services.Interfaces.IProductService.GetFiltered</definition>
+        <argsstring>(Category? category=null, Brand? brand=null, string? name=null)</argsstring>
+        <name>GetFiltered</name>
+        <qualifiedname>Services.Interfaces.IProductService.GetFiltered</qualifiedname>
+        <reimplementedby refid="class_services_1_1_product_service_1a61db425b12ad64994b53f3f0f8f40a8b">GetFiltered</reimplementedby>
+        <param>
+          <type><ref refid="class_services_1_1_models_1_1_category" kindref="compound">Category</ref>?</type>
+          <declname>category</declname>
+          <defval>null</defval>
+        </param>
+        <param>
+          <type><ref refid="class_services_1_1_models_1_1_brand" kindref="compound">Brand</ref>?</type>
+          <declname>brand</declname>
+          <defval>null</defval>
+        </param>
+        <param>
+          <type>string?</type>
+          <declname>name</declname>
+          <defval>null</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Interfaces/IProductService.cs" line="17" column="21"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Services.Interfaces.IProductService</label>
+        <link refid="interface_services_1_1_interfaces_1_1_i_product_service"/>
+      </node>
+      <node id="2">
+        <label>Services.ProductService</label>
+        <link refid="class_services_1_1_product_service"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Interfaces/IProductService.cs" line="5" column="22" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Interfaces/IProductService.cs" bodystart="6" bodyend="18"/>
+    <listofallmembers>
+      <member refid="interface_services_1_1_interfaces_1_1_i_product_service_1aac55677d0767425a789bca7481fcd540" prot="public" virt="non-virtual"><scope>Services::Interfaces::IProductService</scope><name>Add</name></member>
+      <member refid="interface_services_1_1_interfaces_1_1_i_product_service_1ada8d1e090d62877056ffe9786a70a1f0" prot="public" virt="non-virtual"><scope>Services::Interfaces::IProductService</scope><name>Delete</name></member>
+      <member refid="interface_services_1_1_interfaces_1_1_i_product_service_1a4f2b90d933115fead7c2e5e354850614" prot="public" virt="non-virtual"><scope>Services::Interfaces::IProductService</scope><name>Get</name></member>
+      <member refid="interface_services_1_1_interfaces_1_1_i_product_service_1a2e0f4026eba874b918d1f56de64a1959" prot="public" virt="non-virtual"><scope>Services::Interfaces::IProductService</scope><name>GetAll</name></member>
+      <member refid="interface_services_1_1_interfaces_1_1_i_product_service_1a69bd0c77d0909cfd1a8d0bbf87b855c2" prot="public" virt="non-virtual"><scope>Services::Interfaces::IProductService</scope><name>GetFiltered</name></member>
+      <member refid="interface_services_1_1_interfaces_1_1_i_product_service_1aab09d81a45f9a3633997df7429d10f5f" prot="public" virt="non-virtual"><scope>Services::Interfaces::IProductService</scope><name>Update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

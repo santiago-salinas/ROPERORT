@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_rest___api_1_1_controllers_1_1_log_in_controller" kind="class" language="C#" prot="public">
+    <compoundname>Rest_Api::Controllers::LogInController</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ControllerBase</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_rest___api_1_1_controllers_1_1_log_in_controller_1a52213e2e9dddca90dd7fe37c795447ee" prot="private" static="no" mutable="no">
+        <type><ref refid="interface_services_1_1_interfaces_1_1_i_user_service" kindref="compound">IUserService</ref></type>
+        <definition>IUserService Rest_Api.Controllers.LogInController._userService</definition>
+        <argsstring></argsstring>
+        <name>_userService</name>
+        <qualifiedname>Rest_Api.Controllers.LogInController._userService</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/LogInController.cs" line="15" column="30" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/LogInController.cs" bodystart="15" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_rest___api_1_1_controllers_1_1_log_in_controller_1abdd05cbb0124d39e98169ad5ab8eec23" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Rest_Api.Controllers.LogInController.LogInController</definition>
+        <argsstring>(IUserService userService)</argsstring>
+        <name>LogInController</name>
+        <qualifiedname>Rest_Api.Controllers.LogInController.LogInController</qualifiedname>
+        <param>
+          <type><ref refid="interface_services_1_1_interfaces_1_1_i_user_service" kindref="compound">IUserService</ref></type>
+          <declname>userService</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/LogInController.cs" line="17" column="16" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/LogInController.cs" bodystart="17" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="class_rest___api_1_1_controllers_1_1_log_in_controller_1a3ca87cc1c80abc311554d7a913ac84f4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IActionResult</type>
+        <definition>IActionResult Rest_Api.Controllers.LogInController.Create</definition>
+        <argsstring>(CredentialsDTO credentials)</argsstring>
+        <name>Create</name>
+        <qualifiedname>Rest_Api.Controllers.LogInController.Create</qualifiedname>
+        <param>
+          <type><ref refid="class_rest___api_1_1_d_t_os_1_1_credentials_d_t_o" kindref="compound">CredentialsDTO</ref></type>
+          <declname>credentials</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/LogInController.cs" line="24" column="30" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/LogInController.cs" bodystart="24" bodyend="35"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ControllerBase</label>
+      </node>
+      <node id="1">
+        <label>Rest_Api.Controllers.LogInController</label>
+        <link refid="class_rest___api_1_1_controllers_1_1_log_in_controller"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ControllerBase</label>
+      </node>
+      <node id="1">
+        <label>Rest_Api.Controllers.LogInController</label>
+        <link refid="class_rest___api_1_1_controllers_1_1_log_in_controller"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/LogInController.cs" line="13" column="11" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/LogInController.cs" bodystart="14" bodyend="36"/>
+    <listofallmembers>
+      <member refid="class_rest___api_1_1_controllers_1_1_log_in_controller_1a52213e2e9dddca90dd7fe37c795447ee" prot="private" virt="non-virtual"><scope>Rest_Api::Controllers::LogInController</scope><name>_userService</name></member>
+      <member refid="class_rest___api_1_1_controllers_1_1_log_in_controller_1a3ca87cc1c80abc311554d7a913ac84f4" prot="public" virt="non-virtual"><scope>Rest_Api::Controllers::LogInController</scope><name>Create</name></member>
+      <member refid="class_rest___api_1_1_controllers_1_1_log_in_controller_1abdd05cbb0124d39e98169ad5ab8eec23" prot="public" virt="non-virtual"><scope>Rest_Api::Controllers::LogInController</scope><name>LogInController</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

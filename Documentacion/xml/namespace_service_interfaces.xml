@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespace_service_interfaces" kind="namespace" language="C#">
+    <compoundname>ServiceInterfaces</compoundname>
+    <innerclass refid="interface_service_interfaces_1_1_i_product_service" prot="public">ServiceInterfaces::IProductService</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ServiceInterfaces/IProductService.cs" line="3" column="1"/>
+  </compounddef>
+</doxygen>

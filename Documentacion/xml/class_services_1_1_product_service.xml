@@ -1,0 +1,373 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_services_1_1_product_service" kind="class" language="C#" prot="public">
+    <compoundname>Services::ProductService</compoundname>
+    <basecompoundref refid="interface_services_1_1_interfaces_1_1_i_product_service" prot="public" virt="non-virtual">Services.Interfaces.IProductService</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_services_1_1_product_service_1acd12d08e949a71a67998f538af9830c7" prot="private" static="no" mutable="no">
+        <type>readonly <ref refid="interface_services_1_1_interfaces_1_1_i_c_r_u_d_repository" kindref="compound">ICRUDRepository</ref>&lt; <ref refid="class_services_1_1_models_1_1_product" kindref="compound">Product</ref> &gt;</type>
+        <definition>readonly ICRUDRepository&lt;Product&gt; Services.ProductService._productRepository</definition>
+        <argsstring></argsstring>
+        <name>_productRepository</name>
+        <qualifiedname>Services.ProductService._productRepository</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/ProductService.cs" line="9" column="38" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/ProductService.cs" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_services_1_1_product_service_1a1854e270d26681353490cc308ba8db83" prot="private" static="no" mutable="no">
+        <type><ref refid="interface_services_1_1_interfaces_1_1_i_get_repository" kindref="compound">IGetRepository</ref>&lt; <ref refid="class_services_1_1_models_1_1_colour" kindref="compound">Colour</ref> &gt;</type>
+        <definition>IGetRepository&lt;Colour&gt; Services.ProductService._colourRepository</definition>
+        <argsstring></argsstring>
+        <name>_colourRepository</name>
+        <qualifiedname>Services.ProductService._colourRepository</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/ProductService.cs" line="10" column="28" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/ProductService.cs" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_services_1_1_product_service_1a47952923aa44236f25960fee33bce2e1" prot="private" static="no" mutable="no">
+        <type><ref refid="interface_services_1_1_interfaces_1_1_i_get_repository" kindref="compound">IGetRepository</ref>&lt; <ref refid="class_services_1_1_models_1_1_brand" kindref="compound">Brand</ref> &gt;</type>
+        <definition>IGetRepository&lt;Brand&gt; Services.ProductService._brandRepository</definition>
+        <argsstring></argsstring>
+        <name>_brandRepository</name>
+        <qualifiedname>Services.ProductService._brandRepository</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/ProductService.cs" line="11" column="28" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/ProductService.cs" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_services_1_1_product_service_1a8562faf747d9cb31d5a7cb23c3fb727a" prot="private" static="no" mutable="no">
+        <type><ref refid="interface_services_1_1_interfaces_1_1_i_get_repository" kindref="compound">IGetRepository</ref>&lt; <ref refid="class_services_1_1_models_1_1_category" kindref="compound">Category</ref> &gt;</type>
+        <definition>IGetRepository&lt;Category&gt; Services.ProductService._categoryRepository</definition>
+        <argsstring></argsstring>
+        <name>_categoryRepository</name>
+        <qualifiedname>Services.ProductService._categoryRepository</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/ProductService.cs" line="12" column="28" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/ProductService.cs" bodystart="12" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="class_services_1_1_product_service_1ac3be8391d8ca4e54a259ff561d23123c" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type><ref refid="interface_services_1_1_interfaces_1_1_i_get_repository" kindref="compound">IGetRepository</ref>&lt; <ref refid="class_services_1_1_models_1_1_colour" kindref="compound">Colour</ref> &gt;</type>
+        <definition>IGetRepository&lt;Colour&gt; Services.ProductService.ColourRepository</definition>
+        <argsstring></argsstring>
+        <name>ColourRepository</name>
+        <qualifiedname>Services.ProductService.ColourRepository</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/ProductService.cs" line="14" column="27" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/ProductService.cs" bodystart="14" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="property" id="class_services_1_1_product_service_1ab905bf0e1e24e2ceb7a87281e51d6760" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type><ref refid="interface_services_1_1_interfaces_1_1_i_get_repository" kindref="compound">IGetRepository</ref>&lt; <ref refid="class_services_1_1_models_1_1_brand" kindref="compound">Brand</ref> &gt;</type>
+        <definition>IGetRepository&lt;Brand&gt; Services.ProductService.BrandRepository</definition>
+        <argsstring></argsstring>
+        <name>BrandRepository</name>
+        <qualifiedname>Services.ProductService.BrandRepository</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/ProductService.cs" line="15" column="27" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/ProductService.cs" bodystart="15" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="property" id="class_services_1_1_product_service_1abc12f5ad5d57d5ecf69fc505100dbd53" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type><ref refid="interface_services_1_1_interfaces_1_1_i_get_repository" kindref="compound">IGetRepository</ref>&lt; <ref refid="class_services_1_1_models_1_1_category" kindref="compound">Category</ref> &gt;</type>
+        <definition>IGetRepository&lt;Category&gt; Services.ProductService.CategoryRepository</definition>
+        <argsstring></argsstring>
+        <name>CategoryRepository</name>
+        <qualifiedname>Services.ProductService.CategoryRepository</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/ProductService.cs" line="16" column="27" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/ProductService.cs" bodystart="16" bodyend="16"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_services_1_1_product_service_1a680bf5aea8f56ad8ce6256f6c2a2d419" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Services.ProductService.ProductService</definition>
+        <argsstring>(ICRUDRepository&lt; Product &gt; repository)</argsstring>
+        <name>ProductService</name>
+        <qualifiedname>Services.ProductService.ProductService</qualifiedname>
+        <param>
+          <type><ref refid="interface_services_1_1_interfaces_1_1_i_c_r_u_d_repository" kindref="compound">ICRUDRepository</ref>&lt; <ref refid="class_services_1_1_models_1_1_product" kindref="compound">Product</ref> &gt;</type>
+          <declname>repository</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/ProductService.cs" line="17" column="12" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/ProductService.cs" bodystart="17" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="class_services_1_1_product_service_1ab5114eca5627b911ae2c6928cbf3117c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; <ref refid="class_services_1_1_models_1_1_product" kindref="compound">Product</ref> &gt;</type>
+        <definition>List&lt; Product &gt; Services.ProductService.GetAll</definition>
+        <argsstring>()</argsstring>
+        <name>GetAll</name>
+        <qualifiedname>Services.ProductService.GetAll</qualifiedname>
+        <reimplements refid="interface_services_1_1_interfaces_1_1_i_product_service_1a2e0f4026eba874b918d1f56de64a1959">GetAll</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/ProductService.cs" line="22" column="17" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/ProductService.cs" bodystart="22" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="class_services_1_1_product_service_1a341634f4aea1afaccbd36485f40c38f0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_services_1_1_models_1_1_product" kindref="compound">Product</ref>?</type>
+        <definition>Product? Services.ProductService.Get</definition>
+        <argsstring>(int id)</argsstring>
+        <name>Get</name>
+        <qualifiedname>Services.ProductService.Get</qualifiedname>
+        <reimplements refid="interface_services_1_1_interfaces_1_1_i_product_service_1a4f2b90d933115fead7c2e5e354850614">Get</reimplements>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/ProductService.cs" line="34" column="20" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/ProductService.cs" bodystart="34" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="class_services_1_1_product_service_1ac064de2e7c4787002fc736d46b973ff3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Services.ProductService.Add</definition>
+        <argsstring>(Product product)</argsstring>
+        <name>Add</name>
+        <qualifiedname>Services.ProductService.Add</qualifiedname>
+        <reimplements refid="interface_services_1_1_interfaces_1_1_i_product_service_1aac55677d0767425a789bca7481fcd540">Add</reimplements>
+        <param>
+          <type><ref refid="class_services_1_1_models_1_1_product" kindref="compound">Product</ref></type>
+          <declname>product</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/ProductService.cs" line="46" column="17" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/ProductService.cs" bodystart="46" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="class_services_1_1_product_service_1aca562a84ce9e0270dafd8589734bea1a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Services.ProductService.Delete</definition>
+        <argsstring>(int id)</argsstring>
+        <name>Delete</name>
+        <qualifiedname>Services.ProductService.Delete</qualifiedname>
+        <reimplements refid="interface_services_1_1_interfaces_1_1_i_product_service_1ada8d1e090d62877056ffe9786a70a1f0">Delete</reimplements>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/ProductService.cs" line="59" column="17" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/ProductService.cs" bodystart="59" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="class_services_1_1_product_service_1afc231635bb8bd02858f5081794988263" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Services.ProductService.Update</definition>
+        <argsstring>(Product product)</argsstring>
+        <name>Update</name>
+        <qualifiedname>Services.ProductService.Update</qualifiedname>
+        <reimplements refid="interface_services_1_1_interfaces_1_1_i_product_service_1aab09d81a45f9a3633997df7429d10f5f">Update</reimplements>
+        <param>
+          <type><ref refid="class_services_1_1_models_1_1_product" kindref="compound">Product</ref></type>
+          <declname>product</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/ProductService.cs" line="72" column="17" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/ProductService.cs" bodystart="72" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="class_services_1_1_product_service_1a61db425b12ad64994b53f3f0f8f40a8b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; <ref refid="class_services_1_1_models_1_1_product" kindref="compound">Product</ref> &gt;</type>
+        <definition>List&lt; Product &gt; Services.ProductService.GetFiltered</definition>
+        <argsstring>(Category? category=null, Brand? brand=null, string? name=null)</argsstring>
+        <name>GetFiltered</name>
+        <qualifiedname>Services.ProductService.GetFiltered</qualifiedname>
+        <reimplements refid="interface_services_1_1_interfaces_1_1_i_product_service_1a69bd0c77d0909cfd1a8d0bbf87b855c2">GetFiltered</reimplements>
+        <param>
+          <type><ref refid="class_services_1_1_models_1_1_category" kindref="compound">Category</ref>?</type>
+          <declname>category</declname>
+          <defval>null</defval>
+        </param>
+        <param>
+          <type><ref refid="class_services_1_1_models_1_1_brand" kindref="compound">Brand</ref>?</type>
+          <declname>brand</declname>
+          <defval>null</defval>
+        </param>
+        <param>
+          <type>string?</type>
+          <declname>name</declname>
+          <defval>null</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/ProductService.cs" line="86" column="17" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/ProductService.cs" bodystart="86" bodyend="113"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_services_1_1_product_service_1a08f64415bb9c5fe7e442c1bdbd187ebd" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Services.ProductService.CheckProductParametersAreValid</definition>
+        <argsstring>(Product product)</argsstring>
+        <name>CheckProductParametersAreValid</name>
+        <qualifiedname>Services.ProductService.CheckProductParametersAreValid</qualifiedname>
+        <param>
+          <type><ref refid="class_services_1_1_models_1_1_product" kindref="compound">Product</ref></type>
+          <declname>product</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/ProductService.cs" line="116" column="18" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/ProductService.cs" bodystart="116" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="class_services_1_1_product_service_1a6d1678fd18763d99f96d29c6246e50c1" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Services.ProductService.BrandExists</definition>
+        <argsstring>(Brand brand)</argsstring>
+        <name>BrandExists</name>
+        <qualifiedname>Services.ProductService.BrandExists</qualifiedname>
+        <param>
+          <type><ref refid="class_services_1_1_models_1_1_brand" kindref="compound">Brand</ref></type>
+          <declname>brand</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/ProductService.cs" line="122" column="18" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/ProductService.cs" bodystart="122" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="class_services_1_1_product_service_1a6e479d578b3ffff18f89f3de947dbc34" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Services.ProductService.CategoryExists</definition>
+        <argsstring>(Category category)</argsstring>
+        <name>CategoryExists</name>
+        <qualifiedname>Services.ProductService.CategoryExists</qualifiedname>
+        <param>
+          <type><ref refid="class_services_1_1_models_1_1_category" kindref="compound">Category</ref></type>
+          <declname>category</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/ProductService.cs" line="133" column="18" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/ProductService.cs" bodystart="133" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="function" id="class_services_1_1_product_service_1a84ad20a3c5935806804ed272c53cdeab" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Services.ProductService.ColoursExist</definition>
+        <argsstring>(List&lt; Colour &gt; colours)</argsstring>
+        <name>ColoursExist</name>
+        <qualifiedname>Services.ProductService.ColoursExist</qualifiedname>
+        <param>
+          <type>List&lt; <ref refid="class_services_1_1_models_1_1_colour" kindref="compound">Colour</ref> &gt;</type>
+          <declname>colours</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/ProductService.cs" line="144" column="18" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/ProductService.cs" bodystart="144" bodyend="163"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>IProductService</label>
+        <link refid="interface_services_1_1_interfaces_1_1_i_product_service"/>
+      </node>
+      <node id="1">
+        <label>Services.ProductService</label>
+        <link refid="class_services_1_1_product_service"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>IProductService</label>
+        <link refid="interface_services_1_1_interfaces_1_1_i_product_service"/>
+      </node>
+      <node id="1">
+        <label>Services.ProductService</label>
+        <link refid="class_services_1_1_product_service"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/ProductService.cs" line="7" column="7" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/ProductService.cs" bodystart="8" bodyend="164"/>
+    <listofallmembers>
+      <member refid="class_services_1_1_product_service_1a47952923aa44236f25960fee33bce2e1" prot="private" virt="non-virtual"><scope>Services::ProductService</scope><name>_brandRepository</name></member>
+      <member refid="class_services_1_1_product_service_1a8562faf747d9cb31d5a7cb23c3fb727a" prot="private" virt="non-virtual"><scope>Services::ProductService</scope><name>_categoryRepository</name></member>
+      <member refid="class_services_1_1_product_service_1a1854e270d26681353490cc308ba8db83" prot="private" virt="non-virtual"><scope>Services::ProductService</scope><name>_colourRepository</name></member>
+      <member refid="class_services_1_1_product_service_1acd12d08e949a71a67998f538af9830c7" prot="private" virt="non-virtual"><scope>Services::ProductService</scope><name>_productRepository</name></member>
+      <member refid="class_services_1_1_product_service_1ac064de2e7c4787002fc736d46b973ff3" prot="public" virt="non-virtual"><scope>Services::ProductService</scope><name>Add</name></member>
+      <member refid="class_services_1_1_product_service_1a6d1678fd18763d99f96d29c6246e50c1" prot="private" virt="non-virtual"><scope>Services::ProductService</scope><name>BrandExists</name></member>
+      <member refid="class_services_1_1_product_service_1ab905bf0e1e24e2ceb7a87281e51d6760" prot="public" virt="non-virtual"><scope>Services::ProductService</scope><name>BrandRepository</name></member>
+      <member refid="class_services_1_1_product_service_1a6e479d578b3ffff18f89f3de947dbc34" prot="private" virt="non-virtual"><scope>Services::ProductService</scope><name>CategoryExists</name></member>
+      <member refid="class_services_1_1_product_service_1abc12f5ad5d57d5ecf69fc505100dbd53" prot="public" virt="non-virtual"><scope>Services::ProductService</scope><name>CategoryRepository</name></member>
+      <member refid="class_services_1_1_product_service_1a08f64415bb9c5fe7e442c1bdbd187ebd" prot="private" virt="non-virtual"><scope>Services::ProductService</scope><name>CheckProductParametersAreValid</name></member>
+      <member refid="class_services_1_1_product_service_1ac3be8391d8ca4e54a259ff561d23123c" prot="public" virt="non-virtual"><scope>Services::ProductService</scope><name>ColourRepository</name></member>
+      <member refid="class_services_1_1_product_service_1a84ad20a3c5935806804ed272c53cdeab" prot="private" virt="non-virtual"><scope>Services::ProductService</scope><name>ColoursExist</name></member>
+      <member refid="class_services_1_1_product_service_1aca562a84ce9e0270dafd8589734bea1a" prot="public" virt="non-virtual"><scope>Services::ProductService</scope><name>Delete</name></member>
+      <member refid="class_services_1_1_product_service_1a341634f4aea1afaccbd36485f40c38f0" prot="public" virt="non-virtual"><scope>Services::ProductService</scope><name>Get</name></member>
+      <member refid="class_services_1_1_product_service_1ab5114eca5627b911ae2c6928cbf3117c" prot="public" virt="non-virtual"><scope>Services::ProductService</scope><name>GetAll</name></member>
+      <member refid="class_services_1_1_product_service_1a61db425b12ad64994b53f3f0f8f40a8b" prot="public" virt="non-virtual"><scope>Services::ProductService</scope><name>GetFiltered</name></member>
+      <member refid="class_services_1_1_product_service_1a680bf5aea8f56ad8ce6256f6c2a2d419" prot="public" virt="non-virtual"><scope>Services::ProductService</scope><name>ProductService</name></member>
+      <member refid="class_services_1_1_product_service_1afc231635bb8bd02858f5081794988263" prot="public" virt="non-virtual"><scope>Services::ProductService</scope><name>Update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

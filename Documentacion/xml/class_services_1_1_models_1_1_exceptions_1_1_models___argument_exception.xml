@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_services_1_1_models_1_1_exceptions_1_1_models___argument_exception" kind="class" language="C#" prot="public">
+    <compoundname>Services::Models::Exceptions::Models_ArgumentException</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Exception</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_services_1_1_models_1_1_exceptions_1_1_models___argument_exception_1a041f9c0813bd3c2686b04f915c96bd6c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Services.Models.Exceptions.Models_ArgumentException.Models_ArgumentException</definition>
+        <argsstring>(string message)</argsstring>
+        <name>Models_ArgumentException</name>
+        <qualifiedname>Services.Models.Exceptions.Models_ArgumentException.Models_ArgumentException</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Exceptions/ModelsExceptions.cs" line="5" column="16" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Exceptions/ModelsExceptions.cs" bodystart="5" bodyend="5"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Exception</label>
+      </node>
+      <node id="1">
+        <label>Services.Models.Exceptions.Models_ArgumentException</label>
+        <link refid="class_services_1_1_models_1_1_exceptions_1_1_models___argument_exception"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Exception</label>
+      </node>
+      <node id="1">
+        <label>Services.Models.Exceptions.Models_ArgumentException</label>
+        <link refid="class_services_1_1_models_1_1_exceptions_1_1_models___argument_exception"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Exceptions/ModelsExceptions.cs" line="3" column="11" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Exceptions/ModelsExceptions.cs" bodystart="4" bodyend="6"/>
+    <listofallmembers>
+      <member refid="class_services_1_1_models_1_1_exceptions_1_1_models___argument_exception_1a041f9c0813bd3c2686b04f915c96bd6c" prot="public" virt="non-virtual"><scope>Services::Models::Exceptions::Models_ArgumentException</scope><name>Models_ArgumentException</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

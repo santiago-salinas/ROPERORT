@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_8ef1436839cecd621d30b19db6f12bd1" kind="dir">
+    <compoundname>C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Promos</compoundname>
+    <innerfile refid="_services_2_models_2_promos_2_fidelity_promo_8cs">FidelityPromo.cs</innerfile>
+    <innerfile refid="_promo_applier_8cs">PromoApplier.cs</innerfile>
+    <innerfile refid="_services_2_models_2_promos_2_three_for_two_promo_8cs">ThreeForTwoPromo.cs</innerfile>
+    <innerfile refid="_services_2_models_2_promos_2_total_look_promo_8cs">TotalLookPromo.cs</innerfile>
+    <innerfile refid="_services_2_models_2_promos_2_twenty_percent_off_promo_8cs">TwentyPercentOffPromo.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Promos/"/>
+  </compounddef>
+</doxygen>

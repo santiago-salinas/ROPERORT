@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_data_access_1_1_repositories_1_1_e_f_purchase_repository" kind="class" language="C#" prot="public">
+    <compoundname>DataAccess::Repositories::EFPurchaseRepository</compoundname>
+    <basecompoundref refid="interface_services_1_1_interfaces_1_1_i_c_r_u_d_repository" prot="public" virt="non-virtual">Services.Interfaces.ICRUDRepository&lt; Purchase &gt;</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_data_access_1_1_repositories_1_1_e_f_purchase_repository_1a7ebc12235234fff2698a35c6e3c2f108" prot="private" static="no" mutable="no">
+        <type>readonly <ref refid="class_data_access_1_1_e_f_context" kindref="compound">EFContext</ref></type>
+        <definition>readonly EFContext DataAccess.Repositories.EFPurchaseRepository._context</definition>
+        <argsstring></argsstring>
+        <name>_context</name>
+        <qualifiedname>DataAccess.Repositories.EFPurchaseRepository._context</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Repositories/EFPurchaseRepository.cs" line="12" column="36" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Repositories/EFPurchaseRepository.cs" bodystart="12" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_data_access_1_1_repositories_1_1_e_f_purchase_repository_1a6a23518bd64bf5fc945e8ef62e61faad" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>DataAccess.Repositories.EFPurchaseRepository.EFPurchaseRepository</definition>
+        <argsstring>(EFContext context)</argsstring>
+        <name>EFPurchaseRepository</name>
+        <qualifiedname>DataAccess.Repositories.EFPurchaseRepository.EFPurchaseRepository</qualifiedname>
+        <param>
+          <type><ref refid="class_data_access_1_1_e_f_context" kindref="compound">EFContext</ref></type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Repositories/EFPurchaseRepository.cs" line="14" column="16" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Repositories/EFPurchaseRepository.cs" bodystart="14" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_access_1_1_repositories_1_1_e_f_purchase_repository_1a5a7bd9d2471ba168ae45c988e2b286f0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; <ref refid="class_services_1_1_models_1_1_purchase" kindref="compound">Purchase</ref> &gt;</type>
+        <definition>List&lt; Purchase &gt; DataAccess.Repositories.EFPurchaseRepository.GetAll</definition>
+        <argsstring>()</argsstring>
+        <name>GetAll</name>
+        <qualifiedname>DataAccess.Repositories.EFPurchaseRepository.GetAll</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Repositories/EFPurchaseRepository.cs" line="18" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Repositories/EFPurchaseRepository.cs" bodystart="18" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_access_1_1_repositories_1_1_e_f_purchase_repository_1a44fbd0a7b2a5d9080f990d291e338269" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_services_1_1_models_1_1_purchase" kindref="compound">Purchase</ref>?</type>
+        <definition>Purchase? DataAccess.Repositories.EFPurchaseRepository.Get</definition>
+        <argsstring>(int id)</argsstring>
+        <name>Get</name>
+        <qualifiedname>DataAccess.Repositories.EFPurchaseRepository.Get</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Repositories/EFPurchaseRepository.cs" line="36" column="25" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Repositories/EFPurchaseRepository.cs" bodystart="36" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_access_1_1_repositories_1_1_e_f_purchase_repository_1a8fcfd19c994f5c0dce5fa2a842058c17" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DataAccess.Repositories.EFPurchaseRepository.Add</definition>
+        <argsstring>(Purchase purchase)</argsstring>
+        <name>Add</name>
+        <qualifiedname>DataAccess.Repositories.EFPurchaseRepository.Add</qualifiedname>
+        <param>
+          <type><ref refid="class_services_1_1_models_1_1_purchase" kindref="compound">Purchase</ref></type>
+          <declname>purchase</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Repositories/EFPurchaseRepository.cs" line="56" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Repositories/EFPurchaseRepository.cs" bodystart="56" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_access_1_1_repositories_1_1_e_f_purchase_repository_1a6c52cbb8979303f5aeddcb8aae51132e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DataAccess.Repositories.EFPurchaseRepository.Delete</definition>
+        <argsstring>(int id)</argsstring>
+        <name>Delete</name>
+        <qualifiedname>DataAccess.Repositories.EFPurchaseRepository.Delete</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Repositories/EFPurchaseRepository.cs" line="85" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Repositories/EFPurchaseRepository.cs" bodystart="85" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_access_1_1_repositories_1_1_e_f_purchase_repository_1a71d40dd0b3914e735c68bcac8b3374ef" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DataAccess.Repositories.EFPurchaseRepository.Update</definition>
+        <argsstring>(Purchase purchase)</argsstring>
+        <name>Update</name>
+        <qualifiedname>DataAccess.Repositories.EFPurchaseRepository.Update</qualifiedname>
+        <param>
+          <type><ref refid="class_services_1_1_models_1_1_purchase" kindref="compound">Purchase</ref></type>
+          <declname>purchase</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Repositories/EFPurchaseRepository.cs" line="115" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Repositories/EFPurchaseRepository.cs" bodystart="115" bodyend="142"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>DataAccess.Repositories.EFPurchaseRepository</label>
+        <link refid="class_data_access_1_1_repositories_1_1_e_f_purchase_repository"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ICRUDRepository&lt; Purchase &gt;</label>
+        <link refid="interface_services_1_1_interfaces_1_1_i_c_r_u_d_repository"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>DataAccess.Repositories.EFPurchaseRepository</label>
+        <link refid="class_data_access_1_1_repositories_1_1_e_f_purchase_repository"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ICRUDRepository&lt; Purchase &gt;</label>
+        <link refid="interface_services_1_1_interfaces_1_1_i_c_r_u_d_repository"/>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Repositories/EFPurchaseRepository.cs" line="10" column="11" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Repositories/EFPurchaseRepository.cs" bodystart="11" bodyend="143"/>
+    <listofallmembers>
+      <member refid="class_data_access_1_1_repositories_1_1_e_f_purchase_repository_1a7ebc12235234fff2698a35c6e3c2f108" prot="private" virt="non-virtual"><scope>DataAccess::Repositories::EFPurchaseRepository</scope><name>_context</name></member>
+      <member refid="class_data_access_1_1_repositories_1_1_e_f_purchase_repository_1a8fcfd19c994f5c0dce5fa2a842058c17" prot="public" virt="non-virtual"><scope>DataAccess::Repositories::EFPurchaseRepository</scope><name>Add</name></member>
+      <member refid="interface_services_1_1_interfaces_1_1_i_c_r_u_d_repository_1a0a54d61e0b78e35c8a5c0cef7a92eb70" prot="public" virt="non-virtual" ambiguityscope="ICRUDRepository&lt; Purchase &gt;."><scope>DataAccess::Repositories::EFPurchaseRepository</scope><name>Add</name></member>
+      <member refid="class_data_access_1_1_repositories_1_1_e_f_purchase_repository_1a6c52cbb8979303f5aeddcb8aae51132e" prot="public" virt="non-virtual"><scope>DataAccess::Repositories::EFPurchaseRepository</scope><name>Delete</name></member>
+      <member refid="class_data_access_1_1_repositories_1_1_e_f_purchase_repository_1a6a23518bd64bf5fc945e8ef62e61faad" prot="public" virt="non-virtual"><scope>DataAccess::Repositories::EFPurchaseRepository</scope><name>EFPurchaseRepository</name></member>
+      <member refid="class_data_access_1_1_repositories_1_1_e_f_purchase_repository_1a44fbd0a7b2a5d9080f990d291e338269" prot="public" virt="non-virtual"><scope>DataAccess::Repositories::EFPurchaseRepository</scope><name>Get</name></member>
+      <member refid="class_data_access_1_1_repositories_1_1_e_f_purchase_repository_1a5a7bd9d2471ba168ae45c988e2b286f0" prot="public" virt="non-virtual"><scope>DataAccess::Repositories::EFPurchaseRepository</scope><name>GetAll</name></member>
+      <member refid="class_data_access_1_1_repositories_1_1_e_f_purchase_repository_1a71d40dd0b3914e735c68bcac8b3374ef" prot="public" virt="non-virtual"><scope>DataAccess::Repositories::EFPurchaseRepository</scope><name>Update</name></member>
+      <member refid="interface_services_1_1_interfaces_1_1_i_c_r_u_d_repository_1a946f60a56d534686723773e5ce82221f" prot="public" virt="non-virtual" ambiguityscope="ICRUDRepository&lt; Purchase &gt;."><scope>DataAccess::Repositories::EFPurchaseRepository</scope><name>Update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="interface_services_1_1_interfaces_1_1_i_user_service" kind="interface" language="C#" prot="public">
+    <compoundname>Services::Interfaces::IUserService</compoundname>
+    <derivedcompoundref refid="class_services_1_1_user_service" prot="public" virt="non-virtual">Services.UserService</derivedcompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="interface_services_1_1_interfaces_1_1_i_user_service_1ad49ce130a7c368b048cfb7cf34ebed6e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Services.Interfaces.IUserService.Add</definition>
+        <argsstring>(User entity)</argsstring>
+        <name>Add</name>
+        <qualifiedname>Services.Interfaces.IUserService.Add</qualifiedname>
+        <reimplementedby refid="class_services_1_1_user_service_1a8ec24fc35aba130e525266395c55ac59">Add</reimplementedby>
+        <param>
+          <type><ref refid="class_services_1_1_models_1_1_user" kindref="compound">User</ref></type>
+          <declname>entity</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Interfaces/IUserService.cs" line="7" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_services_1_1_interfaces_1_1_i_user_service_1a24ae27fdf335dba9a6e696932280fa19" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Services.Interfaces.IUserService.Delete</definition>
+        <argsstring>(int id)</argsstring>
+        <name>Delete</name>
+        <qualifiedname>Services.Interfaces.IUserService.Delete</qualifiedname>
+        <reimplementedby refid="class_services_1_1_user_service_1acf8c079288440352956abdcda403fa83">Delete</reimplementedby>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Interfaces/IUserService.cs" line="9" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_services_1_1_interfaces_1_1_i_user_service_1a480a6558f8bd61dad12525537575c5f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_services_1_1_models_1_1_user" kindref="compound">User</ref>?</type>
+        <definition>User? Services.Interfaces.IUserService.Get</definition>
+        <argsstring>(int id)</argsstring>
+        <name>Get</name>
+        <qualifiedname>Services.Interfaces.IUserService.Get</qualifiedname>
+        <reimplementedby refid="class_services_1_1_user_service_1a9ed5b2a71bcf04c28757aedbae26eea0">Get</reimplementedby>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Interfaces/IUserService.cs" line="11" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_services_1_1_interfaces_1_1_i_user_service_1a76b3b63e714fe8c8d979cf3d6a679aa7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; <ref refid="class_services_1_1_models_1_1_user" kindref="compound">User</ref> &gt;</type>
+        <definition>List&lt; User &gt; Services.Interfaces.IUserService.GetAll</definition>
+        <argsstring>()</argsstring>
+        <name>GetAll</name>
+        <qualifiedname>Services.Interfaces.IUserService.GetAll</qualifiedname>
+        <reimplementedby refid="class_services_1_1_user_service_1a5d5a4f3451e8793e7deac04faa4bad3e">GetAll</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Interfaces/IUserService.cs" line="13" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_services_1_1_interfaces_1_1_i_user_service_1a7a0bd3a3ed4aa20c59198c023315dd9e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Services.Interfaces.IUserService.Update</definition>
+        <argsstring>(User entity)</argsstring>
+        <name>Update</name>
+        <qualifiedname>Services.Interfaces.IUserService.Update</qualifiedname>
+        <reimplementedby refid="class_services_1_1_user_service_1acd2a068601d36595ae87a4810f11b74c">Update</reimplementedby>
+        <param>
+          <type><ref refid="class_services_1_1_models_1_1_user" kindref="compound">User</ref></type>
+          <declname>entity</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Interfaces/IUserService.cs" line="15" column="21"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Services.Interfaces.IUserService</label>
+        <link refid="interface_services_1_1_interfaces_1_1_i_user_service"/>
+      </node>
+      <node id="2">
+        <label>Services.UserService</label>
+        <link refid="class_services_1_1_user_service"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Interfaces/IUserService.cs" line="5" column="22" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Interfaces/IUserService.cs" bodystart="6" bodyend="16"/>
+    <listofallmembers>
+      <member refid="interface_services_1_1_interfaces_1_1_i_user_service_1ad49ce130a7c368b048cfb7cf34ebed6e" prot="public" virt="non-virtual"><scope>Services::Interfaces::IUserService</scope><name>Add</name></member>
+      <member refid="interface_services_1_1_interfaces_1_1_i_user_service_1a24ae27fdf335dba9a6e696932280fa19" prot="public" virt="non-virtual"><scope>Services::Interfaces::IUserService</scope><name>Delete</name></member>
+      <member refid="interface_services_1_1_interfaces_1_1_i_user_service_1a480a6558f8bd61dad12525537575c5f5" prot="public" virt="non-virtual"><scope>Services::Interfaces::IUserService</scope><name>Get</name></member>
+      <member refid="interface_services_1_1_interfaces_1_1_i_user_service_1a76b3b63e714fe8c8d979cf3d6a679aa7" prot="public" virt="non-virtual"><scope>Services::Interfaces::IUserService</scope><name>GetAll</name></member>
+      <member refid="interface_services_1_1_interfaces_1_1_i_user_service_1a7a0bd3a3ed4aa20c59198c023315dd9e" prot="public" virt="non-virtual"><scope>Services::Interfaces::IUserService</scope><name>Update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

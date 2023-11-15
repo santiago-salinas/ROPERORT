@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_rest___api_1_1_models_1_1_promo" kind="class" language="C#" prot="public" abstract="yes">
+    <compoundname>Rest_Api::Models::Promo</compoundname>
+    <derivedcompoundref refid="class_rest___api_1_1_models_1_1_promos_1_1_fidelity_promo" prot="public" virt="non-virtual">Rest_Api.Models.Promos.FidelityPromo</derivedcompoundref>
+    <derivedcompoundref refid="class_rest___api_1_1_models_1_1_promos_1_1_three_for_two_promo" prot="public" virt="non-virtual">Rest_Api.Models.Promos.ThreeForTwoPromo</derivedcompoundref>
+    <derivedcompoundref refid="class_rest___api_1_1_models_1_1_promos_1_1_total_look_promo" prot="public" virt="non-virtual">Rest_Api.Models.Promos.TotalLookPromo</derivedcompoundref>
+    <derivedcompoundref refid="class_rest___api_1_1_models_1_1_promos_1_1_twenty_percent_off" prot="public" virt="non-virtual">Rest_Api.Models.Promos.TwentyPercentOff</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="class_rest___api_1_1_models_1_1_promo_1a700f136d33a6d300244e9141681ef208" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Rest_Api.Models.Promo.Name</definition>
+        <argsstring></argsstring>
+        <name>Name</name>
+        <qualifiedname>Rest_Api.Models.Promo.Name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Promo.cs" line="11" column="23" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Promo.cs" bodystart="11" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="property" id="class_rest___api_1_1_models_1_1_promo_1aa230d56cd39c51e0826b9eef02bb2d7e" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Rest_Api.Models.Promo.Condition</definition>
+        <argsstring></argsstring>
+        <name>Condition</name>
+        <qualifiedname>Rest_Api.Models.Promo.Condition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Promo.cs" line="12" column="23" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Promo.cs" bodystart="12" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="property" id="class_rest___api_1_1_models_1_1_promo_1a4b050b3e50eb5e3de3adf880c12f9f04" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Rest_Api.Models.Promo.Discount</definition>
+        <argsstring></argsstring>
+        <name>Discount</name>
+        <qualifiedname>Rest_Api.Models.Promo.Discount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Promo.cs" line="13" column="23" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Promo.cs" bodystart="13" bodyend="13"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_rest___api_1_1_models_1_1_promo_1a0580a433eee283ddbb7410153c2ad236" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Rest_Api.Models.Promo.Promo</definition>
+        <argsstring>(string name, string condition, string discount)</argsstring>
+        <name>Promo</name>
+        <qualifiedname>Rest_Api.Models.Promo.Promo</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>condition</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>discount</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Promo.cs" line="5" column="16" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Promo.cs" bodystart="5" bodyend="10"/>
+      </memberdef>
+      <memberdef kind="function" id="class_rest___api_1_1_models_1_1_promo_1a25ad0a5670d8628ebdf0b5f5853ab54c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Rest_Api.Models.Promo.ApplyDiscount</definition>
+        <argsstring>(Cart cart)</argsstring>
+        <name>ApplyDiscount</name>
+        <qualifiedname>Rest_Api.Models.Promo.ApplyDiscount</qualifiedname>
+        <param>
+          <type><ref refid="class_rest___api_1_1_models_1_1_cart" kindref="compound">Cart</ref></type>
+          <declname>cart</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Promo.cs" line="15" column="32"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Rest_Api.Models.Promo</label>
+        <link refid="class_rest___api_1_1_models_1_1_promo"/>
+      </node>
+      <node id="2">
+        <label>Rest_Api.Models.Promos.FidelityPromo</label>
+        <link refid="class_rest___api_1_1_models_1_1_promos_1_1_fidelity_promo"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Rest_Api.Models.Promos.ThreeForTwoPromo</label>
+        <link refid="class_rest___api_1_1_models_1_1_promos_1_1_three_for_two_promo"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Rest_Api.Models.Promos.TotalLookPromo</label>
+        <link refid="class_rest___api_1_1_models_1_1_promos_1_1_total_look_promo"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Rest_Api.Models.Promos.TwentyPercentOff</label>
+        <link refid="class_rest___api_1_1_models_1_1_promos_1_1_twenty_percent_off"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Promo.cs" line="3" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Promo.cs" bodystart="4" bodyend="17"/>
+    <listofallmembers>
+      <member refid="class_rest___api_1_1_models_1_1_promo_1a25ad0a5670d8628ebdf0b5f5853ab54c" prot="public" virt="non-virtual"><scope>Rest_Api::Models::Promo</scope><name>ApplyDiscount</name></member>
+      <member refid="class_rest___api_1_1_models_1_1_promo_1aa230d56cd39c51e0826b9eef02bb2d7e" prot="public" virt="non-virtual"><scope>Rest_Api::Models::Promo</scope><name>Condition</name></member>
+      <member refid="class_rest___api_1_1_models_1_1_promo_1a4b050b3e50eb5e3de3adf880c12f9f04" prot="public" virt="non-virtual"><scope>Rest_Api::Models::Promo</scope><name>Discount</name></member>
+      <member refid="class_rest___api_1_1_models_1_1_promo_1a700f136d33a6d300244e9141681ef208" prot="public" virt="non-virtual"><scope>Rest_Api::Models::Promo</scope><name>Name</name></member>
+      <member refid="class_rest___api_1_1_models_1_1_promo_1a0580a433eee283ddbb7410153c2ad236" prot="public" virt="non-virtual"><scope>Rest_Api::Models::Promo</scope><name>Promo</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

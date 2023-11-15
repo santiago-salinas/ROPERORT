@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_services_1_1_auth_service" kind="class" language="C#" prot="public">
+    <compoundname>Services::AuthService</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_services_1_1_auth_service_1a977c6cb48364f23dd9992f89fb1ee18e" prot="private" static="no" mutable="no">
+        <type>readonly <ref refid="interface_services_1_1_interfaces_1_1_i_c_r_u_d_repository" kindref="compound">ICRUDRepository</ref>&lt; <ref refid="class_services_1_1_models_1_1_user" kindref="compound">User</ref> &gt;</type>
+        <definition>readonly ICRUDRepository&lt;User&gt; Services.AuthService._repository</definition>
+        <argsstring></argsstring>
+        <name>_repository</name>
+        <qualifiedname>Services.AuthService._repository</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/AuthService.cs" line="9" column="38" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/AuthService.cs" bodystart="9" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_services_1_1_auth_service_1ac4fc4d1215e21b487a0a53171a759f47" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Services.AuthService.AuthService</definition>
+        <argsstring>(ICRUDRepository&lt; User &gt; repo)</argsstring>
+        <name>AuthService</name>
+        <qualifiedname>Services.AuthService.AuthService</qualifiedname>
+        <param>
+          <type><ref refid="interface_services_1_1_interfaces_1_1_i_c_r_u_d_repository" kindref="compound">ICRUDRepository</ref>&lt; <ref refid="class_services_1_1_models_1_1_user" kindref="compound">User</ref> &gt;</type>
+          <declname>repo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/AuthService.cs" line="11" column="12" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/AuthService.cs" bodystart="11" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="class_services_1_1_auth_service_1a3531e6fb7a17297e7554b8f11ed4d758" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>string Services.AuthService.LogIn</definition>
+        <argsstring>(User user)</argsstring>
+        <name>LogIn</name>
+        <qualifiedname>Services.AuthService.LogIn</qualifiedname>
+        <param>
+          <type><ref refid="class_services_1_1_models_1_1_user" kindref="compound">User</ref></type>
+          <declname>user</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/AuthService.cs" line="16" column="19" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/AuthService.cs" bodystart="16" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="class_services_1_1_auth_service_1af8154af78c950d782a5421bc5de2695d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Services.AuthService.IsLogged</definition>
+        <argsstring>(string token)</argsstring>
+        <name>IsLogged</name>
+        <qualifiedname>Services.AuthService.IsLogged</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/AuthService.cs" line="33" column="17" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/AuthService.cs" bodystart="33" bodyend="45"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/AuthService.cs" line="7" column="7" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/AuthService.cs" bodystart="8" bodyend="46"/>
+    <listofallmembers>
+      <member refid="class_services_1_1_auth_service_1a977c6cb48364f23dd9992f89fb1ee18e" prot="private" virt="non-virtual"><scope>Services::AuthService</scope><name>_repository</name></member>
+      <member refid="class_services_1_1_auth_service_1ac4fc4d1215e21b487a0a53171a759f47" prot="public" virt="non-virtual"><scope>Services::AuthService</scope><name>AuthService</name></member>
+      <member refid="class_services_1_1_auth_service_1af8154af78c950d782a5421bc5de2695d" prot="public" virt="non-virtual"><scope>Services::AuthService</scope><name>IsLogged</name></member>
+      <member refid="class_services_1_1_auth_service_1a3531e6fb7a17297e7554b8f11ed4d758" prot="public" virt="non-virtual"><scope>Services::AuthService</scope><name>LogIn</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

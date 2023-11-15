@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_e78e69596eb7f1c6725d23bb623646a1" kind="dir">
+    <compoundname>C:/Diseño 2/266628-255981-271568/Codigo/POS/Factory</compoundname>
+    <innerdir refid="dir_b2514d659ae1ae2e2b70372aea24a22d">C:/Diseño 2/266628-255981-271568/Codigo/POS/Factory/obj</innerdir>
+    <innerfile refid="_repositories_factory_8cs">RepositoriesFactory.cs</innerfile>
+    <innerfile refid="_services_factory_8cs">ServicesFactory.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Factory/"/>
+  </compounddef>
+</doxygen>

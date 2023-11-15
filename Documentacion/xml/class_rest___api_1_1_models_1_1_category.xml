@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_rest___api_1_1_models_1_1_category" kind="class" language="C#" prot="public">
+    <compoundname>Rest_Api::Models::Category</compoundname>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="class_rest___api_1_1_models_1_1_category_1a9f69683eba485fc1d2875ee758f00644" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Rest_Api.Models.Category.Name</definition>
+        <argsstring></argsstring>
+        <name>Name</name>
+        <qualifiedname>Rest_Api.Models.Category.Name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Category.cs" line="8" column="23" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Category.cs" bodystart="8" bodyend="8"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_rest___api_1_1_models_1_1_category_1afacbb3d3c1fc8f10dbfc3d32c82ddccc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Rest_Api.Models.Category.Category</definition>
+        <argsstring>()</argsstring>
+        <name>Category</name>
+        <qualifiedname>Rest_Api.Models.Category.Category</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Category.cs" line="5" column="16" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Category.cs" bodystart="5" bodyend="5"/>
+      </memberdef>
+      <memberdef kind="function" id="class_rest___api_1_1_models_1_1_category_1ab9bc859b716878ec1a620a34d0216188" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Rest_Api.Models.Category.Category</definition>
+        <argsstring>(string name)</argsstring>
+        <name>Category</name>
+        <qualifiedname>Rest_Api.Models.Category.Category</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Category.cs" line="6" column="16" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Category.cs" bodystart="6" bodyend="7"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Category.cs" line="3" column="11" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Category.cs" bodystart="4" bodyend="9"/>
+    <listofallmembers>
+      <member refid="class_rest___api_1_1_models_1_1_category_1afacbb3d3c1fc8f10dbfc3d32c82ddccc" prot="public" virt="non-virtual"><scope>Rest_Api::Models::Category</scope><name>Category</name></member>
+      <member refid="class_rest___api_1_1_models_1_1_category_1ab9bc859b716878ec1a620a34d0216188" prot="public" virt="non-virtual"><scope>Rest_Api::Models::Category</scope><name>Category</name></member>
+      <member refid="class_rest___api_1_1_models_1_1_category_1a9f69683eba485fc1d2875ee758f00644" prot="public" virt="non-virtual"><scope>Rest_Api::Models::Category</scope><name>Name</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_services_1_1_models_1_1_bought_product" kind="class" language="C#" prot="public">
+    <compoundname>Services::Models::BoughtProduct</compoundname>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="class_services_1_1_models_1_1_bought_product_1adfc98762abf9c576d61615c13cc97928" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type><ref refid="class_services_1_1_models_1_1_product" kindref="compound">Product</ref></type>
+        <definition>Product Services.Models.BoughtProduct.Product</definition>
+        <argsstring></argsstring>
+        <name>Product</name>
+        <qualifiedname>Services.Models.BoughtProduct.Product</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/BoughtProduct.cs" line="6" column="24" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/BoughtProduct.cs" bodystart="6" bodyend="6"/>
+      </memberdef>
+      <memberdef kind="property" id="class_services_1_1_models_1_1_bought_product_1a5404725963088f45811c83906a0fc227" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Services.Models.BoughtProduct.Quantity</definition>
+        <argsstring></argsstring>
+        <name>Quantity</name>
+        <qualifiedname>Services.Models.BoughtProduct.Quantity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/BoughtProduct.cs" line="7" column="20" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/BoughtProduct.cs" bodystart="8" bodyend="15"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_services_1_1_models_1_1_bought_product_1a4d1f34d9014dbc1e333c62439e39e456" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Services.Models.BoughtProduct._quantity</definition>
+        <argsstring></argsstring>
+        <name>_quantity</name>
+        <qualifiedname>Services.Models.BoughtProduct._quantity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/BoughtProduct.cs" line="17" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/BoughtProduct.cs" bodystart="17" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_services_1_1_models_1_1_bought_product_1a828b1daa942469e920a7bec1a024dc68" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Services.Models.BoughtProduct.ValidateQuantity</definition>
+        <argsstring>(int quantity)</argsstring>
+        <name>ValidateQuantity</name>
+        <qualifiedname>Services.Models.BoughtProduct.ValidateQuantity</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>quantity</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/BoughtProduct.cs" line="19" column="22" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/BoughtProduct.cs" bodystart="19" bodyend="23"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/BoughtProduct.cs" line="4" column="11" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/BoughtProduct.cs" bodystart="5" bodyend="24"/>
+    <listofallmembers>
+      <member refid="class_services_1_1_models_1_1_bought_product_1a4d1f34d9014dbc1e333c62439e39e456" prot="private" virt="non-virtual"><scope>Services::Models::BoughtProduct</scope><name>_quantity</name></member>
+      <member refid="class_services_1_1_models_1_1_bought_product_1adfc98762abf9c576d61615c13cc97928" prot="public" virt="non-virtual"><scope>Services::Models::BoughtProduct</scope><name>Product</name></member>
+      <member refid="class_services_1_1_models_1_1_bought_product_1a5404725963088f45811c83906a0fc227" prot="public" virt="non-virtual"><scope>Services::Models::BoughtProduct</scope><name>Quantity</name></member>
+      <member refid="class_services_1_1_models_1_1_bought_product_1a828b1daa942469e920a7bec1a024dc68" prot="private" virt="non-virtual"><scope>Services::Models::BoughtProduct</scope><name>ValidateQuantity</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

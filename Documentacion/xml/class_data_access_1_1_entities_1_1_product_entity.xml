@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_data_access_1_1_entities_1_1_product_entity" kind="class" language="C#" prot="public">
+    <compoundname>DataAccess::Entities::ProductEntity</compoundname>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="class_data_access_1_1_entities_1_1_product_entity_1ac3c34a46af3a6f1a64203e82fc4d6a8b" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int DataAccess.Entities.ProductEntity.Id</definition>
+        <argsstring></argsstring>
+        <name>Id</name>
+        <qualifiedname>DataAccess.Entities.ProductEntity.Id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/ProductEntity.cs" line="12" column="20" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/ProductEntity.cs" bodystart="12" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="property" id="class_data_access_1_1_entities_1_1_product_entity_1ae20317a8fd0e86a4ea8fe6c3c39e8e82" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DataAccess.Entities.ProductEntity.Name</definition>
+        <argsstring></argsstring>
+        <name>Name</name>
+        <qualifiedname>DataAccess.Entities.ProductEntity.Name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/ProductEntity.cs" line="13" column="23" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/ProductEntity.cs" bodystart="13" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="property" id="class_data_access_1_1_entities_1_1_product_entity_1a6d4cda549e390343ecfae5adf77c867a" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double DataAccess.Entities.ProductEntity.Price</definition>
+        <argsstring></argsstring>
+        <name>Price</name>
+        <qualifiedname>DataAccess.Entities.ProductEntity.Price</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/ProductEntity.cs" line="14" column="23" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/ProductEntity.cs" bodystart="14" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="property" id="class_data_access_1_1_entities_1_1_product_entity_1a9d406325073bef09927cfd994fe81bb3" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DataAccess.Entities.ProductEntity.Description</definition>
+        <argsstring></argsstring>
+        <name>Description</name>
+        <qualifiedname>DataAccess.Entities.ProductEntity.Description</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/ProductEntity.cs" line="15" column="23" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/ProductEntity.cs" bodystart="15" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="property" id="class_data_access_1_1_entities_1_1_product_entity_1acdc98d935e37bdfee71ba83aa246c885" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type><ref refid="class_data_access_1_1_entities_1_1_brand_entity" kindref="compound">BrandEntity</ref></type>
+        <definition>BrandEntity DataAccess.Entities.ProductEntity.Brand</definition>
+        <argsstring></argsstring>
+        <name>Brand</name>
+        <qualifiedname>DataAccess.Entities.ProductEntity.Brand</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/ProductEntity.cs" line="16" column="28" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/ProductEntity.cs" bodystart="16" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="property" id="class_data_access_1_1_entities_1_1_product_entity_1a93c4e11edd4981fc7b316232405e9c27" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type><ref refid="class_data_access_1_1_entities_1_1_category_entity" kindref="compound">CategoryEntity</ref></type>
+        <definition>CategoryEntity DataAccess.Entities.ProductEntity.Category</definition>
+        <argsstring></argsstring>
+        <name>Category</name>
+        <qualifiedname>DataAccess.Entities.ProductEntity.Category</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/ProductEntity.cs" line="17" column="31" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/ProductEntity.cs" bodystart="17" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="property" id="class_data_access_1_1_entities_1_1_product_entity_1a8b6288c27abfe626a08cea3bfdb2a03e" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>IList&lt; <ref refid="class_data_access_1_1_entities_1_1_product_colors" kindref="compound">ProductColors</ref> &gt;</type>
+        <definition>IList&lt;ProductColors&gt; DataAccess.Entities.ProductEntity.Colours</definition>
+        <argsstring></argsstring>
+        <name>Colours</name>
+        <qualifiedname>DataAccess.Entities.ProductEntity.Colours</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/ProductEntity.cs" line="19" column="22" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/ProductEntity.cs" bodystart="19" bodyend="19"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_data_access_1_1_entities_1_1_product_entity_1a56fa9264d54bc5834ad27affb8e0d071" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>DataAccess.Entities.ProductEntity.ProductEntity</definition>
+        <argsstring>()</argsstring>
+        <name>ProductEntity</name>
+        <qualifiedname>DataAccess.Entities.ProductEntity.ProductEntity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/ProductEntity.cs" line="22" column="16" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/ProductEntity.cs" bodystart="22" bodyend="22"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_data_access_1_1_entities_1_1_product_entity_1a91db080e3cb81878ef825f104be6a0a0" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_data_access_1_1_entities_1_1_product_entity" kindref="compound">ProductEntity</ref></type>
+        <definition>static ProductEntity DataAccess.Entities.ProductEntity.FromModel</definition>
+        <argsstring>(Product product, EFContext context)</argsstring>
+        <name>FromModel</name>
+        <qualifiedname>DataAccess.Entities.ProductEntity.FromModel</qualifiedname>
+        <param>
+          <type><ref refid="class_services_1_1_models_1_1_product" kindref="compound">Product</ref></type>
+          <declname>product</declname>
+        </param>
+        <param>
+          <type><ref refid="class_data_access_1_1_e_f_context" kindref="compound">EFContext</ref></type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/ProductEntity.cs" line="23" column="37" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/ProductEntity.cs" bodystart="23" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_access_1_1_entities_1_1_product_entity_1a598826597a5ba3e81d5e8f8bfba386f9" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_services_1_1_models_1_1_product" kindref="compound">Product</ref></type>
+        <definition>static Product DataAccess.Entities.ProductEntity.FromEntity</definition>
+        <argsstring>(ProductEntity entity)</argsstring>
+        <name>FromEntity</name>
+        <qualifiedname>DataAccess.Entities.ProductEntity.FromEntity</qualifiedname>
+        <param>
+          <type><ref refid="class_data_access_1_1_entities_1_1_product_entity" kindref="compound">ProductEntity</ref></type>
+          <declname>entity</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/ProductEntity.cs" line="43" column="31" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/ProductEntity.cs" bodystart="43" bodyend="55"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/ProductEntity.cs" line="9" column="11" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/ProductEntity.cs" bodystart="10" bodyend="56"/>
+    <listofallmembers>
+      <member refid="class_data_access_1_1_entities_1_1_product_entity_1acdc98d935e37bdfee71ba83aa246c885" prot="public" virt="non-virtual"><scope>DataAccess::Entities::ProductEntity</scope><name>Brand</name></member>
+      <member refid="class_data_access_1_1_entities_1_1_product_entity_1a93c4e11edd4981fc7b316232405e9c27" prot="public" virt="non-virtual"><scope>DataAccess::Entities::ProductEntity</scope><name>Category</name></member>
+      <member refid="class_data_access_1_1_entities_1_1_product_entity_1a8b6288c27abfe626a08cea3bfdb2a03e" prot="public" virt="non-virtual"><scope>DataAccess::Entities::ProductEntity</scope><name>Colours</name></member>
+      <member refid="class_data_access_1_1_entities_1_1_product_entity_1a9d406325073bef09927cfd994fe81bb3" prot="public" virt="non-virtual"><scope>DataAccess::Entities::ProductEntity</scope><name>Description</name></member>
+      <member refid="class_data_access_1_1_entities_1_1_product_entity_1a598826597a5ba3e81d5e8f8bfba386f9" prot="public" virt="non-virtual"><scope>DataAccess::Entities::ProductEntity</scope><name>FromEntity</name></member>
+      <member refid="class_data_access_1_1_entities_1_1_product_entity_1a91db080e3cb81878ef825f104be6a0a0" prot="public" virt="non-virtual"><scope>DataAccess::Entities::ProductEntity</scope><name>FromModel</name></member>
+      <member refid="class_data_access_1_1_entities_1_1_product_entity_1ac3c34a46af3a6f1a64203e82fc4d6a8b" prot="public" virt="non-virtual"><scope>DataAccess::Entities::ProductEntity</scope><name>Id</name></member>
+      <member refid="class_data_access_1_1_entities_1_1_product_entity_1ae20317a8fd0e86a4ea8fe6c3c39e8e82" prot="public" virt="non-virtual"><scope>DataAccess::Entities::ProductEntity</scope><name>Name</name></member>
+      <member refid="class_data_access_1_1_entities_1_1_product_entity_1a6d4cda549e390343ecfae5adf77c867a" prot="public" virt="non-virtual"><scope>DataAccess::Entities::ProductEntity</scope><name>Price</name></member>
+      <member refid="class_data_access_1_1_entities_1_1_product_entity_1a56fa9264d54bc5834ad27affb8e0d071" prot="public" virt="non-virtual"><scope>DataAccess::Entities::ProductEntity</scope><name>ProductEntity</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespace_services_1_1_exceptions" kind="namespace" language="C#">
+    <compoundname>Services::Exceptions</compoundname>
+    <innerclass refid="class_services_1_1_exceptions_1_1_database_exception" prot="public">Services::Exceptions::DatabaseException</innerclass>
+    <innerclass refid="class_services_1_1_exceptions_1_1_service___argument_exception" prot="public">Services::Exceptions::Service_ArgumentException</innerclass>
+    <innerclass refid="class_services_1_1_exceptions_1_1_service___object_handling_exception" prot="public">Services::Exceptions::Service_ObjectHandlingException</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Services/Exceptions/DatabaseException.cs" line="1" column="1"/>
+  </compounddef>
+</doxygen>

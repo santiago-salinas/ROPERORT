@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="_services_2_models_2_category_8cs" kind="file" language="C#">
+    <compoundname>Category.cs</compoundname>
+    <innerclass refid="class_services_1_1_models_1_1_category" prot="public">Services::Models::Category</innerclass>
+    <innernamespace refid="namespace_services">Services</innernamespace>
+    <innernamespace refid="namespace_services_1_1_models">Services::Models</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_services_1_1_models" kindref="compound">Services.Models</ref></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="4" refid="class_services_1_1_models_1_1_category" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_services_1_1_models_1_1_category" kindref="compound">Category</ref></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_services_1_1_models_1_1_category_1a2b1060efe2877d2cf4f8b27514101ca9" kindref="member">Category</ref>()<sp/>{<sp/>}</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_services_1_1_models_1_1_category_1a2b1060efe2877d2cf4f8b27514101ca9" kindref="member">Category</ref>(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>name)<sp/>{<sp/><ref refid="class_services_1_1_models_1_1_category_1a7150a3a6cac97fd930c392c145789df0" kindref="member">Name</ref><sp/>=<sp/>name;<sp/>}</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><ref refid="class_services_1_1_models_1_1_category_1a7150a3a6cac97fd930c392c145789df0" kindref="member">Name</ref><sp/>{<sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal">;<sp/></highlight><highlight class="keyword">set</highlight><highlight class="normal">;<sp/>}</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_services_1_1_models_1_1_category_1a6a3a315035aa8966e6038719dc6ffe62" kindref="member">Equals</ref>(</highlight><highlight class="keywordtype">object</highlight><highlight class="normal">?<sp/>obj)</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_services_1_1_models_1_1_category" kindref="compound">Category</ref><sp/>otherCategory<sp/>=<sp/>(<ref refid="class_services_1_1_models_1_1_category_1a2b1060efe2877d2cf4f8b27514101ca9" kindref="member">Category</ref>)obj;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_services_1_1_models_1_1_category_1a7150a3a6cac97fd930c392c145789df0" kindref="member">Name</ref><sp/>==<sp/>otherCategory.<ref refid="class_services_1_1_models_1_1_category_1a7150a3a6cac97fd930c392c145789df0" kindref="member">Name</ref>;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Category.cs"/>
+  </compounddef>
+</doxygen>

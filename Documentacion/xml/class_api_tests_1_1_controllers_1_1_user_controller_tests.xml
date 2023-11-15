@@ -1,0 +1,197 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_api_tests_1_1_controllers_1_1_user_controller_tests" kind="class" language="C#" prot="public">
+    <compoundname>ApiTests::Controllers::UserControllerTests</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_api_tests_1_1_controllers_1_1_user_controller_tests_1a935b13f36e8acafb197f3f972ae3e738" prot="private" static="no" mutable="no">
+        <type>Mock&lt; <ref refid="interface_services_1_1_interfaces_1_1_i_user_service" kindref="compound">IUserService</ref> &gt;</type>
+        <definition>Mock&lt;IUserService&gt; ApiTests.Controllers.UserControllerTests.mock</definition>
+        <argsstring></argsstring>
+        <name>mock</name>
+        <qualifiedname>ApiTests.Controllers.UserControllerTests.mock</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/UserControllerTests.cs" line="15" column="22" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/UserControllerTests.cs" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_api_tests_1_1_controllers_1_1_user_controller_tests_1ae030b29070f2d3ea6b111f67d66db898" prot="private" static="no" mutable="no">
+        <type><ref refid="class_rest___api_1_1_controllers_1_1_user_controller" kindref="compound">UserController</ref></type>
+        <definition>UserController ApiTests.Controllers.UserControllerTests.userController</definition>
+        <argsstring></argsstring>
+        <name>userController</name>
+        <qualifiedname>ApiTests.Controllers.UserControllerTests.userController</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/UserControllerTests.cs" line="16" column="32" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/UserControllerTests.cs" bodystart="16" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_api_tests_1_1_controllers_1_1_user_controller_tests_1aeec95503dcafba8d5cb5535977300c86" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Controllers.UserControllerTests.TestInitialize</definition>
+        <argsstring>()</argsstring>
+        <name>TestInitialize</name>
+        <qualifiedname>ApiTests.Controllers.UserControllerTests.TestInitialize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/UserControllerTests.cs" line="19" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/UserControllerTests.cs" bodystart="19" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_controllers_1_1_user_controller_tests_1a950ee62b89efb39672a65197fd6c2624" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Controllers.UserControllerTests.GivenValidAuthGetReturnsUser</definition>
+        <argsstring>()</argsstring>
+        <name>GivenValidAuthGetReturnsUser</name>
+        <qualifiedname>ApiTests.Controllers.UserControllerTests.GivenValidAuthGetReturnsUser</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/UserControllerTests.cs" line="26" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/UserControllerTests.cs" bodystart="26" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_controllers_1_1_user_controller_tests_1a783c39ceed7cdd7e7e5b4968dd08e76a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Controllers.UserControllerTests.GivenInvalidAuthGetReturnsNotFound</definition>
+        <argsstring>()</argsstring>
+        <name>GivenInvalidAuthGetReturnsNotFound</name>
+        <qualifiedname>ApiTests.Controllers.UserControllerTests.GivenInvalidAuthGetReturnsNotFound</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/UserControllerTests.cs" line="48" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/UserControllerTests.cs" bodystart="48" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_controllers_1_1_user_controller_tests_1a995273879557ef90712600f9e8e169d9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Controllers.UserControllerTests.GivenValidUserItGetsCreated</definition>
+        <argsstring>()</argsstring>
+        <name>GivenValidUserItGetsCreated</name>
+        <qualifiedname>ApiTests.Controllers.UserControllerTests.GivenValidUserItGetsCreated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/UserControllerTests.cs" line="68" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/UserControllerTests.cs" bodystart="68" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_controllers_1_1_user_controller_tests_1a7b2231e644dc3d2498bd55f36bccddee" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Controllers.UserControllerTests.GivenInvalidUserCreateReturnsBadRequest</definition>
+        <argsstring>()</argsstring>
+        <name>GivenInvalidUserCreateReturnsBadRequest</name>
+        <qualifiedname>ApiTests.Controllers.UserControllerTests.GivenInvalidUserCreateReturnsBadRequest</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/UserControllerTests.cs" line="84" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/UserControllerTests.cs" bodystart="84" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_controllers_1_1_user_controller_tests_1a060c6f6f6de6c049e9db438f0fa8ae09" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Controllers.UserControllerTests.GivenCorrectValuesUserGetsUpdated</definition>
+        <argsstring>()</argsstring>
+        <name>GivenCorrectValuesUserGetsUpdated</name>
+        <qualifiedname>ApiTests.Controllers.UserControllerTests.GivenCorrectValuesUserGetsUpdated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/UserControllerTests.cs" line="99" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/UserControllerTests.cs" bodystart="99" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_controllers_1_1_user_controller_tests_1ad4fefab95904f178dc634cc50791b81f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Controllers.UserControllerTests.GivenDifferentValuesUpdateReturnsBadRequest</definition>
+        <argsstring>()</argsstring>
+        <name>GivenDifferentValuesUpdateReturnsBadRequest</name>
+        <qualifiedname>ApiTests.Controllers.UserControllerTests.GivenDifferentValuesUpdateReturnsBadRequest</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/UserControllerTests.cs" line="109" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/UserControllerTests.cs" bodystart="109" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_controllers_1_1_user_controller_tests_1a9cd0e1a6ac4a316efc174a36d555340b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Controllers.UserControllerTests.GivenNonExistentIdUpdateReturnsNotFound</definition>
+        <argsstring>()</argsstring>
+        <name>GivenNonExistentIdUpdateReturnsNotFound</name>
+        <qualifiedname>ApiTests.Controllers.UserControllerTests.GivenNonExistentIdUpdateReturnsNotFound</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/UserControllerTests.cs" line="117" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/UserControllerTests.cs" bodystart="117" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_controllers_1_1_user_controller_tests_1ac662afa2c72dad8187fa0a1f8e4c38b7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Controllers.UserControllerTests.GivenValidToken_Delete_ReturnsNoContentResult</definition>
+        <argsstring>()</argsstring>
+        <name>GivenValidToken_Delete_ReturnsNoContentResult</name>
+        <qualifiedname>ApiTests.Controllers.UserControllerTests.GivenValidToken_Delete_ReturnsNoContentResult</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/UserControllerTests.cs" line="127" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/UserControllerTests.cs" bodystart="127" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_controllers_1_1_user_controller_tests_1ab3ccd68e926770cca2f20a631e2b7f1d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Controllers.UserControllerTests.GivenInvalidToken_Delete_ReturnsNotFound</definition>
+        <argsstring>()</argsstring>
+        <name>GivenInvalidToken_Delete_ReturnsNotFound</name>
+        <qualifiedname>ApiTests.Controllers.UserControllerTests.GivenInvalidToken_Delete_ReturnsNotFound</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/UserControllerTests.cs" line="146" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/UserControllerTests.cs" bodystart="146" bodyend="161"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/UserControllerTests.cs" line="13" column="11" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/UserControllerTests.cs" bodystart="14" bodyend="162"/>
+    <listofallmembers>
+      <member refid="class_api_tests_1_1_controllers_1_1_user_controller_tests_1a060c6f6f6de6c049e9db438f0fa8ae09" prot="public" virt="non-virtual"><scope>ApiTests::Controllers::UserControllerTests</scope><name>GivenCorrectValuesUserGetsUpdated</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_user_controller_tests_1ad4fefab95904f178dc634cc50791b81f" prot="public" virt="non-virtual"><scope>ApiTests::Controllers::UserControllerTests</scope><name>GivenDifferentValuesUpdateReturnsBadRequest</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_user_controller_tests_1a783c39ceed7cdd7e7e5b4968dd08e76a" prot="public" virt="non-virtual"><scope>ApiTests::Controllers::UserControllerTests</scope><name>GivenInvalidAuthGetReturnsNotFound</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_user_controller_tests_1ab3ccd68e926770cca2f20a631e2b7f1d" prot="public" virt="non-virtual"><scope>ApiTests::Controllers::UserControllerTests</scope><name>GivenInvalidToken_Delete_ReturnsNotFound</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_user_controller_tests_1a7b2231e644dc3d2498bd55f36bccddee" prot="public" virt="non-virtual"><scope>ApiTests::Controllers::UserControllerTests</scope><name>GivenInvalidUserCreateReturnsBadRequest</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_user_controller_tests_1a9cd0e1a6ac4a316efc174a36d555340b" prot="public" virt="non-virtual"><scope>ApiTests::Controllers::UserControllerTests</scope><name>GivenNonExistentIdUpdateReturnsNotFound</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_user_controller_tests_1a950ee62b89efb39672a65197fd6c2624" prot="public" virt="non-virtual"><scope>ApiTests::Controllers::UserControllerTests</scope><name>GivenValidAuthGetReturnsUser</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_user_controller_tests_1ac662afa2c72dad8187fa0a1f8e4c38b7" prot="public" virt="non-virtual"><scope>ApiTests::Controllers::UserControllerTests</scope><name>GivenValidToken_Delete_ReturnsNoContentResult</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_user_controller_tests_1a995273879557ef90712600f9e8e169d9" prot="public" virt="non-virtual"><scope>ApiTests::Controllers::UserControllerTests</scope><name>GivenValidUserItGetsCreated</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_user_controller_tests_1a935b13f36e8acafb197f3f972ae3e738" prot="private" virt="non-virtual"><scope>ApiTests::Controllers::UserControllerTests</scope><name>mock</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_user_controller_tests_1aeec95503dcafba8d5cb5535977300c86" prot="public" virt="non-virtual"><scope>ApiTests::Controllers::UserControllerTests</scope><name>TestInitialize</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_user_controller_tests_1ae030b29070f2d3ea6b111f67d66db898" prot="private" virt="non-virtual"><scope>ApiTests::Controllers::UserControllerTests</scope><name>userController</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

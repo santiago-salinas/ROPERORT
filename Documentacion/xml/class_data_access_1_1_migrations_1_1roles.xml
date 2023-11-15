@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_data_access_1_1_migrations_1_1roles" kind="class" language="C#" prot="public">
+    <compoundname>DataAccess::Migrations::roles</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Migration</basecompoundref>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_data_access_1_1_migrations_1_1roles_1a476915f7d28722e392b6b0496e47de41" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DataAccess.Migrations.roles.Up</definition>
+        <argsstring>(MigrationBuilder migrationBuilder)</argsstring>
+        <name>Up</name>
+        <qualifiedname>DataAccess.Migrations.roles.Up</qualifiedname>
+        <param>
+          <type>MigrationBuilder</type>
+          <declname>migrationBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Migrations/20231003131531_roles.cs" line="9" column="33" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Migrations/20231003131531_roles.cs" bodystart="9" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_access_1_1_migrations_1_1roles_1a37327af6b308ac45d434617ed5cd77bc" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DataAccess.Migrations.roles.Down</definition>
+        <argsstring>(MigrationBuilder migrationBuilder)</argsstring>
+        <name>Down</name>
+        <qualifiedname>DataAccess.Migrations.roles.Down</qualifiedname>
+        <param>
+          <type>MigrationBuilder</type>
+          <declname>migrationBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Migrations/20231003131531_roles.cs" line="14" column="33" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Migrations/20231003131531_roles.cs" bodystart="14" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_access_1_1_migrations_1_1roles_1ac5b27b622c5eeb6488cac907846aa74d" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DataAccess.Migrations.roles.BuildTargetModel</definition>
+        <argsstring>(ModelBuilder modelBuilder)</argsstring>
+        <name>BuildTargetModel</name>
+        <qualifiedname>DataAccess.Migrations.roles.BuildTargetModel</qualifiedname>
+        <param>
+          <type>ModelBuilder</type>
+          <declname>modelBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Migrations/20231003131531_roles.Designer.cs" line="18" column="33" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Migrations/20231003131531_roles.Designer.cs" bodystart="18" bodyend="314"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>DataAccess.Migrations.roles</label>
+        <link refid="class_data_access_1_1_migrations_1_1roles"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Migration</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>DataAccess.Migrations.roles</label>
+        <link refid="class_data_access_1_1_migrations_1_1roles"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Migration</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Migrations/20231003131531_roles.cs" line="7" column="19" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Migrations/20231003131531_roles.cs" bodystart="8" bodyend="18"/>
+    <listofallmembers>
+      <member refid="class_data_access_1_1_migrations_1_1roles_1ac5b27b622c5eeb6488cac907846aa74d" prot="protected" virt="non-virtual"><scope>DataAccess::Migrations::roles</scope><name>BuildTargetModel</name></member>
+      <member refid="class_data_access_1_1_migrations_1_1roles_1a37327af6b308ac45d434617ed5cd77bc" prot="protected" virt="non-virtual"><scope>DataAccess::Migrations::roles</scope><name>Down</name></member>
+      <member refid="class_data_access_1_1_migrations_1_1roles_1a476915f7d28722e392b6b0496e47de41" prot="protected" virt="non-virtual"><scope>DataAccess::Migrations::roles</scope><name>Up</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

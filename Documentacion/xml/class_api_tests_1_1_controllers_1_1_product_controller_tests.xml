@@ -1,0 +1,227 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_api_tests_1_1_controllers_1_1_product_controller_tests" kind="class" language="C#" prot="public">
+    <compoundname>ApiTests::Controllers::ProductControllerTests</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_api_tests_1_1_controllers_1_1_product_controller_tests_1a5d683303dd16a2fa8de802f4854dd1fb" prot="private" static="no" mutable="no">
+        <type>Mock&lt; <ref refid="interface_services_1_1_interfaces_1_1_i_product_service" kindref="compound">IProductService</ref> &gt;</type>
+        <definition>Mock&lt;IProductService&gt; ApiTests.Controllers.ProductControllerTests._mock</definition>
+        <argsstring></argsstring>
+        <name>_mock</name>
+        <qualifiedname>ApiTests.Controllers.ProductControllerTests._mock</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/ProductControllerTests.cs" line="14" column="22" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/ProductControllerTests.cs" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_api_tests_1_1_controllers_1_1_product_controller_tests_1ad6e209efed98b4cd396e1dd6c9765ea5" prot="private" static="no" mutable="no">
+        <type><ref refid="class_rest___api_1_1_controllers_1_1_product_controller" kindref="compound">ProductController</ref></type>
+        <definition>ProductController ApiTests.Controllers.ProductControllerTests._productController</definition>
+        <argsstring></argsstring>
+        <name>_productController</name>
+        <qualifiedname>ApiTests.Controllers.ProductControllerTests._productController</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/ProductControllerTests.cs" line="15" column="35" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/ProductControllerTests.cs" bodystart="15" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_api_tests_1_1_controllers_1_1_product_controller_tests_1a7b31884c538193bf6bf81b930e640ba9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Controllers.ProductControllerTests.TestInitialize</definition>
+        <argsstring>()</argsstring>
+        <name>TestInitialize</name>
+        <qualifiedname>ApiTests.Controllers.ProductControllerTests.TestInitialize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/ProductControllerTests.cs" line="18" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/ProductControllerTests.cs" bodystart="18" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_controllers_1_1_product_controller_tests_1a21ec334d666a646bf55e2c15f459c5dd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Controllers.ProductControllerTests.GetAllWorks_ReturnsAllProducts</definition>
+        <argsstring>()</argsstring>
+        <name>GetAllWorks_ReturnsAllProducts</name>
+        <qualifiedname>ApiTests.Controllers.ProductControllerTests.GetAllWorks_ReturnsAllProducts</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/ProductControllerTests.cs" line="25" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/ProductControllerTests.cs" bodystart="25" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_controllers_1_1_product_controller_tests_1af16216284ea9a94dcc3c98048662e0a7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Controllers.ProductControllerTests.GivenValidId_GetReturnsProduct</definition>
+        <argsstring>()</argsstring>
+        <name>GivenValidId_GetReturnsProduct</name>
+        <qualifiedname>ApiTests.Controllers.ProductControllerTests.GivenValidId_GetReturnsProduct</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/ProductControllerTests.cs" line="39" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/ProductControllerTests.cs" bodystart="39" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_controllers_1_1_product_controller_tests_1ae50327f86da5f8ee19fbfd48a0abeaaa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Controllers.ProductControllerTests.GivenInvalidId_GetReturnsNotFound</definition>
+        <argsstring>()</argsstring>
+        <name>GivenInvalidId_GetReturnsNotFound</name>
+        <qualifiedname>ApiTests.Controllers.ProductControllerTests.GivenInvalidId_GetReturnsNotFound</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/ProductControllerTests.cs" line="54" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/ProductControllerTests.cs" bodystart="54" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_controllers_1_1_product_controller_tests_1a101d7ee302bd08349b252ad2ff5e4d01" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Controllers.ProductControllerTests.GivenValidProduct_ItGetsCreated</definition>
+        <argsstring>()</argsstring>
+        <name>GivenValidProduct_ItGetsCreated</name>
+        <qualifiedname>ApiTests.Controllers.ProductControllerTests.GivenValidProduct_ItGetsCreated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/ProductControllerTests.cs" line="63" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/ProductControllerTests.cs" bodystart="63" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_controllers_1_1_product_controller_tests_1a8d25e0f0004a75e9ec6c62568f647c81" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Controllers.ProductControllerTests.GivenInvalidProduct_CreateReturnsBadRequest</definition>
+        <argsstring>()</argsstring>
+        <name>GivenInvalidProduct_CreateReturnsBadRequest</name>
+        <qualifiedname>ApiTests.Controllers.ProductControllerTests.GivenInvalidProduct_CreateReturnsBadRequest</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/ProductControllerTests.cs" line="98" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/ProductControllerTests.cs" bodystart="98" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_controllers_1_1_product_controller_tests_1aa3a85769194ddb84b2fcc6c343453bfe" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Controllers.ProductControllerTests.GivenCorrectValues_ProductGetsUpdated</definition>
+        <argsstring>()</argsstring>
+        <name>GivenCorrectValues_ProductGetsUpdated</name>
+        <qualifiedname>ApiTests.Controllers.ProductControllerTests.GivenCorrectValues_ProductGetsUpdated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/ProductControllerTests.cs" line="112" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/ProductControllerTests.cs" bodystart="112" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_controllers_1_1_product_controller_tests_1a193ab1282cb55a957ca1db22873b2fb0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Controllers.ProductControllerTests.GivenDifferentId_UpdateReturnsBadRequest</definition>
+        <argsstring>()</argsstring>
+        <name>GivenDifferentId_UpdateReturnsBadRequest</name>
+        <qualifiedname>ApiTests.Controllers.ProductControllerTests.GivenDifferentId_UpdateReturnsBadRequest</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/ProductControllerTests.cs" line="144" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/ProductControllerTests.cs" bodystart="144" bodyend="171"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_controllers_1_1_product_controller_tests_1a7b239563bcafdd4691bb406d5c4a6461" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Controllers.ProductControllerTests.GivenIdNotInDatabase_UpdateReturnsNotFound</definition>
+        <argsstring>()</argsstring>
+        <name>GivenIdNotInDatabase_UpdateReturnsNotFound</name>
+        <qualifiedname>ApiTests.Controllers.ProductControllerTests.GivenIdNotInDatabase_UpdateReturnsNotFound</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/ProductControllerTests.cs" line="174" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/ProductControllerTests.cs" bodystart="174" bodyend="186"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_controllers_1_1_product_controller_tests_1ac5dfcc0c5a728774998017f2827b63f2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Controllers.ProductControllerTests.GivenValidIdProductGetsDeleted</definition>
+        <argsstring>()</argsstring>
+        <name>GivenValidIdProductGetsDeleted</name>
+        <qualifiedname>ApiTests.Controllers.ProductControllerTests.GivenValidIdProductGetsDeleted</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/ProductControllerTests.cs" line="189" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/ProductControllerTests.cs" bodystart="189" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_controllers_1_1_product_controller_tests_1a6e2d70adfb6ebda1bf0ca7c23ecc86f1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Controllers.ProductControllerTests.GivenNonExistentIdDeleteReturnsNotFound</definition>
+        <argsstring>()</argsstring>
+        <name>GivenNonExistentIdDeleteReturnsNotFound</name>
+        <qualifiedname>ApiTests.Controllers.ProductControllerTests.GivenNonExistentIdDeleteReturnsNotFound</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/ProductControllerTests.cs" line="204" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/ProductControllerTests.cs" bodystart="204" bodyend="210"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_controllers_1_1_product_controller_tests_1aa4264c1347c4e817fdeb71d895540dac" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Controllers.ProductControllerTests.GetFiltered_ReturnsListOfProducts</definition>
+        <argsstring>()</argsstring>
+        <name>GetFiltered_ReturnsListOfProducts</name>
+        <qualifiedname>ApiTests.Controllers.ProductControllerTests.GetFiltered_ReturnsListOfProducts</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/ProductControllerTests.cs" line="213" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/ProductControllerTests.cs" bodystart="213" bodyend="235"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/ProductControllerTests.cs" line="12" column="11" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/ProductControllerTests.cs" bodystart="13" bodyend="236"/>
+    <listofallmembers>
+      <member refid="class_api_tests_1_1_controllers_1_1_product_controller_tests_1a5d683303dd16a2fa8de802f4854dd1fb" prot="private" virt="non-virtual"><scope>ApiTests::Controllers::ProductControllerTests</scope><name>_mock</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_product_controller_tests_1ad6e209efed98b4cd396e1dd6c9765ea5" prot="private" virt="non-virtual"><scope>ApiTests::Controllers::ProductControllerTests</scope><name>_productController</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_product_controller_tests_1a21ec334d666a646bf55e2c15f459c5dd" prot="public" virt="non-virtual"><scope>ApiTests::Controllers::ProductControllerTests</scope><name>GetAllWorks_ReturnsAllProducts</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_product_controller_tests_1aa4264c1347c4e817fdeb71d895540dac" prot="public" virt="non-virtual"><scope>ApiTests::Controllers::ProductControllerTests</scope><name>GetFiltered_ReturnsListOfProducts</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_product_controller_tests_1aa3a85769194ddb84b2fcc6c343453bfe" prot="public" virt="non-virtual"><scope>ApiTests::Controllers::ProductControllerTests</scope><name>GivenCorrectValues_ProductGetsUpdated</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_product_controller_tests_1a193ab1282cb55a957ca1db22873b2fb0" prot="public" virt="non-virtual"><scope>ApiTests::Controllers::ProductControllerTests</scope><name>GivenDifferentId_UpdateReturnsBadRequest</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_product_controller_tests_1a7b239563bcafdd4691bb406d5c4a6461" prot="public" virt="non-virtual"><scope>ApiTests::Controllers::ProductControllerTests</scope><name>GivenIdNotInDatabase_UpdateReturnsNotFound</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_product_controller_tests_1ae50327f86da5f8ee19fbfd48a0abeaaa" prot="public" virt="non-virtual"><scope>ApiTests::Controllers::ProductControllerTests</scope><name>GivenInvalidId_GetReturnsNotFound</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_product_controller_tests_1a8d25e0f0004a75e9ec6c62568f647c81" prot="public" virt="non-virtual"><scope>ApiTests::Controllers::ProductControllerTests</scope><name>GivenInvalidProduct_CreateReturnsBadRequest</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_product_controller_tests_1a6e2d70adfb6ebda1bf0ca7c23ecc86f1" prot="public" virt="non-virtual"><scope>ApiTests::Controllers::ProductControllerTests</scope><name>GivenNonExistentIdDeleteReturnsNotFound</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_product_controller_tests_1af16216284ea9a94dcc3c98048662e0a7" prot="public" virt="non-virtual"><scope>ApiTests::Controllers::ProductControllerTests</scope><name>GivenValidId_GetReturnsProduct</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_product_controller_tests_1ac5dfcc0c5a728774998017f2827b63f2" prot="public" virt="non-virtual"><scope>ApiTests::Controllers::ProductControllerTests</scope><name>GivenValidIdProductGetsDeleted</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_product_controller_tests_1a101d7ee302bd08349b252ad2ff5e4d01" prot="public" virt="non-virtual"><scope>ApiTests::Controllers::ProductControllerTests</scope><name>GivenValidProduct_ItGetsCreated</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_product_controller_tests_1a7b31884c538193bf6bf81b930e640ba9" prot="public" virt="non-virtual"><scope>ApiTests::Controllers::ProductControllerTests</scope><name>TestInitialize</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

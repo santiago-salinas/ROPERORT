@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_801144173907384493fdc42cbb3b112e" kind="dir">
+    <compoundname>C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models</compoundname>
+    <innerdir refid="dir_458a7b0b0a0232c7df7564126fb5a729">C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Exceptions</innerdir>
+    <innerdir refid="dir_8ef1436839cecd621d30b19db6f12bd1">C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Promos</innerdir>
+    <innerfile refid="_services_2_models_2_bought_product_8cs">BoughtProduct.cs</innerfile>
+    <innerfile refid="_services_2_models_2_brand_8cs">Brand.cs</innerfile>
+    <innerfile refid="_services_2_models_2_cart_8cs">Cart.cs</innerfile>
+    <innerfile refid="_services_2_models_2_category_8cs">Category.cs</innerfile>
+    <innerfile refid="_services_2_models_2_colour_8cs">Colour.cs</innerfile>
+    <innerfile refid="_services_2_models_2_product_8cs">Product.cs</innerfile>
+    <innerfile refid="_services_2_models_2_promo_8cs">Promo.cs</innerfile>
+    <innerfile refid="_services_2_models_2_purchase_8cs">Purchase.cs</innerfile>
+    <innerfile refid="_services_2_models_2_role_8cs">Role.cs</innerfile>
+    <innerfile refid="_services_2_models_2_user_8cs">User.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/"/>
+  </compounddef>
+</doxygen>

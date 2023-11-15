@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_data_access_1_1_entities_1_1_purchase_entity" kind="class" language="C#" prot="public">
+    <compoundname>DataAccess::Entities::PurchaseEntity</compoundname>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="class_data_access_1_1_entities_1_1_purchase_entity_1a3f9a6e636b4ee004f9f9505fab7b5065" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int DataAccess.Entities.PurchaseEntity.Id</definition>
+        <argsstring></argsstring>
+        <name>Id</name>
+        <qualifiedname>DataAccess.Entities.PurchaseEntity.Id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/PurchaseEntity.cs" line="10" column="20" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/PurchaseEntity.cs" bodystart="10" bodyend="10"/>
+      </memberdef>
+      <memberdef kind="property" id="class_data_access_1_1_entities_1_1_purchase_entity_1a60ae8c1360377542c440e6de7b570a7f" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type><ref refid="class_data_access_1_1_entities_1_1_user_entity" kindref="compound">UserEntity</ref></type>
+        <definition>UserEntity DataAccess.Entities.PurchaseEntity.User</definition>
+        <argsstring></argsstring>
+        <name>User</name>
+        <qualifiedname>DataAccess.Entities.PurchaseEntity.User</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/PurchaseEntity.cs" line="11" column="27" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/PurchaseEntity.cs" bodystart="11" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="property" id="class_data_access_1_1_entities_1_1_purchase_entity_1afb22ba08ac05d198f5f8ab27e940d374" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>ICollection&lt; <ref refid="class_data_access_1_1_entities_1_1_purchased_product_entity" kindref="compound">PurchasedProductEntity</ref> &gt;</type>
+        <definition>ICollection&lt;PurchasedProductEntity&gt; DataAccess.Entities.PurchaseEntity.Items</definition>
+        <argsstring></argsstring>
+        <name>Items</name>
+        <qualifiedname>DataAccess.Entities.PurchaseEntity.Items</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/PurchaseEntity.cs" line="12" column="28" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/PurchaseEntity.cs" bodystart="12" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="property" id="class_data_access_1_1_entities_1_1_purchase_entity_1af26cdefccbecde5b041a0c8d89c37e58" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string?</type>
+        <definition>string? DataAccess.Entities.PurchaseEntity.AppliedPromotion</definition>
+        <argsstring></argsstring>
+        <name>AppliedPromotion</name>
+        <qualifiedname>DataAccess.Entities.PurchaseEntity.AppliedPromotion</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/PurchaseEntity.cs" line="13" column="23" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/PurchaseEntity.cs" bodystart="13" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="property" id="class_data_access_1_1_entities_1_1_purchase_entity_1a4ad73894cc8f5eb98eb3316b031d41d0" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>DateTime</type>
+        <definition>DateTime DataAccess.Entities.PurchaseEntity.Date</definition>
+        <argsstring></argsstring>
+        <name>Date</name>
+        <qualifiedname>DataAccess.Entities.PurchaseEntity.Date</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/PurchaseEntity.cs" line="14" column="25" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/PurchaseEntity.cs" bodystart="14" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="property" id="class_data_access_1_1_entities_1_1_purchase_entity_1ac24a23bf2d032e2bf75c388401e157b9" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double DataAccess.Entities.PurchaseEntity.FinalPrice</definition>
+        <argsstring></argsstring>
+        <name>FinalPrice</name>
+        <qualifiedname>DataAccess.Entities.PurchaseEntity.FinalPrice</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/PurchaseEntity.cs" line="15" column="23" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/PurchaseEntity.cs" bodystart="15" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="property" id="class_data_access_1_1_entities_1_1_purchase_entity_1aba0675e6579cc2ac798fbbbd7cd0dcfe" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double DataAccess.Entities.PurchaseEntity.MoneyDiscounted</definition>
+        <argsstring></argsstring>
+        <name>MoneyDiscounted</name>
+        <qualifiedname>DataAccess.Entities.PurchaseEntity.MoneyDiscounted</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/PurchaseEntity.cs" line="16" column="23" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/PurchaseEntity.cs" bodystart="16" bodyend="16"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_data_access_1_1_entities_1_1_purchase_entity_1ab60a2630fd94a9edf3d68ed063049559" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>DataAccess.Entities.PurchaseEntity.PurchaseEntity</definition>
+        <argsstring>()</argsstring>
+        <name>PurchaseEntity</name>
+        <qualifiedname>DataAccess.Entities.PurchaseEntity.PurchaseEntity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/PurchaseEntity.cs" line="19" column="16" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/PurchaseEntity.cs" bodystart="19" bodyend="19"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_data_access_1_1_entities_1_1_purchase_entity_1a07b4e4682e3e1dae782bc5ea49a9f7e1" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_data_access_1_1_entities_1_1_purchase_entity" kindref="compound">PurchaseEntity</ref></type>
+        <definition>static PurchaseEntity DataAccess.Entities.PurchaseEntity.FromModel</definition>
+        <argsstring>(Purchase model, EFContext context)</argsstring>
+        <name>FromModel</name>
+        <qualifiedname>DataAccess.Entities.PurchaseEntity.FromModel</qualifiedname>
+        <param>
+          <type><ref refid="class_services_1_1_models_1_1_purchase" kindref="compound">Purchase</ref></type>
+          <declname>model</declname>
+        </param>
+        <param>
+          <type><ref refid="class_data_access_1_1_e_f_context" kindref="compound">EFContext</ref></type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/PurchaseEntity.cs" line="20" column="38" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/PurchaseEntity.cs" bodystart="20" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_access_1_1_entities_1_1_purchase_entity_1aee1350986258af6973a9335fa6831e03" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_services_1_1_models_1_1_purchase" kindref="compound">Purchase</ref></type>
+        <definition>static Purchase DataAccess.Entities.PurchaseEntity.FromEntity</definition>
+        <argsstring>(PurchaseEntity entity)</argsstring>
+        <name>FromEntity</name>
+        <qualifiedname>DataAccess.Entities.PurchaseEntity.FromEntity</qualifiedname>
+        <param>
+          <type><ref refid="class_data_access_1_1_entities_1_1_purchase_entity" kindref="compound">PurchaseEntity</ref></type>
+          <declname>entity</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/PurchaseEntity.cs" line="36" column="32" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/PurchaseEntity.cs" bodystart="36" bodyend="58"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/PurchaseEntity.cs" line="7" column="11" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/PurchaseEntity.cs" bodystart="8" bodyend="60"/>
+    <listofallmembers>
+      <member refid="class_data_access_1_1_entities_1_1_purchase_entity_1af26cdefccbecde5b041a0c8d89c37e58" prot="public" virt="non-virtual"><scope>DataAccess::Entities::PurchaseEntity</scope><name>AppliedPromotion</name></member>
+      <member refid="class_data_access_1_1_entities_1_1_purchase_entity_1a4ad73894cc8f5eb98eb3316b031d41d0" prot="public" virt="non-virtual"><scope>DataAccess::Entities::PurchaseEntity</scope><name>Date</name></member>
+      <member refid="class_data_access_1_1_entities_1_1_purchase_entity_1ac24a23bf2d032e2bf75c388401e157b9" prot="public" virt="non-virtual"><scope>DataAccess::Entities::PurchaseEntity</scope><name>FinalPrice</name></member>
+      <member refid="class_data_access_1_1_entities_1_1_purchase_entity_1aee1350986258af6973a9335fa6831e03" prot="public" virt="non-virtual"><scope>DataAccess::Entities::PurchaseEntity</scope><name>FromEntity</name></member>
+      <member refid="class_data_access_1_1_entities_1_1_purchase_entity_1a07b4e4682e3e1dae782bc5ea49a9f7e1" prot="public" virt="non-virtual"><scope>DataAccess::Entities::PurchaseEntity</scope><name>FromModel</name></member>
+      <member refid="class_data_access_1_1_entities_1_1_purchase_entity_1a3f9a6e636b4ee004f9f9505fab7b5065" prot="public" virt="non-virtual"><scope>DataAccess::Entities::PurchaseEntity</scope><name>Id</name></member>
+      <member refid="class_data_access_1_1_entities_1_1_purchase_entity_1afb22ba08ac05d198f5f8ab27e940d374" prot="public" virt="non-virtual"><scope>DataAccess::Entities::PurchaseEntity</scope><name>Items</name></member>
+      <member refid="class_data_access_1_1_entities_1_1_purchase_entity_1aba0675e6579cc2ac798fbbbd7cd0dcfe" prot="public" virt="non-virtual"><scope>DataAccess::Entities::PurchaseEntity</scope><name>MoneyDiscounted</name></member>
+      <member refid="class_data_access_1_1_entities_1_1_purchase_entity_1ab60a2630fd94a9edf3d68ed063049559" prot="public" virt="non-virtual"><scope>DataAccess::Entities::PurchaseEntity</scope><name>PurchaseEntity</name></member>
+      <member refid="class_data_access_1_1_entities_1_1_purchase_entity_1a60ae8c1360377542c440e6de7b570a7f" prot="public" virt="non-virtual"><scope>DataAccess::Entities::PurchaseEntity</scope><name>User</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

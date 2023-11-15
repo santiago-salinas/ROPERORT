@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_rest___api_1_1_models_1_1_promos_1_1_three_for_two_promo" kind="class" language="C#" prot="public">
+    <compoundname>Rest_Api::Models::Promos::ThreeForTwoPromo</compoundname>
+    <basecompoundref refid="class_rest___api_1_1_models_1_1_promo" prot="public" virt="non-virtual">Rest_Api.Models.Promo</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_rest___api_1_1_models_1_1_promos_1_1_three_for_two_promo_1a5d6b406a429c8b7439210a3580dc478d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Rest_Api.Models.Promos.ThreeForTwoPromo.ThreeForTwoPromo</definition>
+        <argsstring>()</argsstring>
+        <name>ThreeForTwoPromo</name>
+        <qualifiedname>Rest_Api.Models.Promos.ThreeForTwoPromo.ThreeForTwoPromo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Promos/ThreeForTwoPromo.cs" line="7" column="16" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Promos/ThreeForTwoPromo.cs" bodystart="7" bodyend="9"/>
+      </memberdef>
+      <memberdef kind="function" id="class_rest___api_1_1_models_1_1_promos_1_1_three_for_two_promo_1ace2646e748a9f3cc4b6c76b57f9c247d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override double</type>
+        <definition>override double Rest_Api.Models.Promos.ThreeForTwoPromo.ApplyDiscount</definition>
+        <argsstring>(Cart cart)</argsstring>
+        <name>ApplyDiscount</name>
+        <qualifiedname>Rest_Api.Models.Promos.ThreeForTwoPromo.ApplyDiscount</qualifiedname>
+        <param>
+          <type><ref refid="class_rest___api_1_1_models_1_1_cart" kindref="compound">Cart</ref></type>
+          <declname>cart</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Promos/ThreeForTwoPromo.cs" line="11" column="32" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Promos/ThreeForTwoPromo.cs" bodystart="11" bodyend="30"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_rest___api_1_1_models_1_1_promos_1_1_three_for_two_promo_1a405b0c12fbbd213303a279105ff501b7" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; <ref refid="class_rest___api_1_1_models_1_1_cart_line" kindref="compound">CartLine</ref> &gt;</type>
+        <definition>List&lt; CartLine &gt; Rest_Api.Models.Promos.ThreeForTwoPromo.GetProductsFromCategory</definition>
+        <argsstring>(List&lt; CartLine &gt; lines, Category category)</argsstring>
+        <name>GetProductsFromCategory</name>
+        <qualifiedname>Rest_Api.Models.Promos.ThreeForTwoPromo.GetProductsFromCategory</qualifiedname>
+        <param>
+          <type>List&lt; <ref refid="class_rest___api_1_1_models_1_1_cart_line" kindref="compound">CartLine</ref> &gt;</type>
+          <declname>lines</declname>
+        </param>
+        <param>
+          <type><ref refid="class_rest___api_1_1_models_1_1_category" kindref="compound">Category</ref></type>
+          <declname>category</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Promos/ThreeForTwoPromo.cs" line="32" column="22" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Promos/ThreeForTwoPromo.cs" bodystart="32" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="class_rest___api_1_1_models_1_1_promos_1_1_three_for_two_promo_1ae4a050975fd1ca14f9dc5ef42be4c1ab" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double Rest_Api.Models.Promos.ThreeForTwoPromo.GetCheapestProductValue</definition>
+        <argsstring>(List&lt; CartLine &gt; cartLines)</argsstring>
+        <name>GetCheapestProductValue</name>
+        <qualifiedname>Rest_Api.Models.Promos.ThreeForTwoPromo.GetCheapestProductValue</qualifiedname>
+        <param>
+          <type>List&lt; <ref refid="class_rest___api_1_1_models_1_1_cart_line" kindref="compound">CartLine</ref> &gt;</type>
+          <declname>cartLines</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Promos/ThreeForTwoPromo.cs" line="38" column="24" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Promos/ThreeForTwoPromo.cs" bodystart="38" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="class_rest___api_1_1_models_1_1_promos_1_1_three_for_two_promo_1a280c4793e7bdbaa61246e85eca2b2378" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Rest_Api.Models.Promos.ThreeForTwoPromo.ThereAreAtLeast3Products</definition>
+        <argsstring>(List&lt; CartLine &gt; list)</argsstring>
+        <name>ThereAreAtLeast3Products</name>
+        <qualifiedname>Rest_Api.Models.Promos.ThreeForTwoPromo.ThereAreAtLeast3Products</qualifiedname>
+        <param>
+          <type>List&lt; <ref refid="class_rest___api_1_1_models_1_1_cart_line" kindref="compound">CartLine</ref> &gt;</type>
+          <declname>list</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Promos/ThreeForTwoPromo.cs" line="46" column="22" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Promos/ThreeForTwoPromo.cs" bodystart="46" bodyend="52"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Promo</label>
+        <link refid="class_rest___api_1_1_models_1_1_promo"/>
+      </node>
+      <node id="1">
+        <label>Rest_Api.Models.Promos.ThreeForTwoPromo</label>
+        <link refid="class_rest___api_1_1_models_1_1_promos_1_1_three_for_two_promo"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Promo</label>
+        <link refid="class_rest___api_1_1_models_1_1_promo"/>
+      </node>
+      <node id="1">
+        <label>Rest_Api.Models.Promos.ThreeForTwoPromo</label>
+        <link refid="class_rest___api_1_1_models_1_1_promos_1_1_three_for_two_promo"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Promos/ThreeForTwoPromo.cs" line="5" column="11" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Promos/ThreeForTwoPromo.cs" bodystart="6" bodyend="53"/>
+    <listofallmembers>
+      <member refid="class_rest___api_1_1_models_1_1_promos_1_1_three_for_two_promo_1ace2646e748a9f3cc4b6c76b57f9c247d" prot="public" virt="non-virtual"><scope>Rest_Api::Models::Promos::ThreeForTwoPromo</scope><name>ApplyDiscount</name></member>
+      <member refid="class_rest___api_1_1_models_1_1_promo_1aa230d56cd39c51e0826b9eef02bb2d7e" prot="public" virt="non-virtual"><scope>Rest_Api::Models::Promos::ThreeForTwoPromo</scope><name>Condition</name></member>
+      <member refid="class_rest___api_1_1_models_1_1_promo_1a4b050b3e50eb5e3de3adf880c12f9f04" prot="public" virt="non-virtual"><scope>Rest_Api::Models::Promos::ThreeForTwoPromo</scope><name>Discount</name></member>
+      <member refid="class_rest___api_1_1_models_1_1_promos_1_1_three_for_two_promo_1ae4a050975fd1ca14f9dc5ef42be4c1ab" prot="private" virt="non-virtual"><scope>Rest_Api::Models::Promos::ThreeForTwoPromo</scope><name>GetCheapestProductValue</name></member>
+      <member refid="class_rest___api_1_1_models_1_1_promos_1_1_three_for_two_promo_1a405b0c12fbbd213303a279105ff501b7" prot="private" virt="non-virtual"><scope>Rest_Api::Models::Promos::ThreeForTwoPromo</scope><name>GetProductsFromCategory</name></member>
+      <member refid="class_rest___api_1_1_models_1_1_promo_1a700f136d33a6d300244e9141681ef208" prot="public" virt="non-virtual"><scope>Rest_Api::Models::Promos::ThreeForTwoPromo</scope><name>Name</name></member>
+      <member refid="class_rest___api_1_1_models_1_1_promo_1a0580a433eee283ddbb7410153c2ad236" prot="public" virt="non-virtual"><scope>Rest_Api::Models::Promos::ThreeForTwoPromo</scope><name>Promo</name></member>
+      <member refid="class_rest___api_1_1_models_1_1_promos_1_1_three_for_two_promo_1a280c4793e7bdbaa61246e85eca2b2378" prot="private" virt="non-virtual"><scope>Rest_Api::Models::Promos::ThreeForTwoPromo</scope><name>ThereAreAtLeast3Products</name></member>
+      <member refid="class_rest___api_1_1_models_1_1_promos_1_1_three_for_two_promo_1a5d6b406a429c8b7439210a3580dc478d" prot="public" virt="non-virtual"><scope>Rest_Api::Models::Promos::ThreeForTwoPromo</scope><name>ThreeForTwoPromo</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_f6f52c8cb33bf7eab6e9c2db09f048a4" kind="dir">
+    <compoundname>C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/DTOs</compoundname>
+    <innerfile refid="_cart_d_t_o_8cs">CartDTO.cs</innerfile>
+    <innerfile refid="_credentials_d_t_o_8cs">CredentialsDTO.cs</innerfile>
+    <innerfile refid="_user_d_t_o_8cs">UserDTO.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/DTOs/"/>
+  </compounddef>
+</doxygen>

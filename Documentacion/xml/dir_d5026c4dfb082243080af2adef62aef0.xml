@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_d5026c4dfb082243080af2adef62aef0" kind="dir">
+    <compoundname>C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess</compoundname>
+    <innerdir refid="dir_3aa34d5474bb57f2f5af2d4bcfc3b929">C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities</innerdir>
+    <innerdir refid="dir_b64fc08d5d096c49079c774656c061c9">C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Migrations</innerdir>
+    <innerdir refid="dir_59aa9fe5358399e54257ba25d977256c">C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/obj</innerdir>
+    <innerdir refid="dir_5ada5c990c3013cc01cb8def56f3e1a0">C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Repositories</innerdir>
+    <innerfile refid="_e_f_context_8cs">EFContext.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespace_api_tests_1_1_services" kind="namespace" language="C#">
+    <compoundname>ApiTests::Services</compoundname>
+    <innerclass refid="class_api_tests_1_1_services_1_1_auth_service_tests" prot="public">ApiTests::Services::AuthServiceTests</innerclass>
+    <innerclass refid="class_api_tests_1_1_services_1_1_get_services_tests" prot="public">ApiTests::Services::GetServicesTests</innerclass>
+    <innerclass refid="class_api_tests_1_1_services_1_1_product_service_tests" prot="public">ApiTests::Services::ProductServiceTests</innerclass>
+    <innerclass refid="class_api_tests_1_1_services_1_1_promo_service_tests" prot="public">ApiTests::Services::PromoServiceTests</innerclass>
+    <innerclass refid="class_api_tests_1_1_services_1_1_purchase_service_tests" prot="public">ApiTests::Services::PurchaseServiceTests</innerclass>
+    <innerclass refid="class_api_tests_1_1_services_1_1_user_service_tests" prot="public">ApiTests::Services::UserServiceTests</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Services/AuthServiceTests.cs" line="7" column="1"/>
+  </compounddef>
+</doxygen>

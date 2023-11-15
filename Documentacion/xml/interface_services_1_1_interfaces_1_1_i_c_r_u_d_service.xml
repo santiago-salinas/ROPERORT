@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="interface_services_1_1_interfaces_1_1_i_c_r_u_d_service" kind="interface" language="C#" prot="public">
+    <compoundname>Services::Interfaces::ICRUDService</compoundname>
+    <templateparamlist>
+      <param>
+        <type>T</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="interface_services_1_1_interfaces_1_1_i_c_r_u_d_service_1aa2e09dab54642310938f1cf16706c573" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; T &gt;</type>
+        <definition>List&lt; T &gt; Services.Interfaces.ICRUDService&lt; T &gt;.GetAll</definition>
+        <argsstring>()</argsstring>
+        <name>GetAll</name>
+        <qualifiedname>Services.Interfaces.ICRUDService.GetAll</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Interfaces/ICRUDService.cs" line="6" column="30"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_services_1_1_interfaces_1_1_i_c_r_u_d_service_1a75f05894ec00d312b0225be9f417b57f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>T?</type>
+        <definition>T? Services.Interfaces.ICRUDService&lt; T &gt;.Get</definition>
+        <argsstring>(int id)</argsstring>
+        <name>Get</name>
+        <qualifiedname>Services.Interfaces.ICRUDService.Get</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Interfaces/ICRUDService.cs" line="8" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_services_1_1_interfaces_1_1_i_c_r_u_d_service_1af5403d2f6efc8d74b6c4130667b112a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Services.Interfaces.ICRUDService&lt; T &gt;.Add</definition>
+        <argsstring>(T entity)</argsstring>
+        <name>Add</name>
+        <qualifiedname>Services.Interfaces.ICRUDService.Add</qualifiedname>
+        <param>
+          <type>T</type>
+          <declname>entity</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Interfaces/ICRUDService.cs" line="10" column="30"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_services_1_1_interfaces_1_1_i_c_r_u_d_service_1a8c913d811a61654c3bf8c44cdebd6675" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Services.Interfaces.ICRUDService&lt; T &gt;.Delete</definition>
+        <argsstring>(int id)</argsstring>
+        <name>Delete</name>
+        <qualifiedname>Services.Interfaces.ICRUDService.Delete</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Interfaces/ICRUDService.cs" line="12" column="30"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_services_1_1_interfaces_1_1_i_c_r_u_d_service_1a1a02c5d587d540e28e25b704d709bbfd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Services.Interfaces.ICRUDService&lt; T &gt;.Update</definition>
+        <argsstring>(T entity)</argsstring>
+        <name>Update</name>
+        <qualifiedname>Services.Interfaces.ICRUDService.Update</qualifiedname>
+        <param>
+          <type>T</type>
+          <declname>entity</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Interfaces/ICRUDService.cs" line="14" column="30"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Interfaces/ICRUDService.cs" line="3" column="22" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Interfaces/ICRUDService.cs" bodystart="4" bodyend="15"/>
+    <listofallmembers>
+      <member refid="interface_services_1_1_interfaces_1_1_i_c_r_u_d_service_1af5403d2f6efc8d74b6c4130667b112a0" prot="public" virt="non-virtual"><scope>Services::Interfaces::ICRUDService</scope><name>Add</name></member>
+      <member refid="interface_services_1_1_interfaces_1_1_i_c_r_u_d_service_1a8c913d811a61654c3bf8c44cdebd6675" prot="public" virt="non-virtual"><scope>Services::Interfaces::ICRUDService</scope><name>Delete</name></member>
+      <member refid="interface_services_1_1_interfaces_1_1_i_c_r_u_d_service_1a75f05894ec00d312b0225be9f417b57f" prot="public" virt="non-virtual"><scope>Services::Interfaces::ICRUDService</scope><name>Get</name></member>
+      <member refid="interface_services_1_1_interfaces_1_1_i_c_r_u_d_service_1aa2e09dab54642310938f1cf16706c573" prot="public" virt="non-virtual"><scope>Services::Interfaces::ICRUDService</scope><name>GetAll</name></member>
+      <member refid="interface_services_1_1_interfaces_1_1_i_c_r_u_d_service_1a1a02c5d587d540e28e25b704d709bbfd" prot="public" virt="non-virtual"><scope>Services::Interfaces::ICRUDService</scope><name>Update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

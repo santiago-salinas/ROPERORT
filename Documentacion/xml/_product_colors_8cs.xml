@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="_product_colors_8cs" kind="file" language="C#">
+    <compoundname>ProductColors.cs</compoundname>
+    <innerclass refid="class_data_access_1_1_entities_1_1_product_colors" prot="public">DataAccess::Entities::ProductColors</innerclass>
+    <innernamespace refid="namespace_data_access">DataAccess</innernamespace>
+    <innernamespace refid="namespace_data_access_1_1_entities">DataAccess::Entities</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_services_1_1_models" kindref="compound">Services.Models</ref>;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_data_access_1_1_entities" kindref="compound">DataAccess.Entities</ref></highlight></codeline>
+<codeline lineno="4"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="5" refid="class_data_access_1_1_entities_1_1_product_colors" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_data_access_1_1_entities_1_1_product_colors" kindref="compound">ProductColors</ref></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_data_access_1_1_entities_1_1_product_colors_1a7016458c622f6eab06922f89e7d82508" kindref="member">ProductId</ref><sp/>{<sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal">;<sp/></highlight><highlight class="keyword">set</highlight><highlight class="normal">;<sp/>}</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_data_access_1_1_entities_1_1_product_entity" kindref="compound">ProductEntity</ref><sp/><ref refid="class_services_1_1_models_1_1_product" kindref="compound">Product</ref><sp/>{<sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal">;<sp/></highlight><highlight class="keyword">set</highlight><highlight class="normal">;<sp/>}</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><ref refid="class_data_access_1_1_entities_1_1_product_colors_1ab7f74d20eee228857c9e53ea5f5b0ec2" kindref="member">ColourName</ref><sp/>{<sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal">;<sp/></highlight><highlight class="keyword">set</highlight><highlight class="normal">;<sp/>}</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_data_access_1_1_entities_1_1_colour_entity" kindref="compound">ColourEntity</ref><sp/><ref refid="class_services_1_1_models_1_1_colour" kindref="compound">Colour</ref><sp/>{<sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal">;<sp/></highlight><highlight class="keyword">set</highlight><highlight class="normal">;<sp/>}</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_data_access_1_1_entities_1_1_product_colors_1a2a7725445623dddc9da281dfe950b5d8" kindref="member">ProductColors</ref>()<sp/>{<sp/>}</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_data_access_1_1_entities_1_1_product_colors_1a2a7725445623dddc9da281dfe950b5d8" kindref="member">ProductColors</ref>(<ref refid="class_data_access_1_1_entities_1_1_product_entity" kindref="compound">ProductEntity</ref><sp/>product,<sp/><ref refid="class_services_1_1_models_1_1_colour" kindref="compound">Colour</ref><sp/>colour,<sp/><ref refid="class_data_access_1_1_e_f_context" kindref="compound">EFContext</ref><sp/>context)</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_data_access_1_1_entities_1_1_colour_entity" kindref="compound">ColourEntity</ref><sp/>colourEntity<sp/>=<sp/>context.<ref refid="class_data_access_1_1_e_f_context_1a315b3696bf549430837b6c36e61967ec" kindref="member">ColourEntities</ref>.First(c<sp/>=&gt;<sp/>c.Name<sp/>==<sp/>colour.<ref refid="class_services_1_1_models_1_1_colour_1aaed771d50a048cfd30a9f43f09e7e200" kindref="member">Name</ref>);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_data_access_1_1_entities_1_1_product_colors_1a7016458c622f6eab06922f89e7d82508" kindref="member">ProductId</ref><sp/>=<sp/>product.<ref refid="class_data_access_1_1_entities_1_1_product_entity_1ac3c34a46af3a6f1a64203e82fc4d6a8b" kindref="member">Id</ref>;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_services_1_1_models_1_1_product" kindref="compound">Product</ref><sp/>=<sp/>product;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_data_access_1_1_entities_1_1_product_colors_1ab7f74d20eee228857c9e53ea5f5b0ec2" kindref="member">ColourName</ref><sp/>=<sp/>colour.<ref refid="class_services_1_1_models_1_1_colour_1aaed771d50a048cfd30a9f43f09e7e200" kindref="member">Name</ref>;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_services_1_1_models_1_1_colour" kindref="compound">Colour</ref><sp/>=<sp/>colourEntity;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/ProductColors.cs"/>
+  </compounddef>
+</doxygen>

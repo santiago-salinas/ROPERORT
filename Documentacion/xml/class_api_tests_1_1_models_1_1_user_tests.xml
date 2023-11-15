@@ -1,0 +1,347 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_api_tests_1_1_models_1_1_user_tests" kind="class" language="C#" prot="public">
+    <compoundname>ApiTests::Models::UserTests</compoundname>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_api_tests_1_1_models_1_1_user_tests_1ab4dfcc21f8d16f0406ac86ba5d24f1b6" prot="private" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int ApiTests.Models.UserTests.ValidId</definition>
+        <argsstring></argsstring>
+        <name>ValidId</name>
+        <qualifiedname>ApiTests.Models.UserTests.ValidId</qualifiedname>
+        <initializer>= 5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" line="7" column="27" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_api_tests_1_1_models_1_1_user_tests_1a8093819e9dab33df05f0b6fea2609120" prot="private" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string ApiTests.Models.UserTests.ValidMail1</definition>
+        <argsstring></argsstring>
+        <name>ValidMail1</name>
+        <qualifiedname>ApiTests.Models.UserTests.ValidMail1</qualifiedname>
+        <initializer>= &quot;prueba@gmail.com&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" line="8" column="30" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_api_tests_1_1_models_1_1_user_tests_1a44f0261501a6883c5d9536dcfda3e8c2" prot="private" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string ApiTests.Models.UserTests.ValidMail2</definition>
+        <argsstring></argsstring>
+        <name>ValidMail2</name>
+        <qualifiedname>ApiTests.Models.UserTests.ValidMail2</qualifiedname>
+        <initializer>= &quot;prueba@outlook.uy&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" line="9" column="30" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_api_tests_1_1_models_1_1_user_tests_1a6092a5dbbed9e96267132e1a38df90d1" prot="private" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string ApiTests.Models.UserTests.MailWithoutAt</definition>
+        <argsstring></argsstring>
+        <name>MailWithoutAt</name>
+        <qualifiedname>ApiTests.Models.UserTests.MailWithoutAt</qualifiedname>
+        <initializer>= &quot;pruebagmail.com&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" line="10" column="30" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_api_tests_1_1_models_1_1_user_tests_1ae24d514e1277f7fea19c2a04eba1ec4c" prot="private" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string ApiTests.Models.UserTests.ValidPassword</definition>
+        <argsstring></argsstring>
+        <name>ValidPassword</name>
+        <qualifiedname>ApiTests.Models.UserTests.ValidPassword</qualifiedname>
+        <initializer>= &quot;password&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" line="11" column="30" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_api_tests_1_1_models_1_1_user_tests_1ac1627397e359d02150a6e47d6774d9ac" prot="private" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string ApiTests.Models.UserTests.InvalidPassword</definition>
+        <argsstring></argsstring>
+        <name>InvalidPassword</name>
+        <qualifiedname>ApiTests.Models.UserTests.InvalidPassword</qualifiedname>
+        <initializer>= &quot;&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" line="12" column="30" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_api_tests_1_1_models_1_1_user_tests_1ae226bf719e193f87961d2c9de726314a" prot="private" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string ApiTests.Models.UserTests.MailWithoutDomain</definition>
+        <argsstring></argsstring>
+        <name>MailWithoutDomain</name>
+        <qualifiedname>ApiTests.Models.UserTests.MailWithoutDomain</qualifiedname>
+        <initializer>= &quot;prueba@.&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" line="13" column="30" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_api_tests_1_1_models_1_1_user_tests_1a924961a732ccbebf0fd398eb861fa4ee" prot="private" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string ApiTests.Models.UserTests.ValidAddress</definition>
+        <argsstring></argsstring>
+        <name>ValidAddress</name>
+        <qualifiedname>ApiTests.Models.UserTests.ValidAddress</qualifiedname>
+        <initializer>= &quot;Cuareim 1451&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" line="14" column="30" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_api_tests_1_1_models_1_1_user_tests_1aab50bd369269a5fbb2dc5a67d366899f" prot="private" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string ApiTests.Models.UserTests.NullString</definition>
+        <argsstring></argsstring>
+        <name>NullString</name>
+        <qualifiedname>ApiTests.Models.UserTests.NullString</qualifiedname>
+        <initializer>= &quot;&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" line="15" column="30" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" bodystart="15" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_api_tests_1_1_models_1_1_user_tests_1a5676fffdf756f6c718da48a4c425e05a" prot="private" static="no" mutable="no">
+        <type><ref refid="class_services_1_1_models_1_1_role" kindref="compound">Role</ref></type>
+        <definition>Role ApiTests.Models.UserTests.someRole</definition>
+        <argsstring></argsstring>
+        <name>someRole</name>
+        <qualifiedname>ApiTests.Models.UserTests.someRole</qualifiedname>
+        <initializer>= new <ref refid="class_services_1_1_models_1_1_role" kindref="compound">Role</ref>()
+        {
+            Name = &quot;Customer&quot;
+        }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" line="17" column="22" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" bodystart="17" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_api_tests_1_1_models_1_1_user_tests_1a72e52b96bde897de3a039ba20b79692a" prot="private" static="no" mutable="no">
+        <type><ref refid="class_services_1_1_models_1_1_user" kindref="compound">User</ref></type>
+        <definition>User ApiTests.Models.UserTests.someUser</definition>
+        <argsstring></argsstring>
+        <name>someUser</name>
+        <qualifiedname>ApiTests.Models.UserTests.someUser</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" line="21" column="22" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" bodystart="21" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_api_tests_1_1_models_1_1_user_tests_1a7b5b762d7c19a38c64c66df2b34c2e61" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Models.UserTests.TestInit</definition>
+        <argsstring>()</argsstring>
+        <name>TestInit</name>
+        <qualifiedname>ApiTests.Models.UserTests.TestInit</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" line="24" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" bodystart="24" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_models_1_1_user_tests_1a9a42bb46e7ed68bfc458435d039f2d72" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Models.UserTests.CreateUserSuccessTest</definition>
+        <argsstring>()</argsstring>
+        <name>CreateUserSuccessTest</name>
+        <qualifiedname>ApiTests.Models.UserTests.CreateUserSuccessTest</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" line="31" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" bodystart="31" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_models_1_1_user_tests_1a59b90ba1cfc590d61836c11542fd8704" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Models.UserTests.AddRoleSuccessTest</definition>
+        <argsstring>()</argsstring>
+        <name>AddRoleSuccessTest</name>
+        <qualifiedname>ApiTests.Models.UserTests.AddRoleSuccessTest</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" line="40" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" bodystart="40" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_models_1_1_user_tests_1a7d7daeb0a4f1cf11d2c88b5176bba7b8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Models.UserTests.DoesntAddSameRoleTwice</definition>
+        <argsstring>()</argsstring>
+        <name>DoesntAddSameRoleTwice</name>
+        <qualifiedname>ApiTests.Models.UserTests.DoesntAddSameRoleTwice</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" line="47" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" bodystart="47" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_models_1_1_user_tests_1a117e039a3c48af4c0aec37e69e80ebd3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Models.UserTests.RemoveRoleSuccessTest</definition>
+        <argsstring>()</argsstring>
+        <name>RemoveRoleSuccessTest</name>
+        <qualifiedname>ApiTests.Models.UserTests.RemoveRoleSuccessTest</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" line="60" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" bodystart="60" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_models_1_1_user_tests_1ac6663c23b9fd2d3a91476023fbd822ca" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Models.UserTests.ThrowsExceptionWhenPasswordIsNull</definition>
+        <argsstring>()</argsstring>
+        <name>ThrowsExceptionWhenPasswordIsNull</name>
+        <qualifiedname>ApiTests.Models.UserTests.ThrowsExceptionWhenPasswordIsNull</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" line="69" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" bodystart="69" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_models_1_1_user_tests_1a77c906c97cc123354867e4fb7ca98e3f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Models.UserTests.ThrowsExceptionWhenMailDosentHaveAt</definition>
+        <argsstring>()</argsstring>
+        <name>ThrowsExceptionWhenMailDosentHaveAt</name>
+        <qualifiedname>ApiTests.Models.UserTests.ThrowsExceptionWhenMailDosentHaveAt</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" line="76" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" bodystart="76" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_models_1_1_user_tests_1ad80e0748cc58e34a2724bca3e343ea9b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Models.UserTests.ThrowsExceptionWhenMailDosentHaveDomain</definition>
+        <argsstring>()</argsstring>
+        <name>ThrowsExceptionWhenMailDosentHaveDomain</name>
+        <qualifiedname>ApiTests.Models.UserTests.ThrowsExceptionWhenMailDosentHaveDomain</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" line="83" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" bodystart="83" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_models_1_1_user_tests_1aa3e8c80c39cde2f81a5969f24652ee73" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Models.UserTests.ThrowsExceptionWhenMailIsBlank</definition>
+        <argsstring>()</argsstring>
+        <name>ThrowsExceptionWhenMailIsBlank</name>
+        <qualifiedname>ApiTests.Models.UserTests.ThrowsExceptionWhenMailIsBlank</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" line="90" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" bodystart="90" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_models_1_1_user_tests_1a53e6f48d8493b00be09e7050e645d35b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Models.UserTests.ThrowsExceptionWhenAddressIsBlank</definition>
+        <argsstring>()</argsstring>
+        <name>ThrowsExceptionWhenAddressIsBlank</name>
+        <qualifiedname>ApiTests.Models.UserTests.ThrowsExceptionWhenAddressIsBlank</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" line="97" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" bodystart="97" bodyend="100"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" line="5" column="11" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/UserTests.cs" bodystart="6" bodyend="101"/>
+    <listofallmembers>
+      <member refid="class_api_tests_1_1_models_1_1_user_tests_1a59b90ba1cfc590d61836c11542fd8704" prot="public" virt="non-virtual"><scope>ApiTests::Models::UserTests</scope><name>AddRoleSuccessTest</name></member>
+      <member refid="class_api_tests_1_1_models_1_1_user_tests_1a9a42bb46e7ed68bfc458435d039f2d72" prot="public" virt="non-virtual"><scope>ApiTests::Models::UserTests</scope><name>CreateUserSuccessTest</name></member>
+      <member refid="class_api_tests_1_1_models_1_1_user_tests_1a7d7daeb0a4f1cf11d2c88b5176bba7b8" prot="public" virt="non-virtual"><scope>ApiTests::Models::UserTests</scope><name>DoesntAddSameRoleTwice</name></member>
+      <member refid="class_api_tests_1_1_models_1_1_user_tests_1ac1627397e359d02150a6e47d6774d9ac" prot="private" virt="non-virtual"><scope>ApiTests::Models::UserTests</scope><name>InvalidPassword</name></member>
+      <member refid="class_api_tests_1_1_models_1_1_user_tests_1a6092a5dbbed9e96267132e1a38df90d1" prot="private" virt="non-virtual"><scope>ApiTests::Models::UserTests</scope><name>MailWithoutAt</name></member>
+      <member refid="class_api_tests_1_1_models_1_1_user_tests_1ae226bf719e193f87961d2c9de726314a" prot="private" virt="non-virtual"><scope>ApiTests::Models::UserTests</scope><name>MailWithoutDomain</name></member>
+      <member refid="class_api_tests_1_1_models_1_1_user_tests_1aab50bd369269a5fbb2dc5a67d366899f" prot="private" virt="non-virtual"><scope>ApiTests::Models::UserTests</scope><name>NullString</name></member>
+      <member refid="class_api_tests_1_1_models_1_1_user_tests_1a117e039a3c48af4c0aec37e69e80ebd3" prot="public" virt="non-virtual"><scope>ApiTests::Models::UserTests</scope><name>RemoveRoleSuccessTest</name></member>
+      <member refid="class_api_tests_1_1_models_1_1_user_tests_1a5676fffdf756f6c718da48a4c425e05a" prot="private" virt="non-virtual"><scope>ApiTests::Models::UserTests</scope><name>someRole</name></member>
+      <member refid="class_api_tests_1_1_models_1_1_user_tests_1a72e52b96bde897de3a039ba20b79692a" prot="private" virt="non-virtual"><scope>ApiTests::Models::UserTests</scope><name>someUser</name></member>
+      <member refid="class_api_tests_1_1_models_1_1_user_tests_1a7b5b762d7c19a38c64c66df2b34c2e61" prot="public" virt="non-virtual"><scope>ApiTests::Models::UserTests</scope><name>TestInit</name></member>
+      <member refid="class_api_tests_1_1_models_1_1_user_tests_1a53e6f48d8493b00be09e7050e645d35b" prot="public" virt="non-virtual"><scope>ApiTests::Models::UserTests</scope><name>ThrowsExceptionWhenAddressIsBlank</name></member>
+      <member refid="class_api_tests_1_1_models_1_1_user_tests_1a77c906c97cc123354867e4fb7ca98e3f" prot="public" virt="non-virtual"><scope>ApiTests::Models::UserTests</scope><name>ThrowsExceptionWhenMailDosentHaveAt</name></member>
+      <member refid="class_api_tests_1_1_models_1_1_user_tests_1ad80e0748cc58e34a2724bca3e343ea9b" prot="public" virt="non-virtual"><scope>ApiTests::Models::UserTests</scope><name>ThrowsExceptionWhenMailDosentHaveDomain</name></member>
+      <member refid="class_api_tests_1_1_models_1_1_user_tests_1aa3e8c80c39cde2f81a5969f24652ee73" prot="public" virt="non-virtual"><scope>ApiTests::Models::UserTests</scope><name>ThrowsExceptionWhenMailIsBlank</name></member>
+      <member refid="class_api_tests_1_1_models_1_1_user_tests_1ac6663c23b9fd2d3a91476023fbd822ca" prot="public" virt="non-virtual"><scope>ApiTests::Models::UserTests</scope><name>ThrowsExceptionWhenPasswordIsNull</name></member>
+      <member refid="class_api_tests_1_1_models_1_1_user_tests_1a924961a732ccbebf0fd398eb861fa4ee" prot="private" virt="non-virtual"><scope>ApiTests::Models::UserTests</scope><name>ValidAddress</name></member>
+      <member refid="class_api_tests_1_1_models_1_1_user_tests_1ab4dfcc21f8d16f0406ac86ba5d24f1b6" prot="private" virt="non-virtual"><scope>ApiTests::Models::UserTests</scope><name>ValidId</name></member>
+      <member refid="class_api_tests_1_1_models_1_1_user_tests_1a8093819e9dab33df05f0b6fea2609120" prot="private" virt="non-virtual"><scope>ApiTests::Models::UserTests</scope><name>ValidMail1</name></member>
+      <member refid="class_api_tests_1_1_models_1_1_user_tests_1a44f0261501a6883c5d9536dcfda3e8c2" prot="private" virt="non-virtual"><scope>ApiTests::Models::UserTests</scope><name>ValidMail2</name></member>
+      <member refid="class_api_tests_1_1_models_1_1_user_tests_1ae24d514e1277f7fea19c2a04eba1ec4c" prot="private" virt="non-virtual"><scope>ApiTests::Models::UserTests</scope><name>ValidPassword</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

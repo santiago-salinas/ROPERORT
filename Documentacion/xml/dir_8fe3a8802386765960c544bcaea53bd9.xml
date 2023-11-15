@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_8fe3a8802386765960c544bcaea53bd9" kind="dir">
+    <compoundname>C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Filters</compoundname>
+    <innerfile refid="_authentication_filter_8cs">AuthenticationFilter.cs</innerfile>
+    <innerfile refid="_authorization_filter_8cs">AuthorizationFilter.cs</innerfile>
+    <innerfile refid="_exception_filter_8cs">ExceptionFilter.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Filters/"/>
+  </compounddef>
+</doxygen>

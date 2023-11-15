@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespace_rest___api_1_1_filters" kind="namespace" language="C#">
+    <compoundname>Rest_Api::Filters</compoundname>
+    <innerclass refid="class_rest___api_1_1_filters_1_1_authentication_filter" prot="public">Rest_Api::Filters::AuthenticationFilter</innerclass>
+    <innerclass refid="class_rest___api_1_1_filters_1_1_authorization_filter" prot="public">Rest_Api::Filters::AuthorizationFilter</innerclass>
+    <innerclass refid="class_rest___api_1_1_filters_1_1_exception_filter" prot="public">Rest_Api::Filters::ExceptionFilter</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Filters/AuthenticationFilter.cs" line="7" column="1"/>
+  </compounddef>
+</doxygen>

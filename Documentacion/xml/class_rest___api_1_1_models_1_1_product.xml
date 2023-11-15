@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_rest___api_1_1_models_1_1_product" kind="class" language="C#" prot="public">
+    <compoundname>Rest_Api::Models::Product</compoundname>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="class_rest___api_1_1_models_1_1_product_1ad4b99c62deb1f94558613f8dbfa5e1ff" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Rest_Api.Models.Product.Id</definition>
+        <argsstring></argsstring>
+        <name>Id</name>
+        <qualifiedname>Rest_Api.Models.Product.Id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Product.cs" line="14" column="20" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Product.cs" bodystart="14" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="property" id="class_rest___api_1_1_models_1_1_product_1ac9ca2ec414297be6ee124d3e35f8894c" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Rest_Api.Models.Product.Name</definition>
+        <argsstring></argsstring>
+        <name>Name</name>
+        <qualifiedname>Rest_Api.Models.Product.Name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Product.cs" line="15" column="23" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Product.cs" bodystart="15" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="property" id="class_rest___api_1_1_models_1_1_product_1a7287b336bde75bf50689a9035015170b" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double Rest_Api.Models.Product.PriceUYU</definition>
+        <argsstring></argsstring>
+        <name>PriceUYU</name>
+        <qualifiedname>Rest_Api.Models.Product.PriceUYU</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Product.cs" line="16" column="23" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Product.cs" bodystart="16" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="property" id="class_rest___api_1_1_models_1_1_product_1abb95460ad2607ac20ca9b87206a90843" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Rest_Api.Models.Product.Description</definition>
+        <argsstring></argsstring>
+        <name>Description</name>
+        <qualifiedname>Rest_Api.Models.Product.Description</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Product.cs" line="17" column="23" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Product.cs" bodystart="17" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="property" id="class_rest___api_1_1_models_1_1_product_1a5b758c26815ad3223705d1bedcf0b5e0" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type><ref refid="class_rest___api_1_1_models_1_1_brand" kindref="compound">Brand</ref></type>
+        <definition>Brand Rest_Api.Models.Product.Brand</definition>
+        <argsstring></argsstring>
+        <name>Brand</name>
+        <qualifiedname>Rest_Api.Models.Product.Brand</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Product.cs" line="20" column="22" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Product.cs" bodystart="20" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="property" id="class_rest___api_1_1_models_1_1_product_1a581ce73c6753baaa736fb958959ba03d" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type><ref refid="class_rest___api_1_1_models_1_1_category" kindref="compound">Category</ref></type>
+        <definition>Category Rest_Api.Models.Product.Category</definition>
+        <argsstring></argsstring>
+        <name>Category</name>
+        <qualifiedname>Rest_Api.Models.Product.Category</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Product.cs" line="21" column="25" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Product.cs" bodystart="21" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="property" id="class_rest___api_1_1_models_1_1_product_1a80fa0b9edfa6196b26cb7f6df19f7c27" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>List&lt; <ref refid="class_rest___api_1_1_models_1_1_colour" kindref="compound">Colour</ref> &gt;</type>
+        <definition>List&lt;Colour&gt; Rest_Api.Models.Product.Colours</definition>
+        <argsstring></argsstring>
+        <name>Colours</name>
+        <qualifiedname>Rest_Api.Models.Product.Colours</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Product.cs" line="22" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Product.cs" bodystart="22" bodyend="22"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_rest___api_1_1_models_1_1_product_1a12995ca9c5f3e44782ee2224c1e33531" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Rest_Api.Models.Product.Product</definition>
+        <argsstring>()</argsstring>
+        <name>Product</name>
+        <qualifiedname>Rest_Api.Models.Product.Product</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Product.cs" line="6" column="16" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Product.cs" bodystart="6" bodyend="12"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Product.cs" line="3" column="11" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Product.cs" bodystart="4" bodyend="23"/>
+    <listofallmembers>
+      <member refid="class_rest___api_1_1_models_1_1_product_1a5b758c26815ad3223705d1bedcf0b5e0" prot="public" virt="non-virtual"><scope>Rest_Api::Models::Product</scope><name>Brand</name></member>
+      <member refid="class_rest___api_1_1_models_1_1_product_1a581ce73c6753baaa736fb958959ba03d" prot="public" virt="non-virtual"><scope>Rest_Api::Models::Product</scope><name>Category</name></member>
+      <member refid="class_rest___api_1_1_models_1_1_product_1a80fa0b9edfa6196b26cb7f6df19f7c27" prot="public" virt="non-virtual"><scope>Rest_Api::Models::Product</scope><name>Colours</name></member>
+      <member refid="class_rest___api_1_1_models_1_1_product_1abb95460ad2607ac20ca9b87206a90843" prot="public" virt="non-virtual"><scope>Rest_Api::Models::Product</scope><name>Description</name></member>
+      <member refid="class_rest___api_1_1_models_1_1_product_1ad4b99c62deb1f94558613f8dbfa5e1ff" prot="public" virt="non-virtual"><scope>Rest_Api::Models::Product</scope><name>Id</name></member>
+      <member refid="class_rest___api_1_1_models_1_1_product_1ac9ca2ec414297be6ee124d3e35f8894c" prot="public" virt="non-virtual"><scope>Rest_Api::Models::Product</scope><name>Name</name></member>
+      <member refid="class_rest___api_1_1_models_1_1_product_1a7287b336bde75bf50689a9035015170b" prot="public" virt="non-virtual"><scope>Rest_Api::Models::Product</scope><name>PriceUYU</name></member>
+      <member refid="class_rest___api_1_1_models_1_1_product_1a12995ca9c5f3e44782ee2224c1e33531" prot="public" virt="non-virtual"><scope>Rest_Api::Models::Product</scope><name>Product</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

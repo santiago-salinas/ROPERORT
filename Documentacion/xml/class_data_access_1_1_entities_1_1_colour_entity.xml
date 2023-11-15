@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_data_access_1_1_entities_1_1_colour_entity" kind="class" language="C#" prot="public">
+    <compoundname>DataAccess::Entities::ColourEntity</compoundname>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="class_data_access_1_1_entities_1_1_colour_entity_1ae2fadb576851ec8cf901ab7f8f80e621" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DataAccess.Entities.ColourEntity.Name</definition>
+        <argsstring></argsstring>
+        <name>Name</name>
+        <qualifiedname>DataAccess.Entities.ColourEntity.Name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/ColourEntity.cs" line="10" column="23" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/ColourEntity.cs" bodystart="10" bodyend="10"/>
+      </memberdef>
+      <memberdef kind="property" id="class_data_access_1_1_entities_1_1_colour_entity_1a6c9195e143a82d6e4d75c4be647942ee" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>IList&lt; <ref refid="class_data_access_1_1_entities_1_1_product_colors" kindref="compound">ProductColors</ref> &gt;</type>
+        <definition>IList&lt;ProductColors&gt; DataAccess.Entities.ColourEntity.ProductColors</definition>
+        <argsstring></argsstring>
+        <name>ProductColors</name>
+        <qualifiedname>DataAccess.Entities.ColourEntity.ProductColors</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/ColourEntity.cs" line="12" column="22" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/ColourEntity.cs" bodystart="12" bodyend="12"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_data_access_1_1_entities_1_1_colour_entity_1a4f20b8c580ed5d5e3576921a5f356323" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>DataAccess.Entities.ColourEntity.ColourEntity</definition>
+        <argsstring>()</argsstring>
+        <name>ColourEntity</name>
+        <qualifiedname>DataAccess.Entities.ColourEntity.ColourEntity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/ColourEntity.cs" line="15" column="16" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/ColourEntity.cs" bodystart="15" bodyend="15"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_data_access_1_1_entities_1_1_colour_entity_1a96d4ae57daafa7f56bf0d84ba2d01271" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_data_access_1_1_entities_1_1_colour_entity" kindref="compound">ColourEntity</ref></type>
+        <definition>static ColourEntity DataAccess.Entities.ColourEntity.FromModel</definition>
+        <argsstring>(Colour brand)</argsstring>
+        <name>FromModel</name>
+        <qualifiedname>DataAccess.Entities.ColourEntity.FromModel</qualifiedname>
+        <param>
+          <type><ref refid="class_services_1_1_models_1_1_colour" kindref="compound">Colour</ref></type>
+          <declname>brand</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/ColourEntity.cs" line="16" column="36" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/ColourEntity.cs" bodystart="16" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_access_1_1_entities_1_1_colour_entity_1a08abcef72cd039225104d92cdebfe0e0" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_services_1_1_models_1_1_colour" kindref="compound">Colour</ref></type>
+        <definition>static Colour DataAccess.Entities.ColourEntity.FromEntity</definition>
+        <argsstring>(ColourEntity entity)</argsstring>
+        <name>FromEntity</name>
+        <qualifiedname>DataAccess.Entities.ColourEntity.FromEntity</qualifiedname>
+        <param>
+          <type><ref refid="class_data_access_1_1_entities_1_1_colour_entity" kindref="compound">ColourEntity</ref></type>
+          <declname>entity</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/ColourEntity.cs" line="21" column="30" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/ColourEntity.cs" bodystart="21" bodyend="24"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/ColourEntity.cs" line="7" column="11" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/ColourEntity.cs" bodystart="8" bodyend="25"/>
+    <listofallmembers>
+      <member refid="class_data_access_1_1_entities_1_1_colour_entity_1a4f20b8c580ed5d5e3576921a5f356323" prot="public" virt="non-virtual"><scope>DataAccess::Entities::ColourEntity</scope><name>ColourEntity</name></member>
+      <member refid="class_data_access_1_1_entities_1_1_colour_entity_1a08abcef72cd039225104d92cdebfe0e0" prot="public" virt="non-virtual"><scope>DataAccess::Entities::ColourEntity</scope><name>FromEntity</name></member>
+      <member refid="class_data_access_1_1_entities_1_1_colour_entity_1a96d4ae57daafa7f56bf0d84ba2d01271" prot="public" virt="non-virtual"><scope>DataAccess::Entities::ColourEntity</scope><name>FromModel</name></member>
+      <member refid="class_data_access_1_1_entities_1_1_colour_entity_1ae2fadb576851ec8cf901ab7f8f80e621" prot="public" virt="non-virtual"><scope>DataAccess::Entities::ColourEntity</scope><name>Name</name></member>
+      <member refid="class_data_access_1_1_entities_1_1_colour_entity_1a6c9195e143a82d6e4d75c4be647942ee" prot="public" virt="non-virtual"><scope>DataAccess::Entities::ColourEntity</scope><name>ProductColors</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

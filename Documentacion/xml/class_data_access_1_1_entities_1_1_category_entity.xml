@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_data_access_1_1_entities_1_1_category_entity" kind="class" language="C#" prot="public">
+    <compoundname>DataAccess::Entities::CategoryEntity</compoundname>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="class_data_access_1_1_entities_1_1_category_entity_1ae733bc358f5e461f52cde2c668a41827" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DataAccess.Entities.CategoryEntity.Name</definition>
+        <argsstring></argsstring>
+        <name>Name</name>
+        <qualifiedname>DataAccess.Entities.CategoryEntity.Name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/CategoryEntity.cs" line="9" column="23" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/CategoryEntity.cs" bodystart="9" bodyend="9"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_data_access_1_1_entities_1_1_category_entity_1ac45ef549d701e6410bbce005b71fcbc5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>DataAccess.Entities.CategoryEntity.CategoryEntity</definition>
+        <argsstring>()</argsstring>
+        <name>CategoryEntity</name>
+        <qualifiedname>DataAccess.Entities.CategoryEntity.CategoryEntity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/CategoryEntity.cs" line="11" column="16" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/CategoryEntity.cs" bodystart="11" bodyend="11"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_data_access_1_1_entities_1_1_category_entity_1affead1c7eecbac6a31fd8640849a881c" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_data_access_1_1_entities_1_1_category_entity" kindref="compound">CategoryEntity</ref></type>
+        <definition>static CategoryEntity DataAccess.Entities.CategoryEntity.FromModel</definition>
+        <argsstring>(Category brand)</argsstring>
+        <name>FromModel</name>
+        <qualifiedname>DataAccess.Entities.CategoryEntity.FromModel</qualifiedname>
+        <param>
+          <type><ref refid="class_services_1_1_models_1_1_category" kindref="compound">Category</ref></type>
+          <declname>brand</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/CategoryEntity.cs" line="13" column="38" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/CategoryEntity.cs" bodystart="13" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_access_1_1_entities_1_1_category_entity_1afe609f3b450ab8337e8b876ef2f05d28" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_services_1_1_models_1_1_category" kindref="compound">Category</ref></type>
+        <definition>static Category DataAccess.Entities.CategoryEntity.FromEntity</definition>
+        <argsstring>(CategoryEntity entity)</argsstring>
+        <name>FromEntity</name>
+        <qualifiedname>DataAccess.Entities.CategoryEntity.FromEntity</qualifiedname>
+        <param>
+          <type><ref refid="class_data_access_1_1_entities_1_1_category_entity" kindref="compound">CategoryEntity</ref></type>
+          <declname>entity</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/CategoryEntity.cs" line="18" column="32" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/CategoryEntity.cs" bodystart="18" bodyend="21"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/CategoryEntity.cs" line="6" column="11" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Entities/CategoryEntity.cs" bodystart="7" bodyend="22"/>
+    <listofallmembers>
+      <member refid="class_data_access_1_1_entities_1_1_category_entity_1ac45ef549d701e6410bbce005b71fcbc5" prot="public" virt="non-virtual"><scope>DataAccess::Entities::CategoryEntity</scope><name>CategoryEntity</name></member>
+      <member refid="class_data_access_1_1_entities_1_1_category_entity_1afe609f3b450ab8337e8b876ef2f05d28" prot="public" virt="non-virtual"><scope>DataAccess::Entities::CategoryEntity</scope><name>FromEntity</name></member>
+      <member refid="class_data_access_1_1_entities_1_1_category_entity_1affead1c7eecbac6a31fd8640849a881c" prot="public" virt="non-virtual"><scope>DataAccess::Entities::CategoryEntity</scope><name>FromModel</name></member>
+      <member refid="class_data_access_1_1_entities_1_1_category_entity_1ae733bc358f5e461f52cde2c668a41827" prot="public" virt="non-virtual"><scope>DataAccess::Entities::CategoryEntity</scope><name>Name</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

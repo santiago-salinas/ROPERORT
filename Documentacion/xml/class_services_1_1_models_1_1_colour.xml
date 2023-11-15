@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_services_1_1_models_1_1_colour" kind="class" language="C#" prot="public">
+    <compoundname>Services::Models::Colour</compoundname>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="class_services_1_1_models_1_1_colour_1aaed771d50a048cfd30a9f43f09e7e200" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Services.Models.Colour.Name</definition>
+        <argsstring></argsstring>
+        <name>Name</name>
+        <qualifiedname>Services.Models.Colour.Name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Colour.cs" line="5" column="23" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Colour.cs" bodystart="5" bodyend="5"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_services_1_1_models_1_1_colour_1a83130632c3ca9c2a0862c7b39b1b1860" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Services.Models.Colour.Colour</definition>
+        <argsstring>()</argsstring>
+        <name>Colour</name>
+        <qualifiedname>Services.Models.Colour.Colour</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Colour.cs" line="7" column="16" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Colour.cs" bodystart="7" bodyend="7"/>
+      </memberdef>
+      <memberdef kind="function" id="class_services_1_1_models_1_1_colour_1aa60a04acc4603d1081a9d70c21a8e125" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Services.Models.Colour.Colour</definition>
+        <argsstring>(string name)</argsstring>
+        <name>Colour</name>
+        <qualifiedname>Services.Models.Colour.Colour</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Colour.cs" line="8" column="16" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Colour.cs" bodystart="8" bodyend="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_services_1_1_models_1_1_colour_1a7feeb6663f943747930a6fbe48caf241" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override bool</type>
+        <definition>override bool Services.Models.Colour.Equals</definition>
+        <argsstring>(object? obj)</argsstring>
+        <name>Equals</name>
+        <qualifiedname>Services.Models.Colour.Equals</qualifiedname>
+        <param>
+          <type>object?</type>
+          <declname>obj</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Colour.cs" line="10" column="30" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Colour.cs" bodystart="10" bodyend="14"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Colour.cs" line="3" column="11" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Colour.cs" bodystart="4" bodyend="15"/>
+    <listofallmembers>
+      <member refid="class_services_1_1_models_1_1_colour_1a83130632c3ca9c2a0862c7b39b1b1860" prot="public" virt="non-virtual"><scope>Services::Models::Colour</scope><name>Colour</name></member>
+      <member refid="class_services_1_1_models_1_1_colour_1aa60a04acc4603d1081a9d70c21a8e125" prot="public" virt="non-virtual"><scope>Services::Models::Colour</scope><name>Colour</name></member>
+      <member refid="class_services_1_1_models_1_1_colour_1a7feeb6663f943747930a6fbe48caf241" prot="public" virt="non-virtual"><scope>Services::Models::Colour</scope><name>Equals</name></member>
+      <member refid="class_services_1_1_models_1_1_colour_1aaed771d50a048cfd30a9f43f09e7e200" prot="public" virt="non-virtual"><scope>Services::Models::Colour</scope><name>Name</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_data_access_1_1_migrations_1_1v3" kind="class" language="C#" prot="public">
+    <compoundname>DataAccess::Migrations::v3</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Migration</basecompoundref>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_data_access_1_1_migrations_1_1v3_1a68f92f429ecb875c85c4a258e260e824" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DataAccess.Migrations.v3.Up</definition>
+        <argsstring>(MigrationBuilder migrationBuilder)</argsstring>
+        <name>Up</name>
+        <qualifiedname>DataAccess.Migrations.v3.Up</qualifiedname>
+        <param>
+          <type>MigrationBuilder</type>
+          <declname>migrationBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Migrations/20230906231110_v3.cs" line="9" column="33" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Migrations/20230906231110_v3.cs" bodystart="9" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_access_1_1_migrations_1_1v3_1a30c0657801e2c6714661b0dba6876f80" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DataAccess.Migrations.v3.Down</definition>
+        <argsstring>(MigrationBuilder migrationBuilder)</argsstring>
+        <name>Down</name>
+        <qualifiedname>DataAccess.Migrations.v3.Down</qualifiedname>
+        <param>
+          <type>MigrationBuilder</type>
+          <declname>migrationBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Migrations/20230906231110_v3.cs" line="94" column="33" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Migrations/20230906231110_v3.cs" bodystart="94" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_access_1_1_migrations_1_1v3_1a63cbf72baffc54e2b5d4ba4feef6178a" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DataAccess.Migrations.v3.BuildTargetModel</definition>
+        <argsstring>(ModelBuilder modelBuilder)</argsstring>
+        <name>BuildTargetModel</name>
+        <qualifiedname>DataAccess.Migrations.v3.BuildTargetModel</qualifiedname>
+        <param>
+          <type>ModelBuilder</type>
+          <declname>modelBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Migrations/20230906231110_v3.Designer.cs" line="18" column="33" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Migrations/20230906231110_v3.Designer.cs" bodystart="18" bodyend="290"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>DataAccess.Migrations.v3</label>
+        <link refid="class_data_access_1_1_migrations_1_1v3"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Migration</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>DataAccess.Migrations.v3</label>
+        <link refid="class_data_access_1_1_migrations_1_1v3"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Migration</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Migrations/20230906231110_v3.cs" line="7" column="19" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess/Migrations/20230906231110_v3.cs" bodystart="8" bodyend="138"/>
+    <listofallmembers>
+      <member refid="class_data_access_1_1_migrations_1_1v3_1a63cbf72baffc54e2b5d4ba4feef6178a" prot="protected" virt="non-virtual"><scope>DataAccess::Migrations::v3</scope><name>BuildTargetModel</name></member>
+      <member refid="class_data_access_1_1_migrations_1_1v3_1a30c0657801e2c6714661b0dba6876f80" prot="protected" virt="non-virtual"><scope>DataAccess::Migrations::v3</scope><name>Down</name></member>
+      <member refid="class_data_access_1_1_migrations_1_1v3_1a68f92f429ecb875c85c4a258e260e824" prot="protected" virt="non-virtual"><scope>DataAccess::Migrations::v3</scope><name>Up</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

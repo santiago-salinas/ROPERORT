@@ -1,0 +1,227 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_rest___api_1_1_controllers_1_1_cart_controller" kind="class" language="C#" prot="public">
+    <compoundname>Rest_Api::Controllers::CartController</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ControllerBase</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_rest___api_1_1_controllers_1_1_cart_controller_1afd207331a221b546f029a7d1a68dadd0" prot="private" static="no" mutable="no">
+        <type>readonly <ref refid="interface_services_1_1_interfaces_1_1_i_product_service" kindref="compound">IProductService</ref></type>
+        <definition>readonly IProductService Rest_Api.Controllers.CartController._productService</definition>
+        <argsstring></argsstring>
+        <name>_productService</name>
+        <qualifiedname>Rest_Api.Controllers.CartController._productService</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/CartController.cs" line="19" column="38" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/CartController.cs" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_rest___api_1_1_controllers_1_1_cart_controller_1ae6ef91ac222982daefffc281f8a16c84" prot="private" static="no" mutable="no">
+        <type>readonly <ref refid="interface_services_1_1_interfaces_1_1_i_promo_service" kindref="compound">IPromoService</ref></type>
+        <definition>readonly IPromoService Rest_Api.Controllers.CartController._promoService</definition>
+        <argsstring></argsstring>
+        <name>_promoService</name>
+        <qualifiedname>Rest_Api.Controllers.CartController._promoService</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/CartController.cs" line="20" column="36" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/CartController.cs" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_rest___api_1_1_controllers_1_1_cart_controller_1ae683252e7c485722b1d71acf33eafd80" prot="private" static="no" mutable="no">
+        <type>readonly <ref refid="interface_services_1_1_interfaces_1_1_i_purchase_service" kindref="compound">IPurchaseService</ref></type>
+        <definition>readonly IPurchaseService Rest_Api.Controllers.CartController._purchaseService</definition>
+        <argsstring></argsstring>
+        <name>_purchaseService</name>
+        <qualifiedname>Rest_Api.Controllers.CartController._purchaseService</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/CartController.cs" line="21" column="39" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/CartController.cs" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_rest___api_1_1_controllers_1_1_cart_controller_1a5bc7b213471a658967ba66758635dcae" prot="private" static="no" mutable="no">
+        <type>readonly <ref refid="interface_services_1_1_interfaces_1_1_i_user_service" kindref="compound">IUserService</ref></type>
+        <definition>readonly IUserService Rest_Api.Controllers.CartController._userService</definition>
+        <argsstring></argsstring>
+        <name>_userService</name>
+        <qualifiedname>Rest_Api.Controllers.CartController._userService</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/CartController.cs" line="22" column="35" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/CartController.cs" bodystart="22" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_rest___api_1_1_controllers_1_1_cart_controller_1adbeb4167ebd0898049ebffadec30b7db" prot="private" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int Rest_Api.Controllers.CartController._zero</definition>
+        <argsstring></argsstring>
+        <name>_zero</name>
+        <qualifiedname>Rest_Api.Controllers.CartController._zero</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/CartController.cs" line="23" column="23" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/CartController.cs" bodystart="23" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_rest___api_1_1_controllers_1_1_cart_controller_1a8deec703e4719ee7aed7b2c334d01ce5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Rest_Api.Controllers.CartController.CartController</definition>
+        <argsstring>(IProductService cartService, IPromoService promoService, IPurchaseService purchaseService, IUserService userService)</argsstring>
+        <name>CartController</name>
+        <qualifiedname>Rest_Api.Controllers.CartController.CartController</qualifiedname>
+        <param>
+          <type><ref refid="interface_services_1_1_interfaces_1_1_i_product_service" kindref="compound">IProductService</ref></type>
+          <declname>cartService</declname>
+        </param>
+        <param>
+          <type><ref refid="interface_services_1_1_interfaces_1_1_i_promo_service" kindref="compound">IPromoService</ref></type>
+          <declname>promoService</declname>
+        </param>
+        <param>
+          <type><ref refid="interface_services_1_1_interfaces_1_1_i_purchase_service" kindref="compound">IPurchaseService</ref></type>
+          <declname>purchaseService</declname>
+        </param>
+        <param>
+          <type><ref refid="interface_services_1_1_interfaces_1_1_i_user_service" kindref="compound">IUserService</ref></type>
+          <declname>userService</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/CartController.cs" line="25" column="12" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/CartController.cs" bodystart="25" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="class_rest___api_1_1_controllers_1_1_cart_controller_1a1e6f317fc5659be2dfca257da646bd66" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IActionResult</type>
+        <definition>IActionResult Rest_Api.Controllers.CartController.Create</definition>
+        <argsstring>(CartDTO cartDto)</argsstring>
+        <name>Create</name>
+        <qualifiedname>Rest_Api.Controllers.CartController.Create</qualifiedname>
+        <param>
+          <type><ref refid="class_rest___api_1_1_d_t_os_1_1_cart_d_t_o" kindref="compound">CartDTO</ref></type>
+          <declname>cartDto</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/CartController.cs" line="35" column="26" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/CartController.cs" bodystart="35" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="class_rest___api_1_1_controllers_1_1_cart_controller_1a40d2fe3c895d8a4ee6b197a9f0f8bd24" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IActionResult</type>
+        <definition>IActionResult Rest_Api.Controllers.CartController.Buy</definition>
+        <argsstring>(CartDTO cartDto)</argsstring>
+        <name>Buy</name>
+        <qualifiedname>Rest_Api.Controllers.CartController.Buy</qualifiedname>
+        <param>
+          <type><ref refid="class_rest___api_1_1_d_t_os_1_1_cart_d_t_o" kindref="compound">CartDTO</ref></type>
+          <declname>cartDto</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/CartController.cs" line="58" column="26" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/CartController.cs" bodystart="58" bodyend="94"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_rest___api_1_1_controllers_1_1_cart_controller_1ae74eb2c2babc6cad2644d115f607ff9b" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_services_1_1_models_1_1_cart" kindref="compound">Cart</ref></type>
+        <definition>Cart Rest_Api.Controllers.CartController.ApplyPromoToCart</definition>
+        <argsstring>(Cart cart)</argsstring>
+        <name>ApplyPromoToCart</name>
+        <qualifiedname>Rest_Api.Controllers.CartController.ApplyPromoToCart</qualifiedname>
+        <param>
+          <type><ref refid="class_services_1_1_models_1_1_cart" kindref="compound">Cart</ref></type>
+          <declname>cart</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/CartController.cs" line="98" column="18" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/CartController.cs" bodystart="98" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="class_rest___api_1_1_controllers_1_1_cart_controller_1a685fc8bfcbe4005ba1f4cf57c164a9a5" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_services_1_1_models_1_1_cart" kindref="compound">Cart</ref></type>
+        <definition>Cart Rest_Api.Controllers.CartController.CartDTOtoObject</definition>
+        <argsstring>(CartDTO cartDto)</argsstring>
+        <name>CartDTOtoObject</name>
+        <qualifiedname>Rest_Api.Controllers.CartController.CartDTOtoObject</qualifiedname>
+        <param>
+          <type><ref refid="class_rest___api_1_1_d_t_os_1_1_cart_d_t_o" kindref="compound">CartDTO</ref></type>
+          <declname>cartDto</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/CartController.cs" line="110" column="18" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/CartController.cs" bodystart="110" bodyend="129"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ControllerBase</label>
+      </node>
+      <node id="1">
+        <label>Rest_Api.Controllers.CartController</label>
+        <link refid="class_rest___api_1_1_controllers_1_1_cart_controller"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ControllerBase</label>
+      </node>
+      <node id="1">
+        <label>Rest_Api.Controllers.CartController</label>
+        <link refid="class_rest___api_1_1_controllers_1_1_cart_controller"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/CartController.cs" line="17" column="7" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/CartController.cs" bodystart="18" bodyend="130"/>
+    <listofallmembers>
+      <member refid="class_rest___api_1_1_controllers_1_1_cart_controller_1afd207331a221b546f029a7d1a68dadd0" prot="private" virt="non-virtual"><scope>Rest_Api::Controllers::CartController</scope><name>_productService</name></member>
+      <member refid="class_rest___api_1_1_controllers_1_1_cart_controller_1ae6ef91ac222982daefffc281f8a16c84" prot="private" virt="non-virtual"><scope>Rest_Api::Controllers::CartController</scope><name>_promoService</name></member>
+      <member refid="class_rest___api_1_1_controllers_1_1_cart_controller_1ae683252e7c485722b1d71acf33eafd80" prot="private" virt="non-virtual"><scope>Rest_Api::Controllers::CartController</scope><name>_purchaseService</name></member>
+      <member refid="class_rest___api_1_1_controllers_1_1_cart_controller_1a5bc7b213471a658967ba66758635dcae" prot="private" virt="non-virtual"><scope>Rest_Api::Controllers::CartController</scope><name>_userService</name></member>
+      <member refid="class_rest___api_1_1_controllers_1_1_cart_controller_1adbeb4167ebd0898049ebffadec30b7db" prot="private" virt="non-virtual"><scope>Rest_Api::Controllers::CartController</scope><name>_zero</name></member>
+      <member refid="class_rest___api_1_1_controllers_1_1_cart_controller_1ae74eb2c2babc6cad2644d115f607ff9b" prot="private" virt="non-virtual"><scope>Rest_Api::Controllers::CartController</scope><name>ApplyPromoToCart</name></member>
+      <member refid="class_rest___api_1_1_controllers_1_1_cart_controller_1a40d2fe3c895d8a4ee6b197a9f0f8bd24" prot="public" virt="non-virtual"><scope>Rest_Api::Controllers::CartController</scope><name>Buy</name></member>
+      <member refid="class_rest___api_1_1_controllers_1_1_cart_controller_1a8deec703e4719ee7aed7b2c334d01ce5" prot="public" virt="non-virtual"><scope>Rest_Api::Controllers::CartController</scope><name>CartController</name></member>
+      <member refid="class_rest___api_1_1_controllers_1_1_cart_controller_1a685fc8bfcbe4005ba1f4cf57c164a9a5" prot="private" virt="non-virtual"><scope>Rest_Api::Controllers::CartController</scope><name>CartDTOtoObject</name></member>
+      <member refid="class_rest___api_1_1_controllers_1_1_cart_controller_1a1e6f317fc5659be2dfca257da646bd66" prot="public" virt="non-virtual"><scope>Rest_Api::Controllers::CartController</scope><name>Create</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

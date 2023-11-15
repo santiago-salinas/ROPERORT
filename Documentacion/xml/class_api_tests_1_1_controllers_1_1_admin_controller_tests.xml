@@ -1,0 +1,227 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_api_tests_1_1_controllers_1_1_admin_controller_tests" kind="class" language="C#" prot="public">
+    <compoundname>ApiTests::Controllers::AdminControllerTests</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_api_tests_1_1_controllers_1_1_admin_controller_tests_1a9edf33f911bfaa5df05ff0c8e1c21a9b" prot="private" static="no" mutable="no">
+        <type>Mock&lt; <ref refid="interface_services_1_1_interfaces_1_1_i_user_service" kindref="compound">IUserService</ref> &gt;</type>
+        <definition>Mock&lt;IUserService&gt; ApiTests.Controllers.AdminControllerTests.mockUsers</definition>
+        <argsstring></argsstring>
+        <name>mockUsers</name>
+        <qualifiedname>ApiTests.Controllers.AdminControllerTests.mockUsers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/AdminControllerTests.cs" line="19" column="22" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/AdminControllerTests.cs" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_api_tests_1_1_controllers_1_1_admin_controller_tests_1a44dac21a7aaf651cf66a5f726e87b1f6" prot="private" static="no" mutable="no">
+        <type>Mock&lt; <ref refid="interface_services_1_1_interfaces_1_1_i_purchase_service" kindref="compound">IPurchaseService</ref> &gt;</type>
+        <definition>Mock&lt;IPurchaseService&gt; ApiTests.Controllers.AdminControllerTests.mockPurchases</definition>
+        <argsstring></argsstring>
+        <name>mockPurchases</name>
+        <qualifiedname>ApiTests.Controllers.AdminControllerTests.mockPurchases</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/AdminControllerTests.cs" line="20" column="22" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/AdminControllerTests.cs" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_api_tests_1_1_controllers_1_1_admin_controller_tests_1ac11d8fc3444b9a6033e2728d6a9547f8" prot="private" static="no" mutable="no">
+        <type><ref refid="class_rest___api_1_1_controllers_1_1_admin_controller" kindref="compound">AdminController</ref></type>
+        <definition>AdminController ApiTests.Controllers.AdminControllerTests.adminController</definition>
+        <argsstring></argsstring>
+        <name>adminController</name>
+        <qualifiedname>ApiTests.Controllers.AdminControllerTests.adminController</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/AdminControllerTests.cs" line="21" column="33" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/AdminControllerTests.cs" bodystart="21" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_api_tests_1_1_controllers_1_1_admin_controller_tests_1ad220f7bbaf02bb148cf2ac161c53bef3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Controllers.AdminControllerTests.TestInitialize</definition>
+        <argsstring>()</argsstring>
+        <name>TestInitialize</name>
+        <qualifiedname>ApiTests.Controllers.AdminControllerTests.TestInitialize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/AdminControllerTests.cs" line="24" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/AdminControllerTests.cs" bodystart="24" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_controllers_1_1_admin_controller_tests_1abd06329ffc2f52d8dbb85a05ff7eb920" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Controllers.AdminControllerTests.GetAllUsersWorksCorrectly</definition>
+        <argsstring>()</argsstring>
+        <name>GetAllUsersWorksCorrectly</name>
+        <qualifiedname>ApiTests.Controllers.AdminControllerTests.GetAllUsersWorksCorrectly</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/AdminControllerTests.cs" line="32" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/AdminControllerTests.cs" bodystart="32" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_controllers_1_1_admin_controller_tests_1a92b76d0700466704c55805473198da04" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Controllers.AdminControllerTests.GivenValidIdGetReturnsUser</definition>
+        <argsstring>()</argsstring>
+        <name>GivenValidIdGetReturnsUser</name>
+        <qualifiedname>ApiTests.Controllers.AdminControllerTests.GivenValidIdGetReturnsUser</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/AdminControllerTests.cs" line="42" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/AdminControllerTests.cs" bodystart="42" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_controllers_1_1_admin_controller_tests_1acc326290b6e8f6dd417441c01e90678c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Controllers.AdminControllerTests.GivenInvalidIdGetReturnsNotFound</definition>
+        <argsstring>()</argsstring>
+        <name>GivenInvalidIdGetReturnsNotFound</name>
+        <qualifiedname>ApiTests.Controllers.AdminControllerTests.GivenInvalidIdGetReturnsNotFound</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/AdminControllerTests.cs" line="52" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/AdminControllerTests.cs" bodystart="52" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_controllers_1_1_admin_controller_tests_1adb1d8ed71a4f7d659a273d40125441d7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Controllers.AdminControllerTests.GivenInvalidUserCreateReturnsBadRequest</definition>
+        <argsstring>()</argsstring>
+        <name>GivenInvalidUserCreateReturnsBadRequest</name>
+        <qualifiedname>ApiTests.Controllers.AdminControllerTests.GivenInvalidUserCreateReturnsBadRequest</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/AdminControllerTests.cs" line="61" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/AdminControllerTests.cs" bodystart="61" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_controllers_1_1_admin_controller_tests_1a1c510ece08fbcfa4226b3c3631a19a15" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Controllers.AdminControllerTests.GivenCorrectValuesUserGetsUpdated</definition>
+        <argsstring>()</argsstring>
+        <name>GivenCorrectValuesUserGetsUpdated</name>
+        <qualifiedname>ApiTests.Controllers.AdminControllerTests.GivenCorrectValuesUserGetsUpdated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/AdminControllerTests.cs" line="70" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/AdminControllerTests.cs" bodystart="70" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_controllers_1_1_admin_controller_tests_1ae89aa50867a60f4c2c00e6ee3a008b9a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Controllers.AdminControllerTests.GivenDifferentValuesUpdateReturnsBadRequest</definition>
+        <argsstring>()</argsstring>
+        <name>GivenDifferentValuesUpdateReturnsBadRequest</name>
+        <qualifiedname>ApiTests.Controllers.AdminControllerTests.GivenDifferentValuesUpdateReturnsBadRequest</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/AdminControllerTests.cs" line="80" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/AdminControllerTests.cs" bodystart="80" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_controllers_1_1_admin_controller_tests_1a7f7b3ce69833230f2710555e7a0f2501" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Controllers.AdminControllerTests.GivenNonExistentIdUpdateReturnsNotFound</definition>
+        <argsstring>()</argsstring>
+        <name>GivenNonExistentIdUpdateReturnsNotFound</name>
+        <qualifiedname>ApiTests.Controllers.AdminControllerTests.GivenNonExistentIdUpdateReturnsNotFound</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/AdminControllerTests.cs" line="88" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/AdminControllerTests.cs" bodystart="88" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_controllers_1_1_admin_controller_tests_1aeea738aa1a817293e937a39bcbc5c78c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Controllers.AdminControllerTests.GivenValidIdUserGetsDeleted</definition>
+        <argsstring>()</argsstring>
+        <name>GivenValidIdUserGetsDeleted</name>
+        <qualifiedname>ApiTests.Controllers.AdminControllerTests.GivenValidIdUserGetsDeleted</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/AdminControllerTests.cs" line="98" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/AdminControllerTests.cs" bodystart="98" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_controllers_1_1_admin_controller_tests_1ab0ed759bfc4e6135020ffc87281b7cd1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Controllers.AdminControllerTests.GivenNonExistentIdDeleteReturnsNotFound</definition>
+        <argsstring>()</argsstring>
+        <name>GivenNonExistentIdDeleteReturnsNotFound</name>
+        <qualifiedname>ApiTests.Controllers.AdminControllerTests.GivenNonExistentIdDeleteReturnsNotFound</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/AdminControllerTests.cs" line="107" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/AdminControllerTests.cs" bodystart="107" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_controllers_1_1_admin_controller_tests_1ad138385ad006c6b9cefb8c460c9ff4ef" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Controllers.AdminControllerTests.GetAllPurchasesWorksCorrectly</definition>
+        <argsstring>()</argsstring>
+        <name>GetAllPurchasesWorksCorrectly</name>
+        <qualifiedname>ApiTests.Controllers.AdminControllerTests.GetAllPurchasesWorksCorrectly</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/AdminControllerTests.cs" line="116" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/AdminControllerTests.cs" bodystart="116" bodyend="123"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/AdminControllerTests.cs" line="17" column="11" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Controllers/AdminControllerTests.cs" bodystart="18" bodyend="124"/>
+    <listofallmembers>
+      <member refid="class_api_tests_1_1_controllers_1_1_admin_controller_tests_1ac11d8fc3444b9a6033e2728d6a9547f8" prot="private" virt="non-virtual"><scope>ApiTests::Controllers::AdminControllerTests</scope><name>adminController</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_admin_controller_tests_1ad138385ad006c6b9cefb8c460c9ff4ef" prot="public" virt="non-virtual"><scope>ApiTests::Controllers::AdminControllerTests</scope><name>GetAllPurchasesWorksCorrectly</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_admin_controller_tests_1abd06329ffc2f52d8dbb85a05ff7eb920" prot="public" virt="non-virtual"><scope>ApiTests::Controllers::AdminControllerTests</scope><name>GetAllUsersWorksCorrectly</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_admin_controller_tests_1a1c510ece08fbcfa4226b3c3631a19a15" prot="public" virt="non-virtual"><scope>ApiTests::Controllers::AdminControllerTests</scope><name>GivenCorrectValuesUserGetsUpdated</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_admin_controller_tests_1ae89aa50867a60f4c2c00e6ee3a008b9a" prot="public" virt="non-virtual"><scope>ApiTests::Controllers::AdminControllerTests</scope><name>GivenDifferentValuesUpdateReturnsBadRequest</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_admin_controller_tests_1acc326290b6e8f6dd417441c01e90678c" prot="public" virt="non-virtual"><scope>ApiTests::Controllers::AdminControllerTests</scope><name>GivenInvalidIdGetReturnsNotFound</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_admin_controller_tests_1adb1d8ed71a4f7d659a273d40125441d7" prot="public" virt="non-virtual"><scope>ApiTests::Controllers::AdminControllerTests</scope><name>GivenInvalidUserCreateReturnsBadRequest</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_admin_controller_tests_1ab0ed759bfc4e6135020ffc87281b7cd1" prot="public" virt="non-virtual"><scope>ApiTests::Controllers::AdminControllerTests</scope><name>GivenNonExistentIdDeleteReturnsNotFound</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_admin_controller_tests_1a7f7b3ce69833230f2710555e7a0f2501" prot="public" virt="non-virtual"><scope>ApiTests::Controllers::AdminControllerTests</scope><name>GivenNonExistentIdUpdateReturnsNotFound</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_admin_controller_tests_1a92b76d0700466704c55805473198da04" prot="public" virt="non-virtual"><scope>ApiTests::Controllers::AdminControllerTests</scope><name>GivenValidIdGetReturnsUser</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_admin_controller_tests_1aeea738aa1a817293e937a39bcbc5c78c" prot="public" virt="non-virtual"><scope>ApiTests::Controllers::AdminControllerTests</scope><name>GivenValidIdUserGetsDeleted</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_admin_controller_tests_1a44dac21a7aaf651cf66a5f726e87b1f6" prot="private" virt="non-virtual"><scope>ApiTests::Controllers::AdminControllerTests</scope><name>mockPurchases</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_admin_controller_tests_1a9edf33f911bfaa5df05ff0c8e1c21a9b" prot="private" virt="non-virtual"><scope>ApiTests::Controllers::AdminControllerTests</scope><name>mockUsers</name></member>
+      <member refid="class_api_tests_1_1_controllers_1_1_admin_controller_tests_1ad220f7bbaf02bb148cf2ac161c53bef3" prot="public" virt="non-virtual"><scope>ApiTests::Controllers::AdminControllerTests</scope><name>TestInitialize</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

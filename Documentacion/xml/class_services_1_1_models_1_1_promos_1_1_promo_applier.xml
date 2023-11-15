@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_services_1_1_models_1_1_promos_1_1_promo_applier" kind="class" language="C#" prot="public">
+    <compoundname>Services::Models::Promos::PromoApplier</compoundname>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_services_1_1_models_1_1_promos_1_1_promo_applier_1ad86cc4728859d53a114a6e957401ba0c" prot="private" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int Services.Models.Promos.PromoApplier._zero</definition>
+        <argsstring></argsstring>
+        <name>_zero</name>
+        <qualifiedname>Services.Models.Promos.PromoApplier._zero</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Promos/PromoApplier.cs" line="11" column="27" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Promos/PromoApplier.cs" bodystart="11" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_services_1_1_models_1_1_promos_1_1_promo_applier_1a070b3d03ea0a5defa1f2e959504138a5" prot="private" static="no" mutable="no">
+        <type>List&lt; <ref refid="class_services_1_1_models_1_1_promo" kindref="compound">Promo</ref> &gt;?</type>
+        <definition>List&lt;Promo&gt;? Services.Models.Promos.PromoApplier._promos</definition>
+        <argsstring></argsstring>
+        <name>_promos</name>
+        <qualifiedname>Services.Models.Promos.PromoApplier._promos</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Promos/PromoApplier.cs" line="12" column="22" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Promos/PromoApplier.cs" bodystart="12" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_services_1_1_models_1_1_promos_1_1_promo_applier_1aeb17d8185e4b311d6279e515de48980b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Services.Models.Promos.PromoApplier.PromoApplier</definition>
+        <argsstring>(List&lt; Promo &gt;? promos)</argsstring>
+        <name>PromoApplier</name>
+        <qualifiedname>Services.Models.Promos.PromoApplier.PromoApplier</qualifiedname>
+        <param>
+          <type>List&lt; <ref refid="class_services_1_1_models_1_1_promo" kindref="compound">Promo</ref> &gt;?</type>
+          <declname>promos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Promos/PromoApplier.cs" line="14" column="16" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Promos/PromoApplier.cs" bodystart="14" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="class_services_1_1_models_1_1_promos_1_1_promo_applier_1a65035c1733a21ae228a61c846541817b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_services_1_1_models_1_1_cart" kindref="compound">Cart</ref></type>
+        <definition>Cart Services.Models.Promos.PromoApplier.Apply</definition>
+        <argsstring>(Cart cart)</argsstring>
+        <name>Apply</name>
+        <qualifiedname>Services.Models.Promos.PromoApplier.Apply</qualifiedname>
+        <param>
+          <type><ref refid="class_services_1_1_models_1_1_cart" kindref="compound">Cart</ref></type>
+          <declname>cart</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Promos/PromoApplier.cs" line="19" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Promos/PromoApplier.cs" bodystart="19" bodyend="43"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Promos/PromoApplier.cs" line="9" column="11" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Promos/PromoApplier.cs" bodystart="10" bodyend="44"/>
+    <listofallmembers>
+      <member refid="class_services_1_1_models_1_1_promos_1_1_promo_applier_1a070b3d03ea0a5defa1f2e959504138a5" prot="private" virt="non-virtual"><scope>Services::Models::Promos::PromoApplier</scope><name>_promos</name></member>
+      <member refid="class_services_1_1_models_1_1_promos_1_1_promo_applier_1ad86cc4728859d53a114a6e957401ba0c" prot="private" virt="non-virtual"><scope>Services::Models::Promos::PromoApplier</scope><name>_zero</name></member>
+      <member refid="class_services_1_1_models_1_1_promos_1_1_promo_applier_1a65035c1733a21ae228a61c846541817b" prot="public" virt="non-virtual"><scope>Services::Models::Promos::PromoApplier</scope><name>Apply</name></member>
+      <member refid="class_services_1_1_models_1_1_promos_1_1_promo_applier_1aeb17d8185e4b311d6279e515de48980b" prot="public" virt="non-virtual"><scope>Services::Models::Promos::PromoApplier</scope><name>PromoApplier</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_services_1_1_models_1_1_twenty_percent_off" kind="class" language="C#" prot="public">
+    <compoundname>Services::Models::TwentyPercentOff</compoundname>
+    <basecompoundref refid="class_services_1_1_models_1_1_promo" prot="public" virt="non-virtual">Services.Models.Promo</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_services_1_1_models_1_1_twenty_percent_off_1aebd14426d3b444e602666a4f6e691da8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Services.Models.TwentyPercentOff.TwentyPercentOff</definition>
+        <argsstring>()</argsstring>
+        <name>TwentyPercentOff</name>
+        <qualifiedname>Services.Models.TwentyPercentOff.TwentyPercentOff</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Promos/TwentyPercentOffPromo.cs" line="5" column="16" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Promos/TwentyPercentOffPromo.cs" bodystart="5" bodyend="5"/>
+      </memberdef>
+      <memberdef kind="function" id="class_services_1_1_models_1_1_twenty_percent_off_1a218c80bcbb863b1bc02f359b0c4b6ecf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override double</type>
+        <definition>override double Services.Models.TwentyPercentOff.ApplyDiscount</definition>
+        <argsstring>(Cart cart)</argsstring>
+        <name>ApplyDiscount</name>
+        <qualifiedname>Services.Models.TwentyPercentOff.ApplyDiscount</qualifiedname>
+        <param>
+          <type><ref refid="class_services_1_1_models_1_1_cart" kindref="compound">Cart</ref></type>
+          <declname>cart</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Promos/TwentyPercentOffPromo.cs" line="7" column="32" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Promos/TwentyPercentOffPromo.cs" bodystart="7" bodyend="20"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_services_1_1_models_1_1_twenty_percent_off_1a6d60443ec1972ea9448f0b799b49d110" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_services_1_1_models_1_1_product" kindref="compound">Product</ref></type>
+        <definition>Product Services.Models.TwentyPercentOff.SecondCheapestProduct</definition>
+        <argsstring>(List&lt; CartLine &gt; cartLines)</argsstring>
+        <name>SecondCheapestProduct</name>
+        <qualifiedname>Services.Models.TwentyPercentOff.SecondCheapestProduct</qualifiedname>
+        <param>
+          <type>List&lt; <ref refid="class_services_1_1_models_1_1_cart_line" kindref="compound">CartLine</ref> &gt;</type>
+          <declname>cartLines</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Promos/TwentyPercentOffPromo.cs" line="22" column="25" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Promos/TwentyPercentOffPromo.cs" bodystart="22" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="class_services_1_1_models_1_1_twenty_percent_off_1a91fe0e27cb62366283dc7efbdfa680b4" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Services.Models.TwentyPercentOff.HasAtLeastTwoProducts</definition>
+        <argsstring>(Cart cart)</argsstring>
+        <name>HasAtLeastTwoProducts</name>
+        <qualifiedname>Services.Models.TwentyPercentOff.HasAtLeastTwoProducts</qualifiedname>
+        <param>
+          <type><ref refid="class_services_1_1_models_1_1_cart" kindref="compound">Cart</ref></type>
+          <declname>cart</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Promos/TwentyPercentOffPromo.cs" line="35" column="22" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Promos/TwentyPercentOffPromo.cs" bodystart="35" bodyend="47"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Promo</label>
+        <link refid="class_services_1_1_models_1_1_promo"/>
+      </node>
+      <node id="1">
+        <label>Services.Models.TwentyPercentOff</label>
+        <link refid="class_services_1_1_models_1_1_twenty_percent_off"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Promo</label>
+        <link refid="class_services_1_1_models_1_1_promo"/>
+      </node>
+      <node id="1">
+        <label>Services.Models.TwentyPercentOff</label>
+        <link refid="class_services_1_1_models_1_1_twenty_percent_off"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Promos/TwentyPercentOffPromo.cs" line="3" column="11" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/Promos/TwentyPercentOffPromo.cs" bodystart="4" bodyend="49"/>
+    <listofallmembers>
+      <member refid="class_services_1_1_models_1_1_twenty_percent_off_1a218c80bcbb863b1bc02f359b0c4b6ecf" prot="public" virt="non-virtual"><scope>Services::Models::TwentyPercentOff</scope><name>ApplyDiscount</name></member>
+      <member refid="class_services_1_1_models_1_1_promo_1a7e41365d888b0d3c1280266baa840c2e" prot="public" virt="non-virtual"><scope>Services::Models::TwentyPercentOff</scope><name>Condition</name></member>
+      <member refid="class_services_1_1_models_1_1_promo_1a279ac8a8cfb08e92a0aaf965467900f2" prot="public" virt="non-virtual"><scope>Services::Models::TwentyPercentOff</scope><name>Discount</name></member>
+      <member refid="class_services_1_1_models_1_1_twenty_percent_off_1a91fe0e27cb62366283dc7efbdfa680b4" prot="private" virt="non-virtual"><scope>Services::Models::TwentyPercentOff</scope><name>HasAtLeastTwoProducts</name></member>
+      <member refid="class_services_1_1_models_1_1_promo_1a338412cb1bbbc36eb6bd31121278d510" prot="public" virt="non-virtual"><scope>Services::Models::TwentyPercentOff</scope><name>Name</name></member>
+      <member refid="class_services_1_1_models_1_1_promo_1a069911154a986bf775a36b1abc395db4" prot="public" virt="non-virtual"><scope>Services::Models::TwentyPercentOff</scope><name>Promo</name></member>
+      <member refid="class_services_1_1_models_1_1_twenty_percent_off_1a6d60443ec1972ea9448f0b799b49d110" prot="private" virt="non-virtual"><scope>Services::Models::TwentyPercentOff</scope><name>SecondCheapestProduct</name></member>
+      <member refid="class_services_1_1_models_1_1_twenty_percent_off_1aebd14426d3b444e602666a4f6e691da8" prot="public" virt="non-virtual"><scope>Services::Models::TwentyPercentOff</scope><name>TwentyPercentOff</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

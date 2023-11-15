@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_rest___api_1_1_controllers_1_1_brand_controller" kind="class" language="C#" prot="public">
+    <compoundname>Rest_Api::Controllers::BrandController</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ControllerBase</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_rest___api_1_1_controllers_1_1_brand_controller_1afe36d22e706a4f22b86decaa30565742" prot="private" static="no" mutable="no">
+        <type>readonly <ref refid="interface_services_1_1_interfaces_1_1_i_get_service" kindref="compound">IGetService</ref>&lt; <ref refid="class_services_1_1_models_1_1_brand" kindref="compound">Brand</ref> &gt;</type>
+        <definition>readonly IGetService&lt;Brand&gt; Rest_Api.Controllers.BrandController._brandService</definition>
+        <argsstring></argsstring>
+        <name>_brandService</name>
+        <qualifiedname>Rest_Api.Controllers.BrandController._brandService</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/BrandController.cs" line="14" column="38" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/BrandController.cs" bodystart="14" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_rest___api_1_1_controllers_1_1_brand_controller_1a57f04c5d94e23f74a9a9cb1f119dd507" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Rest_Api.Controllers.BrandController.BrandController</definition>
+        <argsstring>(IGetService&lt; Brand &gt; service)</argsstring>
+        <name>BrandController</name>
+        <qualifiedname>Rest_Api.Controllers.BrandController.BrandController</qualifiedname>
+        <param>
+          <type><ref refid="interface_services_1_1_interfaces_1_1_i_get_service" kindref="compound">IGetService</ref>&lt; <ref refid="class_services_1_1_models_1_1_brand" kindref="compound">Brand</ref> &gt;</type>
+          <declname>service</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/BrandController.cs" line="16" column="16" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/BrandController.cs" bodystart="16" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="class_rest___api_1_1_controllers_1_1_brand_controller_1ab2e8458e9e5f6a0cc1f3c7a609b1b032" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ActionResult&lt; List&lt; <ref refid="class_services_1_1_models_1_1_brand" kindref="compound">Brand</ref> &gt; &gt;</type>
+        <definition>ActionResult&lt; List&lt; Brand &gt; &gt; Rest_Api.Controllers.BrandController.GetAll</definition>
+        <argsstring>()</argsstring>
+        <name>GetAll</name>
+        <qualifiedname>Rest_Api.Controllers.BrandController.GetAll</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/BrandController.cs" line="23" column="29"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ControllerBase</label>
+      </node>
+      <node id="1">
+        <label>Rest_Api.Controllers.BrandController</label>
+        <link refid="class_rest___api_1_1_controllers_1_1_brand_controller"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ControllerBase</label>
+      </node>
+      <node id="1">
+        <label>Rest_Api.Controllers.BrandController</label>
+        <link refid="class_rest___api_1_1_controllers_1_1_brand_controller"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/BrandController.cs" line="12" column="11" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Controllers/BrandController.cs" bodystart="13" bodyend="24"/>
+    <listofallmembers>
+      <member refid="class_rest___api_1_1_controllers_1_1_brand_controller_1afe36d22e706a4f22b86decaa30565742" prot="private" virt="non-virtual"><scope>Rest_Api::Controllers::BrandController</scope><name>_brandService</name></member>
+      <member refid="class_rest___api_1_1_controllers_1_1_brand_controller_1a57f04c5d94e23f74a9a9cb1f119dd507" prot="public" virt="non-virtual"><scope>Rest_Api::Controllers::BrandController</scope><name>BrandController</name></member>
+      <member refid="class_rest___api_1_1_controllers_1_1_brand_controller_1ab2e8458e9e5f6a0cc1f3c7a609b1b032" prot="public" virt="non-virtual"><scope>Rest_Api::Controllers::BrandController</scope><name>GetAll</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

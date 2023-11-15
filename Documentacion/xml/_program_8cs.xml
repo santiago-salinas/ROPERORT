@@ -1,0 +1,484 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="_program_8cs" kind="file" language="C#">
+    <compoundname>Program.cs</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="_program_8cs_1a2f78352277081c620fd4cf92a5ce15e5" prot="public" static="no" mutable="no">
+        <type>var</type>
+        <definition>var builder</definition>
+        <argsstring></argsstring>
+        <name>builder</name>
+        <initializer>= WebApplication.CreateBuilder(args)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" line="7" column="5" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_program_8cs_1ad785a2de7179b45f738eac5cf238c5f7" prot="public" static="no" mutable="no">
+        <type><ref refid="class_factory_1_1_repositories_factory" kindref="compound">RepositoriesFactory</ref></type>
+        <definition>RepositoriesFactory repositoriesFactory</definition>
+        <argsstring></argsstring>
+        <name>repositoriesFactory</name>
+        <initializer>= new <ref refid="class_factory_1_1_repositories_factory" kindref="compound">RepositoriesFactory</ref>()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" line="8" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_program_8cs_1af33012606c72d02bd0aa73271cf7842b" prot="public" static="no" mutable="no">
+        <type><ref refid="class_factory_1_1_services_factory" kindref="compound">ServicesFactory</ref></type>
+        <definition>ServicesFactory servicesFactory</definition>
+        <argsstring></argsstring>
+        <name>servicesFactory</name>
+        <initializer>= new <ref refid="class_factory_1_1_services_factory" kindref="compound">ServicesFactory</ref>(<ref refid="_program_8cs_1ad785a2de7179b45f738eac5cf238c5f7" kindref="member">repositoriesFactory</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" line="11" column="17" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_program_8cs_1a7b225fcb720e4d5ed2bbf60e28a25e6d" prot="public" static="no" mutable="no">
+        <type>var</type>
+        <definition>var app</definition>
+        <argsstring></argsstring>
+        <name>app</name>
+        <initializer>= builder.Build()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" line="71" column="5" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" bodystart="71" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="_program_8cs_1a30604ac09ff8a43cd80938b50d616c06" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>repositoriesFactory.</type>
+        <definition>repositoriesFactory. SetupRepositories</definition>
+        <argsstring>()</argsstring>
+        <name>SetupRepositories</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" line="9" column="20" declfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" declline="9" declcolumn="20"/>
+      </memberdef>
+      <memberdef kind="function" id="_program_8cs_1af0a4e6d5c74758033f371240828414f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>servicesFactory.</type>
+        <definition>servicesFactory. SetupServices</definition>
+        <argsstring>()</argsstring>
+        <name>SetupServices</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" line="12" column="16" declfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" declline="12" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="_program_8cs_1adcee9e6d310bd3718ae81ca110d4c625" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>builder.Services.</type>
+        <definition>builder.Services. AddScoped</definition>
+        <argsstring>(sp=&gt; { return servicesFactory.BrandService;})</argsstring>
+        <name>AddScoped</name>
+        <param>
+          <type>sp</type>
+        </param>
+        <param>
+          <type>{ return servicesFactory.BrandService;}</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" line="14" column="16" declfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" declline="14" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="_program_8cs_1a5546c81b4cc62523a4e449a3ba84604d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>builder.Services.</type>
+        <definition>builder.Services. AddScoped</definition>
+        <argsstring>(sp=&gt; { return servicesFactory.ColourService;})</argsstring>
+        <name>AddScoped</name>
+        <param>
+          <type>sp</type>
+        </param>
+        <param>
+          <type>{ return servicesFactory.ColourService;}</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" line="19" column="16" declfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" declline="19" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="_program_8cs_1a5616f998a1ff4c1751d624f993ca0a5b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>builder.Services.</type>
+        <definition>builder.Services. AddScoped</definition>
+        <argsstring>(sp=&gt; { return servicesFactory.CategoryService;})</argsstring>
+        <name>AddScoped</name>
+        <param>
+          <type>sp</type>
+        </param>
+        <param>
+          <type>{ return servicesFactory.CategoryService;}</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" line="24" column="16" declfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" declline="24" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="_program_8cs_1a03a9b6a56de72de8fbecca9e303ca9b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>builder.Services.</type>
+        <definition>builder.Services. AddScoped</definition>
+        <argsstring>(sp=&gt; { return servicesFactory.ProductService;})</argsstring>
+        <name>AddScoped</name>
+        <param>
+          <type>sp</type>
+        </param>
+        <param>
+          <type>{ return servicesFactory.ProductService;}</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" line="29" column="16" declfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" declline="29" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="_program_8cs_1aee788d455b29edfe12692ffb6dde9c03" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>builder.Services.</type>
+        <definition>builder.Services. AddScoped</definition>
+        <argsstring>(sp=&gt; { return servicesFactory.UserService;})</argsstring>
+        <name>AddScoped</name>
+        <param>
+          <type>sp</type>
+        </param>
+        <param>
+          <type>{ return servicesFactory.UserService;}</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" line="34" column="16" declfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" declline="34" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="_program_8cs_1ab4de5b71cf181a2f820cbe807dcac1a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>builder.Services.</type>
+        <definition>builder.Services. AddScoped</definition>
+        <argsstring>(sp=&gt; { return servicesFactory.PurchaseService;})</argsstring>
+        <name>AddScoped</name>
+        <param>
+          <type>sp</type>
+        </param>
+        <param>
+          <type>{ return servicesFactory.PurchaseService;}</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" line="39" column="16" declfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" declline="39" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="_program_8cs_1aa9631b18cac5d0c5bd5462864e8b3d60" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>builder.Services.</type>
+        <definition>builder.Services. AddScoped</definition>
+        <argsstring>(sp=&gt; { return servicesFactory.PromoService;})</argsstring>
+        <name>AddScoped</name>
+        <param>
+          <type>sp</type>
+        </param>
+        <param>
+          <type>{ return servicesFactory.PromoService;}</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" line="44" column="16" declfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" declline="44" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="_program_8cs_1af2faf479e08bdd7dfce0af030e013a89" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>builder.Services.</type>
+        <definition>builder.Services. AddScoped</definition>
+        <argsstring>(sp=&gt; { return new AuthenticationFilter(repositoriesFactory.UserRepository);})</argsstring>
+        <name>AddScoped</name>
+        <param>
+          <type>sp</type>
+        </param>
+        <param>
+          <type>{ return new <ref refid="class_rest___api_1_1_filters_1_1_authentication_filter" kindref="compound">AuthenticationFilter</ref>(repositoriesFactory.UserRepository);}</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" line="49" column="16" declfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" declline="49" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="_program_8cs_1ac1ae0196ee8a292927db047ad8cdabf0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>builder.Services.</type>
+        <definition>builder.Services. AddScoped</definition>
+        <argsstring>(sp=&gt; { return new AuthorizationFilter(repositoriesFactory.UserRepository);})</argsstring>
+        <name>AddScoped</name>
+        <param>
+          <type>sp</type>
+        </param>
+        <param>
+          <type>{ return new <ref refid="class_rest___api_1_1_filters_1_1_authorization_filter" kindref="compound">AuthorizationFilter</ref>(repositoriesFactory.UserRepository);}</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" line="55" column="16" declfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" declline="55" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="_program_8cs_1ab7086e5c286ea7facb0c1a003773f26f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>builder.Services.</type>
+        <definition>builder.Services. AddScoped</definition>
+        <argsstring>(sp=&gt; { return new ExceptionFilter();})</argsstring>
+        <name>AddScoped</name>
+        <param>
+          <type>sp</type>
+        </param>
+        <param>
+          <type>{ return new <ref refid="class_rest___api_1_1_filters_1_1_exception_filter" kindref="compound">ExceptionFilter</ref>();}</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" line="59" column="16" declfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" declline="59" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="_program_8cs_1abc3694a0e15618f2499e5a540264f833" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>builder.Services.</type>
+        <definition>builder.Services. AddControllers</definition>
+        <argsstring>()</argsstring>
+        <name>AddControllers</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" line="65" column="16" declfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" declline="65" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="_program_8cs_1a0d7859f9cad50e8e9fdf015100780e07" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>builder.Services.</type>
+        <definition>builder.Services. AddEndpointsApiExplorer</definition>
+        <argsstring>()</argsstring>
+        <name>AddEndpointsApiExplorer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" line="67" column="16" declfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" declline="67" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="_program_8cs_1ae0ce43c019a5621d731d0c622c793644" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>builder.Services.</type>
+        <definition>builder.Services. AddSwaggerGen</definition>
+        <argsstring>()</argsstring>
+        <name>AddSwaggerGen</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" line="68" column="16" declfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" declline="68" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="_program_8cs_1a79a944c7f0e25196ca3c5a8638b919b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>if</definition>
+        <argsstring>(app.Environment.IsDevelopment())</argsstring>
+        <name>if</name>
+        <param>
+          <type>app.Environment.</type>
+          <declname>IsDevelopment</declname>
+          <array>()</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" line="74" column="1" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" bodystart="74" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="_program_8cs_1aa4d447fc3129a3aa301d736b8bd04ae9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>app.</type>
+        <definition>app. UseHttpsRedirection</definition>
+        <argsstring>()</argsstring>
+        <name>UseHttpsRedirection</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" line="80" column="4" declfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" declline="80" declcolumn="4"/>
+      </memberdef>
+      <memberdef kind="function" id="_program_8cs_1af6f72d752b2e73aa0292f74bd13237ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>app.</type>
+        <definition>app. UseAuthorization</definition>
+        <argsstring>()</argsstring>
+        <name>UseAuthorization</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" line="82" column="4" declfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" declline="82" declcolumn="4"/>
+      </memberdef>
+      <memberdef kind="function" id="_program_8cs_1a9e2ee3170aa6279b68eefd1651f7d96c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>app.</type>
+        <definition>app. MapControllers</definition>
+        <argsstring>()</argsstring>
+        <name>MapControllers</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" line="84" column="4" declfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" declline="84" declcolumn="4"/>
+      </memberdef>
+      <memberdef kind="function" id="_program_8cs_1aaa3dbf02e269c3ef7e8546d290c6b3dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>app.</type>
+        <definition>app. Run</definition>
+        <argsstring>()</argsstring>
+        <name>Run</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" line="86" column="4" declfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs" declline="86" declcolumn="4"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_factory" kindref="compound">Factory</ref>;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_rest___api_1_1_filters" kindref="compound">Rest_Api.Filters</ref>;</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_services" kindref="compound">Services</ref>;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_services_1_1_interfaces" kindref="compound">Services.Interfaces</ref>;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_services_1_1_models" kindref="compound">Services.Models</ref>;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal">var<sp/><ref refid="_program_8cs_1a2f78352277081c620fd4cf92a5ce15e5" kindref="member">builder</ref><sp/>=<sp/>WebApplication.CreateBuilder(args);</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><ref refid="class_factory_1_1_repositories_factory" kindref="compound">RepositoriesFactory</ref><sp/><ref refid="_program_8cs_1ad785a2de7179b45f738eac5cf238c5f7" kindref="member">repositoriesFactory</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_factory_1_1_repositories_factory" kindref="compound">RepositoriesFactory</ref>();</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><ref refid="_program_8cs_1ad785a2de7179b45f738eac5cf238c5f7" kindref="member">repositoriesFactory</ref>.<ref refid="class_factory_1_1_repositories_factory_1ad6fc4bf5b79178c1790c7184f3ae42ac" kindref="member">SetupRepositories</ref>();</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><ref refid="class_factory_1_1_services_factory" kindref="compound">ServicesFactory</ref><sp/><ref refid="_program_8cs_1af33012606c72d02bd0aa73271cf7842b" kindref="member">servicesFactory</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_factory_1_1_services_factory" kindref="compound">ServicesFactory</ref>(<ref refid="_program_8cs_1ad785a2de7179b45f738eac5cf238c5f7" kindref="member">repositoriesFactory</ref>);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><ref refid="_program_8cs_1af33012606c72d02bd0aa73271cf7842b" kindref="member">servicesFactory</ref>.<ref refid="class_factory_1_1_services_factory_1a4133135a0a3737312d0db50c97ac4c3c" kindref="member">SetupServices</ref>();</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><ref refid="_program_8cs_1a2f78352277081c620fd4cf92a5ce15e5" kindref="member">builder</ref>.Services.AddScoped(sp<sp/>=&gt;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="_program_8cs_1af33012606c72d02bd0aa73271cf7842b" kindref="member">servicesFactory</ref>.<ref refid="class_factory_1_1_services_factory_1a7e0f0f80db12732a7e69d986351b6839" kindref="member">BrandService</ref>;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">});</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><ref refid="_program_8cs_1a2f78352277081c620fd4cf92a5ce15e5" kindref="member">builder</ref>.Services.AddScoped(sp<sp/>=&gt;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="_program_8cs_1af33012606c72d02bd0aa73271cf7842b" kindref="member">servicesFactory</ref>.<ref refid="class_factory_1_1_services_factory_1a04d9e0aae1459bd5475ee19fba523916" kindref="member">ColourService</ref>;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">});</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><ref refid="_program_8cs_1a2f78352277081c620fd4cf92a5ce15e5" kindref="member">builder</ref>.Services.AddScoped(sp<sp/>=&gt;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="_program_8cs_1af33012606c72d02bd0aa73271cf7842b" kindref="member">servicesFactory</ref>.<ref refid="class_factory_1_1_services_factory_1a8a342ef4fdf4e0c00cd7d1b60bab7b4e" kindref="member">CategoryService</ref>;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">});</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><ref refid="_program_8cs_1a2f78352277081c620fd4cf92a5ce15e5" kindref="member">builder</ref>.Services.AddScoped(sp<sp/>=&gt;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="_program_8cs_1af33012606c72d02bd0aa73271cf7842b" kindref="member">servicesFactory</ref>.<ref refid="class_factory_1_1_services_factory_1ad7f8a4b563bcfe405599f36268b2412f" kindref="member">ProductService</ref>;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">});</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><ref refid="_program_8cs_1a2f78352277081c620fd4cf92a5ce15e5" kindref="member">builder</ref>.Services.AddScoped(sp<sp/>=&gt;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="_program_8cs_1af33012606c72d02bd0aa73271cf7842b" kindref="member">servicesFactory</ref>.<ref refid="class_factory_1_1_services_factory_1a697990796649b6124d18d4d05150b7b1" kindref="member">UserService</ref>;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">});</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><ref refid="_program_8cs_1a2f78352277081c620fd4cf92a5ce15e5" kindref="member">builder</ref>.Services.AddScoped(sp<sp/>=&gt;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal">{<sp/></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="_program_8cs_1af33012606c72d02bd0aa73271cf7842b" kindref="member">servicesFactory</ref>.<ref refid="class_factory_1_1_services_factory_1aa5ee5efef20762b0bdeae35da0075cec" kindref="member">PurchaseService</ref>;<sp/></highlight></codeline>
+<codeline lineno="42"><highlight class="normal">});</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><ref refid="_program_8cs_1a2f78352277081c620fd4cf92a5ce15e5" kindref="member">builder</ref>.Services.AddScoped(sp<sp/>=&gt;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="_program_8cs_1af33012606c72d02bd0aa73271cf7842b" kindref="member">servicesFactory</ref>.<ref refid="class_factory_1_1_services_factory_1a43c99348811343489a4db20185b31a2f" kindref="member">PromoService</ref>;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">});</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><ref refid="_program_8cs_1a2f78352277081c620fd4cf92a5ce15e5" kindref="member">builder</ref>.Services.AddScoped(sp<sp/>=&gt;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_rest___api_1_1_filters_1_1_authentication_filter" kindref="compound">AuthenticationFilter</ref>(<ref refid="_program_8cs_1ad785a2de7179b45f738eac5cf238c5f7" kindref="member">repositoriesFactory</ref>.<ref refid="class_factory_1_1_repositories_factory_1a6cb292ead785f41942514f8627a1b0f7" kindref="member">UserRepository</ref>);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal">});</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><ref refid="_program_8cs_1a2f78352277081c620fd4cf92a5ce15e5" kindref="member">builder</ref>.Services.AddScoped(sp<sp/>=&gt;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_rest___api_1_1_filters_1_1_authorization_filter" kindref="compound">AuthorizationFilter</ref>(<ref refid="_program_8cs_1ad785a2de7179b45f738eac5cf238c5f7" kindref="member">repositoriesFactory</ref>.<ref refid="class_factory_1_1_repositories_factory_1a6cb292ead785f41942514f8627a1b0f7" kindref="member">UserRepository</ref>);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal">});</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><ref refid="_program_8cs_1a2f78352277081c620fd4cf92a5ce15e5" kindref="member">builder</ref>.Services.AddScoped(sp<sp/>=&gt;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_rest___api_1_1_filters_1_1_exception_filter" kindref="compound">ExceptionFilter</ref>();</highlight></codeline>
+<codeline lineno="62"><highlight class="normal">});</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><ref refid="_program_8cs_1a2f78352277081c620fd4cf92a5ce15e5" kindref="member">builder</ref>.Services.AddControllers();</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Learn<sp/>more<sp/>about<sp/>configuring<sp/>Swagger/OpenAPI<sp/>at<sp/>https://aka.ms/aspnetcore/swashbuckle</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><ref refid="_program_8cs_1a2f78352277081c620fd4cf92a5ce15e5" kindref="member">builder</ref>.Services.AddEndpointsApiExplorer();</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><ref refid="_program_8cs_1a2f78352277081c620fd4cf92a5ce15e5" kindref="member">builder</ref>.Services.AddSwaggerGen();</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal">var<sp/><ref refid="_program_8cs_1a7b225fcb720e4d5ed2bbf60e28a25e6d" kindref="member">app</ref><sp/>=<sp/><ref refid="_program_8cs_1a2f78352277081c620fd4cf92a5ce15e5" kindref="member">builder</ref>.Build();</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Configure<sp/>the<sp/>HTTP<sp/>request<sp/>pipeline.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_program_8cs_1a7b225fcb720e4d5ed2bbf60e28a25e6d" kindref="member">app</ref>.Environment.IsDevelopment())</highlight></codeline>
+<codeline lineno="75"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_program_8cs_1a7b225fcb720e4d5ed2bbf60e28a25e6d" kindref="member">app</ref>.UseSwagger();</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_program_8cs_1a7b225fcb720e4d5ed2bbf60e28a25e6d" kindref="member">app</ref>.UseSwaggerUI();</highlight></codeline>
+<codeline lineno="78"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><ref refid="_program_8cs_1a7b225fcb720e4d5ed2bbf60e28a25e6d" kindref="member">app</ref>.UseHttpsRedirection();</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><ref refid="_program_8cs_1a7b225fcb720e4d5ed2bbf60e28a25e6d" kindref="member">app</ref>.UseAuthorization();</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><ref refid="_program_8cs_1a7b225fcb720e4d5ed2bbf60e28a25e6d" kindref="member">app</ref>.MapControllers();</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><ref refid="_program_8cs_1a7b225fcb720e4d5ed2bbf60e28a25e6d" kindref="member">app</ref>.Run();</highlight></codeline>
+    </programlisting>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Program.cs"/>
+  </compounddef>
+</doxygen>

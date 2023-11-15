@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_d6087e2e3fc78aec4cc8668c16e03938" kind="dir">
+    <compoundname>C:/Diseño 2/266628-255981-271568/Codigo/POS</compoundname>
+    <innerdir refid="dir_a7d989c4bca3c4a4e33c46628235d5e1">C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests</innerdir>
+    <innerdir refid="dir_d5026c4dfb082243080af2adef62aef0">C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccess</innerdir>
+    <innerdir refid="dir_2c6f16e206338498974acc71b9864e1f">C:/Diseño 2/266628-255981-271568/Codigo/POS/DataAccessTest</innerdir>
+    <innerdir refid="dir_b8d19d26d268c4ec5784d74d8a9de39a">C:/Diseño 2/266628-255981-271568/Codigo/POS/EFTests</innerdir>
+    <innerdir refid="dir_e78e69596eb7f1c6725d23bb623646a1">C:/Diseño 2/266628-255981-271568/Codigo/POS/Factory</innerdir>
+    <innerdir refid="dir_74521916ace7c246b56ffd1a864e2077">C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api</innerdir>
+    <innerdir refid="dir_66292ca6a43843346936f13fdb045c30">C:/Diseño 2/266628-255981-271568/Codigo/POS/ServiceInterfaces</innerdir>
+    <innerdir refid="dir_54c168639948956881667aeb99e7ddff">C:/Diseño 2/266628-255981-271568/Codigo/POS/Services</innerdir>
+    <innerdir refid="dir_e0a12e054cb6ac606a04405b8f90d85b">C:/Diseño 2/266628-255981-271568/Codigo/POS/Unit Tests</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/"/>
+  </compounddef>
+</doxygen>

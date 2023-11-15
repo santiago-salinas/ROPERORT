@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespace_services_1_1_models" kind="namespace" language="C#">
+    <compoundname>Services::Models</compoundname>
+    <innerclass refid="class_services_1_1_models_1_1_bought_product" prot="public">Services::Models::BoughtProduct</innerclass>
+    <innerclass refid="class_services_1_1_models_1_1_brand" prot="public">Services::Models::Brand</innerclass>
+    <innerclass refid="class_services_1_1_models_1_1_cart" prot="public">Services::Models::Cart</innerclass>
+    <innerclass refid="class_services_1_1_models_1_1_cart_line" prot="public">Services::Models::CartLine</innerclass>
+    <innerclass refid="class_services_1_1_models_1_1_category" prot="public">Services::Models::Category</innerclass>
+    <innerclass refid="class_services_1_1_models_1_1_colour" prot="public">Services::Models::Colour</innerclass>
+    <innerclass refid="class_services_1_1_models_1_1_fidelity_promo" prot="public">Services::Models::FidelityPromo</innerclass>
+    <innerclass refid="class_services_1_1_models_1_1_product" prot="public">Services::Models::Product</innerclass>
+    <innerclass refid="class_services_1_1_models_1_1_promo" prot="public">Services::Models::Promo</innerclass>
+    <innerclass refid="class_services_1_1_models_1_1_purchase" prot="public">Services::Models::Purchase</innerclass>
+    <innerclass refid="class_services_1_1_models_1_1_role" prot="public">Services::Models::Role</innerclass>
+    <innerclass refid="class_services_1_1_models_1_1_three_for_two_promo" prot="public">Services::Models::ThreeForTwoPromo</innerclass>
+    <innerclass refid="class_services_1_1_models_1_1_total_look_promo" prot="public">Services::Models::TotalLookPromo</innerclass>
+    <innerclass refid="class_services_1_1_models_1_1_twenty_percent_off" prot="public">Services::Models::TwentyPercentOff</innerclass>
+    <innerclass refid="class_services_1_1_models_1_1_user" prot="public">Services::Models::User</innerclass>
+    <innernamespace refid="namespace_services_1_1_models_1_1_exceptions">Services::Models::Exceptions</innernamespace>
+    <innernamespace refid="namespace_services_1_1_models_1_1_promos">Services::Models::Promos</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Models/BoughtProduct.cs" line="1" column="1"/>
+  </compounddef>
+</doxygen>

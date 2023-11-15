@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespace_rest___api_1_1_models_1_1_promos" kind="namespace" language="C#">
+    <compoundname>Rest_Api::Models::Promos</compoundname>
+    <innerclass refid="class_rest___api_1_1_models_1_1_promos_1_1_fidelity_promo" prot="public">Rest_Api::Models::Promos::FidelityPromo</innerclass>
+    <innerclass refid="class_rest___api_1_1_models_1_1_promos_1_1_three_for_two_promo" prot="public">Rest_Api::Models::Promos::ThreeForTwoPromo</innerclass>
+    <innerclass refid="class_rest___api_1_1_models_1_1_promos_1_1_total_look_promo" prot="public">Rest_Api::Models::Promos::TotalLookPromo</innerclass>
+    <innerclass refid="class_rest___api_1_1_models_1_1_promos_1_1_twenty_percent_off" prot="public">Rest_Api::Models::Promos::TwentyPercentOff</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Rest Api/Models/Promos/FidelityPromo.cs" line="4" column="1"/>
+  </compounddef>
+</doxygen>

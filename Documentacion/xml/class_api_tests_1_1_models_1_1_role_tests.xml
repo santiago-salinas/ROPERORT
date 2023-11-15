@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_api_tests_1_1_models_1_1_role_tests" kind="class" language="C#" prot="public">
+    <compoundname>ApiTests::Models::RoleTests</compoundname>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_api_tests_1_1_models_1_1_role_tests_1aa16dce595e97bdcabfb826b416a766c8" prot="private" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string ApiTests.Models.RoleTests.Customer</definition>
+        <argsstring></argsstring>
+        <name>Customer</name>
+        <qualifiedname>ApiTests.Models.RoleTests.Customer</qualifiedname>
+        <initializer>= &quot;Customer&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/RoleTests.cs" line="9" column="30" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/RoleTests.cs" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_api_tests_1_1_models_1_1_role_tests_1ae9198441d4ca65202a993b9adb0ad630" prot="private" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string ApiTests.Models.RoleTests.Admin</definition>
+        <argsstring></argsstring>
+        <name>Admin</name>
+        <qualifiedname>ApiTests.Models.RoleTests.Admin</qualifiedname>
+        <initializer>= &quot;Admin&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/RoleTests.cs" line="10" column="30" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/RoleTests.cs" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_api_tests_1_1_models_1_1_role_tests_1a7229f8a729eb9bd4b07cc12f3e1a4aa8" prot="private" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string ApiTests.Models.RoleTests.InvalidRole</definition>
+        <argsstring></argsstring>
+        <name>InvalidRole</name>
+        <qualifiedname>ApiTests.Models.RoleTests.InvalidRole</qualifiedname>
+        <initializer>= &quot;prueba&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/RoleTests.cs" line="11" column="30" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/RoleTests.cs" bodystart="11" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_api_tests_1_1_models_1_1_role_tests_1ad8021ad4b521e4d9e94a03df74dae908" prot="private" static="no" mutable="no">
+        <type><ref refid="class_services_1_1_models_1_1_role" kindref="compound">Role</ref></type>
+        <definition>Role ApiTests.Models.RoleTests.someRole</definition>
+        <argsstring></argsstring>
+        <name>someRole</name>
+        <qualifiedname>ApiTests.Models.RoleTests.someRole</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/RoleTests.cs" line="13" column="22" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/RoleTests.cs" bodystart="13" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_api_tests_1_1_models_1_1_role_tests_1a8688c5c793c970f488454956c9c372b3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Models.RoleTests.TestInit</definition>
+        <argsstring>()</argsstring>
+        <name>TestInit</name>
+        <qualifiedname>ApiTests.Models.RoleTests.TestInit</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/RoleTests.cs" line="16" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/RoleTests.cs" bodystart="16" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_models_1_1_role_tests_1ab78c71942a1c861ea377d2355bc19757" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Models.RoleTests.CreateRoleSuccessTest</definition>
+        <argsstring>()</argsstring>
+        <name>CreateRoleSuccessTest</name>
+        <qualifiedname>ApiTests.Models.RoleTests.CreateRoleSuccessTest</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/RoleTests.cs" line="25" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/RoleTests.cs" bodystart="25" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_models_1_1_role_tests_1a4a3d720bb6fc10a85a3ccc1f574e505d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Models.RoleTests.EqualsWorksCorrectly</definition>
+        <argsstring>()</argsstring>
+        <name>EqualsWorksCorrectly</name>
+        <qualifiedname>ApiTests.Models.RoleTests.EqualsWorksCorrectly</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/RoleTests.cs" line="36" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/RoleTests.cs" bodystart="36" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_tests_1_1_models_1_1_role_tests_1a91173e993a8f08905c363424915cd8a7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ApiTests.Models.RoleTests.ThrowsExceptionWhenGivenInvalidRoleName</definition>
+        <argsstring>()</argsstring>
+        <name>ThrowsExceptionWhenGivenInvalidRoleName</name>
+        <qualifiedname>ApiTests.Models.RoleTests.ThrowsExceptionWhenGivenInvalidRoleName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/RoleTests.cs" line="52" column="21" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/RoleTests.cs" bodystart="52" bodyend="55"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/RoleTests.cs" line="7" column="11" bodyfile="C:/Diseño 2/266628-255981-271568/Codigo/POS/ApiTests/Models/RoleTests.cs" bodystart="8" bodyend="56"/>
+    <listofallmembers>
+      <member refid="class_api_tests_1_1_models_1_1_role_tests_1ae9198441d4ca65202a993b9adb0ad630" prot="private" virt="non-virtual"><scope>ApiTests::Models::RoleTests</scope><name>Admin</name></member>
+      <member refid="class_api_tests_1_1_models_1_1_role_tests_1ab78c71942a1c861ea377d2355bc19757" prot="public" virt="non-virtual"><scope>ApiTests::Models::RoleTests</scope><name>CreateRoleSuccessTest</name></member>
+      <member refid="class_api_tests_1_1_models_1_1_role_tests_1aa16dce595e97bdcabfb826b416a766c8" prot="private" virt="non-virtual"><scope>ApiTests::Models::RoleTests</scope><name>Customer</name></member>
+      <member refid="class_api_tests_1_1_models_1_1_role_tests_1a4a3d720bb6fc10a85a3ccc1f574e505d" prot="public" virt="non-virtual"><scope>ApiTests::Models::RoleTests</scope><name>EqualsWorksCorrectly</name></member>
+      <member refid="class_api_tests_1_1_models_1_1_role_tests_1a7229f8a729eb9bd4b07cc12f3e1a4aa8" prot="private" virt="non-virtual"><scope>ApiTests::Models::RoleTests</scope><name>InvalidRole</name></member>
+      <member refid="class_api_tests_1_1_models_1_1_role_tests_1ad8021ad4b521e4d9e94a03df74dae908" prot="private" virt="non-virtual"><scope>ApiTests::Models::RoleTests</scope><name>someRole</name></member>
+      <member refid="class_api_tests_1_1_models_1_1_role_tests_1a8688c5c793c970f488454956c9c372b3" prot="public" virt="non-virtual"><scope>ApiTests::Models::RoleTests</scope><name>TestInit</name></member>
+      <member refid="class_api_tests_1_1_models_1_1_role_tests_1a91173e993a8f08905c363424915cd8a7" prot="public" virt="non-virtual"><scope>ApiTests::Models::RoleTests</scope><name>ThrowsExceptionWhenGivenInvalidRoleName</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="_i_get_service_8cs" kind="file" language="C#">
+    <compoundname>IGetService.cs</compoundname>
+    <innerclass refid="interface_services_1_1_interfaces_1_1_i_get_service" prot="public">Services::Interfaces::IGetService</innerclass>
+    <innernamespace refid="namespace_services">Services</innernamespace>
+    <innernamespace refid="namespace_services_1_1_interfaces">Services::Interfaces</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_services_1_1_interfaces" kindref="compound">Services.Interfaces</ref></highlight></codeline>
+<codeline lineno="2"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3" refid="interface_services_1_1_interfaces_1_1_i_get_service" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interface_services_1_1_interfaces_1_1_i_get_service" kindref="compound">IGetService</ref>&lt;T&gt;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">abstract</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>List&lt;T&gt;<sp/><ref refid="interface_services_1_1_interfaces_1_1_i_get_service_1a3f5d76905ce81f7e26a6e1f3e1177597" kindref="member">GetAll</ref>();</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Interfaces/IGetService.cs"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespace_services_1_1_interfaces" kind="namespace" language="C#">
+    <compoundname>Services::Interfaces</compoundname>
+    <innerclass refid="interface_services_1_1_interfaces_1_1_i_c_r_u_d_repository" prot="public">Services::Interfaces::ICRUDRepository</innerclass>
+    <innerclass refid="interface_services_1_1_interfaces_1_1_i_c_r_u_d_service" prot="public">Services::Interfaces::ICRUDService</innerclass>
+    <innerclass refid="interface_services_1_1_interfaces_1_1_i_get_repository" prot="public">Services::Interfaces::IGetRepository</innerclass>
+    <innerclass refid="interface_services_1_1_interfaces_1_1_i_get_service" prot="public">Services::Interfaces::IGetService</innerclass>
+    <innerclass refid="interface_services_1_1_interfaces_1_1_i_product_service" prot="public">Services::Interfaces::IProductService</innerclass>
+    <innerclass refid="interface_services_1_1_interfaces_1_1_i_promo_service" prot="public">Services::Interfaces::IPromoService</innerclass>
+    <innerclass refid="interface_services_1_1_interfaces_1_1_i_purchase_service" prot="public">Services::Interfaces::IPurchaseService</innerclass>
+    <innerclass refid="interface_services_1_1_interfaces_1_1_i_user_service" prot="public">Services::Interfaces::IUserService</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Diseño 2/266628-255981-271568/Codigo/POS/Services/Interfaces/ICRUDRepository.cs" line="1" column="1"/>
+  </compounddef>
+</doxygen>
