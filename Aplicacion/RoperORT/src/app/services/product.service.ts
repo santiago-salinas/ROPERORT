@@ -47,6 +47,7 @@ export class ProductService {
   }
 
   async getProducts(): Promise<any> {
+    console.log(environment.baseUrl);
     return lastValueFrom(this.http.get(environment.baseUrl + 'product'));
   }
 
