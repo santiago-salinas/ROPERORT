@@ -5,6 +5,7 @@ import { Product } from '../models/product.model';
 import { throwError } from 'rxjs';
 import { catchError, last } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { environment } from '../../environments/environments.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -46,7 +47,7 @@ export class ProductService {
   }
 
   async getProducts(): Promise<any> {
-    return lastValueFrom(this.http.get('https://localhost:7207/product'));
+    return lastValueFrom(this.http.get(environment.baseUrl + 'product'));
   }
 
   async getFilteredProducts(name: string | null,
@@ -66,29 +67,29 @@ export class ProductService {
       if (excludedFromPromos !== null) params = params.set('excludedFromPromos', excludedFromPromos.toString());
 
       // Use the params in the request
-      return lastValueFrom(this.http.get('https://localhost:7207/product', {params: params} ));
+      return lastValueFrom(this.http.get(environment.baseUrl+ 'product', {params: params} ));
   }
 
   async getProduct(id: number): Promise<any> {
-    return lastValueFrom(this.http.get(`https://localhost:7207/product/${id}`));
+    return lastValueFrom(this.http.get(`${environment.baseUrl}product/${id}`));
 }
 
 
   async getColours(): Promise<any> {
-    return lastValueFrom(this.http.get('https://localhost:7207/colour'));
+    return lastValueFrom(this.http.get(environment.baseUrl+'colour'));
   }
 
   async getCategories(): Promise<any> {
-    return lastValueFrom(this.http.get('https://localhost:7207/category'));
+    return lastValueFrom(this.http.get(environment.baseUrl+'category'));
   }
 
   async getBrands(): Promise<any> {
-    return lastValueFrom(this.http.get('https://localhost:7207/brand'));
+    return lastValueFrom(this.http.get(environment.baseUrl+'brand'));
   }
 
   async createProduct(product: Product): Promise<any> {
     try {
-      const response = await lastValueFrom(this.http.post('https://localhost:7207/product', product, {
+      const response = await lastValueFrom(this.http.post(environment.baseUrl+'product', product, {
         headers: { auth: this.getToken() ?? "" },
       }));
 
@@ -103,7 +104,7 @@ export class ProductService {
 
   async updateProduct(product: Product): Promise<any> {
     try {
-      const response = await lastValueFrom(this.http.put('https://localhost:7207/product/' + product.id, product, {
+      const response = await lastValueFrom(this.http.put(environment.baseUrl+'product/' + product.id, product, {
         headers: { auth: this.getToken() ?? "" },
       }));
 
@@ -120,7 +121,7 @@ export class ProductService {
   }
 
   async deleteProduct(id: number): Promise<any> {
-    return lastValueFrom(this.http.delete('https://localhost:7207/product/'+id, {headers: {auth: this.getToken() || ""}}));
+    return lastValueFrom(this.http.delete(environment.baseUrl+'product/'+id, {headers: {auth: this.getToken() || ""}}));
   }
 
 
@@ -143,7 +144,7 @@ export class ProductService {
 
   async checkIfAdmin(): Promise<boolean>{
     try{
-      const response : any = await lastValueFrom(this.http.get('https://localhost:7207/user', { headers: { "auth": this.getToken() ?? "" } }));
+      const response : any = await lastValueFrom(this.http.get(environment.baseUrl+'user', { headers: { "auth": this.getToken() ?? "" } }));
       if(response.roles.some((item: { name: string; }) => item.name !== 'Admin')){
         this.showErrorToast("Not an admin");
         return false;

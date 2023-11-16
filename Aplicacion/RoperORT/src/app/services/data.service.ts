@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environments.prod';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +11,7 @@ export class LoginService {
   constructor(private http: HttpClient) {}
 
   logIn(email: string, password: string): Observable<any> {
-    return this.http.post('https://localhost:7207/login',
+    return this.http.post(environment.baseUrl+'login',
       {
         "email": email,
         "password": password
@@ -31,7 +32,7 @@ export class LoginService {
   }
 
   signUp(email: string, password: string, address: string): Observable<any> {
-    return this.http.post('https://localhost:7207/user',
+    return this.http.post(environment.baseUrl+'user',
       {
         "email": email,
         "password": password,
@@ -41,7 +42,7 @@ export class LoginService {
   }
 
   getUser(): Observable<any>{
-    return this.http.get('https://localhost:7207/user',
+    return this.http.get(environment.baseUrl+'user',
       {
         headers: { "Auth": this.getToken() || "" }
       }
@@ -49,7 +50,7 @@ export class LoginService {
   }
 
   updateUser(email: string, password: string, address: string): Observable<any>{
-    return this.http.put('https://localhost:7207/user',
+    return this.http.put(environment.baseUrl+'user',
     {
       "email": email,
       "password": password,
@@ -62,19 +63,19 @@ export class LoginService {
   }
 
   getAllUsers(): Observable<any>{
-    return this.http.get('https://localhost:7207/admin/users',
+    return this.http.get(environment.baseUrl+'admin/users',
     { headers: { "Auth": this.getToken() || "" } }
     )
   }
 
   deleteUserById(id: number): Observable<any>{
-    return this.http.delete('https://localhost:7207/admin/users/' + id,
+    return this.http.delete(environment.baseUrl+'admin/users/' + id,
     { headers: { "Auth": this.getToken() || "" } }
     )
   }
 
   createUser(email: string, password: string, address: string, roles: string[]): Observable<any>{
-    return this.http.post('https://localhost:7207/admin/users',
+    return this.http.post(environment.baseUrl+'admin/users',
     {
       "email": email,
       "password": password,
@@ -88,7 +89,7 @@ export class LoginService {
   }
 
   getUserById(id: string): Observable<any>{
-    return this.http.get('https://localhost:7207/admin/users/' + id,
+    return this.http.get(environment.baseUrl+'admin/users/' + id,
     {
       headers: { "Auth": this.getToken() || "" }
     })
@@ -96,7 +97,7 @@ export class LoginService {
 
   updateUserById(id: string, email: string, password: string, token: string, 
       address: string, roles: string[]): Observable<any>{
-    return this.http.put('https://localhost:7207/admin/users/' + id,
+    return this.http.put(environment.baseUrl+'admin/users/' + id,
     {
       "id": id,
       "email": email,
@@ -111,7 +112,7 @@ export class LoginService {
   }
 
   deleteUser(): Observable<any>{
-    return this.http.delete('https://localhost:7207/user',
+    return this.http.delete(environment.baseUrl+'user',
     {
       headers: { "Auth": this.getToken() || "" }
     }
