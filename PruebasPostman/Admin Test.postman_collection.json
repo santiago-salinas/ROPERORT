@@ -1,0 +1,316 @@
+{
+	"info": {
+		"_postman_id": "f7b9a691-c65b-4df8-a5e8-ee5f5f617329",
+		"name": "Admin Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29482729",
+		"_collection_link": "https://interstellar-meadow-336197.postman.co/workspace/DA2~3e0fef7c-0e1c-4e01-8e3c-ea653387c157/collection/29747122-f7b9a691-c65b-4df8-a5e8-ee5f5f617329?action=share&source=collection_link&creator=29482729"
+	},
+	"item": [
+		{
+			"name": "Get All Users 403 Forbidden",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "auth",
+						"value": "tokenharls@hotmail.comsecure",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:7207/admin/users",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"admin",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Users 200 OK",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Auth",
+						"value": "tokenbwayne@gmail.comsecure",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:7207/admin/users",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"admin",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Specific User 200 OK",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Auth",
+						"value": "tokenbwayne@gmail.comsecure",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:7207/admin/users/4",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"admin",
+						"users",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Non Existent User 404",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Auth",
+						"value": "tokenbwayne@gmail.comsecure",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:7207/admin/users/40",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"admin",
+						"users",
+						"40"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Any User",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Auth",
+						"value": "tokenbwayne@gmail.comsecure",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:7207/admin/users/4",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"admin",
+						"users",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Non Existent User",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Auth",
+						"value": "tokenadmin@gmail.comsecure",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:7207/admin/user/40",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"admin",
+						"user",
+						"40"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Auth",
+						"value": "tokenbwayne@gmail.comsecure",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"nuevoAdmin@gmail.com\",\r\n    \"address\": \"Cuareim 1451\",\r\n    \"password\": \"nuevo\",\r\n    \"roles\": [\r\n            {\r\n                \"name\": \"Admin\"\r\n            },\r\n            {\r\n                \"name\": \"Customer\"\r\n            }\r\n        ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7207/admin/users",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"admin",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Any User",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Auth",
+						"value": "tokenbwayne@gmail.comsecure",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": 3,\r\n        \"email\": \"clarkent@gmail.com\",\r\n        \"password\": \"superman2\",\r\n        \"token\": \"tokenclarkent@gmail.comsecure\",\r\n        \"address\": \"Metropolis\",\r\n        \"roles\": [\r\n            {\r\n                \"name\": \"Customer\"\r\n            },\r\n            {\r\n                \"name\": \"Admin\"\r\n            }\r\n        ]\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7207/admin/users/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"admin",
+						"users",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Any User EMAIL ALREADY IN USE",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Auth",
+						"value": "tokenbwayne@gmail.comsecure",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": 2,\r\n        \"email\": \"bwayne@gmail.com\",\r\n        \"password\": \"superman\",\r\n        \"token\": \"tokenclarkent@gmail.comsecure\",\r\n        \"address\": \"Metropolis\",\r\n        \"roles\": [\r\n            {\r\n                \"name\": \"Customer\"\r\n            },\r\n            {\r\n                \"name\": \"Admin\"\r\n            }\r\n        ]\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7207/admin/users/2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"admin",
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAll Purchases",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Auth",
+						"value": "tokenbwayne@gmail.comsecure",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7207/admin/Purchases",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"admin",
+						"Purchases"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

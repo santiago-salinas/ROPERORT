@@ -1,4 +1,5 @@
-﻿using Services.Models;
+﻿using Services.Interfaces;
+using Services.Models;
 
 namespace ApiTests.Promos
 {

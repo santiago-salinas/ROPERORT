@@ -1,0 +1,8 @@
+<div class="button">
+  <button mat-raised-button color="primary" (click)="createDialog()">Crear Nuevo Producto</button>
+</div>
+<app-product-admin-card
+  *ngFor="let product of productList; let i = index"
+  [productDetails]="product"
+>
+</app-product-admin-card>

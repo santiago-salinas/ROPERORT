@@ -1,0 +1,27 @@
+<button
+    mat-flat-button
+    color="primary"
+    (click)="addUser()"
+    >
+    <mat-icon>add</mat-icon> Agregar Usuario
+</button>
+<button
+    mat-flat-button
+    color="primary"
+    (click)="viewPurchases()"
+    >
+    Ver todas las compras
+</button>
+<button
+    mat-flat-button
+    color="primary"
+    (click)="manageProducts()"
+    >
+    Administrar Productos
+</button>
+<br>
+<app-user-card
+  *ngFor="let user of userList; let i = index"
+  [userDetails]="user"
+>
+</app-user-card>

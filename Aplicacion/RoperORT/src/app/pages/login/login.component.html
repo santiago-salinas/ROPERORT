@@ -1,0 +1,23 @@
+<mat-form-field
+  *ngIf='loggedIn==false'>
+  <mat-label>Email</mat-label>
+  <input [(ngModel)]="email" matInput name="email" />
+</mat-form-field>
+<br />
+<mat-form-field
+  *ngIf='loggedIn==false'>
+  <mat-label>Contraseña</mat-label>
+  <input [(ngModel)]="password" type="password" matInput id="password" />
+</mat-form-field>
+<br />
+<button mat-flat-button color="primary" (click)="logIn()"
+  *ngIf='loggedIn==false'>
+  Iniciar Sesión
+</button>
+<button mat-flat-button color="primary" (click)="signUp()" id="signUp"
+  *ngIf='loggedIn==false'>
+  Registrarse
+</button>
+<a *ngIf='loggedIn==true'>
+  {{email}}
+</a>

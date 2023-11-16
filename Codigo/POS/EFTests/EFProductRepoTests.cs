@@ -4,6 +4,7 @@ using DataAccess.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Services.Models;
 using Services.Exceptions;
+using Services.Interfaces;
 
 namespace EFTests
 
@@ -162,7 +163,7 @@ namespace EFTests
             _context.ProductEntities.AddRange(_testProduct1, _testProduct2);
             _context.SaveChanges();
 
-            return _testProduct1.Id;
+            return (int)_testProduct1.Id;
         }
     }
 }

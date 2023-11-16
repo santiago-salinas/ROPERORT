@@ -1,11 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Rest_Api.DTOs;
 using Services.Interfaces;
 using Services.Models;
-using Services.Models.Promos;
+using Services.Exceptions;
 using Services;
 using Rest_Api.Filters;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Services.Models.Exceptions;
+using Services.Models.PaymentMethods;
+using Services.Exceptions;
 
 namespace Rest_Api.Controllers;
 
@@ -42,11 +45,20 @@ public class CartController : ControllerBase
         Cart cart = new Cart();
         try
         {
-            cart = CartDTOtoObject(cartDto);
+            cart = CartDTOtoObject(cartDto, false);
             cart = ApplyPromoToCart(cart);
+
+            if(ProductQuantitiesWereModified(cartDto.Products, cart.Products))
+            {
+                return new ObjectResult(cart)
+                {
+                    StatusCode = 420
+                };
+            }
+
             return CreatedAtAction(nameof(Create), cart.DiscountedPriceUYU, cart);
         }
-        catch (Exception e)
+        catch (Models_ArgumentException e)
         {
             return BadRequest(e.Message);
         }
@@ -71,13 +83,19 @@ public class CartController : ControllerBase
             return BadRequest("Empty Cart");
         }
 
+        if(cartDto.PaymentMethod == null || cartDto.PaymentId == null)
+        {
+            return BadRequest("Invalid payment method");
+        }
+
         Cart cart = new Cart();
+
         try
         {
-            cart = CartDTOtoObject(cartDto);
+            cart = CartDTOtoObject(cartDto,true);
             cart = ApplyPromoToCart(cart);
         }
-        catch (Exception e)
+        catch (Models_ArgumentException e)
         {
             return BadRequest(e.Message);
         }
@@ -86,10 +104,13 @@ public class CartController : ControllerBase
         {
             Cart = cart,
             User = user,
-            Date = DateTime.Now,            
+            Date = DateTime.Now,  
+            PaymentMethod = (PaymentMethod)cart.PaymentMethod,
         };
 
+        ModifyProductStock(purchase.Cart.Products);
         _purchaseService.Add(purchase);
+
         return Ok();
     }
 
@@ -97,17 +118,19 @@ public class CartController : ControllerBase
     [NonAction]
     private Cart ApplyPromoToCart(Cart cart)
     {
-        List<Promo> promos = _promoService.GetAll();
+        List<IPromo> promos = _promoService.GetAll();
 
         PromoApplier promoApplier = new PromoApplier(promos);
 
         Cart result = promoApplier.Apply(cart);
 
+        result.CalculateDiscountedPrice();
+
         return result;
     }
 
     [NonAction]
-    private Cart CartDTOtoObject(CartDTO cartDto)
+    private Cart CartDTOtoObject(CartDTO cartDto, bool isBuying)
     {
         Cart ret = new Cart();
 
@@ -118,13 +141,85 @@ public class CartController : ControllerBase
             newline.Product = _productService.Get(line.Id);
             if (newline.Product == null)
             {
-                throw new ArgumentException("Product id was not found");
+                throw new Models_ArgumentException("Product id was not found");
             }
-            newline.Quantity = line.Quantity;
+
+            if (newline.Product.Stock >= line.Quantity)
+            {
+                newline.Quantity = line.Quantity;
+            }
+            else
+            {
+                if (isBuying)
+                {
+                    throw new Models_ArgumentException("Not enough stock available to purchase " + newline.Product.Name);
+                }
+
+                newline.Quantity = newline.Product.Stock;
+            }
 
             ret.Products.Add(newline);
         }
 
+        var paying = CreateMethod(cartDto);
+        ret.PaymentMethod = paying;
+
         return ret;
+    }
+
+    [NonAction]
+    private void ModifyProductStock(List<CartLine> cartLines)
+    {
+        foreach(CartLine line in cartLines)
+        {
+            Product newStock = line.Product;
+            newStock.Stock -= line.Quantity;
+            _productService.Update(newStock);
+        }
+    }
+
+    [NonAction]
+    private bool ProductQuantitiesWereModified(List<CartLineDTO> cartLineDTOs, List<CartLine> cartLines)
+    {
+        foreach(CartLineDTO line in cartLineDTOs)
+        {
+            CartLine respectiveCartline = (CartLine)cartLines.Find(c => c.Product.Id == line.Id);
+            if(respectiveCartline.Quantity != line.Quantity)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+    
+    [NonAction]
+    private PaymentMethod CreateMethod(CartDTO cart)
+    {
+        if (cart.PaymentMethod == null)
+            return null;
+        switch (cart.PaymentMethod.ToUpper())
+        {
+            case "PAGANZA":
+                return new Paganza() { Id = cart.PaymentId, };
+            case "PAYPAL":
+                return new Paypal() { Id = cart.PaymentId, };
+            case "DEBIT":
+                return new Debit()
+                {
+                    Id = cart.PaymentId,
+                    Bank = cart.Bank,
+                };
+            case "CREDITCARD":
+                return new CreditCard()
+                {
+                    Id = cart.PaymentId,
+                    Company = cart.Company,
+                };
+            case "":
+                return null;
+            default:
+                throw new DatabaseException("Not supported payment method");
+        }
     }
 }

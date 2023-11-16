@@ -1,15 +1,25 @@
-﻿
+﻿using Services.Interfaces;
+
 namespace Services.Models
 {
-    public class TotalLookPromo : Promo
+    public class TotalLookPromo : IPromo
     {
         private const int _minimumApplicableSameColour = 3;
         private const int _zero = 0;
         private const double _discountPercentage = 0.5;
 
-        public TotalLookPromo() : base("Total look", "Having at least three products of the same color", "50% OFF most expensive product") { }
+        public string Name { get; set; }
+        public string Condition { get; set; }
+        public string Discount {  get; set; }
 
-        public override double ApplyDiscount(Cart cart)
+        public TotalLookPromo()
+        {
+            Name = "Total look";
+            Condition = "Having at least three products of the same color";
+            Discount = "50% OFF most expensive product";
+        }
+
+        public double ApplyDiscount(Cart cart)
         {
             if (cart is null || cart.Products.Count == _zero) { return _zero; }
 

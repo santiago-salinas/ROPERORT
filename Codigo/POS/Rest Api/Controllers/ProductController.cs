@@ -5,6 +5,7 @@ using Services.Interfaces;
 using Services.Models;
 using Rest_Api.Filters;
 using Services.Models.Exceptions;
+using Services.Models.DTOs;
 
 namespace Rest_Api.Controllers;
 
@@ -18,9 +19,26 @@ public class ProductController : ControllerBase
     public ProductController(IProductService productService)
     { _productService = productService; }
 
-    // GET all action
+
     [HttpGet]
-    public ActionResult<List<Product>> GetAll() => _productService.GetAll();
+    public ActionResult<List<Product>> GetAll
+        ([FromQuery] ProductFilterDTO filters)
+    {
+        if (!CheckFiltersAreNull(filters))
+        {
+            return _productService.GetFiltered(filters);
+        }
+        else
+        {
+            return _productService.GetAll();
+        }
+    }
+
+    private bool CheckFiltersAreNull(ProductFilterDTO filters)
+    {
+        var properties = typeof(ProductFilterDTO).GetProperties();
+        return properties.All(property => property.GetValue(filters) == null);
+    }
 
     // GET by Id action
     [HttpGet("{id}")]
@@ -87,14 +105,6 @@ public class ProductController : ControllerBase
 
         _productService.Delete(id);
         return Ok();
-    }
-
-    [HttpGet("filtered")]
-    public ActionResult<List<Product>> GetFiltered([FromQuery] string? category = null, [FromQuery] string? brand = null, [FromQuery] string? name = null)
-    {
-        Category? categoryFilter = category != null ? new Category(category) : null;
-        Brand? brandFilter = brand != null ? new Brand(brand) : null;
-        return _productService.GetFiltered(categoryFilter, brandFilter, name);
     }
 
 }

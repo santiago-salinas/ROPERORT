@@ -1,0 +1,29 @@
+<mat-card class="user-card">
+    <mat-card-header>
+      <mat-card-title>{{ userDetails.email }}</mat-card-title>
+      <mat-card-subtitle> {{ getRoles() }} </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{ userDetails.address }}</p>
+    </mat-card-content>
+    <mat-card-actions class="card-actions">
+      <div class="edit-button">
+        <button
+          mat-flat-button
+          color="primary"
+          (click)="editUser()"
+        >
+          <mat-icon>edit</mat-icon> Editar Usuario
+        </button>
+      </div>
+      <div class="delete-button">
+        <button
+          mat-stroked-button
+          color="secondary"
+          (click)="deleteUser()"
+        >
+          <mat-icon>delete</mat-icon> Borrar Usuario
+        </button>
+      </div>
+    </mat-card-actions>
+  </mat-card>

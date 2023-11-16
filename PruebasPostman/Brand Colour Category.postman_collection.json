@@ -1,0 +1,68 @@
+{
+	"info": {
+		"_postman_id": "42e45150-072c-469d-b8f6-87e1d19283d3",
+		"name": "Brand Colour Category",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29482729",
+		"_collection_link": "https://interstellar-meadow-336197.postman.co/workspace/DA2~3e0fef7c-0e1c-4e01-8e3c-ea653387c157/collection/29482729-42e45150-072c-469d-b8f6-87e1d19283d3?action=share&source=collection_link&creator=29482729"
+	},
+	"item": [
+		{
+			"name": "Brand",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7207/brand",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"brand"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Colour",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7207/colour",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"colour"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Category",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7207/category",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"category"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

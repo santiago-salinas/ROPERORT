@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Services.Interfaces;
 using Services.Models;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -9,15 +10,16 @@ namespace DataAccess.Entities
     public class ProductEntity
     {
         [Key]
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string Name { get; set; }
         public double Price { get; set; }
         public string Description { get; set; }
+        public bool Exclude { get; set; }
+
         public BrandEntity Brand { get; set; }
         public CategoryEntity Category { get; set; }
-
+        public int Stock { get; set; }
         public IList<ProductColors> Colours { get; set; }
-
 
         public ProductEntity() { Colours = new List<ProductColors>(); }
         public static ProductEntity FromModel(Product product, EFContext context)
@@ -33,9 +35,11 @@ namespace DataAccess.Entities
                 Description = product.Description,
                 Brand = brand,
                 Category = category,
+                Exclude = product.Exclude,
+                Stock = product.Stock
             };
 
-            retValue.Colours = product.Colours.Select(c => new ProductColors(retValue, c, context)).ToList();
+            retValue.Colours = product.Colours.Select(c => new ProductColors(retValue, c as Colour, context)).ToList();
 
             return retValue;
         }
@@ -44,13 +48,15 @@ namespace DataAccess.Entities
         {
             return new Product
             {
-                Id = entity.Id,
+                Id = (int)entity.Id,
                 Name = entity.Name,
                 PriceUYU = entity.Price,
                 Description = entity.Description,
                 Brand = BrandEntity.FromEntity(entity.Brand),
                 Category = CategoryEntity.FromEntity(entity.Category),
-                Colours = entity.Colours.Select(c => ColourEntity.FromEntity(c.Colour)).ToList(),
+                Colours = entity.Colours.Select(c => ColourEntity.FromEntity(c.Colour) as Colour).ToList(),
+                Exclude = entity.Exclude,
+                Stock = entity.Stock
             };
         }
     }

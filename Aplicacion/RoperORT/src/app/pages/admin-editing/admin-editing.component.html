@@ -1,0 +1,22 @@
+<mat-form-field>
+    <mat-label>Email</mat-label>
+    <input [(ngModel)]="email" matInput/>
+</mat-form-field>
+<br />
+<mat-form-field>
+    <mat-label>Contraseña</mat-label>
+    <input [(ngModel)]="password" matInput/>
+</mat-form-field>
+<br />
+<mat-form-field>
+    <mat-label>Dirección</mat-label>
+    <input [(ngModel)]="address" matInput/>
+</mat-form-field>
+<br>
+<h1>Roles</h1>
+<mat-checkbox [(ngModel)]="admin"> Admin </mat-checkbox>
+<mat-checkbox [(ngModel)]="customer"> Customer </mat-checkbox>
+<br/><br/>
+<button mat-flat-button color="primary" (click)="update()">
+  Modificar Usuario
+</button>

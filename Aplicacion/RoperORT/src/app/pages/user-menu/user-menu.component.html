@@ -1,0 +1,22 @@
+<h1>Bienvenido, {{email}}</h1>
+<br>
+<button mat-flat-button color="primary" (click)="purchaseHistory()"
+  *ngIf='loggedIn'>
+  Ver Historial de Compras
+</button>
+<br><br>
+<button mat-flat-button color="primary" (click)="edit()"
+  *ngIf='loggedIn'>
+  Editar Cuenta
+</button>
+<br><br>
+<button mat-flat-button color="primary" (click)="logOut()"
+  *ngIf='loggedIn'>
+  Cerrar Sesión
+</button>
+<br><br>
+<button mat-flat-button color="primary" (click)="enterAdminModule()"
+  *ngIf='loggedIn&&isAdmin'>
+  Modulo de Admin
+</button>
+

@@ -1,10 +1,20 @@
-﻿namespace Services.Models
+﻿using Services.Interfaces;
+namespace Services.Models
 {
-    public class TwentyPercentOff : Promo
+    public class TwentyPercentOff : IPromo
     {
-        public TwentyPercentOff() : base("20% OFF", "Having 2 any products", "20% OFF most expensive product") { }
+        public string Name { get; set; }
+        public string Condition { get; set; }
+        public string Discount { get; set; }
 
-        override public double ApplyDiscount(Cart cart)
+        public TwentyPercentOff() 
+        {
+            Name = "20% OFF";
+            Condition = "Having 2 any products";
+            Discount = "20% OFF most expensive product";
+        }
+
+        public double ApplyDiscount(Cart cart)
         {
             double retValue = cart.PriceUYU;
 

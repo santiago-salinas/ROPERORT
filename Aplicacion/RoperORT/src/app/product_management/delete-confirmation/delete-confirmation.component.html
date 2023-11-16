@@ -1,0 +1,9 @@
+<mat-card-content>
+  <p>¿Estas seguro que deseas borrar este producto?</p>
+  <p><strong>{{ productName }}</strong></p>
+</mat-card-content>
+<mat-card-actions>
+  <button mat-button (click)="cancel()">Cancelar</button>
+  <button mat-button color="warn" (click)="confirmDelete()">Borrar</button>
+</mat-card-actions>
+

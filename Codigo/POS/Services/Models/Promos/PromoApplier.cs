@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Services.Interfaces;
 
-namespace Services.Models.Promos
+namespace Services.Models
 {
     public class PromoApplier
     {
         private const int _zero = 0;
-        private List<Promo>? _promos = null;
+        private List<IPromo>? _promos = null;
 
-        public PromoApplier(List<Promo>? promos)
+        public PromoApplier(List<IPromo>? promos)
         {
             _promos = promos;
         }
@@ -21,12 +22,14 @@ namespace Services.Models.Promos
             if (cart is null || cart.Products.Count == _zero) { return new Cart(); }
             if(_promos is null) { return new Cart(); }
 
-            double bestPrice = cart.PriceUYU;
-            Promo? bestPromoToClient = null;
+            Cart promotionalCart = RemoveExcludedProducts(cart);
 
-            foreach (Promo promo in _promos)
+            double bestPrice = promotionalCart.PriceUYU;
+            IPromo? bestPromoToClient = null;
+
+            foreach (IPromo promo in _promos)
             {
-                double newPrice = promo.ApplyDiscount(cart);
+                double newPrice = promo.ApplyDiscount(promotionalCart);
                 if (newPrice < bestPrice)
                 {
                     bestPromoToClient = promo;
@@ -41,5 +44,24 @@ namespace Services.Models.Promos
 
             return cart;
         }
+
+        public Cart RemoveExcludedProducts(Cart cart)
+        {
+            Cart newCart = new Cart();
+
+            foreach (CartLine cartLine in cart.Products)
+            {
+                Product product = cartLine.Product;
+                bool isExcluded = product.Exclude;
+
+                if (!isExcluded)
+                {
+                    newCart.Products.Add(cartLine);
+                }
+            }
+
+            return newCart;
+        }
+
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Services.Exceptions;
 using Services.Interfaces;
 using Services.Models;
+using Services.Models.DTOs;
 
 namespace Services;
 
@@ -83,34 +84,49 @@ public class ProductService : IProductService
         }
     }
 
-    public List<Product> GetFiltered(Category? category = null, Brand? brand = null, string? name = null)
+    public List<Product> GetFiltered(ProductFilterDTO filters)
     {
         IEnumerable<Product> result;
+
         try
         {
-            result =  _productRepository.GetAll();
+            result = _productRepository.GetAll();
         }
         catch (DatabaseException ex)
         {
-            throw new Service_ObjectHandlingException("Exception catched from the repository: " + ex.Message);
+            throw new Service_ObjectHandlingException("Exception caught from the repository: " + ex.Message);
         }
 
-
-        if (category != null)
+        if (filters.Category != null)
         {
+            Category category = new Category(filters.Category);
             result = result.Where(p => p.Category.Equals(category));
         }
-        if (brand != null)
+        if (filters.Brand != null)
         {
+            Brand brand = new Brand(filters.Brand);
             result = result.Where(p => p.Brand.Equals(brand));
         }
-        if (name != null)
+        if (!string.IsNullOrEmpty(filters.Name))
         {
-            result = result.Where(p => p.Name.Contains(name));
+            result = result.Where(p => p.Name.Contains(filters.Name));
+        }
+        if (filters.MaximumPrice != null)
+        {
+            result = result.Where(p => p.PriceUYU <= filters.MaximumPrice);
+        }
+        if (filters.MinimumPrice != null)
+        {
+            result = result.Where(p => p.PriceUYU >= filters.MinimumPrice);
+        }
+        if (filters.ExcludedFromPromos != null)
+        {
+            result = result.Where(p => p.Exclude == filters.ExcludedFromPromos);
         }
 
         return result.ToList();
     }
+
 
 
     private void CheckProductParametersAreValid(Product product)

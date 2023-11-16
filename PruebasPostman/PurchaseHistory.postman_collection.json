@@ -1,0 +1,89 @@
+{
+	"info": {
+		"_postman_id": "d7ecc0de-5f81-49ca-a6e1-734321bb0637",
+		"name": "PurchaseHistory",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29482729",
+		"_collection_link": "https://interstellar-meadow-336197.postman.co/workspace/DA2~3e0fef7c-0e1c-4e01-8e3c-ea653387c157/collection/29482729-d7ecc0de-5f81-49ca-a6e1-734321bb0637?action=share&source=collection_link&creator=29482729"
+	},
+	"item": [
+		{
+			"name": "Get History from Auth",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "auth",
+						"value": "tokenbwayne@gmail.comsecure",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:7207/purchase/history",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"purchase",
+						"history"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetPurchase from Auth",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "auth",
+						"value": "tokenbwayne@gmail.comsecure",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:7207/purchase/2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"purchase",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetPurchase from Auth 403 Forbidden",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "auth",
+						"value": "tokenbwayne@gmail.comsecure",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:7207/purchase/4",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"purchase",
+						"4"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

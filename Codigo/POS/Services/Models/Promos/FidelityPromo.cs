@@ -1,14 +1,22 @@
-﻿
+﻿using Services.Interfaces;
 
 namespace Services.Models
 {
-    public class FidelityPromo : Promo
+    public class FidelityPromo : IPromo
     {
-        public FidelityPromo() : base("3X1 Fidelity", "Having 3 products of the same brand", "The two cheapest are free")
+        public FidelityPromo()
         {
+            Name = "3X1 Fidelity";
+            Condition = "Having 3 products of the same brand";
+            Discount = "The two cheapest are free";
         }
 
-        public override double ApplyDiscount(Cart cart)
+        public string Name { get; set; }
+        public string Condition {  get; set; }
+        public string Discount { get; set; }
+
+
+        public double ApplyDiscount(Cart cart)
         {
             double bestValue = cart.PriceUYU;
             List<CartLine> lines = cart.Products;
@@ -30,7 +38,6 @@ namespace Services.Models
 
         private List<CartLine> GetProductsFromBrand(List<CartLine> lines, Brand brand)
         {
-
             List<CartLine> result = lines.Where(p => p.Product.Brand.Name.Equals(brand.Name)).ToList();
             return result;
         }
@@ -39,9 +46,9 @@ namespace Services.Models
         {
             List<CartLine> sortedByPrice = cartLines.OrderBy(p => p.Product.PriceUYU).ToList();
             const int cheapestIndex = 0;
-            var cheapestProductLine = sortedByPrice[cheapestIndex];
-            var cheapestProduct = cheapestProductLine.Product;
-            var discount = cheapestProduct.PriceUYU;
+            CartLine cheapestProductLine = sortedByPrice[cheapestIndex];
+            Product cheapestProduct = cheapestProductLine.Product;
+            double discount = cheapestProduct.PriceUYU;
             if (cheapestProductLine.Quantity > 1)
             {
                 discount *= 2;
@@ -49,7 +56,7 @@ namespace Services.Models
             else
             {
                 const int secondCheapestIndex = 1;
-                var secondProduct = sortedByPrice[secondCheapestIndex].Product;
+                Product secondProduct = sortedByPrice[secondCheapestIndex].Product;
                 discount = cheapestProduct.PriceUYU + secondProduct.PriceUYU;
             }
             return discount;

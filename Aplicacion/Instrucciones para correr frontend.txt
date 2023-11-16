@@ -1,0 +1,6 @@
+El codigo fuente de angular tiene configurado para interactuar con la url base para api https://localhost:7207/,
+la cual es la direccion por defecto al ejecutar el release de nuestra API.
+
+En el archivo roper-ort.rar se encuentra el build de la aplicación de Angular preparada para ser deployada, e interactua
+con una api en la url http://localhost:6969/ 
+Por lo que si se quiere probar su funcionamiento deployado, la API estar disponible en esa direccion.

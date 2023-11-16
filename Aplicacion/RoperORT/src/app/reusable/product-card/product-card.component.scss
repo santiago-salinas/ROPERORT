@@ -1,0 +1,49 @@
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+mat-card-title a {
+  text-decoration: none; /* Remove underline */
+  color: #007BFF; /* Set your desired color here */
+  transition: color 0.3s; /* Add a smooth color transition on hover */
+
+  &:hover {
+    color: #0056b3; /* Change color on hover */
+  }
+}
+
+.example-card {
+    max-width: 400px;
+    margin: 20px;
+    background-color: rgb(255, 240, 240);
+  }
+
+  .value-input {
+    width: 50px; // Adjust the width as needed
+    height: 30px; // Adjust the height as needed
+    text-align: center; // Center the text in the input
+    border: 1px solid #ccc; // Add a border
+    border-radius: 4px; // Add some border radius
+  }
+
+  .card-actions {
+   display: flex;
+   justify-content: space-between;
+  align-items: center;
+}
+
+.add-to-cart-button {
+  flex: 0 0 auto;
+}
+
+.text-small{
+    font-size: 10px;
+}

@@ -1,0 +1,100 @@
+<div class="page-container">
+  <div class="content" *ngIf="emptyCart">The cart is empty.</div>
+
+  <div class="content" *ngIf="!emptyCart">
+    <button mat-stroked-button color="primary" (click)="selectPayment('VISA')">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png"
+        alt="Visa"
+        class="button-icon"
+      />
+    </button>
+    <button
+      mat-stroked-button
+      color="primary"
+      (click)="selectPayment('MASTERCARD')"
+    >
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Mastercard_2019_logo.svg/2560px-Mastercard_2019_logo.svg.png"
+        alt="Mastercard"
+        class="button-icon"
+      />
+      Mastercard
+    </button>
+
+    <button
+      mat-stroked-button
+      color="primary"
+      (click)="selectPayment('SANTANDER')"
+    >
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Banco_Santander_Logotipo.svg/2560px-Banco_Santander_Logotipo.svg.png"
+        alt="Santander"
+        class="button-icon"
+      />
+    </button>
+    <button mat-stroked-button color="primary" (click)="selectPayment('ITAU')">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banco_Ita%C3%BA_logo.svg/1011px-Banco_Ita%C3%BA_logo.svg.png"
+        alt="Itaú"
+        class="button-icon"
+      />
+      Itau
+    </button>
+    <button
+      mat-stroked-button
+      color="primary"
+      (click)="selectPayment('PAYPAL')"
+    >
+      <img
+        src="https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-100px.png"
+        alt="Paypal"
+        class="button-icon"
+      />
+    </button>
+    <button mat-stroked-button color="primary" (click)="selectPayment('BBVA')">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/BBVA_2019.svg/2560px-BBVA_2019.svg.png"
+        alt="BBVA"
+        class="button-icon"
+      />
+    </button>
+
+    <hr />
+    <h2>10% Off With</h2>
+    <button
+      mat-stroked-button
+      color="primary"
+      (click)="selectPayment('PAGANZA')"
+    >
+      <img
+        src="https://www.paganza.com/Content/home-v3/img/logo-paganza-azul.svg"
+        alt="Paganza"
+        class="button-icon"
+      />
+    </button>
+  </div>
+
+  <div class="cartData" *ngIf="!emptyCart">
+    <app-cart-data
+      [promoData]="cartData"
+      [paymentData]="paymentData"
+    ></app-cart-data>
+
+    <div *ngIf="methodSaved">
+      <p>Número de Cuenta</p>
+      <input min="1" [(ngModel)]="payId" class="value-input" />
+      <br />
+    </div>
+    <button
+      mat-flat-button
+      color="primary"
+      class="buyBtn"
+      (focusout)="paymentIdSet()"
+      (click)="processPayment()"
+      [disabled]="!methodSaved"
+    >
+      <mat-icon>attach_money</mat-icon> Buy
+    </button>
+  </div>
+</div>

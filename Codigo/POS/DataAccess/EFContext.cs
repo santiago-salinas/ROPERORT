@@ -42,7 +42,7 @@ namespace DataAccess
                 .Property(p => p.Id)
                 .ValueGeneratedOnAdd();
 
-            modelBuilder.Entity<PurchasedProductEntity>().HasKey(ppe => new { ppe.PurchaseId, ppe.ProductId });
+            modelBuilder.Entity<PurchasedProductEntity>().HasKey(ppe => new { ppe.PurchaseId, ppe.ProductName });
             modelBuilder.Entity<AssignedRoles>().HasKey(ar => new { ar.RoleName, ar.UserId });
             modelBuilder.Entity<ProductColors>().HasKey(pc => new { pc.ProductId, pc.ColourName });
         }
@@ -57,5 +57,6 @@ namespace DataAccess
 
         public DbSet<AssignedRoles> AssignedRoles { get; set; }
         public DbSet<ProductColors> ProductColors { get; set; }
+        public DbSet<PaymentMethodEntity> PaymentMethods { get; set; }
     }
 }

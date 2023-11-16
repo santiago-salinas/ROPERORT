@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DataAccess.Repositories;
+using Microsoft.AspNetCore.Mvc;
 using Moq;
 using Rest_Api.Controllers;
 using Services.Exceptions;
 using Services.Interfaces;
 using Services.Models;
-
+using Services.Models.DTOs;
 
 namespace ApiTests.Controllers
 {
@@ -30,7 +31,7 @@ namespace ApiTests.Controllers
                 new Product { Id = 2, Name = "Product2" },
             };
             _mock.Setup(s => s.GetAll()).Returns(expectedProducts);
-            var result = _productController.GetAll();
+            var result = _productController.GetAll(new ProductFilterDTO());
             var createdResult = result;
             Assert.AreEqual(expectedProducts.Count, createdResult.Value.Count);
         }
@@ -212,19 +213,25 @@ namespace ApiTests.Controllers
         [TestMethod]
         public void GetFiltered_ReturnsListOfProducts()
         {
-
-            Category category = new Category("Category");
-            string name = "Product";
+            Category category = new Category("T-Shirt");
+            string name = "Name";
             var expectedProducts = new List<Product>
             {
-                new Product { Id = 1, Name = "Product1", Category = category, Brand = new Brand("Brand1") },
-                new Product { Id = 2, Name = "Product2", Category = category, Brand = new Brand("Brand2") }
+                _mockProducts[0],
+                _mockProducts[2],
+                _mockProducts[4],
+            };
+            ProductFilterDTO filter = new ProductFilterDTO()
+            {
+                Category = category.Name,
+                Name = name
             };
 
-            _mock.Setup(p => p.GetFiltered(category, It.IsAny<Brand>(), name))
+
+            _mock.Setup(p => p.GetFiltered(filter))
                 .Returns(expectedProducts);
 
-            var result = _productController.GetFiltered(category: category.Name, name: name);
+            var result = _productController.GetAll(filter);
 
             ActionResult<List<Product>> okResult = result;
             Assert.IsNotNull(okResult);
@@ -233,5 +240,61 @@ namespace ApiTests.Controllers
             Assert.IsNotNull(products);
             CollectionAssert.AreEqual(expectedProducts, products);
         }
-    }
+
+        private List<Product> _mockProducts = new List<Product>()
+        {
+            new Product
+            {
+                Name = "Name 1",
+                Description = "Description 1",
+                PriceUYU = 20.0,
+                Brand = new Brand("Nike"),
+                Category = new Category("T-Shirt"),
+                Colours = new List<Colour>() { new Colour("Blue")},
+                Exclude = true,
+            },
+            new Product
+            {
+                Name = "Name 2",
+                Description = "Description 2",
+                PriceUYU = 50.0,
+                Brand = new Brand("Puma"),
+                Category = new Category("Pants"),
+                Colours = new List<Colour>() { new Colour("Green"), new Colour("Red") },
+                Exclude = true,
+            },
+            new Product
+            {
+                Name = "Name 3",
+                Description = "Description 3",
+                PriceUYU = 20.0,
+                Brand = new Brand("Nike"),
+                Category = new Category("T-Shirt"),
+                Colours = new List<Colour> { new Colour("Red") },
+                Exclude = false,
+            },
+
+            new Product
+            {
+                Name = "Name 4",
+                Description = "Description 4",
+                PriceUYU = 100.0,
+                Brand = new Brand("Puma"),
+                Category = new Category("Pants"),
+                Colours = new List<Colour> { new Colour("Green"), new Colour("Red") },
+                Exclude = false,
+            },
+
+            new Product
+            {
+                Name = "Name 5",
+                Description = "Description 5",
+                PriceUYU = 60.0,
+                Brand = new Brand("Nike"),
+                Category = new Category("T-Shirt"),
+                Colours = new List<Colour> { new Colour("Blue"), new Colour("Green") },
+                Exclude = false,
+            }
+        };
+     }
 }

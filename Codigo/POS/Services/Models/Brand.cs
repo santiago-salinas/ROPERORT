@@ -1,3 +1,5 @@
+using Services.Interfaces;
+
 namespace Services.Models
 {
     public class Brand

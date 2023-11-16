@@ -68,6 +68,7 @@ namespace DataAccess.Repositories
             try
             {
                 ProductEntity entity = ProductEntity.FromModel(product, _context);
+                entity.Id = null;
                 _context.ProductEntities.Add(entity);
                 _context.SaveChanges();
             }
@@ -138,7 +139,9 @@ namespace DataAccess.Repositories
                 oldEntity.Category = newEntity.Category;
                 oldEntity.Price = newEntity.Price;
                 oldEntity.Description = newEntity.Description;
-                oldEntity.Name = newEntity.Name;                
+                oldEntity.Name = newEntity.Name;
+                oldEntity.Stock = newEntity.Stock;
+                oldEntity.Exclude = newEntity.Exclude;
 
                 _context.ProductEntities.Update(oldEntity);
                 _context.SaveChanges();

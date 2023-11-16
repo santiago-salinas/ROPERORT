@@ -1,13 +1,21 @@
-﻿
+﻿using Services.Interfaces;
+
 namespace Services.Models
 {
-    public class ThreeForTwoPromo : Promo
+    public class ThreeForTwoPromo : IPromo
     {
-        public ThreeForTwoPromo() : base("3X2", "Having 3 products of the same category", "The cheapest is free")
+        public string Name { get; set; }
+        public string Condition { get; set; }
+        public string Discount { get; set; }
+
+        public ThreeForTwoPromo()
         {
+            Name = "3X2";
+            Condition = "Having 3 products of the same category";
+            Discount = "The cheapest is free";
         }
 
-        public override double ApplyDiscount(Cart cart)
+        public double ApplyDiscount(Cart cart)
         {
             double bestValue = cart.PriceUYU;
             List<CartLine> lines = cart.Products;

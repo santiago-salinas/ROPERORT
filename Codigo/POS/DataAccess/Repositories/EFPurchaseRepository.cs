@@ -22,16 +22,8 @@ namespace DataAccess.Repositories
                 List<PurchaseEntity> purchaseEntities = _context.PurchaseEntities
                     .Include(p => p.User)
                     .Include(p => p.Items)
-                        .ThenInclude(i => i.Product)
-                        .ThenInclude(p => p.Brand)
-                    .Include(p => p.Items)
-                    .ThenInclude(i => i.Product)
-                        .ThenInclude(p => p.Category)
-                        .Include(p => p.Items)
-                            .ThenInclude(i => i.Product)
-                                .ThenInclude(p => p.Colours)
-                                    .ThenInclude(c => c.Colour)
-                        .ToList();
+                    .Include(p => p.PaymentMethod)
+                      .ToList();
 
                 List<Purchase> purchases = purchaseEntities.Select(p => PurchaseEntity.FromEntity(p)).ToList();
 
@@ -44,22 +36,13 @@ namespace DataAccess.Repositories
         }
         public Purchase? Get(int id)
         {
-
             try
             {
                 PurchaseEntity purchaseEntity = _context.PurchaseEntities
                     .Where(p => p.Id == id)
+                    .Include(p => p.Items)
+                    .Include(p => p.PaymentMethod)
                     .Include(p => p.User)
-                    .Include(p => p.Items)
-                        .ThenInclude(i => i.Product)
-                        .ThenInclude(p => p.Brand)
-                    .Include(p => p.Items)
-                    .ThenInclude(i => i.Product)
-                        .ThenInclude(p => p.Category)
-                        .Include(p => p.Items)
-                            .ThenInclude(i => i.Product)
-                                .ThenInclude(p => p.Colours)
-                                    .ThenInclude(c => c.Colour)
                         .First();
 
                 Purchase purchase = PurchaseEntity.FromEntity(purchaseEntity);
@@ -76,6 +59,15 @@ namespace DataAccess.Repositories
         {
             try
             {
+                var paymentModel = purchase.PaymentMethod;
+                var possiblePayment = _context.PaymentMethods.FirstOrDefault(p => paymentModel.Id.Equals(p.Id));
+                if (possiblePayment == null)
+                {
+                    PaymentMethodEntity paymentEntity = PaymentMethodEntity.FromModel(paymentModel, _context);
+                    _context.PaymentMethods.Add(paymentEntity);
+                    _context.SaveChanges();
+                }
+
                 PurchaseEntity entity = PurchaseEntity.FromModel(purchase, _context);
                 _context.PurchaseEntities.Add(entity);
                 _context.SaveChanges();

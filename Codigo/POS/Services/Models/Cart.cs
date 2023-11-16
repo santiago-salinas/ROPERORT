@@ -1,9 +1,14 @@
+using Services.Interfaces;
 using Services.Models.Exceptions;
+using Services.Models.PaymentMethods;
+using System.Net.Http.Headers;
 
 namespace Services.Models
 {
     public class Cart
     {
+        public PaymentMethod PaymentMethod { get; set; }
+
         public List<CartLine> Products { get; set; }
 
         public Cart()
@@ -30,21 +35,43 @@ namespace Services.Models
             return sum;
         }
 
+        private double _discountedPrice;
+
         public double DiscountedPriceUYU
         {
+            set
+            {
+                _discountedPrice = value;                
+            }
+
             get
             {
-                Promo possiblePromo = AppliedPromo;
-                if (possiblePromo is not null)
-                {
-                    return possiblePromo.ApplyDiscount(this);
-                }
-
-                return TotalPrice();
+                return _discountedPrice;
             }
         }
 
-        public Promo? AppliedPromo { get; set; }
+        public void CalculateDiscountedPrice()
+        {
+            double price;
+            IPromo possiblePromo = AppliedPromo;
+            if (possiblePromo is not null)
+            {
+                price = possiblePromo.ApplyDiscount(this);
+            }
+            else
+            {
+                price = TotalPrice();
+            }
+            if (PaymentMethod != null)
+            {
+                price = PaymentMethod.ApplyDiscount(price);
+            }
+
+            DiscountedPriceUYU = price;
+
+        }
+
+        public IPromo? AppliedPromo { get; set; }
 
     }
     public class CartLine

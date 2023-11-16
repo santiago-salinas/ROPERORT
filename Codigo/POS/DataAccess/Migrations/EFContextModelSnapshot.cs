@@ -67,6 +67,28 @@ namespace DataAccess.Migrations
                     b.ToTable("ColourEntities");
                 });
 
+            modelBuilder.Entity("DataAccess.Entities.PaymentMethodEntity", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Bank")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Company")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PaymentMethods");
+                });
+
             modelBuilder.Entity("DataAccess.Entities.ProductColors", b =>
                 {
                     b.Property<int>("ProductId")
@@ -84,11 +106,11 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("DataAccess.Entities.ProductEntity", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"), 1L, 1);
 
                     b.Property<string>("BrandName")
                         .HasColumnType("nvarchar(450)");
@@ -100,12 +122,18 @@ namespace DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("Exclude")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<double>("Price")
                         .HasColumnType("float");
+
+                    b.Property<int>("Stock")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -124,15 +152,16 @@ namespace DataAccess.Migrations
                     b.Property<int>("PurchaseId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
+                    b.Property<string>("ProductName")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("Amount")
                         .HasColumnType("int");
 
-                    b.HasKey("PurchaseId", "ProductId");
+                    b.Property<double>("ProductPrice")
+                        .HasColumnType("float");
 
-                    b.HasIndex("ProductId");
+                    b.HasKey("PurchaseId", "ProductName");
 
                     b.ToTable("PurchasedProductEntity");
                 });
@@ -157,10 +186,16 @@ namespace DataAccess.Migrations
                     b.Property<double>("MoneyDiscounted")
                         .HasColumnType("float");
 
+                    b.Property<string>("PaymentMethodId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("PaymentMethodId");
 
                     b.HasIndex("UserId");
 
@@ -264,30 +299,30 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("DataAccess.Entities.PurchasedProductEntity", b =>
                 {
-                    b.HasOne("DataAccess.Entities.ProductEntity", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("DataAccess.Entities.PurchaseEntity", "Purchase")
                         .WithMany("Items")
                         .HasForeignKey("PurchaseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Product");
-
                     b.Navigation("Purchase");
                 });
 
             modelBuilder.Entity("DataAccess.Entities.PurchaseEntity", b =>
                 {
+                    b.HasOne("DataAccess.Entities.PaymentMethodEntity", "PaymentMethod")
+                        .WithMany()
+                        .HasForeignKey("PaymentMethodId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("DataAccess.Entities.UserEntity", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("PaymentMethod");
 
                     b.Navigation("User");
                 });

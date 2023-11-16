@@ -1,0 +1,36 @@
+.promo-container {
+  font-size: 16px;
+
+  p {
+    margin: 0;
+  }
+
+  .promo-details {
+    background-color: #f7f7f7;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+
+    strong {
+      font-weight: bold;
+      &.centered-text {
+        display: block;
+        text-align: center;
+      }
+    }
+
+    .discounted-price {
+      font-weight: bold;
+      font-size: 18px;
+      margin-top: 10px;
+    }
+  }
+
+  .original-price, .discounted-price {
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 10px;
+  }
+}
