@@ -26,7 +26,7 @@ export class AdminPurchasesComponent {
         this.purchaseList = data;
       },
       (error:any) => {
-        alert('API Is Not Responding. Reloading after OK');
+        alert('API No Responde. Recargando página');
         location.reload();
       }
     );

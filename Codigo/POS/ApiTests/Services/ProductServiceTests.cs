@@ -86,7 +86,7 @@ namespace ApiTests.Services
             Colour colour = new Colour();
             colour.Name = "Red";
 
-            List<IColour> colours = new List<IColour>
+            List<Colour> colours = new List<Colour>
             {
                 colour
             };
@@ -128,7 +128,7 @@ namespace ApiTests.Services
             _colourRepository.Setup(r => r.Get(colour.Name)).Returns(colour);
             _categoryRepository.Setup(r => r.Get(category.Name)).Returns(category);
 
-            List<IColour> colours = new List<IColour>
+            List<Colour> colours = new List<Colour>
             {
                 colour
             };
@@ -164,7 +164,7 @@ namespace ApiTests.Services
             _colourRepository.Setup(r => r.Get(colour.Name)).Returns(null as Colour);
             _categoryRepository.Setup(r => r.Get(category.Name)).Returns(category);
 
-            List<IColour> colours = new List<IColour>
+            List<Colour> colours = new List<Colour>
             {
                 colour
             };
@@ -200,7 +200,7 @@ namespace ApiTests.Services
             _colourRepository.Setup(r => r.Get(colour.Name)).Returns(colour);
             _categoryRepository.Setup(r => r.Get(category.Name)).Returns(null as Category);
 
-            List<IColour> colours = new List<IColour>
+            List<Colour> colours = new List<Colour>
             {
                 colour
             };
@@ -236,7 +236,7 @@ namespace ApiTests.Services
             _colourRepository.Setup(r => r.Get(colour.Name)).Returns(colour);
             _categoryRepository.Setup(r => r.Get(category.Name)).Returns(category);
 
-            List<IColour> colours = new List<IColour>
+            List<Colour> colours = new List<Colour>
             {
                 colour
             };
@@ -297,7 +297,7 @@ namespace ApiTests.Services
             Colour colour = new Colour();
             colour.Name = "Red";
 
-            List<IColour> colours = new List<IColour>
+            List<Colour> colours = new List<Colour>
             {
                 colour
             };
@@ -341,7 +341,7 @@ namespace ApiTests.Services
             Colour colour = new Colour();
             colour.Name = "Red";
 
-            List<IColour> colours = new List<IColour>
+            List<Colour> colours = new List<Colour>
             {
                 colour
             };
@@ -471,7 +471,7 @@ namespace ApiTests.Services
                 PriceUYU = 20.0,
                 Brand = new Brand("Nike"),
                 Category = new Category("T-Shirt"),
-                Colours = new List<IColour>() { new Colour("Blue")},
+                Colours = new List<Colour>() { new Colour("Blue")},
                 Exclude = true,
             },
             new Product
@@ -481,7 +481,7 @@ namespace ApiTests.Services
                 PriceUYU = 50.0,
                 Brand = new Brand("Puma"),
                 Category = new Category("Pants"),
-                Colours = new List<IColour>() { new Colour("Green"), new Colour("Red") },
+                Colours = new List<Colour>() { new Colour("Green"), new Colour("Red") },
                 Exclude = true,
             },
             new Product
@@ -491,7 +491,7 @@ namespace ApiTests.Services
                 PriceUYU = 20.0,
                 Brand = new Brand("Nike"),
                 Category = new Category("T-Shirt"),
-                Colours = new List<IColour> { new Colour("Red") },
+                Colours = new List<Colour> { new Colour("Red") },
                 Exclude = false,
             },
 
@@ -502,7 +502,7 @@ namespace ApiTests.Services
                 PriceUYU = 100.0,
                 Brand = new Brand("Puma"),
                 Category = new Category("Pants"),
-                Colours = new List<IColour> { new Colour("Green"), new Colour("Red") },
+                Colours = new List<Colour> { new Colour("Green"), new Colour("Red") },
                 Exclude = false,
             },
 
@@ -513,7 +513,7 @@ namespace ApiTests.Services
                 PriceUYU = 60.0,
                 Brand = new Brand("Nike"),
                 Category = new Category("T-Shirt"),
-                Colours = new List<IColour> { new Colour("Blue"), new Colour("Green") },
+                Colours = new List<Colour> { new Colour("Blue"), new Colour("Green") },
                 Exclude = false,
             }
         };

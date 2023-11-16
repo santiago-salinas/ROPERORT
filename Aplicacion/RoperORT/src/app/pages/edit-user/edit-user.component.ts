@@ -45,7 +45,7 @@ export class EditUserComponent {
         if(data.token == this.dataService.getToken()){
           this.accepted = true;
         } else {
-          this.showSnackbar("Cannot update other user", "Close", 3000);
+          this.showSnackbar("No puedes modificar a otro usuario", "Close", 3000);
         }
       },
       (error) => {
@@ -56,12 +56,12 @@ export class EditUserComponent {
 
   update(){
     if(this.password != this.confirmation){
-      this.showSnackbar("Passwords are different", "Close", 3000);
+      this.showSnackbar("Contraseñas son diferentes", "Close", 3000);
     } else {
       this.service.updateUser(this.email, this.password, this.address).subscribe(
         (data) => {
           this.logIn();
-          this.showSnackbar("User updated", "Close", 3000);
+          this.showSnackbar("Usuario modificado exitosamente", "Close", 3000);
           this.router.navigate(['/home']);
         },
         (error) => {
@@ -75,7 +75,7 @@ export class EditUserComponent {
     this.service.deleteUser().subscribe(
       (data) => {
         console.log(data);
-        const text = "User was deleted";
+        const text = "Usuario fué eliminado exitosamente";
         this.showSnackbar(text, "Close", 3000);
         this.service.logOut();
         this.router.navigate(['/home']);

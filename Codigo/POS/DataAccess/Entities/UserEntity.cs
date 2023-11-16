@@ -14,6 +14,7 @@ namespace DataAccess.Entities
         public string Token { get; set; }
         public IList<AssignedRoles> Roles { get; set; }
 
+
         public UserEntity() { }
 
         public static UserEntity FromModel(User user)

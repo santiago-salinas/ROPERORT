@@ -15,16 +15,16 @@ namespace Services.Models
             Discount = "The cheapest is free";
         }
 
-        public double ApplyDiscount(ICart cart)
+        public double ApplyDiscount(Cart cart)
         {
             double bestValue = cart.PriceUYU;
-            List<ICartLine> lines = cart.Products;
-            List<ICategory> categories = lines.Select(p => p.Product.Category).Distinct().ToList();
+            List<CartLine> lines = cart.Products;
+            List<Category> categories = lines.Select(p => p.Product.Category).Distinct().ToList();
 
-            foreach (ICategory category in categories)
+            foreach (Category category in categories)
             {
                 var discountedPrice = cart.PriceUYU;
-                List<ICartLine> categoryProducts = GetProductsFromCategory(lines, category);
+                List<CartLine> categoryProducts = GetProductsFromCategory(lines, category);
                 if (ThereAreAtLeast3Products(categoryProducts))
                 {
                     double discount = GetCheapestProductValue(categoryProducts);
@@ -36,24 +36,24 @@ namespace Services.Models
             return bestValue;
         }
 
-        private List<ICartLine> GetProductsFromCategory(List<ICartLine> lines, ICategory category)
+        private List<CartLine> GetProductsFromCategory(List<CartLine> lines, Category category)
         {
-            List<ICartLine> result = lines.Where(p => p.Product.Category.Name.Equals(category.Name)).ToList();
+            List<CartLine> result = lines.Where(p => p.Product.Category.Name.Equals(category.Name)).ToList();
             return result;
         }
 
-        private double GetCheapestProductValue(List<ICartLine> cartLines)
+        private double GetCheapestProductValue(List<CartLine> cartLines)
         {
             const int cheapestIndex = 0;
-            List<ICartLine> sortedByPrice = cartLines.OrderBy(p => p.Product.PriceUYU).ToList();
+            List<CartLine> sortedByPrice = cartLines.OrderBy(p => p.Product.PriceUYU).ToList();
             var cheapestProduct = sortedByPrice[cheapestIndex].Product;
             return cheapestProduct.PriceUYU;
         }
 
-        private bool ThereAreAtLeast3Products(List<ICartLine> list)
+        private bool ThereAreAtLeast3Products(List<CartLine> list)
         {
             int quantity = 0;
-            foreach (ICartLine line in list)
+            foreach (CartLine line in list)
                 quantity += line.Quantity;
             return quantity > 2;
         }

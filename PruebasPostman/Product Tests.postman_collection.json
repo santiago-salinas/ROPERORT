@@ -1,0 +1,434 @@
+{
+	"info": {
+		"_postman_id": "52813d5d-e973-4b9d-aa17-c6a6c257219b",
+		"name": "Product Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29482729",
+		"_collection_link": "https://interstellar-meadow-336197.postman.co/workspace/DA2~3e0fef7c-0e1c-4e01-8e3c-ea653387c157/collection/29747122-52813d5d-e973-4b9d-aa17-c6a6c257219b?action=share&source=collection_link&creator=29482729"
+	},
+	"item": [
+		{
+			"name": "Get All Products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7207/product",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get product by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7207/product/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"product",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get product by id 404",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7207/product/0",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"product",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get filtered 1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7207/product?brand=ORT&name=Malvin",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"product"
+					],
+					"query": [
+						{
+							"key": "brand",
+							"value": "ORT"
+						},
+						{
+							"key": "name",
+							"value": "Malvin"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get filtered 2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7207/product?category=Shorts",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"product"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "Shorts"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get filtered 3",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Auth",
+						"value": "tokennuevo@gmail.comsecure",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:7207/product",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update product 401 Unauthorized",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"Batsuit from Batman and Robin\",\r\n    \"priceUYU\": 25500,\r\n    \"description\": \"This Batsuit was used by George Clooney.\",\r\n    \"brand\": {\r\n        \"name\": \"Adidas\"\r\n    },\r\n    \"category\": {\r\n        \"name\": \"Shorts\"\r\n    },\r\n    \"colours\": [\r\n        {\r\n            \"name\": \"Negro\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7207/product/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"product",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update product 403 Forbidden Copy",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Auth",
+						"value": "invalid@gmail.comsecure",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"Batsuit from Batman and Robin\",\r\n    \"priceUYU\": 25500,\r\n    \"description\": \"This Batsuit was used by George Clooney.\",\r\n    \"brand\": {\r\n        \"name\": \"Adidas\"\r\n    },\r\n    \"category\": {\r\n        \"name\": \"Shorts\"\r\n    },\r\n    \"colours\": [\r\n        {\r\n            \"name\": \"Negro\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7207/product/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"product",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update product 200 OK",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Auth",
+						"value": "tokenbwayne@gmail.comsecure",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"Batsuit from Batman and Robin\",\r\n    \"priceUYU\": 25500,\r\n    \"description\": \"This Batsuit was used by George Clooney.\",\r\n    \"brand\": {\r\n        \"name\": \"Nike\"\r\n    },\r\n    \"category\": {\r\n        \"name\": \"Shorts\"\r\n    },\r\n    \"colours\": [\r\n        {\r\n            \"name\": \"Negro\"\r\n        }\r\n    ],\r\n    \"stock\":10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7207/product/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"product",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Product 403 Forbidden",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Auth",
+						"value": "tokendiana@gmail.comsecure",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Ropa\",\r\n  \"priceUYU\": 400,\r\n  \"description\": \"string\",\r\n  \"brand\": {\r\n    \"name\": \"Nike\"\r\n  },\r\n  \"category\": {\r\n    \"name\": \"Shorts\"\r\n  },\r\n  \"colours\": [\r\n    {\r\n      \"name\": \"Rojo\"\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7207/product",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Product With Invalid Color",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"warning": "This is a duplicate header and will be overridden by the auth header generated by Postman.",
+						"key": "auth",
+						"value": "tokenbwayne@gmail.comsecure",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\": \"TEST\",\r\n        \"priceUYU\": 420,\r\n        \"description\": \"POSTMAN TEST\",\r\n        \"brand\": {\r\n            \"name\": \"Adidas\"\r\n        },\r\n        \"category\": {\r\n            \"name\": \"Short\"\r\n        },\r\n        \"colours\": [\r\n            {\r\n                \"name\": \"Saturn\"\r\n            }\r\n        ]\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7207/product",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Product With Invalid Price 400 BR",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"warning": "This is a duplicate header and will be overridden by the auth header generated by Postman.",
+						"key": "auth",
+						"value": "tokenbwayne@gmail.comsecure",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\": \"TEST2\",\r\n        \"priceUYU\": -420,\r\n        \"description\": \"POSTMAN TEST\",\r\n        \"brand\": {\r\n            \"name\": \"Adidas\"\r\n        },\r\n        \"category\": {\r\n            \"name\": \"Shorts\"\r\n        },\r\n        \"colours\": [\r\n            {\r\n                \"name\": \"Blanco\"\r\n            }\r\n        ]\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7207/product",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Product 200 OK",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"warning": "This is a duplicate header and will be overridden by the auth header generated by Postman.",
+						"key": "auth",
+						"value": "tokenbwayne@gmail.comsecure",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\": \"TEST3\",\r\n        \"priceUYU\": 420,\r\n        \"description\": \"POSTMAN TEST\",\r\n        \"brand\": {\r\n            \"name\": \"Nike\"\r\n        },\r\n        \"category\": {\r\n            \"name\": \"Shorts\"\r\n        },\r\n        \"colours\": [\r\n            {\r\n                \"name\": \"Blanco\"\r\n            }\r\n        ]\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7207/product",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Product",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "auth",
+						"value": "tokenbwayne@gmail.comsecure",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7207/product/5",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"product",
+						"5"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

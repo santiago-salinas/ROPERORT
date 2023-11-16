@@ -21,7 +21,11 @@ export class UserMenuComponent implements OnInit {
 
   constructor(private dataService: LoginService, private router: Router, private _snackBar: MatSnackBar) {
     this.service = dataService;
-    this.loggedIn = dataService.getToken() != "";
+    if(dataService.getToken() == "" || dataService.getToken() == null){
+      this.loggedIn =false;
+    }else{
+      this.loggedIn =true;
+    }
   }
 
   ngOnInit(): void {

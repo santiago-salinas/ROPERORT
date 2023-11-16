@@ -11,6 +11,7 @@
           "DataAccess": "1.0.0",
           "Factory": "1.0.0",
           "Microsoft.EntityFrameworkCore.Design": "6.0.12",
+          "Microsoft.Web.Deployment": "4.0.5",
           "Services": "1.0.0",
           "Swashbuckle.AspNetCore": "6.5.0"
         },
@@ -288,6 +289,22 @@
           "lib/netstandard2.0/Microsoft.OpenApi.dll": {
             "assemblyVersion": "1.2.3.0",
             "fileVersion": "1.2.3.0"
+          }
+        }
+      },
+      "Microsoft.Web.Deployment/4.0.5": {
+        "runtime": {
+          "lib/net45/Microsoft.Web.Delegation.dll": {
+            "assemblyVersion": "7.1.0.0",
+            "fileVersion": "7.1.3903.5"
+          },
+          "lib/net45/Microsoft.Web.Deployment.Tracing.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "7.1.3903.3"
+          },
+          "lib/net45/Microsoft.Web.Deployment.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "7.1.3903.7"
           }
         }
       },
@@ -736,6 +753,13 @@
       "sha512": "sha512-Nug3rO+7Kl5/SBAadzSMAVgqDlfGjJZ0GenQrLywJ84XGKO0uRqkunz5Wyl0SDwcR71bAATXvSdbdzPrYRYKGw==",
       "path": "microsoft.openapi/1.2.3",
       "hashPath": "microsoft.openapi.1.2.3.nupkg.sha512"
+    },
+    "Microsoft.Web.Deployment/4.0.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2oaT2ksEHS6C73zt1WJXDBRpK6RMmXgKIGHCiexSvlt2NAy3i8lqEV2pb6HpuvxCFHrkBNonN7xrysO79pIOtg==",
+      "path": "microsoft.web.deployment/4.0.5",
+      "hashPath": "microsoft.web.deployment.4.0.5.nupkg.sha512"
     },
     "Microsoft.Win32.Registry/4.7.0": {
       "type": "package",

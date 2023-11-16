@@ -31,7 +31,7 @@ namespace DataAccess.Entities
                 Id = model.Id,
                 User = context.UserEntities.First(u => u.Email == model.User.Email),
                 Date = model.Date,
-                Items = cart.Products.Select(cartLine => PurchasedProductEntity.FromModel(model, cartLine as CartLine, context)).ToList(),
+                Items = cart.Products.Select(cartLine => PurchasedProductEntity.FromModel(model, cartLine, context)).ToList(),
                 AppliedPromotion = cart.AppliedPromo?.Name ?? "No promo applied",
                 MoneyDiscounted = cart.PriceUYU - cart.DiscountedPriceUYU,
                 FinalPrice = cart.DiscountedPriceUYU,
@@ -49,13 +49,14 @@ namespace DataAccess.Entities
                 {
                     CartLine line = new CartLine()
                     {
-                        Product = ProductEntity.FromEntity(p.Product),
+                        Product = new Product() { Name = p.ProductName, PriceUYU = p.ProductPrice},
                         Quantity = p.Amount,
                     };
-                    return line as ICartLine;
+                    return line;
                 }).ToList(),
                 AppliedPromo = GetPromo(entity.AppliedPromotion),
-                PaymentMethod = paymentModel
+                PaymentMethod = paymentModel,
+                DiscountedPriceUYU = entity.FinalPrice,
             };
 
             return new Purchase
@@ -64,14 +65,14 @@ namespace DataAccess.Entities
                 User = UserEntity.FromEntity(entity.User),
                 Date = entity.Date,
                 Cart = cart,
-                PaymentMethod = paymentModel
+                PaymentMethod = paymentModel,
+                
             };
         }
 
         private static IPromo? GetPromo(string name)
         {
             IPromoService promoService = new PromoService();
-
 
             List<IPromo> promoList = promoService.GetAll();
 

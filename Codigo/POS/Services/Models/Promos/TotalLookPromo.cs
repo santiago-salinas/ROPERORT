@@ -19,13 +19,13 @@ namespace Services.Models
             Discount = "50% OFF most expensive product";
         }
 
-        public double ApplyDiscount(ICart cart)
+        public double ApplyDiscount(Cart cart)
         {
             if (cart is null || cart.Products.Count == _zero) { return _zero; }
 
             double retValue = cart.PriceUYU;
 
-            List<IColour> colorsInCart = ColorsInCart(cart);
+            List<Colour> colorsInCart = ColorsInCart(cart);
             List<double> Discounts = PossibleDiscounts(cart, colorsInCart);
 
             if (Discounts.Count() > _zero)
@@ -38,12 +38,12 @@ namespace Services.Models
             return retValue;
         }
 
-        private static List<double> PossibleDiscounts(ICart cart, List<IColour> colorsInCart)
+        private static List<double> PossibleDiscounts(Cart cart, List<Colour> colorsInCart)
         {
             List<double> Discounts = new List<double>();
-            foreach (IColour colour in colorsInCart)
+            foreach (Colour colour in colorsInCart)
             {
-                List<ICartLine> cartLinesWithColor = cart.Products
+                List<CartLine> cartLinesWithColor = cart.Products
                 .Where(cartLine =>
                     cartLine.Product != null &&
                     cartLine.Product.Colours != null &&
@@ -53,11 +53,11 @@ namespace Services.Models
                 cartLinesWithColor = cartLinesWithColor.OrderBy(p => p.Product.PriceUYU).ToList();
 
                 int amountOfParticipatingProducts = _zero;
-                List<IProduct> participatingProducts = new List<IProduct>();
+                List<Product> participatingProducts = new List<Product>();
 
                 while (amountOfParticipatingProducts < _minimumApplicableSameColour && cartLinesWithColor.Count > _zero)
                 {
-                    ICartLine cartLine = cartLinesWithColor.First();
+                    CartLine cartLine = cartLinesWithColor.First();
                     participatingProducts.Add(cartLine.Product);
                     amountOfParticipatingProducts += cartLine.Quantity;
                     cartLinesWithColor.Remove(cartLine);
@@ -75,15 +75,15 @@ namespace Services.Models
             return Discounts;
         }
 
-        private static List<IColour> ColorsInCart(ICart cart)
+        private static List<Colour> ColorsInCart(Cart cart)
         {
-            List<IColour> colorsInCart = new List<IColour>();
+            List<Colour> colorsInCart = new List<Colour>();
 
-            foreach (ICartLine cartLine in cart.Products)
+            foreach (CartLine cartLine in cart.Products)
             {
                 if (cartLine.Product != null && cartLine.Product.Colours != null)
                 {
-                    foreach (IColour color in cartLine.Product.Colours)
+                    foreach (Colour color in cartLine.Product.Colours)
                     {
                         if (!colorsInCart.Contains(color))
                         {

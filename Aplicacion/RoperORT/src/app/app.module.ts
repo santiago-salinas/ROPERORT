@@ -36,9 +36,9 @@ import { ProductComponent } from './pages/product/product.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule, //Se necesita?
-    FormsModule, //Se necesita?
-    ReactiveFormsModule, //Se necesita?
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatIconModule,
     BrowserAnimationsModule,
     ProductsAdminComponent,

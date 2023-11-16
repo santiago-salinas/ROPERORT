@@ -24,7 +24,11 @@ export class LoginComponent {
 
   constructor(private dataService: LoginService, private router: Router, private _snackBar: MatSnackBar) {
     this.service = dataService;
-    this.loggedIn = dataService.getToken() != "";
+    if(dataService.getToken() == "" || dataService.getToken() == null){
+      this.loggedIn =false;
+    }else{
+      this.loggedIn =true;
+    }
   }
 
   logIn(){
@@ -33,7 +37,7 @@ export class LoginComponent {
         console.log(data);
         this.service.storeToken(data.token);
         this.loggedIn = true;
-        this.router.navigate(['/home']);
+        this.router.navigate(['/user']);
       },
       (error) => {
         this.showSnackbar(error.error, "Close", 3000);

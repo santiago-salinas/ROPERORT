@@ -35,7 +35,7 @@ export class UserCreationComponent {
     this.service.createUser(this.email, this.password, this.address, roles).subscribe(
       (data) => {
         console.log(data);
-        const text = "User was created";
+        const text = "Usuario fué creado exitosamente";
         this.showSnackbar(text, "Close", 3000);
         this.router.navigate(['/user-administration']);
       },

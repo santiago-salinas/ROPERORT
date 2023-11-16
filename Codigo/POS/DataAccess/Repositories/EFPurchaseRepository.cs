@@ -22,17 +22,8 @@ namespace DataAccess.Repositories
                 List<PurchaseEntity> purchaseEntities = _context.PurchaseEntities
                     .Include(p => p.User)
                     .Include(p => p.Items)
-                        .ThenInclude(i => i.Product)
-                        .ThenInclude(p => p.Brand)
-                    .Include(p => p.Items)
-                    .ThenInclude(i => i.Product)
-                        .ThenInclude(p => p.Category)
-                        .Include(p => p.Items)
-                            .ThenInclude(i => i.Product)
-                                .ThenInclude(p => p.Colours)
-                                    .ThenInclude(c => c.Colour)
                     .Include(p => p.PaymentMethod)
-                        .ToList();
+                      .ToList();
 
                 List<Purchase> purchases = purchaseEntities.Select(p => PurchaseEntity.FromEntity(p)).ToList();
 
@@ -49,17 +40,9 @@ namespace DataAccess.Repositories
             {
                 PurchaseEntity purchaseEntity = _context.PurchaseEntities
                     .Where(p => p.Id == id)
+                    .Include(p => p.Items)
+                    .Include(p => p.PaymentMethod)
                     .Include(p => p.User)
-                    .Include(p => p.Items)
-                        .ThenInclude(i => i.Product)
-                        .ThenInclude(p => p.Brand)
-                    .Include(p => p.Items)
-                    .ThenInclude(i => i.Product)
-                        .ThenInclude(p => p.Category)
-                        .Include(p => p.Items)
-                            .ThenInclude(i => i.Product)
-                                .ThenInclude(p => p.Colours)
-                                    .ThenInclude(c => c.Colour)
                         .First();
 
                 Purchase purchase = PurchaseEntity.FromEntity(purchaseEntity);

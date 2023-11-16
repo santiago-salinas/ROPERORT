@@ -25,7 +25,7 @@
         (click)="addToCart()"
         [disabled]="productDetails.stock === 0"
       >
-        <mat-icon>shopping_cart</mat-icon> Add to Cart
+        <mat-icon>shopping_cart</mat-icon> Agregar al Carrito
       </button>
     </div>
     <div class="remove-from-cart-button" *ngIf="isCartRoute()">
@@ -53,7 +53,7 @@
         <mat-icon>add</mat-icon>
       </button>
       <button mat-flat-button color="primary" (click)="removeFromCart()">
-        <mat-icon>delete</mat-icon> Remove
+        <mat-icon>delete</mat-icon> Remover
       </button>
     </div>
   </mat-card-actions>

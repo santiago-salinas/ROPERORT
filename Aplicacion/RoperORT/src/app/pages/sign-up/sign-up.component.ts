@@ -28,7 +28,7 @@ export class SignUpComponent {
 
   signUp(){
     if(this.password != this.confirmation){
-      this.showSnackbar("Passwords are different", "Close", 3000);
+      this.showSnackbar("Contraseñas son diferentes", "Close", 3000);
     }
     else {
       this.service.signUp(this.email, this.password, this.address).subscribe(

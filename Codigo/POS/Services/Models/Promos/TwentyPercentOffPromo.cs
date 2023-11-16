@@ -14,13 +14,13 @@ namespace Services.Models
             Discount = "20% OFF most expensive product";
         }
 
-        public double ApplyDiscount(ICart cart)
+        public double ApplyDiscount(Cart cart)
         {
             double retValue = cart.PriceUYU;
 
             if (HasAtLeastTwoProducts(cart))
             {
-                IProduct productToDiscount = SecondCheapestProduct(cart.Products);
+                Product productToDiscount = SecondCheapestProduct(cart.Products);
                 double priceToApplyDiscuount = productToDiscount.PriceUYU;
 
                 retValue -= (priceToApplyDiscuount * 0.2);
@@ -29,9 +29,9 @@ namespace Services.Models
             return retValue;
         }
 
-        private IProduct SecondCheapestProduct(List<ICartLine> cartLines)
+        private Product SecondCheapestProduct(List<CartLine> cartLines)
         {
-            List<ICartLine> sortedByPrice = cartLines.OrderBy(p => p.Product.PriceUYU).ToList();
+            List<CartLine> sortedByPrice = cartLines.OrderBy(p => p.Product.PriceUYU).ToList();
             if (sortedByPrice.Count == 1 || sortedByPrice[0].Quantity >= 2)
             {
                 return sortedByPrice[0].Product;
@@ -42,12 +42,12 @@ namespace Services.Models
             }
         }
 
-        private bool HasAtLeastTwoProducts(ICart cart)
+        private bool HasAtLeastTwoProducts(Cart cart)
         {
-            List<ICartLine> lines = cart.Products;
+            List<CartLine> lines = cart.Products;
 
             int amountOfItems = 0;
-            foreach (ICartLine line in lines)
+            foreach (CartLine line in lines)
             {
                 amountOfItems += line.Quantity;
                 if (amountOfItems == 2) return true;

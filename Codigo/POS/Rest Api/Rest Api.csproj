@@ -19,6 +19,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.Web.Deployment" Version="4.0.5" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
@@ -29,16 +30,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="promotions\Fidelity_Promo.dll">
+    <None Update="AvailablePromotions\Fidelity_Promo.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="promotions\ThreeForTwo_Promo.dll">
+    <None Update="AvailablePromotions\ThreeForTwo_Promo.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="promotions\TotalLook_Promo.dll">
+    <None Update="AvailablePromotions\TotalLook_Promo.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="promotions\TwentyPercentOff_Promo.dll">
+    <None Update="AvailablePromotions\TwentyPercentOff_Promo.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

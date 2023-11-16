@@ -2,7 +2,7 @@ using Services.Interfaces;
 
 namespace Services.Models
 {
-    public class Brand : IBrand
+    public class Brand
     {
         public Brand() { }
         public Brand(string name) { Name = name; }
