@@ -7,6 +7,7 @@ import { CartLine } from 'src/app/models/cartLine.model';
 
 import { ProductService } from 'src/app/services/product.service';
 import { BehaviorSubject } from 'rxjs';
+import { environment } from '../../environments/environments.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -48,7 +49,6 @@ export class CartService {
     } else {
       this.productsInCart.push(cartLine);
     }
-    //Si se modifica el carrito se guarda en local storage
     this.update();
    }
 
@@ -57,7 +57,7 @@ export class CartService {
   }
 
    processPayment(): Observable<any> {
-    return this.http.post('https://localhost:7207/cart/buy',
+    return this.http.post(environment.baseUrl+'cart/buy',
     {Products : this.productsInCart,
       PaymentMethod : this.paymentMethod,
       PaymentId : this.paymentID,
@@ -174,7 +174,7 @@ export class CartService {
   }
 
   async getCart(): Promise<any> {
-    return lastValueFrom(this.http.post('https://localhost:7207/cart', { Products: this.productsInCart }, { headers: { auth: 'tokenbwayne@gmail.comsecure' } }));
+    return lastValueFrom(this.http.post(environment.baseUrl+'cart', { Products: this.productsInCart }, { headers: { auth: this.getToken() ?? "" } }));
   }
 
   resetCart(){
@@ -188,7 +188,7 @@ export class CartService {
   }
 
   Buy(): Observable<any> {
-    return this.http.post('https://localhost:7207/cart/buy',{Products : this.productsInCart});
+    return this.http.post(environment.baseUrl+'cart/buy',{Products : this.productsInCart});
   }
 
 }

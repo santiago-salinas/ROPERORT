@@ -96,7 +96,7 @@ export class ProductsComponent {
       await this.dataService.updateCategories();
       this.availableCategories = this.dataService.availableCategories;
     } catch (error) {
-      alert('Error loading filter options');
+      alert('Error al cargar las opciones de filtrado');
     }
   }
 

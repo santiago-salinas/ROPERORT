@@ -19,7 +19,6 @@ import { AdminGuard } from './guards/admin.guard';
 
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'products/:id', component: ProductComponent },
@@ -36,8 +35,8 @@ const routes: Routes = [
   { path: 'user', component: UserMenuComponent },
   { path: 'purchases', component: UsersPurchasesComponent },
   { path: 'admin/purchases', component: AdminPurchasesComponent, canActivate: [AdminGuard] },
-  { path: '', redirectTo: '/home', pathMatch: 'full' }, // Default route
-  { path: '**', redirectTo: '/home' }, // Handle 404 errors
+  { path: '', redirectTo: '/products', pathMatch: 'full' }, // Default route
+  { path: '**', redirectTo: '/products' }, // Handle 404 errors
 ];
 
 @NgModule({

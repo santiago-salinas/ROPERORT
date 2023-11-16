@@ -1,4 +1,3 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Product } from 'src/app/models/product.model';
 import { CartService } from 'src/app/services/cart.service';
@@ -8,7 +7,9 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
-
+import { Component, OnDestroy } from '@angular/core';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-cart',
@@ -23,20 +24,23 @@ export class CartComponent {
   cartData : any = [];
   emptyCart : boolean = true;
 
+  private destroy$ = new Subject<void>();
 
   constructor(private cartService: CartService, private router: Router) {
-    this.refreshCart();
+   this.cartService.cartData$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(() => {
+        this.refreshCart();
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
   navigateToCartBuy() {
     this.router.navigate(['/cart/buy']);
-  }
-
-  ngOnInit(): void {
-
-    this.cartService.cartData$.subscribe(() => {
-      this.refreshCart();
-    });
   }
 
   getNameList(colors: Product[]): string {

@@ -51,7 +51,7 @@ namespace ApiTests.Controllers
             Colour colour = new Colour();
             colour.Name = "Red";
 
-            List<IColour> colours = new List<IColour>
+            List<Colour> colours = new List<Colour>
             {
                 colour
             };
@@ -216,7 +216,7 @@ namespace ApiTests.Controllers
 
             Cart expectedCart = new Cart()
             {
-                Products = new List<ICartLine>()
+                Products = new List<CartLine>()
                 {
                     new CartLine() {
                         Product = _testProduct,

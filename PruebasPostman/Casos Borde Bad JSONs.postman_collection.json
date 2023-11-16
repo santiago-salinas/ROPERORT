@@ -1,0 +1,123 @@
+{
+	"info": {
+		"_postman_id": "4280ac04-56ed-4481-b3f2-14952c49855a",
+		"name": "Casos Borde Bad JSONs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29482729",
+		"_collection_link": "https://interstellar-meadow-336197.postman.co/workspace/DA2~3e0fef7c-0e1c-4e01-8e3c-ea653387c157/collection/29482729-4280ac04-56ed-4481-b3f2-14952c49855a?action=share&source=collection_link&creator=29482729"
+	},
+	"item": [
+		{
+			"name": "DuplicatesTakes Last Parameter",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"Products\": [\r\n{\r\n\"Id\": 1,\r\n\"Id\": 1,\r\n\"Quantity\": 1\r\n}\r\n]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7207/cart",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"cart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Duplicates Works",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"Products\": [\r\n{\r\n\"Id\": 1,\r\n\"Quantity\": 1\r\n},\r\n{\r\n\"Id\": 1,\r\n\"Quantity\": 1\r\n}\r\n]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7207/cart",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"cart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Missing Quantity",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"Products\": [\r\n{\r\n\"Id\": 1\r\n}\r\n]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7207/cart",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"cart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Missing ID",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"Products\": [\r\n{\r\n\"Quantity\": 1\r\n}\r\n]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7207/cart",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"cart"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

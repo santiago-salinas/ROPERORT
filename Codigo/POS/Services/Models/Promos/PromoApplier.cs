@@ -24,7 +24,6 @@ namespace Services.Models
 
             Cart promotionalCart = RemoveExcludedProducts(cart);
 
-
             double bestPrice = promotionalCart.PriceUYU;
             IPromo? bestPromoToClient = null;
 
@@ -52,7 +51,7 @@ namespace Services.Models
 
             foreach (CartLine cartLine in cart.Products)
             {
-                Product product = cartLine.Product as Product;
+                Product product = cartLine.Product;
                 bool isExcluded = product.Exclude;
 
                 if (!isExcluded)

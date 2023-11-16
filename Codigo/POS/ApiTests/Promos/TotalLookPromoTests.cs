@@ -30,25 +30,25 @@ namespace ApiTests.Promos
             {
                 Name = "Product1",
                 PriceUYU = 10.0,
-                Colours = new List<IColour> { firstColour }
+                Colours = new List<Colour> { firstColour }
             };
             _testProduct2 = new Product()
             {
                 Name = "Product2",
                 PriceUYU = 20.0,
-                Colours = new List<IColour> { firstColour, secondColour }
+                Colours = new List<Colour> { firstColour, secondColour }
             };
             _testProduct3 = new Product()
             {
                 Name = "Product3",
                 PriceUYU = 15.0,
-                Colours = new List<IColour> { thirdColour, secondColour }
+                Colours = new List<Colour> { thirdColour, secondColour }
             };
             _testProduct4 = new Product()
             {
                 Name = "Product4",
                 PriceUYU = 25.0,
-                Colours = new List<IColour> { firstColour, thirdColour }
+                Colours = new List<Colour> { firstColour, thirdColour }
             };
         }
 

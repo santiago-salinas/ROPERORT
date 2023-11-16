@@ -135,7 +135,7 @@ public class ProductService : IProductService
         if (!CategoryExists(product.Category)) { throw new Service_ArgumentException("Category does not exist"); }
         if (!ColoursExist(product.Colours)) { throw new Service_ArgumentException("One of the Colours does not exist"); }
     }
-    private bool BrandExists(IBrand brand)
+    private bool BrandExists(Brand brand)
     {
         try
         {
@@ -146,7 +146,7 @@ public class ProductService : IProductService
             throw new Service_ObjectHandlingException("Exception catched from the repository: " + ex.Message);
         }
     }
-    private bool CategoryExists(ICategory category)
+    private bool CategoryExists(Category category)
     {
         try
         {
@@ -157,7 +157,7 @@ public class ProductService : IProductService
             throw new Service_ObjectHandlingException("Exception catched from the repository: " + ex.Message);
         }
     }
-    private bool ColoursExist(List<IColour> colours)
+    private bool ColoursExist(List<Colour> colours)
     {
         try
         {

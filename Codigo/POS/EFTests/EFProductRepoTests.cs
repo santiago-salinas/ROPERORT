@@ -18,7 +18,7 @@ namespace EFTests
         private Brand brand;
         private Colour colour;
         private Category category;
-        private List<IColour> colours;
+        private List<Colour> colours;
 
         private ProductEntity _testProduct1;
         private ProductEntity _testProduct2;
@@ -56,7 +56,7 @@ namespace EFTests
             colour = new Colour();
             colour.Name = "Red";
 
-            colours = new List<IColour> { colour };
+            colours = new List<Colour> { colour };
 
             _testProduct1 = new ProductEntity()
             {

@@ -21,7 +21,6 @@ namespace DataAccess.Entities
         public int Stock { get; set; }
         public IList<ProductColors> Colours { get; set; }
 
-
         public ProductEntity() { Colours = new List<ProductColors>(); }
         public static ProductEntity FromModel(Product product, EFContext context)
         {
@@ -55,7 +54,7 @@ namespace DataAccess.Entities
                 Description = entity.Description,
                 Brand = BrandEntity.FromEntity(entity.Brand),
                 Category = CategoryEntity.FromEntity(entity.Category),
-                Colours = entity.Colours.Select(c => ColourEntity.FromEntity(c.Colour) as IColour).ToList(),
+                Colours = entity.Colours.Select(c => ColourEntity.FromEntity(c.Colour) as Colour).ToList(),
                 Exclude = entity.Exclude,
                 Stock = entity.Stock
             };

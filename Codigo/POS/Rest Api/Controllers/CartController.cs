@@ -124,6 +124,8 @@ public class CartController : ControllerBase
 
         Cart result = promoApplier.Apply(cart);
 
+        result.CalculateDiscountedPrice();
+
         return result;
     }
 
@@ -166,18 +168,18 @@ public class CartController : ControllerBase
     }
 
     [NonAction]
-    private void ModifyProductStock(List<ICartLine> cartLines)
+    private void ModifyProductStock(List<CartLine> cartLines)
     {
         foreach(CartLine line in cartLines)
         {
-            Product newStock = (Product)line.Product;
+            Product newStock = line.Product;
             newStock.Stock -= line.Quantity;
             _productService.Update(newStock);
         }
     }
 
     [NonAction]
-    private bool ProductQuantitiesWereModified(List<CartLineDTO> cartLineDTOs, List<ICartLine> cartLines)
+    private bool ProductQuantitiesWereModified(List<CartLineDTO> cartLineDTOs, List<CartLine> cartLines)
     {
         foreach(CartLineDTO line in cartLineDTOs)
         {
@@ -200,27 +202,22 @@ public class CartController : ControllerBase
         {
             case "PAGANZA":
                 return new Paganza() { Id = cart.PaymentId, };
-                break;
             case "PAYPAL":
                 return new Paypal() { Id = cart.PaymentId, };
-                break;
             case "DEBIT":
                 return new Debit()
                 {
                     Id = cart.PaymentId,
                     Bank = cart.Bank,
                 };
-                break;
             case "CREDITCARD":
                 return new CreditCard()
                 {
                     Id = cart.PaymentId,
                     Company = cart.Company,
                 };
-                break;
             case "":
                 return null;
-                break;
             default:
                 throw new DatabaseException("Not supported payment method");
         }

@@ -1,0 +1,180 @@
+{
+	"info": {
+		"_postman_id": "c26df73e-dde1-41b0-ab8b-700f6405fc91",
+		"name": "User Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29482729",
+		"_collection_link": "https://interstellar-meadow-336197.postman.co/workspace/DA2~3e0fef7c-0e1c-4e01-8e3c-ea653387c157/collection/29747122-c26df73e-dde1-41b0-ab8b-700f6405fc91?action=share&source=collection_link&creator=29482729"
+	},
+	"item": [
+		{
+			"name": "Get Auth User",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Auth",
+						"value": "tokenbwayne@gmail.comsecure",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:7207/user",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"nuevo@gmail.com\",\r\n    \"address\": \"Cuareim 1451\",\r\n    \"password\": \"nuevo\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7207/user",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User Invalid Mail",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"nuevo@com\",\r\n    \"address\": \"Cuareim 1451\",\r\n    \"password\": \"nuevo\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7207/user",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User Invalid Address",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"nuevo@gmail.com\",\r\n    \"address\": \"\",\r\n    \"password\": \"nuevo\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7207/user",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update user",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Auth",
+						"value": "tokenbwayne@gmail.comsecure",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"bwayne@gmail.com\",\r\n    \"password\": \"batman2\",\r\n    \"address\": \"Gotham City\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7207/user",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Yourself",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "auth",
+						"value": "tokenbwayne@gmail.comsecure",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:7207/user/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

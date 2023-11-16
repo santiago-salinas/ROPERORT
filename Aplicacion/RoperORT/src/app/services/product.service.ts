@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { lastValueFrom } from 'rxjs';
 import { Product } from '../models/product.model';
 import { throwError } from 'rxjs';
 import { catchError, last } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { environment } from '../../environments/environments.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -46,7 +47,8 @@ export class ProductService {
   }
 
   async getProducts(): Promise<any> {
-    return lastValueFrom(this.http.get('https://localhost:7207/product'));
+    console.log(environment.baseUrl);
+    return lastValueFrom(this.http.get(environment.baseUrl + 'product'));
   }
 
   async getFilteredProducts(name: string | null,
@@ -55,38 +57,40 @@ export class ProductService {
     minPrice: number | null,
     maxPrice: number | null,
     excludedFromPromos: boolean | null): Promise<any> {
-    let body = {
-      "name": name,
-      "category": category,
-      "brand": brand,
-      "minimumPrice": minPrice,
-      "maximumPrice": maxPrice,
-      "excludedFromPromos": excludedFromPromos
-    }
+      let params = new HttpParams();
 
-    return lastValueFrom(this.http.post('https://localhost:7207/product/filtered', body));
+      // Add each parameter only if it has a value
+      if (name) params = params.set('name', name);
+      if (category) params = params.set('category', category);
+      if (brand) params = params.set('brand', brand);
+      if (minPrice !== null) params = params.set('minimumPrice', minPrice.toString());
+      if (maxPrice !== null) params = params.set('maximumPrice', maxPrice.toString());
+      if (excludedFromPromos !== null) params = params.set('excludedFromPromos', excludedFromPromos.toString());
+
+      // Use the params in the request
+      return lastValueFrom(this.http.get(environment.baseUrl+ 'product', {params: params} ));
   }
 
   async getProduct(id: number): Promise<any> {
-    return lastValueFrom(this.http.get(`https://localhost:7207/product/${id}`));
+    return lastValueFrom(this.http.get(`${environment.baseUrl}product/${id}`));
 }
 
 
   async getColours(): Promise<any> {
-    return lastValueFrom(this.http.get('https://localhost:7207/colour'));
+    return lastValueFrom(this.http.get(environment.baseUrl+'colour'));
   }
 
   async getCategories(): Promise<any> {
-    return lastValueFrom(this.http.get('https://localhost:7207/category'));
+    return lastValueFrom(this.http.get(environment.baseUrl+'category'));
   }
 
   async getBrands(): Promise<any> {
-    return lastValueFrom(this.http.get('https://localhost:7207/brand'));
+    return lastValueFrom(this.http.get(environment.baseUrl+'brand'));
   }
 
   async createProduct(product: Product): Promise<any> {
     try {
-      const response = await lastValueFrom(this.http.post('https://localhost:7207/product', product, {
+      const response = await lastValueFrom(this.http.post(environment.baseUrl+'product', product, {
         headers: { auth: this.getToken() ?? "" },
       }));
 
@@ -101,7 +105,7 @@ export class ProductService {
 
   async updateProduct(product: Product): Promise<any> {
     try {
-      const response = await lastValueFrom(this.http.put('https://localhost:7207/product/' + product.id, product, {
+      const response = await lastValueFrom(this.http.put(environment.baseUrl+'product/' + product.id, product, {
         headers: { auth: this.getToken() ?? "" },
       }));
 
@@ -118,7 +122,7 @@ export class ProductService {
   }
 
   async deleteProduct(id: number): Promise<any> {
-    return lastValueFrom(this.http.delete('https://localhost:7207/product/'+id, {headers: {auth: this.getToken() || ""}}));
+    return lastValueFrom(this.http.delete(environment.baseUrl+'product/'+id, {headers: {auth: this.getToken() || ""}}));
   }
 
 
@@ -141,7 +145,7 @@ export class ProductService {
 
   async checkIfAdmin(): Promise<boolean>{
     try{
-      const response : any = await lastValueFrom(this.http.get('https://localhost:7207/user', { headers: { "auth": this.getToken() ?? "" } }));
+      const response : any = await lastValueFrom(this.http.get(environment.baseUrl+'user', { headers: { "auth": this.getToken() ?? "" } }));
       if(response.roles.some((item: { name: string; }) => item.name !== 'Admin')){
         this.showErrorToast("Not an admin");
         return false;

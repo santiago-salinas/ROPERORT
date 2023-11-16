@@ -1,0 +1,389 @@
+{
+	"info": {
+		"_postman_id": "45d63738-2c44-4e7b-acfe-78659971d7d0",
+		"name": "Cart Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29482729",
+		"_collection_link": "https://interstellar-meadow-336197.postman.co/workspace/DA2~3e0fef7c-0e1c-4e01-8e3c-ea653387c157/collection/29482729-45d63738-2c44-4e7b-acfe-78659971d7d0?action=share&source=collection_link&creator=29482729"
+	},
+	"item": [
+		{
+			"name": "View Cart",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Products\": [\r\n        {\r\n            \"Id\": 1,\r\n            \"Quantity\": 1\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7207/cart",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"cart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "400 Empty Cart",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"Products\": [\r\n]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7207/cart",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"cart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "400 Zero Quantity",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"Products\": [\r\n{\r\n\"id\": 1,\r\n\"Quantity\": 0\r\n}\r\n]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7207/cart",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"cart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "400 Negative Quantity",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"Products\": [\r\n{\r\n\"id\": 1,\r\n\"Quantity\": -2\r\n}\r\n]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7207/cart",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"cart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "400 Bad Id",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"Products\": [\r\n{\r\n\"id\": -1,\r\n\"Quantity\": 0\r\n}\r\n]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7207/cart",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"cart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "420 More Than Available Stock",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Products\": [\r\n        {\r\n            \"Id\": 2,\r\n            \"Quantity\": 10\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7207/cart",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"cart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buy As Customer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Auth",
+						"value": "tokenbwayne@gmail.comsecure",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Products\": [\r\n    {\r\n        \"Id\": 2,\r\n        \"Quantity\": 1\r\n    }],\r\n    \"paymentMethod\": \"Paganza\",\r\n    \"paymentId\": \"12353213\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7207/cart/buy",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"cart",
+						"buy"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "400 Buy Empty Cart",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Auth",
+						"value": "tokenbwayne@gmail.comsecure",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"products\": [\r\n\r\n    ],\r\n    \"paymentMethod\": \"Paganza\",\r\n    \"paymentId\": \"12353213\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7207/cart/buy",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"cart",
+						"buy"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "403 Buy As Non Customer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Auth",
+						"value": "tokenharls@hotmail.comsecure",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"products\": [\r\n    {\r\n      \"id\": 1,\r\n      \"quantity\": 3\r\n    }\r\n  ],\r\n  \"paymentMethod\": \"Paganza\",\r\n  \"paymentId\": \"12353213\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7207/cart/buy",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"cart",
+						"buy"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "400 Missing Payment Method",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Auth",
+						"value": "tokenbwayne@gmail.comsecure",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Products\": [\r\n    {\r\n        \"Id\": 2,\r\n        \"Quantity\": 1\r\n    }]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7207/cart/buy",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"cart",
+						"buy"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "400 Missing Payment Id",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Auth",
+						"value": "tokenbwayne@gmail.comsecure",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Products\": [\r\n    {\r\n        \"Id\": 2,\r\n        \"Quantity\": 1\r\n    }],\r\n    \"paymentMethod\": \"Paganza\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7207/cart/buy",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"cart",
+						"buy"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "500 Not Supported Payment Method",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Auth",
+						"value": "tokenbwayne@gmail.comsecure",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Products\": [\r\n    {\r\n        \"Id\": 2,\r\n        \"Quantity\": 1\r\n    }],\r\n    \"paymentMethod\": \"Contado\",\r\n    \"paymentId\": \"2135462135\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7207/cart/buy",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7207",
+					"path": [
+						"cart",
+						"buy"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

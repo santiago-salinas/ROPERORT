@@ -12,8 +12,6 @@ namespace Services;
 
 public class PromoService : IPromoService
 {
-    private const int _zero = 0;
-    private const string _promoDirectoryPath = "C:\\Users\\Federico Rodriguez\\source\\repos\\IngSoft-DA2-2023-2\\266628-255981-271568\\Codigo\\POS\\Services\\AvailablePromos";
     private List<IPromo> _promos;
     List<IPromo> Promos { get => _promos; }
     public PromoService()
@@ -25,7 +23,7 @@ public class PromoService : IPromoService
     {
         List<IPromo> availablePromos = new List<IPromo>();
 
-        foreach (string file in Directory.GetFiles(".\\promotions", "*_Promo.dll"))
+        foreach (string file in Directory.GetFiles(".\\AvailablePromotions", "*_Promo.dll"))
         {
             try
             {

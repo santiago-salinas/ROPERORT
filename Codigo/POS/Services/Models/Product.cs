@@ -3,7 +3,7 @@ using Services.Models.Exceptions;
 
 namespace Services.Models
 {
-    public class Product : IProduct
+    public class Product
     {
         public Product()
         { }
@@ -39,8 +39,8 @@ namespace Services.Models
         }
         public string Description { get; set; }
         
-        public IBrand Brand { get; set; }
-        public ICategory Category { get; set; }
-        public List<IColour> Colours { get; set; }
+        public Brand Brand { get; set; }
+        public Category Category { get; set; }
+        public List<Colour> Colours { get; set; }
     }
 }

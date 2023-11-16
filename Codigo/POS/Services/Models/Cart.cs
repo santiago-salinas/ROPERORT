@@ -1,18 +1,19 @@
 using Services.Interfaces;
 using Services.Models.Exceptions;
 using Services.Models.PaymentMethods;
+using System.Net.Http.Headers;
 
 namespace Services.Models
 {
-    public class Cart : ICart
+    public class Cart
     {
-        public IPaymentMethod PaymentMethod { get; set; }
+        public PaymentMethod PaymentMethod { get; set; }
 
-        public List<ICartLine> Products { get; set; }
+        public List<CartLine> Products { get; set; }
 
         public Cart()
         {
-            Products = new List<ICartLine>();
+            Products = new List<CartLine>();
         }
 
         public double PriceUYU
@@ -34,33 +35,48 @@ namespace Services.Models
             return sum;
         }
 
+        private double _discountedPrice;
+
         public double DiscountedPriceUYU
         {
+            set
+            {
+                _discountedPrice = value;                
+            }
+
             get
             {
-                double price;
-                IPromo possiblePromo = AppliedPromo;
-                if (possiblePromo is not null)
-                {
-                    price = possiblePromo.ApplyDiscount(this);
-                }
-                else
-                {
-                    price = TotalPrice();
-                }
-                if (PaymentMethod == null)
-                    return price;
-                else
-                    return PaymentMethod.ApplyDiscount(price);
+                return _discountedPrice;
             }
+        }
+
+        public void CalculateDiscountedPrice()
+        {
+            double price;
+            IPromo possiblePromo = AppliedPromo;
+            if (possiblePromo is not null)
+            {
+                price = possiblePromo.ApplyDiscount(this);
+            }
+            else
+            {
+                price = TotalPrice();
+            }
+            if (PaymentMethod != null)
+            {
+                price = PaymentMethod.ApplyDiscount(price);
+            }
+
+            DiscountedPriceUYU = price;
+
         }
 
         public IPromo? AppliedPromo { get; set; }
 
     }
-    public class CartLine : ICartLine
+    public class CartLine
     {
-        public IProduct Product { get; set; }
+        public Product Product { get; set; }
 
         private int _quantity;
 
